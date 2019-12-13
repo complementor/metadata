@@ -1,15 +1,28 @@
-﻿//parameteres
-//source folder
- 
+﻿# //add event listener 
+# //set parameters 
+$Source = "P:\samples\"
+$jsonExtension = ".json"
 
- //for all the files in the folder and subfolder 
-    {
-    //create new xml with the same name
-    //extract the basic info onto the correlated file
-    //include the tags
+$files = Get-ChildItem -Path $Source
+ForEach ($file in $files) {
+    $guid2 = [guid]::NewGuid()
+    $guid = $guid2.ToString();
+    # create json 
+    $metadataPath = $directory + $guid + $jsonExtension
+    New-Item $metadataPath -ItemType file 
+    Write-output("New Json file created: " + $metadataPath)
 
-    //map the xml to json 
+    Write-Output ($file.BaseName + " will be renamed to : " + $guid + $file.Extension)
+    $newVideoFileName = $guid + $file.Extension
+    Rename-Item $file.FullName -NewName $newVideoFileName 
+
+    $newFilePath = $Source + $newVideoFileName
+    try {
+
+        perl "C:\Programming\Image-ExifTool-11.78\Image-ExifTool-11.78\exiftool.pl" -j -json $newFilePath >$metadataPath
+
     }
-    
- 
- perl "C:\Programming\ExifTool\exiftool.pl" "P:\src\exifTool\t\images"
+    catch {
+        Write-output("it didn't run")
+    }
+};     

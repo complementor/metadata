@@ -1,0 +1,11 @@
+/.vs/
+*.suo
+*.user
+bin
+obj
+/packages/*
+*.swp
+*.nupkg
+*.lock.json
+
+.idea/

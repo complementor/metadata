@@ -29,3 +29,10 @@ low-level video features: Face recognition, Color Structure Descriptor, Dominant
 ## Protege - https://protege.stanford.edu/ 
 MPEG ontology 
 Video ontology
+
+
+
+
+xmp core - https://github.com/drewnoakes/xmp-core-dotnet 
+
+
