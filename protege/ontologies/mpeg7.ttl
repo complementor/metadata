@@ -1,0 +1,889 @@
+@prefix mpeg7: <http://purl.org/ontology/mpeg7/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@base <http://purl.org/ontology/mpeg7/> .
+
+##############
+### Provenance ###
+##############
+
+<http://purl.org/ontology/mpeg7/mpeg7.ttl> a owl:Ontology ; dc:creator dbpedia:Leslie_Sikos ; dc:description "The MPEG-7 Ontology is an OWL 2 ontology covering the vocabulary of the MPEG-7 international standard (ISO/IEC 15938)."@en ; dc:title "MPEG-7 Ontology"@en .
+
+
+### Concepts ###
+
+mpeg7:AudioObject a owl:Class .
+mpeg7:AudioVisualMaterial a owl:Class .
+mpeg7:Author a owl:Class .
+mpeg7:Box a owl:Class .
+mpeg7:Camera a owl:Class .
+mpeg7:Character a owl:Class .
+mpeg7:Component a owl:Class .
+mpeg7:Database a owl:Class .
+mpeg7:Descriptor a owl:Class .
+mpeg7:Episode a owl:Class .
+mpeg7:Event a owl:Class .
+mpeg7:Face a owl:Class .
+mpeg7:Film a owl:Class .
+	mpeg7:Rush a owl:Class ; owl:subClassOf mpeg7:Film .
+mpeg7:Frame a owl:Class .
+mpeg7:Graphic a owl:Class .
+mpeg7:Image a owl:Class .
+mpeg7:Instrument a owl:Class .
+mpeg7:KeyFrame a owl:Class .
+mpeg7:Locality a owl:Class .
+mpeg7:Medium a owl:Class .
+mpeg7:Mesh a owl:Class .
+mpeg7:Mix a owl:Class .
+mpeg7:Model a owl:Class .
+mpeg7:MultimediaContent a owl:Class .
+mpeg7:Object a owl:Class .
+mpeg7:Owner a owl:Class .
+mpeg7:User a owl:Class .
+	mpeg7:Organization a owl:Class ; owl:subClassOf mpeg7:Owner , mpeg7:User .
+	mpeg7:Person a owl:Class ; owl:subClassOf mpeg7:Owner , mpeg7:User .
+mpeg7:Polygon a owl:Class .
+mpeg7:Place a owl:Class .
+mpeg7:Program a owl:Class .
+	mpeg7:Promotion a owl:Class ; owl:subClassOf mpeg7:Program .
+mpeg7:Recorder a owl:Class .
+mpeg7:Scene a owl:Class .
+mpeg7:Shot a owl:Class .
+mpeg7:SoundEffect a owl:Class .
+mpeg7:Source a owl:Class .
+mpeg7:Speech a owl:Class .
+mpeg7:Story a owl:Class .
+mpeg7:Stream a owl:Class .
+mpeg7:TechnicalStaff a owl:Class .
+mpeg7:Terminal a owl:Class .
+mpeg7:TrademarkImage a owl:Class .
+mpeg7:TransitionEffect a owl:Class .
+mpeg7:Video a owl:Class .
+mpeg7:VisualObject a owl:Class .
+
+
+### Roles ###
+
+mpeg7:SpatialDecomposition a owl:ObjectProperty , owl:TransitiveProperty .
+mpeg7:SpatioTemporalDecomposition a owl:ObjectProperty .
+mpeg7:StillRegionSpatialDecomposition a owl:ObjectProperty .
+mpeg7:TemporalDecomposition a owl:ObjectProperty .
+mpeg7:SpatioTemporalDecomposition owl:propertyChainAxiom (mpeg7:TemporalDecomposition mpeg7:SpatialDecomposition) .
+mpeg7:abbrev a owl:DatatypeProperty ; rdfs:range xsd:string .
+mpeg7:Abstract a rdf:Property ; rdfs:range mpeg7:TextAnnotationType .
+mpeg7:accidental a rdf:Property ; rdfs:range mpeg7:degreeAccidentalType .
+mpeg7:acousticScore a owl:DatatypeProperty ; rdfs:range mpeg7:nonNegativeReal .
+mpeg7:Address a rdf:Property ; rdfs:range mpeg7:PlaceType .
+mpeg7:AddressLine a rdf:Property ; rdfs:range mpeg7:TextualType .
+mpeg7:AdministrativeUnit a rdf:Property .
+mpeg7:Affiliation a rdf:Property .
+mpeg7:Agent a rdf:Property ; rdfs:range mpeg7:AgentType .
+mpeg7:aggregation a owl:DatatypeProperty .
+mpeg7:altitude a owl:DatatypeProperty ; rdfs:range xsd:double .
+mpeg7:AmountOfMotion a rdf:Property ; rdfs:range mpeg7:MixtureAmountOfMotionType , mpeg7:NonMixtureAmountOfMotionType .
+mpeg7:aspectRatio a owl:DatatypeProperty ; rdfs:range mpeg7:nonNegativeReal .
+mpeg7:AstronomicalBody a rdf:Property ; rdfs:range mpeg7:TermUseType .
+mpeg7:audio a rdf:Property .
+mpeg7:AudioChannels a rdf:Property .
+mpeg7:AudioCoding a rdf:Property .
+mpeg7:AudioDefects a rdf:Property ; rdfs:range mpeg7:ControlledTermUseType .
+mpeg7:AudioVisual a rdf:Property ; rdfs:range mpeg7:AudioVisualSegmentType .
+mpeg7:authority a owl:DatatypeProperty ; rdfs:range xsd:NMTOKEN .
+mpeg7:Availability a rdf:Property ; rdfs:range mpeg7:AvailabilityType .
+mpeg7:AvailabilityPeriod a rdf:Property .
+mpeg7:Average a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned8 .
+mpeg7:BackgroundNoiseLevel a rdf:Property ; rdfs:range mpeg7:BackgroundNoiseLevelType .
+mpeg7:Balance a rdf:Property ; rdfs:range mpeg7:BalanceType .
+mpeg7:Bandwidth a rdf:Property ; rdfs:range mpeg7:BandwidthType .
+mpeg7:Beat a rdf:Property ; rdfs:range mpeg7:beatType .
+mpeg7:best a owl:DatatypeProperty ; rdfs:range xsd:float .
+mpeg7:BinCounts a rdf:Property .
+mpeg7:BitRate a rdf:Property .
+mpeg7:bitsPer a owl:DatatypeProperty ; rdfs:range xsd:nonNegativeInteger .
+mpeg7:bitsPerBin a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned4 .
+mpeg7:block a rdf:Property ; rdfs:range mpeg7:unsigned16 .
+mpeg7:BoomDown a owl:DatatypeProperty .
+mpeg7:BoomUp a owl:DatatypeProperty .
+mpeg7:BPM a rdf:Property ; rdfs:range mpeg7:AudioBPMType .
+mpeg7:BroadcastReady a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+mpeg7:BrowsingCategory a rdf:Property .
+mpeg7:BuildingName a owl:DatatypeProperty ; rdfs:range xsd:string .
+mpeg7:cameraFollows a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+mpeg7:CaptionLanguage a rdf:Property .
+mpeg7:CbACCoeff14 a owl:DatatypeProperty .
+mpeg7:CbACCoeff2 a owl:DatatypeProperty .
+mpeg7:CbACCoeff20 a owl:DatatypeProperty .
+mpeg7:CbACCoeff27 a owl:DatatypeProperty .
+mpeg7:CbACCoeff5 a owl:DatatypeProperty .
+mpeg7:CbACCoeff63 a owl:DatatypeProperty .
+mpeg7:CbACCoeff9 a owl:DatatypeProperty .
+mpeg7:CbDCCoeff a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned6 .
+mpeg7:CentralFourierFeature a rdf:Property .
+mpeg7:ChannelNo a owl:DatatypeProperty ; rdfs:range xsd:positiveInteger .
+mpeg7:channels a rdf:Property ; rdfs:range mpeg7:integerVector .
+mpeg7:Citizenship a owl:DatatypeProperty ; rdfs:range mpeg7:countryCode .
+mpeg7:City a owl:DatatypeProperty ; rdfs:range xsd:string .
+mpeg7:Classification a rdf:Property ; rdfs:range mpeg7:ClassificationType .
+mpeg7:closed a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+mpeg7:Coeff a owl:DatatypeProperty ; rdfs:range mpeg7:integerVector .
+mpeg7:colorDomain a rdf:Property .
+mpeg7:ColorLayout a rdf:Property ; rdfs:range mpeg7:ColorLayoutType .
+mpeg7:colorQuant a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned3 .
+mpeg7:ColorQuantization a rdf:Property ; rdfs:range mpeg7:ColorQuantizationType .
+mpeg7:colorReferenceFlag a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+mpeg7:ColorSampling a rdf:Property ; rdfs:range mpeg7:ColorSamplingType .
+mpeg7:ColorSpace a rdf:Property ; rdfs:range mpeg7:ColorSpaceType .
+mpeg7:ColorStructure a rdf:Property ; rdfs:range mpeg7:ColorStructureType .
+mpeg7:ColorTemperature a rdf:Property ; rdfs:range mpeg7:ColorTemperatureType .
+mpeg7:ColorTransMat a rdf:Property .
+mpeg7:ColorVariance a rdf:Property .
+mpeg7:Comment a owl:DatatypeProperty ; rdfs:range mpeg7:TextAnnotationType .
+mpeg7:ComponentMediaProfile a rdf:Property ; rdfs:range mpeg7:MediaProfileType .
+mpeg7:CompositeFeature a rdf:Property .
+mpeg7:confidence a owl:DatatypeProperty ; rdfs:range mpeg7:zeroToOneType .
+mpeg7:ConfusionInfo a rdf:Property ; rdfs:range mpeg7:ConfusionCountType .
+mpeg7:confusionInfoRef a owl:DatatypeProperty ; rdfs:range xsd:anyURI .
+mpeg7:Content a rdf:Property ; rdfs:range mpeg7:ControlledTermUseType .
+mpeg7:Contour a rdf:Property ; rdfs:range mpeg7:ContourShapeType , mpeg7:contourType .
+mpeg7:CoordDef a rdf:Property .
+mpeg7:CoordRef a rdf:Property .
+mpeg7:Coords a rdf:Property ; rdfs:domain mpeg7:Polygon ; rdfs:range mpeg7:IntegerMatrixType .
+mpeg7:CopyrightString a rdf:Property ; rdfs:range mpeg7:TextualType .
+mpeg7:Country a owl:DatatypeProperty ; rdfs:range mpeg7:countryCode .
+mpeg7:Covariance a rdf:Property ; rdfs:range mpeg7:FloatMatrixType .
+mpeg7:CrACCoeff14 a owl:DatatypeProperty .
+mpeg7:CrACCoeff2 a owl:DatatypeProperty .
+mpeg7:CrACCoeff20 a owl:DatatypeProperty .
+mpeg7:CrACCoeff27 a owl:DatatypeProperty .
+mpeg7:CrACCoeff5 a owl:DatatypeProperty .
+mpeg7:CrACCoeff63 a owl:DatatypeProperty .
+mpeg7:CrACCoeff9 a owl:DatatypeProperty .
+mpeg7:CrDCCoeff a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned6 .
+mpeg7:Creation a rdf:Property ; rdfs:range mpeg7:CreationType .
+mpeg7:CreationCoordinates a rdf:Property .
+mpeg7:CreationLocation a rdf:Property ; rdfs:range mpeg7:PlaceType .
+mpeg7:CreationTime a rdf:Property ; rdfs:range mpeg7:timePointType .
+mpeg7:CreationTool a rdf:Property ; rdfs:range mpeg7:CreationToolType .
+mpeg7:Creator a rdf:Property ; rdfs:range mpeg7:CreatorType .
+mpeg7:CrossChannelCorrelation a rdf:Property ; rdfs:range mpeg7:CrossChannelCorrelationType .
+mpeg7:Date a owl:DatatypeProperty ; rdfs:range mpeg7:TimeType .
+mpeg7:dateFrom a rdf:Property ; rdfs:range mpeg7:timePointType .
+mpeg7:dateTo a rdf:Property ; rdfs:range mpeg7:timePointType .
+mpeg7:datum a owl:DatatypeProperty ; rdfs:range xsd:string .
+mpeg7:DcOffset a rdf:Property ; rdfs:range mpeg7:DcOffsetType .
+mpeg7:defaultLattice a owl:DatatypeProperty ; rdfs:range xsd:anyURI .
+mpeg7:defaultSpeakerInfoRef a owl:DatatypeProperty ; rdfs:range xsd:anyURI .
+mpeg7:Definition a rdf:Property ; rdfs:range mpeg7:TextualType .
+mpeg7:Deletion a rdf:Property ; rdfs:range mpeg7:integerVector .
+mpeg7:Denominator a rdf:Property .
+mpeg7:Depth a rdf:Property ; rdfs:range mpeg7:TemporalInterpolationType .
+mpeg7:Description a rdf:Property ; rdfs:range mpeg7:CompleteDescriptionType .
+mpeg7:DescriptionMetadata a rdf:Property ; rdfs:range mpeg7:DescriptionMetadataType .
+mpeg7:descriptionMetadataRef a owl:DatatypeProperty ; rdfs:range xsd:anyURI .
+mpeg7:DescriptionProfile a rdf:Property ; rdfs:range mpeg7:DescriptionProfileType .
+mpeg7:descriptorMask a owl:DatatypeProperty .
+mpeg7:DetectionProcess a owl:DatatypeProperty .
+mpeg7:dim a rdf:Property ; rdfs:range mpeg7:listOfPositiveIntegerForDim . # ISO/IEC 15938-2
+mpeg7:directed a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+mpeg7:Direction a owl:DatatypeProperty .
+mpeg7:display a owl:DatatypeProperty ; rdfs:range xsd:string .
+mpeg7:Dissemination a rdf:Property ; rdfs:range mpeg7:DisseminationType .
+mpeg7:DollyBackward a owl:DatatypeProperty .
+mpeg7:DollyForward a owl:DatatypeProperty .
+mpeg7:DominantColor a rdf:Property ; rdfs:range mpeg7:DominantColorType .
+mpeg7:DominantDirection a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned3 .
+mpeg7:Duration a owl:DatatypeProperty ; rdfs:range mpeg7:durationType .
+mpeg7:DynamicShapeVariation a rdf:Property .
+mpeg7:Edge a rdf:Property ; rdfs:range mpeg7:EdgeHistogramType .
+mpeg7:ElectronicAddress a rdf:Property ; rdfs:range mpeg7:ElectronicAddressType .
+mpeg7:ellipseFlag a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+mpeg7:Email a owl:DatatypeProperty ; rdfs:range xsd:string .
+mpeg7:encoding a rdf:Property .
+mpeg7:Energy a owl:DatatypeProperty ; rdfs:range mpeg7:textureListType .
+mpeg7:EnergyDeviation a owl:DatatypeProperty ; rdfs:range mpeg7:textureListType .
+mpeg7:EntityIdentifier a rdf:Property ; rdfs:range mpeg7:UniqueIDType .
+mpeg7:ErrorClass a rdf:Property ; rdfs:range mpeg7:ControlledTermUseType .
+mpeg7:ErrorEvent a rdf:Property ; rdfs:range mpeg7:ErrorEventType .
+mpeg7:ErrorEventList a rdf:Property .
+mpeg7:FamilyName a rdf:Property ; rdfs:range mpeg7:NameComponentType .
+mpeg7:Fax a owl:DatatypeProperty ; rdfs:range xsd:string .
+mpeg7:Feature a rdf:Property .
+mpeg7:Field a rdf:Property .
+mpeg7:FigureTrajectory a rdf:Property ; rdfs:range mpeg7:FigureTrajectoryType .
+mpeg7:FileFormat a rdf:Property ; rdfs:range mpeg7:ControlledTermUseType .
+mpeg7:FileSize a owl:DatatypeProperty ; rdfs:range xsd:nonNegativeInteger .
+mpeg7:First a rdf:Property ; rdfs:range mpeg7:floatVector .
+mpeg7:Fixed a owl:DatatypeProperty .
+mpeg7:Flatness a rdf:Property ; rdfs:range mpeg7:AudioSpectrumFlatnessType .
+mpeg7:FocusOfExpansion a rdf:Property ; rdfs:range mpeg7:FocusOfExpansionType .
+mpeg7:Form a rdf:Property ; rdfs:range mpeg7:ControlledTermUseType .
+mpeg7:Format a rdf:Property .
+mpeg7:FourierFeature a rdf:Property .
+mpeg7:FractionalPresence a rdf:Property ; rdfs:range mpeg7:FractionalPresenceType .
+mpeg7:FreeTextAnnotation a rdf:Property ; rdfs:range mpeg7:TextualType .
+mpeg7:front a owl:DatatypeProperty ; rdfs:range xsd:nonNegativeInteger .
+mpeg7:Genre a rdf:Property .
+mpeg7:GeographicPosition a rdf:Property .
+mpeg7:GivenName a rdf:Property ; rdfs:range mpeg7:NameComponentType .
+mpeg7:GlobalCurvature a owl:DatatypeProperty ; rdfs:range mpeg7:curvatureType .
+mpeg7:HarmonicRatio a rdf:Property ; rdfs:range mpeg7:AudioLLDScalarType .
+mpeg7:HarmonicSpectralCentroid a rdf:Property ; rdfs:range mpeg7:HarmonicSpectralCentroidType .
+mpeg7:HarmonicSpectralDeviation a rdf:Property ; rdfs:range mpeg7:HarmonicSpectralDeviationType .
+mpeg7:HarmonicSpectralSpread a rdf:Property ; rdfs:range mpeg7:HarmonicSpectralSpreadType .
+mpeg7:HarmonicSpectralVariation a rdf:Property ; rdfs:range mpeg7:HarmonicSpectralVariationType .
+mpeg7:Header a rdf:Property ; rdfs:range mpeg7:HeaderType .
+mpeg7:height a owl:DatatypeProperty ; rdfs:range xsd:nonNegativeInteger .
+mpeg7:hiEdge a owl:DatatypeProperty ; rdfs:range xsd:float .
+mpeg7:HighestPeakY a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned7 .
+mpeg7:hiLimit a owl:DatatypeProperty ; rdfs:range xsd:float . 
+mpeg7:HomogeneousPattern a rdf:Property ; rdfs:range mpeg7:HomogeneousTextureType .
+mpeg7:hopSize a rdf:Property ; rdfs:range mpeg7:mediaDurationType .
+mpeg7:HorizontalPosition a owl:DatatypeProperty ; rdfs:range xsd:float .
+mpeg7:How a rdf:Property ; rdfs:range mpeg7:TermUseType .
+mpeg7:href a rdf:Property ; rdfs:range mpeg7:termReferenceType .
+mpeg7:id a owl:DatatypeProperty ; rdfs:range mpeg7:ID .
+mpeg7:IlluminationCompensatedColor a rdf:Property ; rdfs:range mpeg7:IlluminationInvariantColorType .
+mpeg7:Index a rdf:Property .
+mpeg7:IndexEntry a rdf:Property ; rdfs:range mpeg7:SpokenContentIndexEntryType .
+mpeg7:initial a owl:DatatypeProperty ; rdfs:range xsd:string .
+mpeg7:InitialRegion a rdf:Property ; rdfs:range mpeg7:RegionLocatorType .
+mpeg7:Insertion a rdf:Property ; rdfs:range mpeg7:integerVector .
+mpeg7:InstanceIdentifier a rdf:Property ; rdfs:range mpeg7:UniqueIDType .
+mpeg7:InstanceRef a rdf:Property ; rdfs:range mpeg7:ReferenceType .
+mpeg7:IntegratedCoordinateSystem a rdf:Property .
+mpeg7:Intensity a owl:DatatypeProperty .
+mpeg7:InternalCoordinates a owl:DatatypeProperty ; rdfs:range xsd:string .
+mpeg7:InterpolationFunctions a rdf:Property .
+mpeg7:Interval a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned32 .
+mpeg7:IsOriginalMono a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+mpeg7:key a rdf:Property .
+mpeg7:KeyNote a rdf:Property .
+mpeg7:KeyTimePoint a rdf:Property .
+mpeg7:KeyValue a rdf:Property .
+mpeg7:Keyword a rdf:Property .
+mpeg7:KeywordAnnotation a rdf:Property ; rdfs:range mpeg7:KeywordAnnotationType .
+mpeg7:Kind a rdf:Property ; rdfs:range mpeg7:TermUseType .
+mpeg7:Language a rdf:Property ; rdfs:range mpeg7:ExtendedLanguageType .
+mpeg7:Last a rdf:Property ; rdfs:range mpeg7:floatVector .
+mpeg7:LastUpdate a rdf:Property ; rdfs:range mpeg7:timePointType .
+mpeg7:latitude a rdf:Property .
+mpeg7:lattice a rdf:Property ; rdfs:range xsd:anyURI .
+mpeg7:lfe a owl:DatatypeProperty ; rdfs:range xsd:nonNegativeInteger .
+mpeg7:linguisticUnit a rdf:Property .
+mpeg7:LinkingName a rdf:Property ; rdfs:range mpeg7:NameComponentType .
+mpeg7:LocalCoordinateSystem a rdf:Property .
+mpeg7:Location a rdf:Property ; rdfs:range mpeg7:PlaceType .
+mpeg7:loEdge a owl:DatatypeProperty ; rdfs:range xsd:float .
+mpeg7:LogAttackTime a rdf:Property ; rdfs:range mpeg7:LogAttackTimeType .
+mpeg7:loLimit a owl:DatatypeProperty ; rdfs:range xsd:float .
+mpeg7:longitude a rdf:Property .
+mpeg7:Lyric a owl:DatatypeProperty ; rdfs:range mpeg7:TextualType .
+mpeg7:MagnitudeOfART a rdf:Property .
+mpeg7:MaterialType a mpeg7:TermUseType .
+mpeg7:Max a rdf:Property ; rdfs:range mpeg7:floatVector .
+mpeg7:maximum a owl:DatatypeProperty ; rdfs:range xsd:nonNegativeInteger .
+mpeg7:maxRange a owl:DatatypeProperty ; rdfs:range xsd:float .
+mpeg7:MaxSqDist a rdf:Property ; rdfs:range mpeg7:floatVector .
+mpeg7:Mean a rdf:Property ; rdfs:range mpeg7:floatVector .
+mpeg7:MediaDuration a rdf:Property ; rdfs:range mpeg7:MediaIncrDurationType .
+mpeg7:MediaFormat a rdf:Property ; rdfs:range mpeg7:MediaFormatType .
+mpeg7:MediaIdentification a rdf:Property ; rdfs:range mpeg7:MediaIdentificationType .
+mpeg7:MediaIncrDuration a rdf:Property ; rdfs:range mpeg7:MediaIncrDurationType .
+mpeg7:MediaInstance a rdf:Property ; rdfs:range mpeg7:MediaInstanceType .
+mpeg7:MediaLocator a rdf:Property ; rdfs:range mpeg7:MediaLocatorType .
+mpeg7:MediaProfile a rdf:Property ; rdfs:range mpeg7:MediaProfileType .
+mpeg7:MediaQuality a rdf:Property ; rdfs:range mpeg7:MediaQualityType .
+mpeg7:MediaRelIncrTimePoint a rdf:Property ; rdfs:range mpeg7:MediaRelIncrTimePointType .
+mpeg7:MediaTime a rdf:Property ; rdfs:range mpeg7:MediaTimeType .
+mpeg7:mediaTimeBase a rdf:Property ; rdfs:range mpeg7:xPathRefType .
+mpeg7:mediaTimeUnit a rdf:Property ; rdfs:range mpeg7:mediaDurationType .
+mpeg7:MediaUri a owl:DatatypeProperty ; rdfs:range xsd:anyURI .
+mpeg7:MelodyContour a rdf:Property ; rdfs:range mpeg7:MelodyContourType .
+mpeg7:MelodySequence a rdf:Property ; rdfs:range mpeg7:MelodySequenceType .
+mpeg7:Member a rdf:Property ; rdfs:range mpeg7:PersonType .
+mpeg7:Meter a rdf:Property ; rdfs:range mpeg7:MeterType .
+mpeg7:Min a rdf:Property ; rdfs:range mpeg7:floatVector .
+mpeg7:minDuration a rdf:Property ; rdfs:range mpeg7:mediaDurationType .
+mpeg7:minDurationRef a owl:DatatypeProperty ; rdfs:range xsd:anyURI .
+mpeg7:minimum a owl:DatatypeProperty ; rdfs:range xsd:nonNegativeInteger .
+mpeg7:minRange a owl:DatatypeProperty ; rdfs:range xsd:float .
+mpeg7:mode a rdf:Property ; rdfs:range mpeg7:termReferenceType .
+mpeg7:MotionActivity a rdf:Property ; rdfs:range mpeg7:MotionActivityType .
+mpeg7:motionModel a owl:DatatypeProperty .
+mpeg7:MotionParams a owl:DatatypeProperty ; rdfs:range xsd:float .
+mpeg7:MotionTrajectory a rdf:Property ; rdfs:range mpeg7:MotionTrajectoryType .
+mpeg7:Name a rdf:Property ; rdfs:range mpeg7:PersonNameType , mpeg7:TextualType .
+mpeg7:NameTerm a rdf:Property ; rdfs:range mpeg7:ControlledTermUseType .
+mpeg7:Nationality a owl:DatatypeProperty ; rdfs:range mpeg7:countryCode .
+mpeg7:node a rdf:Property . # ; rdfs:range mpeg7:unsigned16 .
+mpeg7:nodeOffset a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned16 .
+mpeg7:NoteArray a rdf:Property .
+mpeg7:NoteRelDuration a owl:DatatypeProperty ; rdfs:range xsd:float .
+mpeg7:num a rdf:Property ; rdfs:range mpeg7:unsigned16 .
+mpeg7:Numeration a owl:DatatypeProperty ; rdfs:range xsd:string .
+mpeg7:Numerator a rdf:Property .
+mpeg7:NumOfBins a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned12 .
+mpeg7:numOfBitplanesDiscarded a owl:DatatypeProperty .
+mpeg7:numOfCoeff a owl:DatatypeProperty .
+mpeg7:numOfDimensions a owl:DatatypeProperty ; rdfs:range xsd:positiveInteger .
+mpeg7:numOfElements a owl:DatatypeProperty ; rdfs:range xsd:positiveInteger .
+mpeg7:numOfLongRuns a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned5 .
+mpeg7:numOfMediumRuns a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned5 .
+mpeg7:numOfOriginalEntries a owl:DatatypeProperty ; rdfs:range xsd:positiveInteger .
+mpeg7:numOfPartX a rdf:Property ; rdfs:range mpeg7:unsigned8 .
+mpeg7:numOfPartY a rdf:Property ; rdfs:range mpeg7:unsigned8 .
+mpeg7:numOfShortRuns a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned6 .
+mpeg7:octaveResolution a rdf:Property .
+mpeg7:offset a rdf:Property ; rdfs:range mpeg7:mediaDurationType .
+mpeg7:organization a owl:DatatypeProperty ; rdfs:range xsd:NMTOKEN .
+mpeg7:PanLeft a owl:DatatypeProperty .
+mpeg7:PanRight a owl:DatatypeProperty .
+mpeg7:Parameters a owl:DatatypeProperty .
+mpeg7:ParameterTrajectory a rdf:Property ; rdfs:range mpeg7:ParameterTrajectoryType .
+mpeg7:ParametricMotion a rdf:Property ; rdfs:range mpeg7:ParametricMotionType .
+mpeg7:Params a rdf:Property ; rdfs:range mpeg7:TemporalInterpolationType .
+mpeg7:Peak a rdf:Property .
+mpeg7:peakX a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned6 .
+mpeg7:peakY a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned3 .
+mpeg7:Percentage a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned5 .
+mpeg7:PerceptibleDefects a rdf:Property .
+mpeg7:Period a rdf:Property .
+mpeg7:PersonDescription a rdf:Property ; rdfs:range mpeg7:TextualType .
+mpeg7:PersonGroup a rdf:Property ; rdfs:range mpeg7:PersonGroupType .
+mpeg7:PersonType a rdf:Property .
+mpeg7:phone a rdf:Property ; rdfs:range mpeg7:PhoneLexiconIndexType .
+mpeg7:PhoneIndex a rdf:Property .
+mpeg7:PhoneIndexEntry a rdf:Property .
+mpeg7:PhoneLexicon a rdf:Property ; rdfs:range mpeg7:PhoneLexiconType .
+mpeg7:phoneLexiconRef a owl:DatatypeProperty ; rdfs:range xsd:anyURI .
+mpeg7:PhoneLink a rdf:Property .
+mpeg7:phoneticAlphabet a rdf:Property ; rdfs:range mpeg7:phoneticAlphabetType .
+mpeg7:phoneticTranscription a rdf:Property .
+mpeg7:PitchNote a rdf:Property .
+mpeg7:Pixel a rdf:Property .
+mpeg7:PlaceDescription a rdf:Property ; rdfs:range mpeg7:TextualType .
+mpeg7:PlanarSurfaces a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned12 .
+mpeg7:Point a rdf:Property ; rdfs:range mpeg7:GeographicPointType .
+mpeg7:positionalOrder a owl:DatatypeProperty ; rdfs:range xsd:nonNegativeInteger .
+mpeg7:PostalAddress a rdf:Property .
+mpeg7:PostalTown a owl:DatatypeProperty ; rdfs:range xsd:string .
+mpeg7:PostingIdentifier a owl:DatatypeProperty ; rdfs:range mpeg7:TextualType .
+mpeg7:preferred a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+mpeg7:primary a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+mpeg7:PrivateIdentifier a owl:DatatypeProperty ; rdfs:range xsd:string .
+mpeg7:probability a owl:DatatypeProperty ; rdfs:range mpeg7:zeroToOneType .
+mpeg7:profileAndLevelIndication a rdf:Property .
+mpeg7:PrototypeCurvature a owl:DatatypeProperty ; rdfs:range mpeg7:curvatureType .
+mpeg7:provenance a rdf:Property .
+mpeg7:PublicIdentifier a rdf:Property ; rdfs:range mpeg7:UniqueIDType .
+mpeg7:Purpose a rdf:Property ; rdfs:range mpeg7:ControlledTermUseType .
+mpeg7:QualityRating a rdf:Property .
+mpeg7:Random a rdf:Property ; rdfs:range mpeg7:floatVector .
+mpeg7:rate a owl:DatatypeProperty ; rdfs:range mpeg7:nonNegativeReal .
+mpeg7:RatingScheme a rdf:Property .
+mpeg7:RatingSource a rdf:Property ; rdfs:range mpeg7:AgentType .
+mpeg7:RatingValue a owl:DatatypeProperty ; rdfs:range xsd:float .
+mpeg7:ratio a owl:DatatypeProperty ; rdfs:range xsd:positiveInteger .
+mpeg7:Raw a rdf:Property ; rdfs:range mpeg7:floatVector .
+mpeg7:rear a owl:DatatypeProperty ; rdfs:range xsd:nonNegativeInteger .
+mpeg7:ref a rdf:Property .
+mpeg7:Region a rdf:Property ; rdfs:range mpeg7:regionCode .
+mpeg7:Regularity a owl:DatatypeProperty .
+mpeg7:RelatedMaterial a rdf:Property ; rdfs:range mpeg7:RelatedMaterialType .
+mpeg7:RelativeDelay a rdf:Property ; rdfs:range mpeg7:RelativeDelayType .
+mpeg7:Relevance a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned4 .
+mpeg7:Repr a rdf:Property .
+mpeg7:representation a rdf:Property .
+mpeg7:RepresentativeFeature a rdf:Property ; rdfs:range mpeg7:GofGopFeatureType .
+mpeg7:resolution a owl:DatatypeProperty ; rdfs:range xsd:nonNegativeInteger .
+mpeg7:Rights a rdf:Property ; rdfs:range mpeg7:RightsType .
+mpeg7:Role a rdf:Property ; rdfs:range mpeg7:TermUseType , mpeg7:ControlledTermUseType .
+mpeg7:RollAnticlockwise a owl:DatatypeProperty .
+mpeg7:RollClockwise a owl:DatatypeProperty .
+mpeg7:RoomName a owl:DatatypeProperty ; rdfs:range xsd:string .
+mpeg7:RoomNumber a owl:DatatypeProperty ; rdfs:range xsd:string .
+mpeg7:Salutation a rdf:Property ; rdfs:range mpeg7:NameComponentType .
+mpeg7:Sample a rdf:Property .
+mpeg7:ScalableColor a owl:DatatypeProperty ; rdfs:range mpeg7:ScalableColorType .
+mpeg7:Scalar a rdf:Property ; rdfs:range xsd:float .
+mpeg7:Scale a owl:DatatypeProperty ; rdfs:range mpeg7:scaleType .
+mpeg7:Scaling a rdf:Property .
+mpeg7:Segment a rdf:Property ; rdfs:range mpeg7:CameraMotionSegmentType .
+mpeg7:SeriesOfScalar a rdf:Property .
+mpeg7:SeriesOfVector a rdf:Property .
+mpeg7:Setting a rdf:Property .
+mpeg7:ShapeMask a rdf:Property ; rdfs:range mpeg7:RegionShapeType .
+mpeg7:ShapeVariation a rdf:Property ; rdfs:range mpeg7:ShapeVariationType .
+mpeg7:side a owl:DatatypeProperty ; rdfs:range xsd:nonNegativeInteger .
+mpeg7:SignLanguage a rdf:Property .
+mpeg7:SingularSurfaces a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned12 .
+mpeg7:SpatialCoherency a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned5 .
+mpeg7:SpatialDistributionParams a rdf:Property .
+mpeg7:SpatialLocalizationParams a rdf:Property .
+mpeg7:spatialRef a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+mpeg7:SpeakerInfo a rdf:Property ; rdfs:range mpeg7:SpeakerInfoType .
+mpeg7:speakerInfoRef a owl:DatatypeProperty ; rdfs:range xsd:anyURI .
+mpeg7:SpectralCentroid a rdf:Property ; rdfs:range mpeg7:SpectralCentroidType .
+mpeg7:Spectrum a rdf:Property .
+mpeg7:SpokenLanguage a owl:DatatypeProperty ; rdfs:range xsd:language .
+mpeg7:StandardDeviation a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned8 .
+mpeg7:StartingFrequency a owl:DatatypeProperty ; rdfs:range xsd:float .
+mpeg7:StartingNote a rdf:Property .
+mpeg7:StartingPitch a rdf:Property .
+mpeg7:StateProvinceCounty a owl:DatatypeProperty ; rdfs:range xsd:string .
+mpeg7:StaticShapeVariation a rdf:Property .
+mpeg7:StatisticalVariation a rdf:Property .
+mpeg7:Status a owl:DatatypeProperty .
+mpeg7:StreamID a owl:DatatypeProperty ; rdfs:range xsd:nonNegativeInteger .
+mpeg7:StreetName a owl:DatatypeProperty ; rdfs:range xsd:string .
+mpeg7:StreetNumber a owl:DatatypeProperty ; rdfs:range xsd:string .
+mpeg7:strength a owl:DatatypeProperty ; rdfs:range mpeg7:zeroToOneType .
+mpeg7:structure a rdf:Property .										
+mpeg7:StructuredAnnotation a rdf:Property ; rdfs:range mpeg7:StructuredAnnotationType .
+mpeg7:StructuredInternalCoordinates a rdf:Property .
+mpeg7:StructuredPostalAddress a rdf:Property .
+mpeg7:style a rdf:Property .
+mpeg7:Subject a rdf:Property ; rdfs:range mpeg7:TextAnnotationType .
+mpeg7:SubRangeIndex a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned6 .
+mpeg7:SubregionCompositeFeature a rdf:Property .
+mpeg7:Substitution a rdf:Property ; rdfs:range mpeg7:IntegerMatrixType .
+mpeg7:Summarization a rdf:Property ; rdfs:range mpeg7:SummarizationType .
+mpeg7:supplemental a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+mpeg7:target a rdf:Property .
+mpeg7:Telephone a rdf:Property .
+mpeg7:TemporalCentroid a rdf:Property ; rdfs:range mpeg7:TemporalCentroidType .
+mpeg7:temporalOrder a owl:DatatypeProperty ; rdfs:range xsd:nonNegativeInteger .
+mpeg7:TemporalParams a rdf:Property .
+mpeg7:TemporalTransition a rdf:Property ; rdfs:range mpeg7:VisualTimeSeriesType .
+mpeg7:termID a owl:DatatypeProperty ; rdfs:range xsd:NMTOKEN .
+mpeg7:TextureBrowsing a rdf:Property ; rdfs:range mpeg7:TextureBrowsingType .
+mpeg7:TiltDown a owl:DatatypeProperty .
+mpeg7:TiltUp a owl:DatatypeProperty .
+mpeg7:TimeIncr a rdf:Property ; rdfs:range mpeg7:mediaDurationType , mpeg7:MediaIncrDurationType .
+mpeg7:timeOffset a rdf:Property ; rdfs:range mpeg7:unsigned16 .
+mpeg7:TimePoint a rdf:Property ; rdfs:range mpeg7:timePointType .
+mpeg7:TimeStamp a rdf:Property ; rdfs:range mpeg7:MediaTimeType .
+mpeg7:Title a rdf:Property ; rdfs:range mpeg7:NameComponentType , mpeg7:RelatedMaterialType .
+mpeg7:TitleAudio a rdf:Property ; rdfs:range mpeg7:TemporalSegmentLocatorType .
+mpeg7:TitleImage a rdf:Property ; rdfs:range mpeg7:ImageLocatorType .
+mpeg7:TitleMedia a rdf:Property ; rdfs:range mpeg7:TitleMediaType .
+mpeg7:TitleVideo a rdf:Property ; rdfs:range mpeg7:TemporalSegmentLocatorType .
+mpeg7:Token a rdf:Property .
+mpeg7:Tool a rdf:Property ; rdfs:range mpeg7:TermUseType .
+mpeg7:totalNumOfSamples a owl:DatatypeProperty ; rdfs:range xsd:positiveInteger .
+mpeg7:track a owl:DatatypeProperty ; rdfs:range xsd:nonNegativeInteger .
+mpeg7:TrackLeft a owl:DatatypeProperty .
+mpeg7:TrackRight a owl:DatatypeProperty .
+mpeg7:translation a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+mpeg7:TransmissionTechnology a rdf:Property ; rdfs:range mpeg7:TransmissionTechnologyType .
+mpeg7:type a owl:DatatypeProperty ; rdfs:range xsd:NMTOKEN .
+mpeg7:Unit a owl:DatatypeProperty .
+mpeg7:units a owl:DatatypeProperty .
+mpeg7:unlocatedRegion a owl:DatatypeProperty ; rdfs:domain mpeg7:Box , mpeg7:Polygon ; rdfs:range xsd:boolean .
+mpeg7:UpperLimitOfHarmonicity a rdf:Property ; rdfs:range mpeg7:AudioLLDScalarType .
+mpeg7:Url a owl:DatatypeProperty ; rdfs:range xsd:anyURI .
+mpeg7:UsedTool a rdf:Property ; rdfs:range mpeg7:CreationToolType .
+mpeg7:value a owl:DatatypeProperty ; rdfs:range xsd:string .
+mpeg7:Values a rdf:Property .
+mpeg7:variable a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+mpeg7:Variance a rdf:Property ; rdfs:range mpeg7:floatVector .
+mpeg7:VarianceScalewise a rdf:Property ; rdfs:range mpeg7:FloatMatrixType .
+mpeg7:VarianceSummed a rdf:Property ; rdfs:range mpeg7:floatVector .
+mpeg7:Vector a owl:DatatypeProperty ; rdfs:range mpeg7:floatVector .
+mpeg7:vectorSize a rdf:Property ; rdfs:range xsd:positiveInteger .
+mpeg7:Vertex a rdf:Property ; rdfs:range mpeg7:TemporalInterpolationType .
+mpeg7:VerticalPosition a owl:DatatypeProperty ; rdfs:range xsd:float .
+mpeg7:VisualCoding a rdf:Property .
+mpeg7:VisualDefects a rdf:Property ; rdfs:range mpeg7:ControlledTermUseType .
+mpeg7:Weight a rdf:Property ; rdfs:range mpeg7:floatVector .
+mpeg7:WhatAction a rdf:Property ; rdfs:range mpeg7:TermUseType .
+mpeg7:WhatObject a rdf:Property ; rdfs:range mpeg7:TermUseType .
+mpeg7:When a rdf:Property ; rdfs:range mpeg7:TermUseType .
+mpeg7:Where a rdf:Property ; rdfs:range mpeg7:TermUseType .
+mpeg7:Who a rdf:Property ; rdfs:range mpeg7:TermUseType .
+mpeg7:WholeInterval a rdf:Property .
+mpeg7:Why a rdf:Property ; rdfs:range mpeg7:TermUseType .
+mpeg7:width a owl:DatatypeProperty ; rdfs:range xsd:nonNegativeInteger .
+mpeg7:word a rdf:Property ; rdfs:range mpeg7:WordLexiconIndexType .
+mpeg7:WordIndex a rdf:Property .
+mpeg7:WordIndexEntry a rdf:Property .
+mpeg7:WordLexicon a rdf:Property ; rdfs:range mpeg7:WordLexiconType .
+mpeg7:wordLexiconRef a owl:DatatypeProperty ; rdfs:range xsd:anyURI .
+mpeg7:WordLink a rdf:Property .
+mpeg7:worst a owl:DatatypeProperty ; rdfs:range xsd:float .
+mpeg7:x a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned8 .
+mpeg7:xOrigin a owl:DatatypeProperty ; rdfs:range xsd:float .
+mpeg7:xpath a rdf:Property ; rdfs:range mpeg7:xPathRefType .
+mpeg7:xRepr a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned8 .
+mpeg7:xSrcSize a owl:DatatypeProperty ; rdfs:range xsd:positiveInteger .
+mpeg7:y a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned8 .
+mpeg7:YACCoeff14 a owl:DatatypeProperty .
+mpeg7:YACCoeff2 a owl:DatatypeProperty .
+mpeg7:YACCoeff20 a owl:DatatypeProperty .
+mpeg7:YACCoeff27 a owl:DatatypeProperty .
+mpeg7:YACCoeff5 a owl:DatatypeProperty .
+mpeg7:YACCoeff63 a owl:DatatypeProperty .
+mpeg7:YACCoeff9 a owl:DatatypeProperty .
+mpeg7:YDCCoeff a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned6 .
+mpeg7:yOrigin a owl:DatatypeProperty ; rdfs:range xsd:float .
+mpeg7:yRepr a owl:DatatypeProperty ; rdfs:range mpeg7:unsigned8 .
+mpeg7:ySrcSize a owl:DatatypeProperty ; rdfs:range xsd:positiveInteger .
+mpeg7:ZoomIn a owl:DatatypeProperty .
+mpeg7:ZoomOut a owl:DatatypeProperty .
+
+
+
+### Datatypes ###
+
+mpeg7:AdvancedFaceRecognitionType a rdfs:Datatype .
+mpeg7:AffectiveType a rdfs:Datatype .
+mpeg7:AgentObjectType a rdfs:Datatype .
+mpeg7:AgentType a rdfs:Datatype .
+mpeg7:AudioBPMType a rdfs:Datatype .
+mpeg7:AudioDSType a rdfs:Datatype .
+mpeg7:AudioDType a rdfs:Datatype .
+mpeg7:AudioFundamentalFrequencyType a rdfs:Datatype .
+mpeg7:AudioHarmonicityType a rdfs:Datatype .
+mpeg7:AudioLLDScalarType a rdfs:Datatype . # ISO/IEC 15938-4 Audio
+mpeg7:AudioLLDVectorType a rdfs:Datatype .
+mpeg7:AudioPowerType a rdfs:Datatype .
+mpeg7:AudioSegmentMediaSourceDecompositionType a rdfs:Datatype .
+mpeg7:AudioSegmentTemporalDecompositionType a rdfs:Datatype .
+mpeg7:AudioSegmentType a rdfs:Datatype .
+mpeg7:AudioSignalQualityType a rdfs:Datatype .
+mpeg7:AudioSignatureType a rdfs:Datatype .
+mpeg7:AudioSpectrumBasisType a rdfs:Datatype .
+mpeg7:AudioSpectrumCentroidType a rdfs:Datatype .
+mpeg7:AudioSpectrumEnvelopeType a rdfs:Datatype .
+mpeg7:AudioSpectrumFlatnessType a rdfs:Datatype .
+mpeg7:AudioSpectrumProjectionType a rdfs:Datatype .
+mpeg7:AudioSpectrumSpreadType a rdfs:Datatype .
+mpeg7:AudioSummaryComponentType a rdfs:Datatype .
+mpeg7:AudioTempoType a rdfs:Datatype .
+mpeg7:AudioType a rdfs:Datatype .
+mpeg7:AudioVisualSegmentMediaSourceDecompositionType a rdfs:Datatype .
+mpeg7:AudioVisualSegmentTemporalDecompositionType a rdfs:Datatype .
+mpeg7:AudioVisualSegmentType a rdfs:Datatype .
+mpeg7:AudioVisualType a rdfs:Datatype .
+mpeg7:AudioVisualType a rdfs:Datatype .
+mpeg7:AudioWaveformType a rdfs:Datatype .
+mpeg7:auxiliaryLanguageType a rdfs:Datatype .
+mpeg7:AvailabilityType a rdfs:Datatype .
+mpeg7:BackgroundNoiseLevelType a rdfs:Datatype .
+mpeg7:BalanceType a rdfs:Datatype .
+mpeg7:BandwidthType a rdfs:Datatype .
+mpeg7:basicDurationType a rdfs:Datatype . # ISO/IEC 15938-2
+mpeg7:basicTimePointType a rdfs:Datatype . # ISO/IEC 15938-2
+mpeg7:beatType a rdfs:Datatype .
+mpeg7:BoxListType a rdfs:Datatype .
+mpeg7:BrowsingPreferencesType a rdfs:Datatype .
+mpeg7:CameraMotionSegmentType a rdfs:Datatype .
+mpeg7:CameraMotionType a rdfs:Datatype .
+mpeg7:characterSetCode a rdfs:Datatype .
+mpeg7:ClassificationPreferencesType a rdfs:Datatype .
+mpeg7:ClassificationSchemeAliasType a rdfs:Datatype .
+mpeg7:ClassificationSchemeBaseType a rdfs:Datatype .
+mpeg7:ClassificationSchemeDescriptionType a rdfs:Datatype .
+mpeg7:ClassificationSchemeType a rdfs:Datatype .
+mpeg7:ClassificationType a rdfs:Datatype .
+mpeg7:CollectionType a rdfs:Datatype .
+mpeg7:ColorLayoutType a rdfs:Datatype .
+mpeg7:ColorQuantizationType a rdfs:Datatype .
+mpeg7:ColorSamplingType a rdfs:Datatype .
+mpeg7:ColorSpaceType a rdfs:Datatype .
+mpeg7:ColorStructureType a rdfs:Datatype .
+mpeg7:ColorTemperatureType a rdfs:Datatype .
+mpeg7:CompleteDescriptionType a rdfs:Datatype .
+mpeg7:ConceptType a rdfs:Datatype .
+mpeg7:ConfusionCountType a rdfs:Datatype .
+mpeg7:ContentAbstractionType a rdfs:Datatype .
+mpeg7:ContentCollectionType a rdfs:Datatype .
+mpeg7:ContentDescriptionType a rdfs:Datatype .
+mpeg7:ContentEntityType a rdfs:Datatype .
+mpeg7:ContentManagementType a rdfs:Datatype .
+mpeg7:ContourShapeType a rdfs:Datatype .
+mpeg7:contourType a rdfs:Datatype .
+mpeg7:ControlledTermUseType a rdfs:Datatype .
+mpeg7:countryCode a rdfs:Datatype .
+mpeg7:CreationDescriptionType a rdfs:Datatype .
+mpeg7:CreationInformationType a rdfs:Datatype .
+mpeg7:CreationPreferencesType a rdfs:Datatype .
+mpeg7:CreationToolType a rdfs:Datatype .
+mpeg7:CreationType a rdfs:Datatype .
+mpeg7:CreatorType a rdfs:Datatype .
+mpeg7:CrossChannelCorrelationType a rdfs:Datatype .
+mpeg7:currencyCode a rdfs:Datatype .
+mpeg7:curvatureType a rdfs:Datatype .
+mpeg7:DcOffsetType a rdfs:Datatype .
+mpeg7:degreeAccidentalType a rdfs:Datatype .
+mpeg7:degreeNoteType a rdfs:Datatype .
+mpeg7:dependencyOperatorType a rdfs:Datatype .
+mpeg7:DependencyStructurePhraseType a rdfs:Datatype .
+mpeg7:DependencyStructureType a rdfs:Datatype .
+mpeg7:DescriptionMetadataType a rdfs:Datatype .
+mpeg7:DescriptionProfileType a rdfs:Datatype .
+mpeg7:DisseminationType a rdfs:Datatype .
+mpeg7:DominantColorType a rdfs:Datatype .
+mpeg7:DoubleDiagonalMatrixType a rdfs:Datatype .
+mpeg7:DoubleMatrixType a rdfs:Datatype .
+mpeg7:doubleVector a rdfs:Datatype .
+mpeg7:DSType a rdfs:Datatype .
+mpeg7:DType a rdfs:Datatype .
+mpeg7:durationType a rdfs:Datatype .
+mpeg7:EdgeHistogramType a rdfs:Datatype .
+mpeg7:ElectronicAddressType a rdfs:Datatype .
+mpeg7:ErrorEventType a rdfs:Datatype .
+mpeg7:EventType a rdfs:Datatype .
+mpeg7:ExtendedLanguageType a rdfs:Datatype .
+mpeg7:ExtentType a rdfs:Datatype .
+mpeg7:FaceRecognitionType a rdfs:Datatype .
+mpeg7:FigureTrajectoryType a rdfs:Datatype .
+mpeg7:FilteringAndSearchPreferencesType a rdfs:Datatype .
+mpeg7:FinancialType a rdfs:Datatype .
+mpeg7:FloatDiagonalMatrixType a rdfs:Datatype .
+mpeg7:FloatMatrixType a rdfs:Datatype .
+mpeg7:floatVector a rdfs:Datatype .
+mpeg7:FocusOfExpansionType a rdfs:Datatype .
+mpeg7:FractionalPresenceType a rdfs:Datatype .
+mpeg7:GeographicPointType a rdfs:Datatype .
+mpeg7:GoFGoPColorType a rdfs:Datatype .
+mpeg7:GofGopFeatureType a rdfs:Datatype . # ISO/IEC 15938-4 Visual AMD/1
+mpeg7:GraphType a rdfs:Datatype .
+mpeg7:GridLayoutType a rdfs:Datatype .
+mpeg7:HarmonicInstrumentTimbreType a rdfs:Datatype .
+mpeg7:HarmonicSpectralCentroidType a rdfs:Datatype .
+mpeg7:HarmonicSpectralDeviationType a rdfs:Datatype .
+mpeg7:HarmonicSpectralSpreadType a rdfs:Datatype .
+mpeg7:HarmonicSpectralVariationType a rdfs:Datatype .
+mpeg7:HeaderType a rdfs:Datatype .
+mpeg7:HierarchicalSummaryType a rdfs:Datatype .
+mpeg7:HomogeneousTextureType a rdfs:Datatype .
+mpeg7:IlluminationInvariantColorType a rdfs:Datatype .
+mpeg7:ImageLocatorType a rdfs:Datatype .
+mpeg7:ImageTextType a rdfs:Datatype .
+mpeg7:ImageType a rdfs:Datatype .
+mpeg7:IncrDurationType a rdfs:Datatype .
+mpeg7:InlineMediaType a rdfs:Datatype .
+mpeg7:InlineTermDefinitionType a rdfs:Datatype .
+mpeg7:InstrumentTimbreType a rdfs:Datatype .
+mpeg7:IntegerDiagonalMatrixType a rdfs:Datatype .
+mpeg7:IntegerMatrixType a rdfs:Datatype .
+mpeg7:integerVector a rdfs:Datatype .
+mpeg7:IrregularVisualTimeSeriesType a rdfs:Datatype .
+mpeg7:KeyType a rdfs:Datatype .
+mpeg7:KeywordAnnotationType a rdfs:Datatype .
+mpeg7:LexiconType a rdfs:Datatype .
+mpeg7:listOfPositiveIntegerForDim a rdfs:Datatype ; rdfs:range xsd:positiveInteger . # ISO/IEC 15938-2
+mpeg7:LogAttackTimeType a rdfs:Datatype .
+mpeg7:MaskType a rdfs:Datatype .
+mpeg7:MediaAgentType a rdfs:Datatype .
+mpeg7:mediaDurationType a rdfs:Datatype .
+mpeg7:MediaFormatType a rdfs:Datatype .
+mpeg7:MediaIdentificationType a rdfs:Datatype .
+mpeg7:MediaIncrDurationType a rdfs:Datatype .
+mpeg7:MediaInformationType a rdfs:Datatype .
+mpeg7:MediaInstanceType a rdfs:Datatype .
+mpeg7:MediaLocatorType a rdfs:Datatype .
+mpeg7:MediaProfileType a rdfs:Datatype .
+mpeg7:MediaQualityType a rdfs:Datatype .
+mpeg7:MediaRelIncrTimePointType a rdfs:Datatype .
+mpeg7:MediaRelTimePointType a rdfs:Datatype .
+mpeg7:MediaReviewType a rdfs:Datatype .
+mpeg7:MediaSourceSegmentDecompositionType a rdfs:Datatype .
+mpeg7:mediaTimeOffsetType a rdfs:Datatype .
+mpeg7:mediaTimePointType a rdfs:Datatype .
+mpeg7:MediaTimeType a rdfs:Datatype .
+mpeg7:MediaTranscodingHintsType a rdfs:Datatype .
+mpeg7:MelodyContourType a rdfs:Datatype .
+mpeg7:MelodySequenceType a rdfs:Datatype .
+mpeg7:MelodyType a rdfs:Datatype .
+mpeg7:MeterType a rdfs:Datatype .
+mpeg7:mimeType a rdfs:Datatype .
+mpeg7:MinusOneToOneMatrixType a rdfs:Datatype .
+mpeg7:minusOneToOneType a rdfs:Datatype .
+mpeg7:minusOneToOneVector a rdfs:Datatype .
+mpeg7:MixtureAmountOfMotionType a rdfs:Datatype .
+mpeg7:MixtureCameraMotionSegmentType a rdfs:Datatype .
+mpeg7:MotionActivityType a rdfs:Datatype .
+mpeg7:MotionTrajectoryType a rdfs:Datatype .
+mpeg7:MovingRegionFeatureType a rdfs:Datatype .
+mpeg7:MovingRegionSpatioTemporalDecompositionType a rdfs:Datatype .
+mpeg7:MovingRegionType a rdfs:Datatype .
+mpeg7:Mpeg7BaseType a rdfs:Datatype . # ISO/IEC 15938-5 MDS
+mpeg7:Mpeg7Type a rdfs:Datatype . # (COR/1)
+mpeg7:MultimediaCollectionType a rdfs:Datatype .
+mpeg7:MultimediaContentType a rdfs:Datatype .
+mpeg7:NameComponentType a rdfs:Datatype .
+mpeg7:NonDependencyStructurePhraseType a rdfs:Datatype .
+mpeg7:NonMixtureAmountOfMotionType a rdfs:Datatype .
+mpeg7:NonMixtureCameraMotionSegmentType a rdfs:Datatype .
+mpeg7:nonNegativeReal a rdfs:Datatype .
+mpeg7:ObjectType a rdfs:Datatype .
+mpeg7:OrderingKeyType a rdfs:Datatype .
+mpeg7:OrganizationType a rdfs:Datatype .
+mpeg7:ParameterTrajectoryType a rdfs:Datatype .
+mpeg7:ParametricMotionType a rdfs:Datatype .
+mpeg7:ParentalGuidanceType a rdfs:Datatype .
+mpeg7:PercussiveInstrumentTimbreType a rdfs:Datatype .
+mpeg7:PersonGroupType a rdfs:Datatype .
+mpeg7:PersonNameType a rdfs:Datatype . # AMD/2
+mpeg7:PersonType a rdfs:Datatype .
+mpeg7:PhoneLexiconIndexType a rdfs:Datatype .
+mpeg7:PhoneLexiconType a rdfs:Datatype .
+mpeg7:phoneticAlphabetType a rdfs:Datatype .
+mpeg7:PhoneType a rdfs:Datatype .
+mpeg7:PlaceType a rdfs:Datatype .
+mpeg7:PointOfViewType a rdfs:Datatype .
+mpeg7:PositionType a rdfs:Datatype .
+mpeg7:PreferenceConditionType a rdfs:Datatype .
+mpeg7:preferenceValueType a rdfs:Datatype .
+mpeg7:ProbabilityMatrixType a rdfs:Datatype .
+mpeg7:probabilityVector a rdfs:Datatype .
+mpeg7:RatingType a rdfs:Datatype .
+mpeg7:ReferenceType a rdfs:Datatype .
+mpeg7:regionCode a rdfs:Datatype .
+mpeg7:RegionLocatorType a rdfs:Datatype .
+mpeg7:RegionShapeType a rdfs:Datatype .
+mpeg7:RegularVisualTimeSeriesType a rdfs:Datatype .
+mpeg7:RelatedMaterialType a rdfs:Datatype .
+mpeg7:RelationType a rdfs:Datatype . # AMD/1
+mpeg7:RelativeDelayType a rdfs:Datatype .
+mpeg7:RelIncrTimePointType a rdfs:Datatype .
+mpeg7:RelTimePointType a rdfs:Datatype .
+mpeg7:RightsType a rdfs:Datatype .
+mpeg7:ScalableColorType a rdfs:Datatype .
+mpeg7:ScalableSeriesType a rdfs:Datatype .
+mpeg7:scaleType a rdfs:Datatype .
+mpeg7:SegmentDecompositionType a rdfs:Datatype .
+mpeg7:SegmentType a rdfs:Datatype .
+mpeg7:SemanticBagType a rdfs:Datatype .
+mpeg7:SemanticBaseType a rdfs:Datatype .
+mpeg7:SemanticPlaceType a rdfs:Datatype .
+mpeg7:SemanticStateType a rdfs:Datatype .
+mpeg7:SemanticTimeType a rdfs:Datatype .
+mpeg7:SemanticType a rdfs:Datatype .
+mpeg7:SequentialSummaryType a rdfs:Datatype .
+mpeg7:SeriesOfScalarBinaryType a rdfs:Datatype .
+mpeg7:SeriesOfScalarType a rdfs:Datatype .
+mpeg7:SeriesOfVectorBinaryType a rdfs:Datatype .
+mpeg7:SeriesOfVectorType a rdfs:Datatype .
+mpeg7:Shape3DType a rdfs:Datatype .
+mpeg7:ShapeVariationType a rdfs:Datatype .
+mpeg7:SilenceHeaderType a rdfs:Datatype .
+mpeg7:SilenceType a rdfs:Datatype .
+mpeg7:SourcePreferencesType a rdfs:Datatype .
+mpeg7:Spatial2DCoordinateSystemType a rdfs:Datatype .
+mpeg7:SpatialSegmentDecompositionType a rdfs:Datatype .
+mpeg7:SpatioTemporalLocatorType a rdfs:Datatype .
+mpeg7:SpatioTemporalSegmentDecompositionType a rdfs:Datatype .
+mpeg7:SpeakerInfoType a rdfs:Datatype .
+mpeg7:SpectralCentroidType a rdfs:Datatype .
+mpeg7:SpokenContentHeaderType a rdfs:Datatype .
+mpeg7:SpokenContentIndexEntryType a rdfs:Datatype .
+mpeg7:SpokenContentLatticeType a rdfs:Datatype .
+mpeg7:SpokenContentLinkType a rdfs:Datatype .
+mpeg7:StillRegionFeatureType a rdfs:Datatype .
+mpeg7:StillRegionSpatialDecompositionType a rdfs:Datatype .
+mpeg7:StillRegionType a rdfs:Datatype .
+mpeg7:StructuredAnnotationType a rdfs:Datatype .
+mpeg7:StructuredCollectionType a rdfs:Datatype .
+mpeg7:SummarizationType a rdfs:Datatype .
+mpeg7:summaryComponentType a rdfs:Datatype .
+mpeg7:SummaryDescriptionType a rdfs:Datatype .
+mpeg7:SummaryPreferencesType a rdfs:Datatype .
+mpeg7:SummarySegmentGroupType a rdfs:Datatype .
+mpeg7:SummarySegmentType a rdfs:Datatype .
+mpeg7:SummaryType a rdfs:Datatype .
+mpeg7:TemporalCentroidType a rdfs:Datatype .
+mpeg7:TemporalInterpolationType a rdfs:Datatype .
+mpeg7:TemporalMaskType a rdfs:Datatype .
+mpeg7:TemporalSegmentDecompositionType a rdfs:Datatype .
+mpeg7:TemporalSegmentLocatorType a rdfs:Datatype .
+mpeg7:termAliasReferenceType a rdfs:Datatype .
+mpeg7:TermDefinitionBaseType a rdfs:Datatype .
+mpeg7:TermDefinitionType a rdfs:Datatype .
+mpeg7:termReferenceListType a rdfs:Datatype .
+mpeg7:termReferenceType a rdfs:Datatype .
+mpeg7:termRelationQualifierType a rdfs:Datatype .
+mpeg7:termURIReferenceType a rdfs:Datatype .
+mpeg7:TermUseType a rdfs:Datatype .
+mpeg7:TextAnnotationType a rdfs:Datatype .
+mpeg7:TextualBaseType a rdfs:Datatype .
+mpeg7:TextualType a rdfs:Datatype .
+mpeg7:TextureBrowsingType a rdfs:Datatype .
+mpeg7:textureListType a rdfs:Datatype .
+mpeg7:timeOffsetType a rdfs:Datatype .
+mpeg7:timePointType a rdfs:Datatype .
+mpeg7:TimeType a rdfs:Datatype .
+mpeg7:TitleMediaType a rdfs:Datatype .
+mpeg7:TitleType a rdfs:Datatype .
+mpeg7:TransmissionTechnologyType a rdfs:Datatype .
+mpeg7:UniqueIDType a rdfs:Datatype .
+mpeg7:unsigned1 a rdfs:Datatype .
+mpeg7:unsigned10 a rdfs:Datatype .
+mpeg7:unsigned11 a rdfs:Datatype .
+mpeg7:unsigned12 a rdfs:Datatype .
+mpeg7:unsigned13 a rdfs:Datatype .
+mpeg7:unsigned14 a rdfs:Datatype .
+mpeg7:unsigned15 a rdfs:Datatype .
+mpeg7:unsigned16 a rdfs:Datatype .
+mpeg7:unsigned17 a rdfs:Datatype .
+mpeg7:unsigned18 a rdfs:Datatype .
+mpeg7:unsigned19 a rdfs:Datatype .
+mpeg7:unsigned2 a rdfs:Datatype .
+mpeg7:unsigned20 a rdfs:Datatype .
+mpeg7:unsigned21 a rdfs:Datatype .
+mpeg7:unsigned22 a rdfs:Datatype .
+mpeg7:unsigned23 a rdfs:Datatype .
+mpeg7:unsigned24 a rdfs:Datatype .
+mpeg7:unsigned25 a rdfs:Datatype .
+mpeg7:unsigned26 a rdfs:Datatype .
+mpeg7:unsigned27 a rdfs:Datatype .
+mpeg7:unsigned28 a rdfs:Datatype .
+mpeg7:unsigned29 a rdfs:Datatype .
+mpeg7:unsigned3 a rdfs:Datatype .
+mpeg7:unsigned30 a rdfs:Datatype .
+mpeg7:unsigned31 a rdfs:Datatype .
+mpeg7:unsigned32 a rdfs:Datatype .
+mpeg7:unsigned4 a rdfs:Datatype .
+mpeg7:unsigned5 a rdfs:Datatype .
+mpeg7:unsigned6 a rdfs:Datatype .
+mpeg7:unsigned7 a rdfs:Datatype .
+mpeg7:unsigned8 a rdfs:Datatype .
+mpeg7:unsigned9 a rdfs:Datatype .
+mpeg7:UsageHistoryType a rdfs:Datatype .
+mpeg7:UsageInformationType a rdfs:Datatype .
+mpeg7:UsageRecordType a rdfs:Datatype .
+mpeg7:UserActionHistoryType a rdfs:Datatype .
+mpeg7:UserActionListType a rdfs:Datatype .
+mpeg7:UserActionType a rdfs:Datatype .
+mpeg7:userChoiceType a rdfs:Datatype .
+mpeg7:UserDescriptionType a rdfs:Datatype .
+mpeg7:UserIdentifierType a rdfs:Datatype .
+mpeg7:UserPreferencesType a rdfs:Datatype .
+mpeg7:VideoSegmentFeatureType a rdfs:Datatype .
+mpeg7:VideoSegmentMediaSourceDecompositionType a rdfs:Datatype .
+mpeg7:VideoSegmentSpatioTemporalDecompositionType a rdfs:Datatype .
+mpeg7:VideoSegmentTemporalDecompositionType a rdfs:Datatype .
+mpeg7:VideoSegmentType a rdfs:Datatype .
+mpeg7:VideoTextType a rdfs:Datatype .
+mpeg7:VideoType a rdfs:Datatype .
+mpeg7:VisualDSType a rdfs:Datatype .
+mpeg7:VisualDType a rdfs:Datatype .
+mpeg7:VisualSummaryComponentType a rdfs:Datatype .
+mpeg7:VisualTimeSeriesType a rdfs:Datatype .
+mpeg7:WordFormType a rdfs:Datatype .
+mpeg7:WordLexiconIndexType a rdfs:Datatype .
+mpeg7:WordLexiconType a rdfs:Datatype . # Audio AMD/1
+mpeg7:WordType a rdfs:Datatype .
+mpeg7:xPathAbsoluteSelectorType a rdfs:Datatype .
+mpeg7:xPathFieldType a rdfs:Datatype .
+mpeg7:xPathRefType a rdfs:Datatype .
+mpeg7:xPathSelectorType a rdfs:Datatype .
+mpeg7:xPathType a rdfs:Datatype .
+mpeg7:zeroToOneType a rdfs:Datatype .
