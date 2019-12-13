@@ -33,6 +33,6 @@ Video ontology
 
 
 
-xmp core - https://github.com/drewnoakes/xmp-core-dotnet 
+Xmp core - https://github.com/drewnoakes/xmp-core-dotnet 
 
 
