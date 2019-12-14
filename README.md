@@ -25,14 +25,22 @@ metadata encoded in a variety of standards including
 ## Mpeg7fex - https://github.com/mubastan/mpeg7fex - 
 low-level video features: Face recognition, Color Structure Descriptor, Dominant Color Descriptor, Region Shape Descriptor 
 
+# Install document database 
+Mongodb - 
+
+Run service -> cmd: mongod
+Run db -> cmd: mongo
+
+Queries: 
+* use metadata
+* show collections
+* db.basic.find({ TracksMarkersName: : "theguys"}).pretty()
+
 # Create Ontology 
 ## Protege - https://protege.stanford.edu/ 
 MPEG ontology 
 Video ontology
-
-
-
-
+ 
 Xmp core - https://github.com/drewnoakes/xmp-core-dotnet 
 
 
