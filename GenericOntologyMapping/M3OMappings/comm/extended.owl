@@ -1,0 +1,433 @@
+<rdf:RDF xml:base="http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl">
+<owl:Ontology rdf:about="">
+<owl:imports rdf:resource="http://m3o.semantic-multimedia.org/ontology/2010/02/28/annotation.owl"/>
+<owl:imports rdf:resource="http://m3o.semantic-multimedia.org/ontology/2010/02/28/decomposition.owl"/>
+</owl:Ontology>
+<!--
+ 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     
+-->
+<!--
+ http://www.loa-cnr.it/ontologies/DUL.owl#classifies 
+-->
+<owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#classifies"/>
+<!-- http://www.loa-cnr.it/ontologies/DUL.owl#defines -->
+<owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#defines"/>
+<!--
+ http://www.loa-cnr.it/ontologies/DUL.owl#isClassifiedBy 
+-->
+<owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#isClassifiedBy"/>
+<!--
+ http://www.loa-cnr.it/ontologies/DUL.owl#isRealizedBy 
+-->
+<owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#isRealizedBy"/>
+<!--
+ http://www.loa-cnr.it/ontologies/DUL.owl#isSatisfiedBy 
+-->
+<owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#isSatisfiedBy"/>
+<!--
+ http://www.loa-cnr.it/ontologies/DUL.owl#isSettingFor 
+-->
+<owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#isSettingFor"/>
+<!--
+ http://www.loa-cnr.it/ontologies/DUL.owl#realizes 
+-->
+<owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#realizes"/>
+<!--
+ http://www.loa-cnr.it/ontologies/DUL.owl#satisfies 
+-->
+<owl:ObjectProperty rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#satisfies"/>
+<!--
+ 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     
+-->
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#AnnotatedInformationObjectConcept 
+-->
+<owl:Class rdf:about="#AnnotatedInformationObjectConcept">
+<rdfs:subClassOf rdf:resource="http://m3o.semantic-multimedia.org/ontology/2009/09/16/annotation.owl#AnnotatedConcept"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#classifies"/>
+<owl:allValuesFrom rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#InformationObject"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#classifies"/>
+<owl:onClass rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#InformationObject"/>
+<owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<owl:disjointWith rdf:resource="#AnnotatedInformationRealizationConcept"/>
+<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+This role can be only played within an annotation or a semantic annotation situation. The role identifies the multimedia data entity that is being annotated.
+</rdfs:comment>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#AnnotatedInformationRealizationConcept 
+-->
+<owl:Class rdf:about="#AnnotatedInformationRealizationConcept">
+<rdfs:subClassOf rdf:resource="http://m3o.semantic-multimedia.org/ontology/2009/09/16/annotation.owl#AnnotatedConcept"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#classifies"/>
+<owl:onClass rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#InformationRealization"/>
+<owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#classifies"/>
+<owl:allValuesFrom rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#InformationRealization"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+This role has to be played within an annotation situation. The role identifies the media of a multimedia-data entity that is being annotated.
+</rdfs:comment>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#AudioObject 
+-->
+<owl:Class rdf:about="#AudioObject">
+<rdfs:subClassOf rdf:resource="#MultimediaObject"/>
+<owl:disjointWith rdf:resource="#ImageObject"/>
+<owl:disjointWith rdf:resource="#VideoObject"/>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#AudioRealization 
+-->
+<owl:Class rdf:about="#AudioRealization">
+<rdfs:subClassOf rdf:resource="#MultimediaRealization"/>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#ImageObject 
+-->
+<owl:Class rdf:about="#ImageObject">
+<rdfs:subClassOf rdf:resource="#MultimediaObject"/>
+<owl:disjointWith rdf:resource="#VideoObject"/>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#ImageRealization 
+-->
+<owl:Class rdf:about="#ImageRealization">
+<rdfs:subClassOf rdf:resource="#MultimediaRealization"/>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#InformationObjectAnnotationPattern 
+-->
+<owl:Class rdf:about="#InformationObjectAnnotationPattern">
+<rdfs:subClassOf rdf:resource="http://m3o.semantic-multimedia.org/ontology/2009/09/16/annotation.owl#AnnotationPattern"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#isSatisfiedBy"/>
+<owl:allValuesFrom rdf:resource="#InformationObjectAnnotationSituation"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#defines"/>
+<owl:onClass rdf:resource="#AnnotatedInformationObjectConcept"/>
+<owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#isSatisfiedBy"/>
+<owl:onClass rdf:resource="#InformationObjectAnnotationSituation"/>
+<owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#InformationObjectAnnotationSituation 
+-->
+<owl:Class rdf:about="#InformationObjectAnnotationSituation">
+<rdfs:subClassOf rdf:resource="http://m3o.semantic-multimedia.org/ontology/2009/09/16/annotation.owl#AnnotationSituation"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#isSettingFor"/>
+<owl:onClass>
+<owl:Class>
+<owl:intersectionOf rdf:parseType="Collection">
+<rdf:Description rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#InformationObject"/>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#isClassifiedBy"/>
+<owl:someValuesFrom rdf:resource="#AnnotatedInformationObjectConcept"/>
+</owl:Restriction>
+</owl:intersectionOf>
+</owl:Class>
+</owl:onClass>
+<owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#satisfies"/>
+<owl:allValuesFrom rdf:resource="#InformationObjectAnnotationPattern"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#satisfies"/>
+<owl:onClass rdf:resource="#InformationObjectAnnotationPattern"/>
+<owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#InformationRealizationAnnotationPattern 
+-->
+<owl:Class rdf:about="#InformationRealizationAnnotationPattern">
+<rdfs:subClassOf rdf:resource="http://m3o.semantic-multimedia.org/ontology/2009/09/16/annotation.owl#AnnotationPattern"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#isSatisfiedBy"/>
+<owl:allValuesFrom rdf:resource="#InformationRealizationAnnotationSituation"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#defines"/>
+<owl:onClass rdf:resource="#AnnotatedInformationRealizationConcept"/>
+<owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#isSatisfiedBy"/>
+<owl:onClass rdf:resource="#InformationRealizationAnnotationSituation"/>
+<owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#InformationRealizationAnnotationSituation 
+-->
+<owl:Class rdf:about="#InformationRealizationAnnotationSituation">
+<rdfs:subClassOf rdf:resource="http://m3o.semantic-multimedia.org/ontology/2009/09/16/annotation.owl#AnnotationSituation"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#satisfies"/>
+<owl:onClass rdf:resource="#InformationRealizationAnnotationPattern"/>
+<owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#satisfies"/>
+<owl:allValuesFrom rdf:resource="#InformationRealizationAnnotationPattern"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#isSettingFor"/>
+<owl:onClass>
+<owl:Class>
+<owl:intersectionOf rdf:parseType="Collection">
+<rdf:Description rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#InformationRealization"/>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#isClassifiedBy"/>
+<owl:someValuesFrom rdf:resource="#AnnotatedInformationRealizationConcept"/>
+</owl:Restriction>
+</owl:intersectionOf>
+</owl:Class>
+</owl:onClass>
+<owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#MultimediaObject 
+-->
+<owl:Class rdf:about="#MultimediaObject">
+<rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#InformationObject"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#isRealizedBy"/>
+<owl:allValuesFrom rdf:resource="#MultimediaRealization"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#isRealizedBy"/>
+<owl:someValuesFrom rdf:resource="#MultimediaRealization"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#isClassifiedBy"/>
+<owl:someValuesFrom rdf:resource="http://m3o.semantic-multimedia.org/ontology/2009/09/16/decomposition.owl#ComponentConcept"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+We think that the main idea of MPEG-7 is to describe digital multimedia content by the means of some (XML-) metadata. Thus, we will consider multimedia data which is a subconcept of digital data and that is described by some other digital data. Multimedia data is an abstract base concept that has to be specialized for specific media types, e.g. image data carries the visual content of an image. Multimedia data is realized by some physical media. An image is an example for a media. In the case of a JPEG image we would consider For the multimedia ontology it is important to include the physical realization of multimedia data as some MPEG-7 description tools have to be attached to the physical media of multimedia content. This holds for the media information description tools that are specified in MPEG-7 part 5, clause 8.
+</rdfs:comment>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#MultimediaRealization 
+-->
+<owl:Class rdf:about="#MultimediaRealization">
+<rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#InformationRealization"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#realizes"/>
+<owl:allValuesFrom rdf:resource="#MultimediaObject"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+Multimedia data is realized by some physical media. An image is an example for a media. In the case of a JPEG image we would consider JPEG as the corresponding information encoding system that orders the physical image. For the multimedia ontology it is important to include the physical realization of multimedia data as some MPEG-7 description tools have to be attached to the physical media of multimedia content. This holds for the media information description tools that are specified in MPEG-7 part 5, clause 8.
+</rdfs:comment>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#SemanticAnnotationPattern 
+-->
+<owl:Class rdf:about="#SemanticAnnotationPattern">
+<rdfs:subClassOf rdf:resource="http://m3o.semantic-multimedia.org/ontology/2009/09/16/annotation.owl#AnnotationPattern"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#defines"/>
+<owl:onClass rdf:resource="#SemanticLabelRole"/>
+<owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#SemanticAnnotationSituation 
+-->
+<owl:Class rdf:about="#SemanticAnnotationSituation">
+<rdfs:subClassOf rdf:resource="http://m3o.semantic-multimedia.org/ontology/2009/09/16/annotation.owl#AnnotationSituation"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#satisfies"/>
+<owl:onClass rdf:resource="#SemanticAnnotationPattern"/>
+<owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#satisfies"/>
+<owl:allValuesFrom rdf:resource="#SemanticAnnotationPattern"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#isSettingFor"/>
+<owl:onClass>
+<owl:Class>
+<owl:intersectionOf rdf:parseType="Collection">
+<rdf:Description rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#Entity"/>
+<owl:Restriction>
+<owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#isClassifiedBy"/>
+<owl:someValuesFrom rdf:resource="#SemanticLabelRole"/>
+</owl:Restriction>
+</owl:intersectionOf>
+</owl:Class>
+</owl:onClass>
+<owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+Semantic annotations are used to link the donmain independent multimedia ontology with domain ontologies which cover the concepts that are depicted in multimedia files. They can satisfy either automatic classification algorithms or manual annotation methods. A semantic annotation serves as setting for one piece of multimedia data that is beeing annotated and has to play a labeled data role. The situation is also a setting for several particulars / things that play the role of a semantic label for the multimedia data.
+</rdfs:comment>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#SemanticLabelRole 
+-->
+<owl:Class rdf:about="#SemanticLabelRole">
+<rdfs:subClassOf rdf:resource="http://m3o.semantic-multimedia.org/ontology/2009/09/16/annotation.owl#AnnotationConcept"/>
+<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+This role is played by particulars / things of a domain ontology. The role is used to indicate that a certain instance of a domain ontology has to be considered as a semantic label for a piece of multimedia data within a semantic annotation situation.
+</rdfs:comment>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#StructuredDataParameter 
+-->
+<owl:Class rdf:about="#StructuredDataParameter">
+<rdfs:subClassOf rdf:resource="http://m3o.semantic-multimedia.org/ontology/2009/09/16/annotation.owl#AnnotationConcept"/>
+<rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#Parameter"/>
+<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+These parameters are only defined by structured data descriptions. They describe the meaning of parts of digital data. The following example demonstrates how they are meant to be used. Samples are atomic parts of multimedia data entities and are defined through a position and a sample value. A pixel of a RGB image for example is defined through a 2D image coordinate and a 3D colour vector. A structured data description of a pixel would therefore define 2 parameters, one called pixel coordinate and one called pixel colour. The former would be valued by 2D vectore while the latter would be valued by a 3D vector.
+</rdfs:comment>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#StructuredDataRole 
+-->
+<owl:Class rdf:about="#StructuredDataRole">
+<rdfs:subClassOf rdf:resource="http://m3o.semantic-multimedia.org/ontology/2009/09/16/annotation.owl#AnnotationConcept"/>
+<rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DUL.owl#Role"/>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#TextObject 
+-->
+<owl:Class rdf:about="#TextObject">
+<rdfs:subClassOf rdf:resource="#MultimediaObject"/>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#TextRealization 
+-->
+<owl:Class rdf:about="#TextRealization">
+<rdfs:subClassOf rdf:resource="#MultimediaRealization"/>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#VideoObject 
+-->
+<owl:Class rdf:about="#VideoObject">
+<rdfs:subClassOf rdf:resource="#MultimediaObject"/>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/mappings/comm/2010/02/28/extended.owl#VideoRealization 
+-->
+<owl:Class rdf:about="#VideoRealization">
+<rdfs:subClassOf rdf:resource="#MultimediaRealization"/>
+</owl:Class>
+<!--
+ http://m3o.semantic-multimedia.org/ontology/2009/09/16/annotation.owl#AnnotatedConcept 
+-->
+<owl:Class rdf:about="http://m3o.semantic-multimedia.org/ontology/2009/09/16/annotation.owl#AnnotatedConcept"/>
+<!--
+ http://m3o.semantic-multimedia.org/ontology/2009/09/16/annotation.owl#AnnotationConcept 
+-->
+<owl:Class rdf:about="http://m3o.semantic-multimedia.org/ontology/2009/09/16/annotation.owl#AnnotationConcept"/>
+<!--
+ http://m3o.semantic-multimedia.org/ontology/2009/09/16/annotation.owl#AnnotationPattern 
+-->
+<owl:Class rdf:about="http://m3o.semantic-multimedia.org/ontology/2009/09/16/annotation.owl#AnnotationPattern"/>
+<!--
+ http://m3o.semantic-multimedia.org/ontology/2009/09/16/annotation.owl#AnnotationSituation 
+-->
+<owl:Class rdf:about="http://m3o.semantic-multimedia.org/ontology/2009/09/16/annotation.owl#AnnotationSituation"/>
+<!--
+ http://m3o.semantic-multimedia.org/ontology/2009/09/16/decomposition.owl#ComponentConcept 
+-->
+<owl:Class rdf:about="http://m3o.semantic-multimedia.org/ontology/2009/09/16/decomposition.owl#ComponentConcept"/>
+<!-- http://www.loa-cnr.it/ontologies/DUL.owl#Entity -->
+<owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#Entity"/>
+<!--
+ http://www.loa-cnr.it/ontologies/DUL.owl#InformationObject 
+-->
+<owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#InformationObject"/>
+<!--
+ http://www.loa-cnr.it/ontologies/DUL.owl#InformationRealization 
+-->
+<owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#InformationRealization"/>
+<!--
+ http://www.loa-cnr.it/ontologies/DUL.owl#Parameter 
+-->
+<owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#Parameter"/>
+<!-- http://www.loa-cnr.it/ontologies/DUL.owl#Role -->
+<owl:Class rdf:about="http://www.loa-cnr.it/ontologies/DUL.owl#Role"/>
+</rdf:RDF>
+<!--
+ Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net 
+-->

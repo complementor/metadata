@@ -17,7 +17,7 @@ from cvlib.object_detection import draw_bbox
 def main():
 
     # paths
-    targetVideo = "videos/goldeneye.mp4"
+    targetVideo = "videos/28e78611-8dc7-4c86-8d48-3187a0c2a659.avi"
     outputFolder = "output/"
 
     # init scene detector.
