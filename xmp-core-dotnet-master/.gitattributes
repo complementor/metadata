@@ -1,6 +1,0 @@
-* text=auto
-
-*.cs text
-*.csproj text
-*.md text
-*.sln text
