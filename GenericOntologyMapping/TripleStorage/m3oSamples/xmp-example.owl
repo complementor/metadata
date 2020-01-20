@@ -236,6 +236,7 @@
     <dublincore:LanguageConcept rdf:about="#lc-1">
         <rdf:type rdf:resource="&owl;Thing"/>
         <DUL:classifies rdf:resource="#lr-1"/>
+        <DUL:classifies rdf:resource="#lr-2"/>
     </dublincore:LanguageConcept>
     
 
@@ -245,6 +246,13 @@
     <owl:Thing rdf:about="#lr-1">
         <rdf:type rdf:resource="&dublincore;LanguageRegion"/>
         <DUL:hasRegionDataValue rdf:datatype="&xsd;string">en-US</DUL:hasRegionDataValue>
+        <DUL:hasSetting rdf:resource="#id3as-2"/>
+    </owl:Thing>
+
+<!-- http://m3o.semantic-multimedia.org/examples/xmp-example.owl#lr-2 -->
+     <owl:Thing rdf:about="#lr-2">
+        <rdf:type rdf:resource="&dublincore;LanguageRegion"/>
+        <DUL:hasRegionDataValue rdf:datatype="&xsd;string">dk-DK</DUL:hasRegionDataValue>
         <DUL:hasSetting rdf:resource="#id3as-2"/>
     </owl:Thing>
     

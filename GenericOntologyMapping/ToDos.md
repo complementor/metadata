@@ -1,5 +1,5 @@
-- [] find a function to get only exif standard related tags from video files
-- [] generate the exif(only) metadata 
-- [] how does owl work? 
+- [x] find a function to get only exif standard related tags from video files
+- [x] generate the exif(only) metadata 
 - [] how does rdf work? 
-- [] what is COMM? how does it help to map MPEG-7
+- [] how does owl work?  
+- [] what is COMM? how does it help to map MPEG-7 
