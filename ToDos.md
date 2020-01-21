@@ -2,4 +2,6 @@
 - [x] generate the exif(only) metadata 
 - [] how does rdf work? 
 - [] how does owl work?  
-- [] what is COMM? how does it help to map MPEG-7 
+- [] what is COMM? how does it help to map MPEG-7   
+- csv to turtle? 
+- [x] turtle to neo4j? 
