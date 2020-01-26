@@ -238,6 +238,12 @@ g = rdflib.Graph()
 g.parse(data=my_data, format="application/rdf+xml")
 print(len(g))
 
-q = g.query('select ?region where { ?region rdf:type DUL:hasRegionDataValue .}')
+#q = g.query("""select ?thing where { 
+#        ?thing rdf:type annotation:AnnotatedConcept .}""")
+
+q = g.query("""select ?thing where { 
+        ?thing rdf:type annotation:AnnotatedConcept .}""")
+
+
 for row in q:
     print(row)
