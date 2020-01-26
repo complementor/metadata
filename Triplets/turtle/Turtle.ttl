@@ -197,8 +197,7 @@ f:YoungChild owl:equivalentClass _:x31 .
 # Individuals
 ###########################################
 #
-m3o:EXIFImageDataStructureRegion 
-    :16
+
 
 # Bill
 _:x32 rdf:type owl:Class ;

@@ -134,6 +134,17 @@
     
 
 
+    <!-- http://m3o.semantic-multimedia.org/mappings/2011/04/20/id3.owl#OwnerConcept -->
+
+    <owl:Class rdf:about="&id3;OwnerConcept"/>
+    
+
+
+    <!-- http://m3o.semantic-multimedia.org/mappings/2011/04/20/id3.owl#OwnerRegion -->
+
+    <owl:Class rdf:about="&id3;OwnerRegion"/>
+
+
     <!-- http://m3o.semantic-multimedia.org/mappings/2011/04/20/id3.owl#ArtistConcept -->
 
     <owl:Class rdf:about="&id3;ArtistConcept"/>
@@ -221,8 +232,7 @@
         <DUL:parametrizes rdf:resource="#ar-1"/>
     </owl:Thing>
     
-
-
+ 
     <!-- http://m3o.semantic-multimedia.org/examples/id3-example.owl#ar-1 -->
 
     <owl:Thing rdf:about="#ar-1">
@@ -230,7 +240,21 @@
         <DUL:hasDataValue rdf:datatype="&xsd;string">ABBA</DUL:hasDataValue>
         <DUL:hasSetting rdf:resource="#id3as-1"/>
     </owl:Thing>
+
+       <!-- http://m3o.semantic-multimedia.org/examples/id3-example.owl#ac-2 -->
+
+    <owl:Thing rdf:about="#ac-2">
+        <rdf:type rdf:resource="&id3;OwnerConcept"/>
+        <DUL:parametrizes rdf:resource="#ar-1"/>
+    </owl:Thing>
     
+        <!-- http://m3o.semantic-multimedia.org/examples/id3-example.owl#or-1 -->
+
+    <owl:Thing rdf:about="#or-1">
+        <rdf:type rdf:resource="&id3;OwnerRegion"/>
+        <DUL:hasDataValue rdf:datatype="&xsd;string">ABBA Records</DUL:hasDataValue>
+        <DUL:hasSetting rdf:resource="#id3as-1"/>
+    </owl:Thing>
 
 
     <!-- http://m3o.semantic-multimedia.org/examples/id3-example.owl#audio-1 -->
