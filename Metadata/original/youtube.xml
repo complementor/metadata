@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:app='http://www.w3.org/2007/app' xmlns:atom='http://www.w3.org/2005/Atom' xmlns:media='http://search.yahoo.com/mrss/' xmlns:openSearch='http://a9.com/-/spec/opensearch/1.1/' xmlns:gd='http://schemas.google.com/g/2005' xmlns:yt='http://gdata.youtube.com/schemas/2007' xmlns:georss='http://www.georss.org/georss' xmlns:gml='http://www.opengis.net/gml' version='2.0'>
+  <channel>
+    <description>
+    </description>
+    <atom:id>tag:youtube.com,2008:videos</atom:id>
+    <lastBuildDate>Tue, 06 Sep 2011 09:11:09 +0000</lastBuildDate>
+    <category domain='http://schemas.google.com/g/2005#kind'>http://gdata.youtube.com/schemas/2007#video</category>
+    <title>YouTube Videos</title>
+    <image>
+      <url>http://www.youtube.com/img/pic_youtubelogo_123x63.gif</url>
+      <title>YouTube Videos</title>
+      <link>http://www.youtube.com</link>
+    </image>
+    <link>http://www.youtube.com</link>
+    <atom:link rel='self' href='http://gdata.youtube.com/feeds/api/videos/-/%7Bhttp%3A%2F%2Fgdata.youtube.com%2Fschemas%2F2007%2Fkeywords.cat%7DOh%21?alt=rss&amp;start-index=1&amp;max-results=1'/>
+    <managingEditor>YouTube</managingEditor>
+    <generator>YouTube data API</generator>
+    <openSearch:totalResults>117422</openSearch:totalResults>
+    <openSearch:startIndex>1</openSearch:startIndex>
+    <openSearch:itemsPerPage>1</openSearch:itemsPerPage>
+    <item>
+      <guid isPermaLink='false'>tag:youtube.com,2008:video:TGbwL8kSpEk</guid>
+      <pubDate>Tue, 26 Jan 2010 21:29:17 +0000</pubDate>
+      <atom:updated>2011-09-06T05:13:04.000Z</atom:updated>
+      <app:control>
+        <yt:state name='restricted' reasonCode='limitedSyndication'>Syndication of this video was restricted by its owner.</yt:state>
+      </app:control>
+      <title>Girls' Generation _ Oh! _ MusicVideo</title>
+      <link>http://www.youtube.com/watch?v=TGbwL8kSpEk&amp;feature=youtube_gdata</link>
+      <author>sment</author>
+      <media:group>
+        <media:category label='Music' scheme='http://gdata.youtube.com/schemas/2007/categories.cat'>Music</media:category>
+        <media:content url='http://www.youtube.com/v/TGbwL8kSpEk?f=videos&amp;app=youtube_gdata' type='application/x-shockwave-flash' medium='video' isDefault='true' expression='full' duration='214' yt:format='5'/>
+        <media:credit role='uploader' scheme='urn:youtube' yt:type='partner'>sment</media:credit>
+        <media:description type='plain'>Girls' Generation Oh!. For more Information : girlsgeneration.smtown.com</media:description>
+        <media:keywords>Girls' Generation, SM ENTERTAINMENT Oh!, KPOP, DANCE</media:keywords>
+        <media:player url='http://www.youtube.com/watch?v=TGbwL8kSpEk&amp;feature=youtube_gdata_player'/>
+        <media:thumbnail url='http://i.ytimg.com/vi/TGbwL8kSpEk/default.jpg' height='90' width='120' time='00:01:47' yt:name='default'/>
+        <media:thumbnail url='http://i.ytimg.com/vi/TGbwL8kSpEk/hqdefault.jpg' height='360' width='480' yt:name='hqdefault'/>
+        <media:thumbnail url='http://i.ytimg.com/vi/TGbwL8kSpEk/1.jpg' height='90' width='120' time='00:00:53.500' yt:name='start'/>
+        <media:thumbnail url='http://i.ytimg.com/vi/TGbwL8kSpEk/2.jpg' height='90' width='120' time='00:01:47' yt:name='middle'/>
+        <media:thumbnail url='http://i.ytimg.com/vi/TGbwL8kSpEk/3.jpg' height='90' width='120' time='00:02:40.500' yt:name='end'/>
+        <media:title type='plain'>Girls' Generation _ Oh! _ MusicVideo</media:title>
+        <media:rating scheme="urn:simple">adult</media:rating>
+	
+        <yt:aspectRatio>widescreen</yt:aspectRatio>
+        <yt:duration seconds='214'/>
+        <yt:recorded>2010-01-26T21:29:17.000Z</yt:recorded>
+        <yt:videoid>TGbwL8kSpEk</yt:videoid>
+      </media:group>
+	  <georss:where>
+        <gml:Point>
+          <gml:pos>35.669998 139.770004</gml:pos>
+        </gml:Point>
+      </georss:where>
+	  <yt:recorded>2010-01-26T10:00:00Z</yt:recorded>
+      <gd:rating average='4.6510544' max='5' min='1' numRaters='93344' rel='http://schemas.google.com/g/2005#overall'/>
+      <yt:statistics favoriteCount='98390' viewCount='40947872'/>
+      <yt:rating numDislikes='8143' numLikes='85201'/>
+    </item>
+  </channel>
+</rss>

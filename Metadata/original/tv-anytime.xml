@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='ISO-8859-9'?>
+<TVAMain xmlns='urn:tva:metadata:2010' xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xml:lang='en'
+  xsi:schemaLocation="urn:tva:metadata:2010 file:tva_metadata_3-1_v161.xsd">
+    
+  <!--This data is strictly for non-commercial use only.  See http://backstage.bbc.co.uk/archives/2005/01/terms_of_use.html for details of the terms and conditions.-->
+  <ProgramDescription>
+    <ProgramInformationTable>
+      <ProgramInformation programId='crid://bbc.co.uk/289400422'>
+        <BasicDescription>
+          <Title><![CDATA[Breakfast]]></Title>
+          <Synopsis length='short'><![CDATA[All the latest news, sport, business and weather from the BBC's Breakfast team. [S]]]></Synopsis>
+          <Keyword type='main'><![CDATA[breakfast news]]></Keyword>
+          <Keyword type='main'><![CDATA[topical]]></Keyword>
+          <Genre href='urn:tva:metadata:cs:ContentCS:2005:3.1.1.1'>
+            <Name><![CDATA[Daily news]]></Name>
+          </Genre>
+          <Genre href='urn:tva:metadata:cs:ContentCS:2005:3.1.1.13'>
+            <Name><![CDATA[Weather forecasts]]></Name>
+          </Genre>
+          <Genre href='urn:tva:metadata:cs:FormatCS:2005:2.1.1'>
+            <Name><![CDATA[Bulletin]]></Name>
+          </Genre>
+          <Genre href='urn:tva:metadata:cs:IntentionCS:2005:1.2'>
+            <Name><![CDATA[INFORM]]></Name>
+          </Genre>
+          <Genre href='urn:tva:metadata:cs:ContentCS:2005:3.1.1.9'>
+            <Name><![CDATA[Sports]]></Name>
+          </Genre>
+          <CaptionLanguage closed='true'>EN-UK</CaptionLanguage>
+        </BasicDescription>
+        <AVAttributes>
+          <AudioAttributes>
+            <NumOfChannels>2</NumOfChannels>
+          </AudioAttributes>
+          <VideoAttributes>
+            <AspectRatio>16:9</AspectRatio>
+          </VideoAttributes>
+        </AVAttributes>
+        <MemberOf xsi:type='MemberOfType' crid='crid://bbc.co.uk/__SERBreakfast'/>
+      </ProgramInformation>
+    </ProgramInformationTable>
+    <ProgramLocationTable>
+      <Schedule serviceIDRef='http://www.bbc.co.uk#BBCNewsTF' start='2010-09-14T00:00:00Z' end='2010-09-14T23:59:59Z'>
+        <ScheduleEvent>
+          <Program crid='crid://bbc.co.uk/289400422'/>
+          <ProgramURL>dvb://233a.1004.113f;e666@2010-09-14T05:00:00Z/PT02H30M</ProgramURL>
+          <PublishedStartTime>2010-09-14T05:00:00Z</PublishedStartTime>
+          <PublishedDuration>PT02H30M00S</PublishedDuration>
+        </ScheduleEvent>
+      </Schedule>
+    </ProgramLocationTable>
+    <SegmentInformationTable>
+      <SegmentList>
+        <SegmentInformation segmentId="crid://bbc.co.uk/289400422-1">
+          <ProgramRef crid="crid://bbc.co.uk/289400422"/>
+          <TimeBaseReference>
+            <MediaTimePoint>0</MediaTimePoint>
+          </TimeBaseReference>
+          <Description>
+            <Title><![CDATA[news]]></Title>
+            <Genre href='urn:tva:metadata:cs:ContentCS:2005:3.1.1.1'>
+              <Name><![CDATA[Daily news]]></Name>
+            </Genre>
+          </Description>
+          <SegmentLocator>
+            <MediaRelIncrTimePoint mediaTimeUnit="PT1N25F">
+              250
+            </MediaRelIncrTimePoint>
+            <MediaIncrDuration mediaTimeUnit="PT1N25F">15210</MediaIncrDuration>
+          </SegmentLocator>
+        </SegmentInformation>
+        <SegmentInformation segmentId="crid://bbc.co.uk/289400422-2">
+          <ProgramRef crid="crid://bbc.co.uk/289400422"/>
+          <TimeBaseReference>
+            <MediaTimePoint>0</MediaTimePoint>
+          </TimeBaseReference>
+          <Description>
+            <Title><![CDATA[sports]]></Title>
+            <Genre href='urn:tva:metadata:cs:ContentCS:2005:3.1.1.9'>
+              <Name><![CDATA[Sports]]></Name>
+            </Genre>
+          </Description>
+          <SegmentLocator>
+            <MediaRelIncrTimePoint mediaTimeUnit="PT1N25F">
+              15461
+            </MediaRelIncrTimePoint>
+            <MediaIncrDuration mediaTimeUnit="PT1N25F">10315</MediaIncrDuration>
+          </SegmentLocator>
+        </SegmentInformation>
+        <SegmentInformation segmentId="crid://bbc.co.uk/289400422-3">
+          <ProgramRef crid="crid://bbc.co.uk/289400422"/>
+          <TimeBaseReference>
+            <MediaTimePoint>0</MediaTimePoint>
+          </TimeBaseReference>
+          <Description><Title><![CDATA[weather forecasts]]></Title>
+            <Genre href='urn:tva:metadata:cs:ContentCS:2005:3.1.1.13'>
+              <Name><![CDATA[Weather forecasts]]></Name>
+            </Genre>
+          </Description>
+          <SegmentLocator>
+            <MediaRelIncrTimePoint mediaTimeUnit="PT1N25F">
+              25777
+            </MediaRelIncrTimePoint>
+            <MediaIncrDuration mediaTimeUnit="PT1N25F">5685</MediaIncrDuration>
+          </SegmentLocator>
+        </SegmentInformation>
+      </SegmentList>
+    </SegmentInformationTable>
+  </ProgramDescription>
+</TVAMain>

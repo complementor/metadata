@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lom xmlns="http://ltsc.ieee.org/xsd/LOM" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ltsc.ieee.org/xsd/LOM file:///C:/Users/tbuerger/Documents/priv/w3c/lom-xsd/lom.xsd">
+<educational>
+  <semanticDensity>
+    <value>very high
+    </value>
+    <source>LOMv1.0
+    </source>
+  </semanticDensity>
+  <interactivityType>
+    <value>active
+    </value>
+    <source>LOMv1.0
+    </source>
+  </interactivityType>
+  <learningResourceType>
+    <value>simulation
+    </value>
+    <source>LOMv1.0
+    </source>
+  </learningResourceType>
+  <intendedEndUserRole>
+    <value>learner
+    </value>
+    <source>LOMv1.0
+    </source>
+  </intendedEndUserRole>
+  <typicalAgeRange><string>12-18</string>
+  </typicalAgeRange>
+  <context>
+    <value>higher education
+    </value>
+    <source>LOMv1.0
+    </source>
+  </context>
+  <typicalLearningTime>
+    <description><string>30-60 minutes</string>
+    </description>
+  </typicalLearningTime>
+  <language>      
+      English
+  </language>
+  <interactivityLevel>
+    <value>low
+    </value>
+    <source>LOMv1.0
+    </source>
+  </interactivityLevel>
+  <difficulty>
+    <value>easy
+    </value>
+    <source>LOMv1.0
+    </source>
+  </difficulty>
+</educational>
+<classification>
+  <keyword>
+    <string>        
+        Music
+    </string>
+  </keyword>
+  <keyword><string>Oasis</string></keyword>
+  <keyword><string>Supersonic</string></keyword>
+  <keyword><string>Tabs</string></keyword>
+  <description>
+  </description>
+  <purpose>
+  <value>competency</value>
+    <source>LOMv1.0</source>
+  </purpose>
+</classification>
+<rights>
+  <description>
+    <string>        
+        Copyright 2011, MyUniversity of Nowhere
+    </string>
+  </description>
+  <cost>
+  <value>no</value>
+  </cost>
+  <copyrightAndOtherRestrictions>
+  <value>yes</value>
+  </copyrightAndOtherRestrictions>
+</rights>
+<general>
+  <aggregationLevel><value>1</value>
+  </aggregationLevel>
+  <language>     
+      English
+  </language>
+  <title><string>My Learning Unit with Oasis</string>
+  </title>
+  <keyword><string>Music</string>
+  </keyword>
+  <coverage><string>Covers music from the 90s</string>
+  </coverage>
+  <description><string>This learning unit is a video showin a popular Britih music group performing one of their favorite songs. Learner should try to...</string>
+     </description>
+</general>
+<lifeCycle>
+  <version><string>v1.0</string>
+  </version>
+  <status>
+    <value>
+    unavailable
+    </value>
+    <source>
+LOMv1.0
+    </source>
+  </status>
+  <contribute><role><value>author</value></role><entity>Fritz Fritens. University of Nowhere</entity>
+<date><dateTime>2011-05-11</dateTime></date>
+  </contribute>
+  <contribute>
+<entity>Sam Samson. University of Nowhere</entity><role><value>publisher</value></role>
+     </contribute>
+</lifeCycle>
+<relation>
+  <kind>
+    <value>isversionof
+    </value>
+    <source>LOMv1.0
+    </source>
+  </kind>
+  <resource><identifier><catalog>MyCatalog</catalog><entry>MyLearningUnit2</entry></identifier>
+  </resource>
+</relation>
+<technical>
+  <size>1000
+  </size>
+  <otherPlatformRequirements><string>Video player required</string>
+  </otherPlatformRequirements>
+  <!--duration><duration>1H</duration>
+  </duration-->
+  <requirement>
+  </requirement>
+  <format>video/wmv
+  </format>
+  <location>     
+      http://www.somewhere.on/theWeb/
+  </location>
+</technical>
+</lom>
