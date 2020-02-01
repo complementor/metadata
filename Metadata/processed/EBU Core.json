@@ -1,0 +1,425 @@
+
+[ { "Identifier" : {
+    "propertyName" : "identifier",
+    "value" : "tag:ebu.ch,2011:528229",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "identifierLink" : "tag:ebu.ch,2011:528229",
+    "statusCode" : 200
+    } 
+  },
+  { "Title" : {
+    "propertyName" : "title",
+    "value" : "VE Chavez decree",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "titleLabel" : "VE Chavez decree",
+    "statusCode" : 200
+    } 
+  },
+  { "Title" : {
+    "propertyName" : "title",
+    "value" : "VE Chavez decree",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "titleLabel" : "VE Chavez decree",
+    "typeLabel" : "alternative title",
+    "statusCode" : 200
+    } 
+  },
+  { "Language" : {
+    "propertyName" : "language",
+    "value" : "English",
+    "language" : "Spanish",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "statusCode" : 200
+    } 
+  },
+  { "Locator" : {
+    "propertyName" : "locator",
+    "value" : "CARACAS",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "statusCode" : 200
+    } 
+  },
+    { "Locator" : {
+    "propertyName" : "locator",
+    "value" : "VENEZUELA",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "statusCode" : 200
+    } 
+  },
+  { "Contributor" : {
+    "propertyName" : "contributor",
+    "value" : "Durand",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "contributorLabel" : "Durand",
+    "roleLabel" : "news editor",
+    "statusCode" : 200
+    } 
+  },
+  { "Creator" : {
+    "propertyName" : "creator",
+    "value" : "Reuters Television Ltd",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "creatorLabel" : "Reuters Television Ltd",
+    "creatorLink" : "EBUNMSSRVCodeSource:GBRTV",
+    "statusCode" : 200
+    } 
+  },
+    { "Creator" : {
+    "propertyName" : "creator",
+    "value" : "EBUNMSSRVCodeSource2:GBAPTN",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "creatorLink" : "EBUNMSSRVCodeSource2:GBAPTN",
+    "statusCode" : 200
+    } 
+  },
+  { "MADate" : {
+    "propertyName" : "date",
+    "value" : "2011-01-15 00:00:00Z",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "date" : "2011-01-15 00:00:00Z",
+    "typeLabel" : "creation date",
+    "statusCode" : 200
+    } 
+  },
+  { "Location" : {
+    "propertyName" : "location",
+    "value" : "CARACAS",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "locationLabel" : "CARACAS",
+    "longitude" : 0,
+    "latitude" : 0,
+    "altitude" : 0,
+    "statusCode" : 200
+    } 
+  },
+  { "Location" : {
+    "propertyName" : "location",
+    "value" : "VENEZUELA",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "locationLabel" : "VENEZUELA",
+    "longitude" : 0,
+    "latitude" : 0,
+    "altitude" : 0,
+    "statusCode" : 200
+    } 
+  },
+  { "Description" : {
+    "propertyName" : "description",
+    "value" : "President Hugo Chavez offered on Saturday (January 15) to give up much-criticized decree powers in May, a year ahead of schedule, if post-flood emergency measures were implemented quickly.Addressing the South American nation's parliament,..........",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "descriptionLabel" : "President Hugo Chavez offered on Saturday (January 15) to give up much-criticized decree powers in May, a year ahead of schedule, if post-flood emergency measures were implemented quickly.Addressing the South American nation's parliament,..........",
+    "statusCode" : 200
+    } 
+  },
+  { "Description" : {
+    "propertyName" : "description",
+    "value" : "NMSStatusCode:TRS",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "descriptionLabel" : "NMSStatusCode:TRS",
+    "statusCode" : 200
+    } 
+  },
+  { "Description" : {
+    "propertyName" : "description",
+    "value" : "CARACAS, VENEZUELA (JANUARY 15, 2011) (REUTERS - ACCESS ALL)1. GENERAL VIEW OF PRESIDENT HUGO CHAVEZ ARRIVING TO NATIONAL ASSEMBLY2. VARIOUS OF CHAVEZ WALKING INCARACAS, VENEZUELA (JANUARY 15, 2011) (ORIGINALLY 4:3) (GOVERNMENT TV - ACCESS ALL)3. VARIOUS OF AUDIENCE CLAPPING4. VARIOUS OF CHAVEZ WALKING IN, GREETING VARIOUS LAWMAKERS5. (SOUNDBITE) (Spanish) CHAVEZ SAYING:"We regret the absence of some ambassadors,",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "descriptionLabel" : "CARACAS, VENEZUELA (JANUARY 15, 2011) (REUTERS - ACCESS ALL)1. GENERAL VIEW OF PRESIDENT HUGO CHAVEZ ARRIVING TO NATIONAL ASSEMBLY2. VARIOUS OF CHAVEZ WALKING INCARACAS, VENEZUELA (JANUARY 15, 2011) (ORIGINALLY 4:3) (GOVERNMENT TV - ACCESS ALL)3. VARIOUS OF AUDIENCE CLAPPING4. VARIOUS OF CHAVEZ WALKING IN, GREETING VARIOUS LAWMAKERS5. (SOUNDBITE) (Spanish) CHAVEZ SAYING:"We regret the absence of some ambassadors,",
+    "statusCode" : 200
+    } 
+  },
+  { "Keyword" : {
+    "propertyName" : "keyword",
+    "value" : "EBUNMSCategoryCode:EXCH",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "keywordLink" : "EBUNMSCategoryCode:EXCH",
+    "statusCode" : 200
+    } 
+  },
+  { "Keyword" : {
+    "propertyName" : "keyword",
+    "value" : "Americas",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "keywordLabel" : "Americas",
+    "keywordLink" : "EBUNMSWebcatCode:AMERICAS",
+    "statusCode" : 200
+    } 
+  },
+  { "Genre" : {
+    "propertyName" : "genre",
+    "value" : "news item",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "genreLabel" : "news item",
+    "genreLink" : "EBUNMSGenreCode:news",
+    "statusCode" : 200
+    } 
+  },
+  { "Rating" : {
+    "propertyName" : "rating",
+    "value" : "10",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "ratingValue" : 10,
+    "ratingSystemLabel" : "news item importance ranking",
+    "ratingSystemLink" : "EBUNMSRatingCode",
+    "minimum" : 0,
+    "maximum" : 10,
+    "statusCode" : 200
+    } 
+  },
+  { "Relation" : {
+    "propertyName" : "relation",
+    "value" : "News/16Jan2011/Items/20110116-PNN-0428-528229/",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "related",
+    "targetLink" : "News/16Jan2011/Items/20110116-PNN-0428-528229/",
+    "targetLabel" : "daily news item collection",
+    "statusCode" : 200
+    } 
+  },
+  { "Collection" : {
+    "propertyName" : "collection",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "related",
+    "statusCode" : 204
+    } 
+  },
+  { "Copyright" : {
+    "propertyName" : "copyright",
+    "value" : "The metadata contained in this file is provided for test purpose only",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "related",
+    "copyrightLabel" : "The metadata contained in this file is provided for test purpose only",
+    "holderLabel" : "EBU",
+    "statusCode" : 200
+    } 
+  },
+  { "Publisher" : {
+    "propertyName" : "publisher",
+    "value" : "European Broadcasting Union - EVN",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "publisherLink" : "EBUProviderCode:EBU",
+    "publisherLabel" : "European Broadcasting Union - EVN",
+    "statusCode" : 200
+    } 
+  },
+  { "TargetAudience" : {
+    "propertyName" : "targetAudience",
+    "value" : "EBUNMSTargetAudienceCode:all",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "audienceLink" : "EBUNMSTargetAudienceCode:all",
+    "statusCode" : 200
+    } 
+  },
+  { "Fragment" : {
+    "propertyName" : "fragment",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "statusCode" : 200
+    } 
+  },
+  { "NamedFragment" : {
+    "propertyName" : "namedFragment",
+    "value" : "EVN_528229_116A0428_Part1_ID",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "identifier" : "EVN_528229_116A0428_Part1_ID",
+    "statusCode" : 200
+    } 
+  },
+  { "NamedFragment" : {
+    "propertyName" : "namedFragment",
+    "value" : "EVN_528229_116A0428_Part2_ID",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "identifier" : "EVN_528229_116A0428_Part2_ID",
+    "statusCode" : 200
+    } 
+  },
+  { "NamedFragment" : {
+    "propertyName" : "namedFragment",
+    "value" : "EVN_528229_116A0428_Part3_ID",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "identifier" : "EVN_528229_116A0428_Part3_ID",
+    "statusCode" : 200
+    } 
+  },
+  { "NamedFragment" : {
+    "propertyName" : "namedFragment",
+    "value" : "EVN_528229_116A0428_Part4_ID",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "identifier" : "EVN_528229_116A0428_Part4_ID",
+    "statusCode" : 200
+    } 
+  },
+  { "NamedFragment" : {
+    "propertyName" : "namedFragment",
+    "value" : "EVN_528229_116A0428_Part5_ID",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "identifier" : "EVN_528229_116A0428_Part5_ID",
+    "statusCode" : 200
+    } 
+  },
+  { "NamedFragment" : {
+    "propertyName" : "namedFragment",
+    "value" : "EVN_528229_116A0428_Part6_ID",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "identifier" : "EVN_528229_116A0428_Part6_ID",
+    "statusCode" : 200
+    } 
+  },
+  { "NamedFragment" : {
+    "propertyName" : "namedFragment",
+    "value" : "EVN_528229_116A0428_Part7_ID",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "identifier" : "EVN_528229_116A0428_Part7_ID",
+    "statusCode" : 200
+    } 
+  },
+  { "NamedFragment" : {
+    "propertyName" : "namedFragment",
+    "value" : "EVN_528229_116A0428_Part8_ID",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "identifier" : "EVN_528229_116A0428_Part8_ID",
+    "statusCode" : 200
+    } 
+  },
+  { "FrameSize" : {
+    "propertyName" : "frameSize",
+    "value" : "1080 720",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "width" : 1080,
+    "height" : 720,
+    "statusCode" : 200
+    } 
+  },
+  { "Compression" : {
+    "propertyName" : "compression",
+    "value" : "mp4",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "compressionLabel" : "mp4",
+    "statusCode" : 200
+    } 
+  },
+  { "Duration" : {
+    "propertyName" : "duration",
+    "value" : "5283",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "duration" : 5283,
+    "statusCode" : 200
+    } 
+  },
+  { "Format" : {
+    "propertyName" : "format",
+    "value" : "ninat:video",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "formatLabel" : "ninat:video",
+    "statusCode" : 200
+    } 
+  },
+  { "SamplingRate" : {
+    "propertyName" : "samplingRate",
+    "value" : "41000",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "samplingRate" : 41000,
+    "statusCode" : 200
+    } 
+  },
+  { "FrameRate" : {
+    "propertyName" : "frameRate",
+    "value" : "25",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "frameRate" : 25,
+    "statusCode" : 200
+    } 
+  },
+  { "AverageBitRate" : {
+    "propertyName" : "averageBitRate",
+    "value" : "12456321.23",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "averageBitRate" : 12456321.23,
+    "statusCode" : 200
+    } 
+  },
+  { "NumTracks" : {
+    "propertyName" : "numTracks",
+    "value" : "3",
+    "language" : "English",
+    "sourceFormat" : "ebucore",
+    "mappingType" : "exact",
+    "number" : 3,
+    "statusCode" : 200
+    }
+  }
+]

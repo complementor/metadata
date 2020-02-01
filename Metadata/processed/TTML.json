@@ -1,0 +1,187 @@
+[ { "Title" : {
+    "propertyName" : "title",
+    "value" : "Document Metadata Example",
+    "sourceFormat" : "ttml",
+    "mappingType" : "more specific",
+    "titleLabel" : "Document Metadata Example",
+    "statusCode" : 200
+    } 
+  },
+  { "Title" : {
+    "propertyName" : "title",
+    "value" : "Bond speaking",
+    "sourceFormat" : "ttml",
+    "mappingType" : "more specific",
+    "titleLabel" : "Bond speaking",
+    "statusCode" : 200
+    } 
+  },
+  { "Language" : {
+    "propertyName" : "language",
+    "value" : "en",
+    "sourceFormat" : "ttml",
+    "mappingType" : "exact",
+    "languageLabel" : "en",
+    "statusCode" : 200
+    } 
+  },
+  { "Contributor" : {
+    "propertyName" : "contributor",
+    "value" : "Sir Thomas Sean Connery",
+    "sourceFormat" : "ttml",
+    "mappingType" : "more general",
+    "contributorLabel" : "Sir Thomas Sean Connery",
+    "roleLabel" : "actor",
+    "statusCode" : 200
+    } 
+  },
+  { "Contributor" : {
+    "propertyName" : "contributor",
+    "value" : "Jim Foo",
+    "sourceFormat" : "ttml",
+    "mappingType" : "more general",
+    "contributorLabel" : "Jim Foo",
+    "roleLabel" : "creator",
+    "statusCode" : 200
+    } 
+  },
+  { "Contributor" : {
+    "propertyName" : "contributor",
+    "value" : "W3 Pictures Inc.",
+    "sourceFormat" : "ttml",
+    "mappingType" : "more general",
+    "contributorLabel" : "W3 Pictures Inc.",
+    "roleLabel" : "publisher",
+    "statusCode" : 200
+    } 
+  },
+  { "Creator" : {
+    "propertyName" : "creator",
+    "value" : "Jim Foo",
+    "sourceFormat" : "ttml",
+    "mappingType" : "more general",
+    "contributorLabel" : "Jim Foo",
+    "roleLabel" : "creator",
+    "statusCode" : 200
+    } 
+  },
+  { "Description" : {
+    "propertyName" : "description",
+    "value" : "This document employs document metadata.",
+    "sourceFormat" : "ttml",
+    "mappingType" : "exact",
+    "descriptionLabel" : "This document employs document metadata.",
+    "statusCode" : 200
+    } 
+  },
+  { "Description" : {
+    "propertyName" : "description",
+    "value" : "Holmes shows Watson how the murderer entered the window.",
+    "sourceFormat" : "ttml",
+    "mappingType" : "exact",
+    "descriptionLabel" : "Holmes shows Watson how the murderer entered the window.",
+    "statusCode" : 200
+    } 
+  },
+  { "Copyright" : {
+    "propertyName" : "copyright",
+    "value" : "This example is made up from example fragments by the TimedText WG",
+    "sourceFormat" : "ttml",
+    "mappingType" : "exact",
+    "copyrightLabel" : "This example is made up from example fragments by the TimedText WG",
+    "statusCode" : 200
+    } 
+  },
+  { "Publisher" : {
+    "propertyName" : "publisher",
+    "value" : "W3 Pictures Inc.",
+    "sourceFormat" : "ttml",
+    "mappingType" : "more general",
+    "publisherLabel" : "W3 Pictures Inc.",
+    "statusCode" : 200
+    }
+  },
+  { "Fragment" : {
+    "propertyName" : "fragment",
+    "value" : "http://mawg_ttml_example/ttml_example#t=0.76,3.45",
+    "sourceFormat" : "ttml",
+    "mappingType" : "more general",
+    "identifier" : "http://mawg_ttml_example/ttml_example#t=0.76,3.45",
+    "statusCode" : 200
+    } 
+  },
+  { "NamedFragment" : {
+    "propertyName" : "namedFragment",
+    "value" : "http://mawg_ttml_example/ttml_example#subtitle1",
+    "sourceFormat" : "ttml",
+    "mappingType" : "more general",
+    "identifier" : "http://mawg_ttml_example/ttml_example#subtitle1",
+    "statusCode" : 200
+    } 
+  },
+  { "Duration" : {
+    "propertyName" : "duration",
+    "value" : "5.5",
+    "sourceFormat" : "ttml",
+    "mappingType" : "more general",
+    "duration" : 5.5,
+    "statusCode" : 200
+    } 
+  },
+  { "FrameRate" : {
+    "propertyName" : "frameRate",
+    "value" : "25",
+    "sourceFormat" : "ttmls",
+    "mappingType" : "more general",
+    "frameRate" : 25,
+    "statusCode" : 200
+    } 
+  },
+
+
+  { "Description" : {
+    "propertyName" : "description",
+    "value" : "I travel, a sort of licensed troubleshooter.",
+    "sourceFormat" : "ttml",
+    "fragmentIdentifier" : "http://mawg_ttml_example/ttml_example#subtitle1",
+    "mappingType" : "exact",
+    "descriptionLabel" : "I travel, a sort of licensed troubleshooter.",
+    "statusCode" : 200
+    } 
+  },
+  
+  { "Description" : {
+    "propertyName" : "description",
+    "value" : "I travel, a sort of licensed troubleshooter.",
+    "sourceFormat" : "ttml",
+    "fragmentIdentifier" : "http://mawg_ttml_example/ttml_example#t=0.76,3.45",
+    "mappingType" : "exact",
+    "descriptionLabel" : "I travel, a sort of licensed troubleshooter.",
+    "statusCode" : 200
+    } 
+  },
+  
+  { "Duration" : {
+    "propertyName" : "duration",
+    "value" : "2.69",
+    "sourceFormat" : "ttml",
+    "fragmentIdentifier" : "http://mawg_ttml_example/ttml_example#t=0.76,3.45",
+    "mappingType" : "more general",
+    "duration" : 2.69,
+    "statusCode" : 200
+    } 
+  },
+  
+  { "Duration" : {
+    "propertyName" : "duration",
+    "value" : "2.69",
+    "sourceFormat" : "ttml",
+    "fragmentIdentifier" : "http://mawg_ttml_example/ttml_example#t=0.76,3.45",
+    "mappingType" : "more general",
+    "duration" : 2.69,
+    "statusCode" : 200
+    } 
+  }
+  
+  
+]

@@ -1,0 +1,124 @@
+[ { "Identifier" : {
+    "propertyName" : "identifier",
+    "sourceFormat" : "exif",
+    "mappingType" : "exact",
+    "statusCode" : 204
+    } 
+  },
+  { "Title" : {
+    "propertyName" : "title",
+    "value" : "Exif_TIFF_RGB",
+    "sourceFormat" : "exif",
+    "mappingType" : "more specific",
+    "statusCode" : 200
+    } 
+  },
+  { "Contributor" : {
+    "propertyName" : "contributor",
+    "sourceFormat" : "exif",
+    "mappingType" : "exact",
+    "statusCode" : 204
+    } 
+  },
+  { "Creator" : {
+    "propertyName" : "creator",
+    "sourceFormat" : "exif",
+    "mappingType" : "more specific",
+    "statusCode" : 204
+    } 
+  },
+  { "MADate" : {
+    "propertyName" : "date",
+    "value" : "1997:09:01 12:00:00.000",
+    "sourceFormat" : "exif",
+    "mappingType" : "more specific",
+    "date" : "1997:09:01 12:00:00.000",
+    "typeLabel" : "DateTime",
+    "statusCode" : 200
+    } 
+  },
+  { "MADate" : {
+    "propertyName" : "date",
+    "value" : "1997:09:01 12:00:00.000",
+    "sourceFormat" : "exif",
+    "mappingType" : "more specific",
+    "date" : "1997:09:01 12:00:00.000",
+    "typeLabel" : "DateTimeOriginal",
+    "statusCode" : 200
+    } 
+  },
+  { "Location" : {
+    "propertyName" : "location",
+    "sourceFormat" : "exif",
+    "mappingType" : "more general",
+    "longitude" : 0,
+    "latitude" : 0,
+    "altitude" : 0,
+    "statusCode" : 204
+    } 
+  },
+  { "Description" : {
+    "propertyName" : "description",
+    "sourceFormat" : "exif",
+    "fragmentIdentifier" : "more general",
+    "statusCode" : 204
+    } 
+  },
+  { "Keyword" : {
+    "propertyName" : "keyword",
+    "sourceFormat" : "exif",
+    "mappingType" : "related",
+    "statusCode" : 204
+    } 
+  },
+  { "Genre" : {
+    "propertyName" : "genre",
+    "sourceFormat" : "exif",
+    "mappingType" : "exact",
+    "statusCode" : 204
+    } 
+  },
+  { "Relation" : {
+    "propertyName" : "relation",
+    "sourceFormat" : "exif",
+    "mappingType" : "more general",
+    "statusCode" : 204
+    } 
+  },
+  { "Copyright" : {
+    "propertyName" : "copyright",
+    "value" : "Copyright, ABCDE, 1997",
+    "sourceFormat" : "exif",
+    "mappingType" : "exact",
+    "copyrightLabel" : "Copyright, ABCDE, 1997",
+    "statusCode" : 200
+    } 
+  },
+  { "FrameSize" : {
+    "propertyName" : "frameSize",
+    "value" : "640 480",
+    "sourceFormat" : "exif",
+    "mappingType" : "related",
+    "width" : 640,
+    "height" : 480,
+    "statusCode" : 200
+    } 
+  },
+  { "FrameSize" : {
+    "propertyName" : "frameSize",
+    "value" : "80 60",
+    "sourceFormat" : "exif",
+    "mappingType" : "related",
+    "width" : 80,
+    "height" : 60,
+    "statusCode" : 200
+    } 
+  },
+  { "Compression" : {
+    "propertyName" : "compression",
+    "sourceFormat" : "exif",
+    "mappingType" : "exact",
+    "statusCode" : 204
+    } 
+  }
+]
