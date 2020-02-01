@@ -1,0 +1,81 @@
+[
+    {
+        "Identification": {
+            "identifier": -1,
+            "title": "ma:title",
+            "title.title": "(value of ma:title)",
+            "title.type": -2,
+            "language": "ma:hasLanguage",
+            "locator": "ma:locator"
+        },
+        "Creation": {
+            "contributor": "ma:hasContributor (see contributor.role)",
+            "contributor.contributor": "(URI or rdfs:label) (4)",
+            "contributor.role": -2,
+            "creator": "ma:hasCreator (see creator.role)",
+            "creator.creator": "(URI or rdfs:label) (4)",
+            "creator.role": -2,
+            "date": "ma:date",
+            "date.date": "(value of ma:date) (6)",
+            "date.type": -2,
+            "location": "ma:hasRelatedLocation (see location.name)",
+            "location.name": "(URI or rdfs:label) (4)",
+            "location.longitude": "ma:locationLongitude",
+            "location.latitude": "ma:locationLatitude",
+            "location.altitude": "ma:locationAltitude",
+            "location.coordinateSystem": "ma:hasLocationCoordinateSystem (3)"
+        },
+        "Content description": {
+            "description": "ma:description",
+            "keyword": "ma:hasKeyword (3)",
+            "genre": "ma:hasGenre (3)",
+            "rating": "ma:hasRating",
+            "rating.value": "ma:ratingValue",
+            "rating.ratingSystem": "ma:hasRatingSystem",
+            "rating.min": "ma:ratingScaleMin",
+            "rating.max": "ma:ratingScaleMax"
+        },
+        "Relational": {
+            "relation": "ma:hasRelatedResource (see relation.type)",
+            "relation.target": "(URI or rdfs:label) (4)",
+            "relation.type": -2,
+            "collection": "ma:isMemberOf (3)"
+        },
+        "Rights": {
+            "copyright": -5,
+            "copyright.copyright": "ma:copyright",
+            "copyright.holder": "ma:isCopyrightedBy",
+            "policy": "ma:hasPolicy (see policy.type)",
+            "policy.statement": "(URI or rdfs:label) (4)",
+            "policy.type": -2
+        },
+        "Distribution": {
+            "publisher": "ma:hasPublisher (3)",
+            "targetAudience": "ma:hasTargetAudience",
+            "targetAudience.audience": "ma:hasClassification (3)",
+            "targetAudience.classificationSystem": "ma:hasClassificationSystem (3)",
+        },
+        "Fragment": {
+            "fragment": "ma:hasFragment",
+            "fragment.identifier": "(URI pointed by ma:hasFragment)",
+            "fragment.role": -2,
+            "namedFragment": "ma:hasNamedFragment",
+            "namedFragment.identifier": "(URI pointed by ma:hasNamedFragment)",
+            "namedFragment.label": "ma:fragmentName",
+            "Technical Properties": "",
+            "frameSize": -5,
+            "frameSize.width": "ma:frameWidth",
+            "frameSize.height": "ma:frameHeight",
+            "frameSize.unit": "ma:frameSizeUnit",
+            "compression": "ma:hasCompression (3)",
+            "duration": "ma:duration",
+            "format": "ma:hasFormat (3)",
+            "samplingRate": "ma:samplingRate",
+            "frameRate": "ma:frameRate",
+            "averageBitRate": "ma:averageBitRate",
+            "numTracks": "ma:numberOfTracks",
+            "numTracks.number": "(value of the ma:numberOfTracks property)",
+            "numTracks.type": -2
+        }
+    }
+]
