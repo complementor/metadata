@@ -1,0 +1,323 @@
+[ { "Identifier" : {
+    "propertyName" : "identifier",
+    "value" : "http://www.foo.com/movie.mov",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "more specific",
+    "identifierLink" : "http://www.foo.com/movie.mov",
+    "statusCode" : 200
+    } 
+  },
+  { "Title" : {
+    "propertyName" : "title",
+    "value" : "The Judy's -- The Moo Song",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "titleLabel" : "The Judy's -- The Moo Song",
+    "statusCode" : 200
+    } 
+  },
+  { "Language" : {
+    "propertyName" : "language",
+    "value" : "en",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "statusCode" : 200
+    } 
+  },
+  { "Locator" : {
+    "propertyName" : "locator",
+    "value" : "http://www.foo.com/movie.mov",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "locatorLink" : "http://www.foo.com/movie.mov",
+    "statusCode" : 200
+    } 
+  },
+  { "Contributor" : {
+    "propertyName" : "contributor",
+    "value" : "band member 1",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "more general",
+    "contributorLabel" : "band member 1",
+    "roleLabel" : "musician",
+    "statusCode" : 200
+    } 
+  },
+  { "Creator" : {
+    "propertyName" : "creator",
+    "value" : "band member 2",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "more general",
+    "contributorLabel" : "band member 2",
+    "roleLabel" : "creator",
+    "statusCode" : 200
+    } 
+  },
+  { "Location" : {
+    "propertyName" : "location",
+    "value" : "My house",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "locationLabel" : "My house",
+    "longitude" : 35.669998,
+    "latitude" : 139.770004,
+    "altitude" : 0,
+    "statusCode" : 200
+    } 
+  },
+  { "Description" : {
+    "propertyName" : "description",
+    "value" : "This was some really bizarre band I listened to as a young lad.",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "descriptionLabel" : "This was some really bizarre band I listened to as a young lad.",
+    "statusCode" : 200
+    } 
+  },
+  { "Keyword" : {
+    "propertyName" : "keyword",
+    "value" : "kitty",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "keywordLabel" : "kitty",
+    "statusCode" : 200
+    } 
+  },
+  { "Keyword" : {
+    "propertyName" : "keyword",
+    "value" : "cat",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "keywordLabel" : "cat",
+    "statusCode" : 200
+    } 
+  },
+  { "Keyword" : {
+    "propertyName" : "keyword",
+    "value" : "big dog",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "keywordLabel" : "big dog",
+    "statusCode" : 200
+    } 
+  },
+  { "Keyword" : {
+    "propertyName" : "keyword",
+    "value" : "yarn",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "keywordLabel" : "yarn",
+    "statusCode" : 200
+    } 
+  },
+  { "Keyword" : {
+    "propertyName" : "keyword",
+    "value" : "fluffy",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "keywordLabel" : "fluffy",
+    "statusCode" : 200
+    } 
+  },
+  { "Genre" : {
+    "propertyName" : "genre",
+    "value" : "Film",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "genreLabel" : "Film",
+    "genreLink" : "http://www.ebu.ch/metadata/cs/ebu_ContentGenreCS.xml#3.1.1.10.3",
+    "statusCode" : 200
+    } 
+  },
+  { "Rating" : {
+    "propertyName" : "rating",
+    "value" : "3.5",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "more specific",
+    "ratingValue" : 3.5,
+    "minimum" : 1,
+    "maximum" : 10,
+    "statusCode" : 200
+    } 
+  },
+  { "Collection" : {
+    "propertyName" : "collection",
+    "value" : "Cool song by an artist",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "collectionLabel" : "Cool song by an artist",
+    "statusCode" : 200
+    } 
+  },
+  { "Copyright" : {
+    "propertyName" : "copyright",
+    "value" : "2005 FooBar Media",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "copyrightLabel" : "2005 FooBar Media",
+    "holderLink" : "http://blah.com/additional-info.html",
+    "statusCode" : 200
+    } 
+  },
+  { "Policy" : {
+    "propertyName" : "policy",
+    "value" : "Creative Commons Attribution 3.0 United States License",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "more specific",
+    "statementLink" : "http://creativecommons.org/licenses/by/3.0/us/",
+    "statementLabel" : "Creative Commons Attribution 3.0 United States License",
+    "statusCode" : 200
+    } 
+  },
+  { "Publisher" : {
+    "propertyName" : "publisher",
+    "value" : "band member 3",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "more specific",
+    "statusCode" : 200
+    } 
+  },
+  { "TargetAudience" : {
+    "propertyName" : "targetAudience",
+    "value" : "adult",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "more specific ",
+    "audienceLabel" : "adult",
+    "classificationSystemLink" : "urn:simple",
+    "statusCode" : 200
+    } 
+  },
+  { "TargetAudience" : {
+    "propertyName" : "targetAudience",
+    "value" : "au us",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "more specific ",
+    "audienceLabel" : "au us",
+    "statusCode" : 200
+    } 
+  },
+  { "Fragment" : {
+    "propertyName" : "fragment",
+    "value" : "http://www.foo.com/movie.mov#t=15,45",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "more specific",
+    "identifier" : "http://www.foo.com/movie.mov#t=15,45",
+    "roleLabel" : "opening",
+    "statusCode" : 200
+    } 
+  },
+  { "NamedFragment" : {
+    "propertyName" : "namedFragment",
+    "value" : "http://www.foo.com/movie.mov#t=15,45",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "more specific",
+    "identifier" : "http://www.foo.com/movie.mov#t=15,45",
+    "label" : "opening",
+    "statusCode" : 200
+    } 
+  },
+  { "FrameSize" : {
+    "propertyName" : "frameSize",
+    "value" : "300 200",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "width" : 300,
+    "height" : 200,
+    "statusCode" : 200
+    } 
+  },
+  { "Compression" : {
+    "propertyName" : "compression",
+    "value" : "video/quicktime",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "compressionLabel" : "video/quicktime",
+    "statusCode" : 200
+    } 
+  },
+  { "Duration" : {
+    "propertyName" : "duration",
+    "value" : "185",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "duration" : 185,
+    "statusCode" : 200
+    } 
+  },
+  { "Format" : {
+    "propertyName" : "format",
+    "value" : "video/quicktime",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "compressionLabel" : "video/quicktime",
+    "statusCode" : 200
+    } 
+  },
+  { "SamplingRate" : {
+    "propertyName" : "samplingRate",
+    "value" : "44.1",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "samplingRate" : 44.1,
+    "statusCode" : 200
+    } 
+  },
+  { "FrameRate" : {
+    "propertyName" : "frameRate",
+    "value" : "25",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "frameRate" : 25,
+    "statusCode" : 200
+    } 
+  },
+  { "AverageBitRate" : {
+    "propertyName" : "averageBitRate",
+    "value" : "128",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "exact",
+    "averageBitRate" : 128,
+    "statusCode" : 200
+    } 
+  },
+  { "NumTracks" : {
+    "propertyName" : "numTracks",
+    "value" : "2",
+    "language" : "en",
+    "sourceFormat" : "mrss",
+    "mappingType" : "more specific",
+    "number" : 2,
+    "statusCode" : 200
+    } 
+  }
+]

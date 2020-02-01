@@ -1,0 +1,557 @@
+[ { "Identifier" : {
+    "propertyName" : "identifier",
+    "value" : "http://www.example.com/xmp_example/dc/identifier",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "identifierLink" : "http://www.example.com/xmp_example/dc/identifier",
+    "statusCode" : 200
+    } 
+  },
+  { "Title" : {
+    "propertyName" : "title",
+    "value" : "dc:title (x-default)",
+    "language" : "x-default",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "titleLabel" : "dc:title (x-default)",
+    "statusCode" : 200
+    } 
+  },
+  { "Title" : {
+    "propertyName" : "title",
+    "value" : "dc:title (en-US)",
+    "language" : "en-US",
+    "mappingType" : "exact",
+    "titleLabel" : "dc:title (en-US)",
+    "statusCode" : 200
+    } 
+  },
+  { "Title" : {
+    "propertyName" : "title",
+    "value" : "dc:title (de-DE)",
+    "language" : "en-DE",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "titleLabel" : "dc:title (de-DE)",
+    "statusCode" : 200
+    } 
+  },
+  { "Language" : {
+    "propertyName" : "language",
+    "value" : "en",
+    "language" : "en",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "statusCode" : 200
+    } 
+  },
+  { "Language" : {
+    "propertyName" : "language",
+    "value" : "de-DE",
+    "language" : "de-DE",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "statusCode" : 200
+    } 
+  },
+  { "Language" : {
+    "propertyName" : "language",
+    "value" : "de-DE-bayrisch",
+    "language" : "de-DE-bayrisch",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "statusCode" : 200
+    } 
+  },
+  { "Contributor" : {
+    "propertyName" : "contributor",
+    "value" : "dc:contributor 1",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "contributorLabel" : "dc:contributor 1",
+    "statusCode" : 200
+    } 
+  },
+  { "Contributor" : {
+    "propertyName" : "contributor",
+    "value" : "dc:contributor 2",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "contributorLabel" : "dc:contributor 2",
+    "statusCode" : 200
+    } 
+  },
+  { "Creator" : {
+    "propertyName" : "creator",
+    "value" : "dc:creator 1",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "creatorLabel" : "dc:creator 1",
+    "statusCode" : 200
+    } 
+  },
+  { "Creator" : {
+    "propertyName" : "creator",
+    "value" : "dc:creator 2",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "creatorLabel" : "dc:creator 2",
+    "statusCode" : 200
+    } 
+  },
+  { "MADate" : {
+    "propertyName" : "date",
+    "value" : "2009",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "related",
+    "date" : "2009",
+    "statusCode" : 200
+    } 
+  },
+  { "MADate" : {
+    "propertyName" : "date",
+    "value" : "2010-12",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "related",
+    "date" : "2010-12",
+    "statusCode" : 200
+    } 
+  },
+  { "MADate" : {
+    "propertyName" : "date",
+    "value" : "2010-12-31",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "related",
+    "date" : "22010-12-31",
+    "statusCode" : 200
+    } 
+  },
+  { "MADate" : {
+    "propertyName" : "date",
+    "value" : "2010-12-31T11:59",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "related",
+    "date" : "2010-12-31T11:59",
+    "statusCode" : 200
+    } 
+  },
+  { "MADate" : {
+    "propertyName" : "date",
+    "value" : "2010-12-31T11:59Z",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "related",
+    "date" : "2010-12-31T11:59Z",
+    "statusCode" : 200
+    } 
+  },
+  { "MADate" : {
+    "propertyName" : "date",
+    "value" : "2010-12-13T12:59:59.12345+02:00",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "related",
+    "date" : "2010-12-13T12:59:59.12345+02:00",
+    "statusCode" : 200
+    } 
+  },
+  { "MADate" : {
+    "propertyName" : "date",
+    "value" : "2011-03-23T14:06:51+01:00",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "date" : "2011-03-23T14:06:51+01:00",
+    "typeLabel" : "creation date",
+    "statusCode" : 200
+    } 
+  },
+  { "MADate" : {
+    "propertyName" : "date",
+    "value" : "2011-03-23T14:06:51+01:00",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "date" : "2011-03-23T14:06:51+01:00",
+    "typeLabel" : "creation date",
+    "statusCode" : 200
+    } 
+  },
+  { "MADate" : {
+    "propertyName" : "date",
+    "value" : "2011-03-23T14:06:51+01:00",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "date" : "2011-03-23T14:06:51+01:00",
+    "typeLabel" : "creation date",
+    "statusCode" : 200
+    } 
+  },
+  { "MADate" : {
+    "propertyName" : "date",
+    "value" : "2010-11-18T11:57:24+01:00",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "date" : "2010-11-18T11:57:24+01:00",
+    "typeLabel" : "modify date",
+    "statusCode" : 200
+    } 
+  },
+  { "Location" : {
+    "propertyName" : "location",
+    "value" : "10,9.5553E 53,29.0048N",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "longitude" : 10,9.5553E,
+    "latitude" : 53,29.0048N,
+    "altitude" : 0,
+    "statusCode" : 200
+    } 
+  },
+  { "Location" : {
+    "propertyName" : "location",
+    "value" : "photoshop:Country",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "related",
+    "locationLabel" : "photoshop:Country",
+    "longitude" : 0,
+    "latitude" : 0,
+    "altitude" : 0,
+    "statusCode" : 200
+    } 
+  },
+  { "Location" : {
+    "propertyName" : "location",
+    "value" : "photoshop:City",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "related",
+    "locationLabel" : "photoshop:City",
+    "longitude" : 0,
+    "latitude" : 0,
+    "altitude" : 0,
+    "statusCode" : 200
+    } 
+  },
+  { "Location" : {
+    "propertyName" : "location",
+    "value" : "photoshop:State",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "related",
+    "locationLabel" : "photoshop:State",
+    "longitude" : 0,
+    "latitude" : 0,
+    "altitude" : 0,
+    "statusCode" : 200
+    } 
+  },
+  { "Description" : {
+    "propertyName" : "description",
+    "value" : "dc:description (x-default)",
+    "language" : "x-default",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "descriptionLabel" : "dc:description (x-default)",
+    "statusCode" : 200
+    } 
+  },
+  { "Description" : {
+    "propertyName" : "description",
+    "value" : "dc:description (en-US)",
+    "language" : "en-US",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "descriptionLabel" : "dc:description (en-US)",
+    "statusCode" : 200
+    } 
+  },
+  { "Description" : {
+    "propertyName" : "description",
+    "value" : "dc:description (de-DE)",
+    "language" : "de-DE",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "descriptionLabel" : "dc:description (de-DE)",
+    "statusCode" : 200
+    } 
+  },
+  { "Keyword" : {
+    "propertyName" : "keyword",
+    "value" : "dc:subject 3",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "keywordLabel" : "dc:subject 3",
+    "statusCode" : 200
+    } 
+  },
+  { "Keyword" : {
+    "propertyName" : "keyword",
+    "value" : "dc:subject 2",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "keywordLabel" : "dc:subject 2",
+    "statusCode" : 200
+    } 
+  },
+  { "Genre" : {
+    "propertyName" : "genre",
+    "value" : "xmpDM:genre",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "genreLabel" : "xmpDM:genre",
+    "statusCode" : 200
+    } 
+  },
+  { "Rating" : {
+    "propertyName" : "rating",
+    "value" : "5",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "ratingValue" : 5,
+    "minimum" : 0,
+    "maximum" : 0,
+    "statusCode" : 200
+    } 
+  },
+  { "Relation" : {
+    "propertyName" : "relation",
+    "value" : "dc:relation 1",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "targetLabel" : "dc:relation 1",
+    "statusCode" : 200
+    } 
+  },
+  { "Relation" : {
+    "propertyName" : "relation",
+    "value" : "dc:relation 2",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "targetLabel" : "dc:relation 2",
+    "statusCode" : 200
+    } 
+  },
+  
+  { "Relation" : {
+    "propertyName" : "relation",
+    "value" : "dc:relation 3",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "targetLabel" : "dc:relation 3",
+    "statusCode" : 200
+    } 
+  },
+  { "Copyright" : {
+    "propertyName" : "copyright",
+    "value" : "dc:rights (x-default)",
+    "language" : "x-default",
+    "sourceFormat" : "xmp",
+    "mappingType" : "more general",
+    "copyrightLabel" : "dc:rights (x-default)",
+    "statusCode" : 200
+    } 
+  },
+  { "Copyright" : {
+    "propertyName" : "copyright",
+    "value" : "dc:rights (en-US)",
+    "language" : "x-default",
+    "sourceFormat" : "xmp",
+    "mappingType" : "more general",
+    "copyrightLabel" : "dc:rights (en-US)",
+    "statusCode" : 200
+    } 
+  },
+  { "Copyright" : {
+    "propertyName" : "copyright",
+    "value" : "dc:rights (de-DE)",
+    "language" : "x-default",
+    "sourceFormat" : "xmp",
+    "mappingType" : "more general",
+    "copyrightLabel" : "dc:rights (de-DE)",
+    "statusCode" : 200
+    } 
+  },
+  { "Policy" : {
+    "propertyName" : "policy",
+    "value" : "xmpRights:Certificate",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "statementLabel" : "xmpRights:Certificate",
+    "statusCode" : 200
+    } 
+  },
+  { "Policy" : {
+    "propertyName" : "policy",
+    "value" : "xmpRights:WebStatement",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "more general",
+    "statementLabel" : "xmpRights:WebStatement",
+    "statusCode" : 200
+    } 
+  },
+  { "Policy" : {
+    "propertyName" : "policy",
+    "value" : "xmpRights:UsageTerms (x-default)",
+    "language" : "x-default",
+    "sourceFormat" : "xmp",
+    "mappingType" : "more general",
+    "statementLabel" : "xmpRights:UsageTerms (x-default)",
+    "statusCode" : 200
+    } 
+  },
+  { "Policy" : {
+    "propertyName" : "policy",
+    "value" : "xmpRights:UsageTerms (en-US)",
+    "language" : "en-US",
+    "sourceFormat" : "xmp",
+    "mappingType" : "more general",
+    "statementLabel" : "xmpRights:UsageTerms (en-US)",
+    "statusCode" : 200
+    } 
+  },
+  { "Policy" : {
+    "propertyName" : "policy",
+    "value" : "xmpRights:UsageTerms (de-DE)",
+    "language" : "en-US",
+    "sourceFormat" : "xmp",
+    "mappingType" : "more general",
+    "statementLabel" : "xmpRights:UsageTerms (de-DE)",
+    "statusCode" : 200
+    } 
+  },
+  { "Publisher" : {
+    "propertyName" : "publisher",
+    "value" : "dc:publisher 1",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "publisherLabel" : "dc:publisher 1",
+    "statusCode" : 200
+    } 
+  },
+  { "Publisher" : {
+    "propertyName" : "publisher",
+    "value" : "dc:publisher 2",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "publisherLabel" : "dc:publisher 2",
+    "statusCode" : 200
+    } 
+  },
+  { "Publisher" : {
+    "propertyName" : "publisher",
+    "value" : "dc:publisher 3",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "publisherLabel" : "dc:publisher 3",
+    "statusCode" : 200
+    } 
+  },
+  { "FrameSize" : {
+    "propertyName" : "frameSize",
+    "value" : "1920 1080 pixel",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "width" : 1920,
+    "height" : 1080,
+    "unit" : "pixel",
+    "statusCode" : 200
+    } 
+  },
+  { "Compression" : {
+    "propertyName" : "compression",
+    "value" : "6",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "related",
+    "compressionLabel" : "6",
+    "statusCode" : 200
+    } 
+  },
+  { "Compression" : {
+    "propertyName" : "compression",
+    "value" : "xmpDM:audioCompressor",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "related",
+    "compressionLabel" : "xmpDM:audioCompressor",
+    "statusCode" : 200
+    } 
+  },
+  { "Duration" : {
+    "propertyName" : "duration",
+    "value" : "1234",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "duration" : 1234,
+    "statusCode" : 200
+    } 
+  },
+  { "Format" : {
+    "propertyName" : "format",
+    "value" : "dc:format",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "formatLabel" : "dc:format",
+    "statusCode" : 200
+    } 
+  },
+  { "SamplingRate" : {
+    "propertyName" : "samplingRate",
+    "value" : "44100",
+    "language" : "en-us",
+    "mappingType" : "more specific",
+    "samplingRate" : 44100,
+    "statusCode" : 200
+    } 
+  },
+  { "FrameRate" : {
+    "propertyName" : "frameRate",
+    "value" : "f25",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "frameRate" : 25,
+    "statusCode" : 200
+    } 
+  },
+  { "NumTracks" : {
+    "propertyName" : "numTracks",
+    "value" : "5",
+    "language" : "en-us",
+    "sourceFormat" : "xmp",
+    "mappingType" : "exact",
+    "number" : 5,
+    "typeString" : "audio",
+    "statusCode" : 200
+    } 
+  }
+]
