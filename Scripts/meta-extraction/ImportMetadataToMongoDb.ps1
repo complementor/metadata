@@ -31,11 +31,4 @@ ForEach ($file in $files) {
             Write-output("it didn't run")
         }
 };     
- # TODO
-    # insert the guid as id 
-        # convert the text to utf8
-    # save perl extract to a variable 
-    # open connection to mongodb
-    # import the variable to mongodb
-    # add different script for basic info
-        # add a field that says it is basic info
+
