@@ -1,5 +1,7 @@
+$SourceFolder = "P:\resources\youtube\68dd5cb3-c57b-4517-8841-00a7969b84f8.f135.ytdl"
+
 $ExifTool = "C:\Programming\Image-ExifTool-11.78\Image-ExifTool-11.78\exiftool.pl"
-$SourceFolder = "P:\samples\1.mp3"
+
 $basicMetadataFilePath = "P:\src\Metadata\mo\28e78611-8dc7-4c86-8d48-3187a0c2a659.json"
 $basicMetadataFilePathExif = "P:\src\Metadata\mo\28e78611-8dc7-4c86-8d48-3187a0c2a659_exif.json"
 $basicMetadataFilePathXMP = "P:\src\Metadata\mo\28e78611-8dc7-4c86-8d48-3187a0c2a659_xmp.json"
