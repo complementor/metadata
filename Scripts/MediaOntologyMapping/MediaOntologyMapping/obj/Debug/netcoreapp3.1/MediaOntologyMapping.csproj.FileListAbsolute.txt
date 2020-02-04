@@ -1,0 +1,13 @@
+P:\src\Scripts\MediaOntologyMapping\MediaOntologyMapping\bin\Debug\netcoreapp3.1\MediaOntologyMapping.exe
+P:\src\Scripts\MediaOntologyMapping\MediaOntologyMapping\bin\Debug\netcoreapp3.1\MediaOntologyMapping.deps.json
+P:\src\Scripts\MediaOntologyMapping\MediaOntologyMapping\bin\Debug\netcoreapp3.1\MediaOntologyMapping.runtimeconfig.json
+P:\src\Scripts\MediaOntologyMapping\MediaOntologyMapping\bin\Debug\netcoreapp3.1\MediaOntologyMapping.runtimeconfig.dev.json
+P:\src\Scripts\MediaOntologyMapping\MediaOntologyMapping\bin\Debug\netcoreapp3.1\MediaOntologyMapping.dll
+P:\src\Scripts\MediaOntologyMapping\MediaOntologyMapping\bin\Debug\netcoreapp3.1\MediaOntologyMapping.pdb
+P:\src\Scripts\MediaOntologyMapping\MediaOntologyMapping\obj\Debug\netcoreapp3.1\MediaOntologyMapping.csprojAssemblyReference.cache
+P:\src\Scripts\MediaOntologyMapping\MediaOntologyMapping\obj\Debug\netcoreapp3.1\MediaOntologyMapping.AssemblyInfoInputs.cache
+P:\src\Scripts\MediaOntologyMapping\MediaOntologyMapping\obj\Debug\netcoreapp3.1\MediaOntologyMapping.AssemblyInfo.cs
+P:\src\Scripts\MediaOntologyMapping\MediaOntologyMapping\obj\Debug\netcoreapp3.1\MediaOntologyMapping.dll
+P:\src\Scripts\MediaOntologyMapping\MediaOntologyMapping\obj\Debug\netcoreapp3.1\MediaOntologyMapping.pdb
+P:\src\Scripts\MediaOntologyMapping\MediaOntologyMapping\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+P:\src\Scripts\MediaOntologyMapping\MediaOntologyMapping\obj\Debug\netcoreapp3.1\MediaOntologyMapping.csproj.CopyComplete
