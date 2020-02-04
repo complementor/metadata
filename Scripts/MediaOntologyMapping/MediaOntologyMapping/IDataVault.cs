@@ -5,9 +5,8 @@ namespace MediaOntologyMapping
 {
     public interface IDataVault
     {
-        DataVaultDocument CreateDocument(JObject original, MediaOntologyExifModel exif, 
-            MediaOntologyDublinCoreModel dc, MediaOntologyXmpModel xmp, MediaOntologyId3Model id3);
+        DataVaultDocument CreateDocument(JObject original, MediaOntologyModel mediaOntologyModel);
 
-        void WriteDocument(DataVaultDocument dataVaultStructure);
+        void WriteDocument(DataVaultDocument dataVaultStructure, string destinationFolder, string fileName);
     }
 }

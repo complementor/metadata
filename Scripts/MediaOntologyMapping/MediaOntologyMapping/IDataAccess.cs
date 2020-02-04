@@ -4,6 +4,6 @@ namespace MediaOntologyMapping
 {
     public interface IDataAccess
     {
-        JObject GetExifMetadataDeserialized();
+        JObject GetExifMetadataDeserialized(string filePath);
     }
 }
