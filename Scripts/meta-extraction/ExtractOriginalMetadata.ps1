@@ -1,6 +1,6 @@
 
-$SourceFolder = "P:\samples\"
-$DestinationFolder = "P:\src\sampleExtraction\"
+$SourceFolder = "P:\resources\youtube\"
+$DestinationFolder = "P:\src\Metadata\OriginalMetadata\"
 $ExifTool = "C:\Programming\Image-ExifTool-11.78\Image-ExifTool-11.78\exiftool.pl"
 
 $files = Get-ChildItem -Path $SourceFolder

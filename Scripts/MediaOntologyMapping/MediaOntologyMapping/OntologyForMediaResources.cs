@@ -1,8 +1,8 @@
 ﻿using MediaOntologyMapping.Mappings;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 
 namespace MediaOntologyMapping
 {
@@ -17,7 +17,7 @@ namespace MediaOntologyMapping
                 var relatedDictionaryKey = dublinCoreDictionary.Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", "")).FirstOrDefault().Key;
                 if (relatedDictionaryKey != null)
                 {
-                    var jsonString = @"{'" + relatedDictionaryKey + "': { 'Name': '" + relatedDictionaryKey + "', 'Value': '" + item.Value.ToString() + "', 'Standard': 'dc'  }}";
+                    var jsonString = @"{'" + HttpUtility.HtmlEncode(relatedDictionaryKey) + "': { 'Name': '" + HttpUtility.HtmlEncode(relatedDictionaryKey) + "', 'Value': '" + HttpUtility.HtmlEncode(item.Value.ToString()) + "', 'Standard': 'dc'  }}";
                     jsonString =  jsonString.Replace("'", "\"");
                     dublinCoreProperties.Add(JObject.Parse(jsonString));
                 }
@@ -35,7 +35,7 @@ namespace MediaOntologyMapping
                 var relatedDictionaryKey = iptcDictionary.Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", "")).FirstOrDefault().Key;
                 if (relatedDictionaryKey != null)
                 {
-                    var jsonString = @"{'" + relatedDictionaryKey + "': { 'Name': '" + relatedDictionaryKey + "', 'Value': '" + item.Value.ToString() + "', 'Standard': 'iptc'  }}";
+                    var jsonString = @"{'" + HttpUtility.HtmlEncode(relatedDictionaryKey) + "': { 'Name': '" + HttpUtility.HtmlEncode(relatedDictionaryKey) + "', 'Value': '" + HttpUtility.HtmlEncode(item.Value.ToString()) + "', 'Standard': 'iptc'  }}";
                     jsonString = jsonString.Replace("'", "\"");
                     iptcCoreProperties.Add(JObject.Parse(jsonString));
                 }
@@ -53,7 +53,7 @@ namespace MediaOntologyMapping
                 var relatedDictionaryKey = ebucoreDictionary.Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", "")).FirstOrDefault().Key;
                 if (relatedDictionaryKey != null)
                 {
-                    var jsonString = @"{'" + relatedDictionaryKey + "': { 'Name': '" + relatedDictionaryKey + "', 'Value': '" + item.Value.ToString() + "', 'Standard': 'ebucore'  }}";
+                    var jsonString = @"{'" + HttpUtility.HtmlEncode(relatedDictionaryKey) + "': { 'Name': '" + HttpUtility.HtmlEncode(relatedDictionaryKey) + "', 'Value': '" + HttpUtility.HtmlEncode(item.Value.ToString()) + "', 'Standard': 'ebucore'  }}";
                     jsonString = jsonString.Replace("'", "\"");
                     ebucoreProperties.Add(JObject.Parse(jsonString));
                 }
@@ -71,7 +71,7 @@ namespace MediaOntologyMapping
                 var relatedDictionaryKey = mpeg7Dictionary.Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", "")).FirstOrDefault().Key;
                 if (relatedDictionaryKey != null)
                 {
-                    var jsonString = @"{'" + relatedDictionaryKey + "': { 'Name': '" + relatedDictionaryKey + "', 'Value': '" + item.Value.ToString() + "', 'Standard': 'mpeg7'  }}";
+                    var jsonString = @"{'" + HttpUtility.HtmlEncode(relatedDictionaryKey) + "': { 'Name': '" + HttpUtility.HtmlEncode(relatedDictionaryKey) + "', 'Value': '" + HttpUtility.HtmlEncode(item.Value.ToString()) + "', 'Standard': 'mpeg7'  }}";
                     jsonString = jsonString.Replace("'", "\"");
                     mpeg7Properties.Add(JObject.Parse(jsonString));
                 }
@@ -89,7 +89,7 @@ namespace MediaOntologyMapping
                 var relatedDictionaryKey = id3Dictionary.Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", "")).FirstOrDefault().Key;
                 if (relatedDictionaryKey != null)
                 {
-                    var jsonString = @"{'" + relatedDictionaryKey + "': { 'Name': '" + relatedDictionaryKey + "', 'Value': '" + item.Value.ToString() + "', 'Standard': 'id3'  }}";
+                    var jsonString = @"{'" + HttpUtility.HtmlEncode(relatedDictionaryKey) + "': { 'Name': '" + HttpUtility.HtmlEncode(relatedDictionaryKey) + "', 'Value': '" + HttpUtility.HtmlEncode(item.Value.ToString()) + "', 'Standard': 'id3'  }}";
                     jsonString = jsonString.Replace("'", "\"");
                     id3Properties.Add(JObject.Parse(jsonString));
                 }
@@ -107,7 +107,7 @@ namespace MediaOntologyMapping
                 var relatedDictionaryKey = xmpDictionary.Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", "")).FirstOrDefault().Key;
                 if (relatedDictionaryKey != null)
                 {
-                    var jsonString = @"{'" + relatedDictionaryKey + "': { 'Name': '" + relatedDictionaryKey + "', 'Value': '" + item.Value.ToString() + "', 'Standard': 'xmp'  }}";
+                    var jsonString = @"{'" + HttpUtility.HtmlEncode(relatedDictionaryKey) + "': { 'Name': '" + HttpUtility.HtmlEncode(relatedDictionaryKey) + "', 'Value': '" + HttpUtility.HtmlEncode(item.Value.ToString()) + "', 'Standard': 'xmp'  }}";
                     jsonString = jsonString.Replace("'", "\"");
                     xmpProperties.Add(JObject.Parse(jsonString));
                 }
@@ -125,7 +125,7 @@ namespace MediaOntologyMapping
                 var relatedDictionaryKey = exifDictionary.Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", "")).FirstOrDefault().Key;
                 if (relatedDictionaryKey != null)
                 {
-                    var jsonString = @"{'" + relatedDictionaryKey + "': { 'Name': '" + relatedDictionaryKey + "', 'Value': '" + item.Value.ToString() + "', 'Standard': 'exif'  }}";
+                    var jsonString = @"{'" + HttpUtility.HtmlEncode(relatedDictionaryKey) + "': { 'Name': '" + HttpUtility.HtmlEncode(relatedDictionaryKey) + "', 'Value': '" + HttpUtility.HtmlEncode(item.Value.ToString()) + "', 'Standard': 'exif'  }}";
                     jsonString = jsonString.Replace("'", "\"");
                     exifProperties.Add(JObject.Parse(jsonString));
                 }
@@ -133,6 +133,7 @@ namespace MediaOntologyMapping
 
             return exifProperties;
         }
+
 
        
     }

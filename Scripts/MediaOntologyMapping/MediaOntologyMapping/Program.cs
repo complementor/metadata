@@ -1,6 +1,4 @@
-﻿using MediaOntologyMapping.Models;
-
-namespace MediaOntologyMapping
+﻿namespace MediaOntologyMapping
 {
     class Program
     {
@@ -11,10 +9,6 @@ namespace MediaOntologyMapping
             
             MediaOntologyMappingBusinessLogic mediaOntologyMappingBusinessLogic = new MediaOntologyMappingBusinessLogic(source, destination);
             mediaOntologyMappingBusinessLogic.Execute();
-             
         }
-
-
-
     }
 } 
