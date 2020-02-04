@@ -1,1 +1,0 @@
-mongoimport.exe --db metadata --collection generic P:\src\Metadata\mo\28e78611-8dc7-4c86-8d48-3187a0c2a659_parsed.json --jsonArray
