@@ -16,8 +16,7 @@ namespace MediaOntologyMapping
         }
 
         internal void Execute()
-        {
-          
+        {        
             DirectoryInfo d = new DirectoryInfo(source);
             FileInfo[] Files = d.GetFiles("*.json"); 
 
@@ -25,7 +24,6 @@ namespace MediaOntologyMapping
             {
                 DataAccess dataAccess = new DataAccess();
                 var originalMetadata = dataAccess.GetExifMetadataDeserialized(file.FullName);
-
 
                 OntologyForMediaResources mapping = new OntologyForMediaResources();
                 MediaOntologyModel mediaOntologyModel = new MediaOntologyModel();

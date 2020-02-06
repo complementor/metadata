@@ -6,7 +6,6 @@ namespace MediaOntologyMapping.Models
     {
         public List<object> ListOfProperties { get; set; }
 
-
         public MediaOntologyModel()
         {
             ListOfProperties =  new List<object>();
