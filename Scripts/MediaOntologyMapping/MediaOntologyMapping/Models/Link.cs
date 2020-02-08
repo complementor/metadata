@@ -1,9 +1,8 @@
-﻿using MediaOntologyMapping.Models;
-using System;
+﻿using System;
 
-namespace MediaOntologyMapping
+namespace MediaOntologyMapping.Models
 {
-    public class DataVaultDocument
+    public class Link
     {
         public Guid Id { get; set; }
         public Hub Hub { get; set; }

@@ -1,12 +1,13 @@
 ﻿using MediaOntologyMapping.Models;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 namespace MediaOntologyMapping
 {
     public interface IDataVault
     {
-        DataVaultDocument CreateDocument(JObject original, MediaOntologyModel mediaOntologyModel);
+        Link CreateLink(JObject original, List<object> mediaOntologyProperties);
 
-        void WriteDocument(DataVaultDocument dataVaultStructure, string destinationFolder, string fileName);
+        void WriteJsonFile(List<Link> linkDocuments, string destinationFolder, string fileName)
     }
 }

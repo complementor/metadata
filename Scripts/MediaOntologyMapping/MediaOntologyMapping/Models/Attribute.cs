@@ -2,7 +2,7 @@
 
 namespace MediaOntologyMapping.Models
 {
-    public class MediaOntologyProperty
+    public class Attribute
     {
         [JsonProperty("Name")]
         public static string Name { get; set; }

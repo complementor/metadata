@@ -9,16 +9,15 @@ namespace MediaOntologyMapping
 {
     public class DataVault : IDataVault
     {
-        public void WriteDocument(DataVaultDocument dataVaultStructure, string destinationFolder, string fileName)
+        public void WriteJsonFile(List<Link> linkDocuments, string destinationFolder, string fileName)
         {
-            var list = new List<DataVaultDocument>() { dataVaultStructure };
-            string json = JsonConvert.SerializeObject(list);
-            File.WriteAllText(destinationFolder+fileName, json);
+            string json = JsonConvert.SerializeObject(linkDocuments);
+            File.WriteAllText(destinationFolder + fileName, json);
         }
 
-        public DataVaultDocument CreateDocument(JObject original, MediaOntologyModel mediaOntologyModel)
+        public Link CreateLink(JObject original, List<object> mediaOntologyProperties)
         {
-            return new DataVaultDocument()
+            return new Link()
             {
                 Id = Guid.NewGuid(),
                 Hub = new Hub()
@@ -26,7 +25,7 @@ namespace MediaOntologyMapping
                     Date = DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss"),
                     Satellite = new Satellite
                     {
-                        Attributes = mediaOntologyModel.ListOfProperties,
+                        Attributes = mediaOntologyProperties,
                     }
                 },
                 OriginalHub = new Hub()
