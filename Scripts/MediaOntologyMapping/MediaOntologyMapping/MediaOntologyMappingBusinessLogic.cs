@@ -19,8 +19,7 @@ namespace MediaOntologyMapping
         }
 
         internal void Execute()
-        {
-          
+        {        
             DirectoryInfo d = new DirectoryInfo(source);
             FileInfo[] Files = d.GetFiles("*.json");
 

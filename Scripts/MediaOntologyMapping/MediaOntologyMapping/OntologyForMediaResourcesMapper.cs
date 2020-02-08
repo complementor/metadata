@@ -36,7 +36,10 @@ namespace MediaOntologyMapping
             var dublinCoreDictionary = Dictionaries.GetDublinCoreDictionary();
             foreach (var item in original)
             {
-                var relatedDictionaryKey = dublinCoreDictionary.Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", "")).FirstOrDefault().Key;
+                var relatedDictionaryKey = dublinCoreDictionary
+                .Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", ""))
+                .FirstOrDefault().Key;
+
                 if (relatedDictionaryKey != null)
                 {
                     var jsonString = CreateJsonMediaOntologyProperty(relatedDictionaryKey,item.Value.ToString());
@@ -54,7 +57,10 @@ namespace MediaOntologyMapping
             var iptcDictionary = Dictionaries.GetIPTCDictionary();
             foreach (var item in original)
             {
-                var relatedDictionaryKey = iptcDictionary.Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", "")).FirstOrDefault().Key;
+                var relatedDictionaryKey = iptcDictionary
+                .Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", ""))
+                .FirstOrDefault().Key;
+
                 if (relatedDictionaryKey != null)
                 {
                     var jsonString = CreateJsonMediaOntologyProperty(relatedDictionaryKey, item.Value.ToString());
@@ -71,7 +77,10 @@ namespace MediaOntologyMapping
             var ebucoreDictionary = Dictionaries.GetEBUCoreDictionary();
             foreach (var item in original)
             {
-                var relatedDictionaryKey = ebucoreDictionary.Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", "")).FirstOrDefault().Key;
+                var relatedDictionaryKey = ebucoreDictionary
+                .Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", ""))
+                .FirstOrDefault().Key;
+
                 if (relatedDictionaryKey != null)
                 {
                     var jsonString = CreateJsonMediaOntologyProperty(relatedDictionaryKey, item.Value.ToString());
@@ -88,7 +97,10 @@ namespace MediaOntologyMapping
             var mpeg7Dictionary = Dictionaries.GetMPEG7Dictionary();
             foreach (var item in original)
             {
-                var relatedDictionaryKey = mpeg7Dictionary.Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", "")).FirstOrDefault().Key;
+                var relatedDictionaryKey = mpeg7Dictionary
+                .Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", ""))
+                .FirstOrDefault().Key;
+
                 if (relatedDictionaryKey != null)
                 {
                     var jsonString = CreateJsonMediaOntologyProperty(relatedDictionaryKey, item.Value.ToString());
@@ -105,7 +117,10 @@ namespace MediaOntologyMapping
             var id3Dictionary = Dictionaries.GetId3Dictionary();
             foreach (var item in original)
             {
-                var relatedDictionaryKey = id3Dictionary.Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", "")).FirstOrDefault().Key;
+                var relatedDictionaryKey = id3Dictionary
+                .Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", ""))
+                .FirstOrDefault().Key;
+
                 if (relatedDictionaryKey != null)
                 {
                     var jsonString = CreateJsonMediaOntologyProperty(relatedDictionaryKey, item.Value.ToString());
@@ -122,7 +137,10 @@ namespace MediaOntologyMapping
             var xmpDictionary = Dictionaries.GetXmpDictionary();
             foreach (var item in original)
             {
-                var relatedDictionaryKey = xmpDictionary.Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", "")).FirstOrDefault().Key;
+                var relatedDictionaryKey = xmpDictionary
+                .Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", ""))
+                .FirstOrDefault().Key;
+
                 if (relatedDictionaryKey != null)
                 {
                     var jsonString = CreateJsonMediaOntologyProperty(relatedDictionaryKey, item.Value.ToString());
@@ -139,7 +157,10 @@ namespace MediaOntologyMapping
             var exifDictionary = Dictionaries.GetExifDictionary();
             foreach (var item in original)
             {
-                var relatedDictionaryKey = exifDictionary.Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", "")).FirstOrDefault().Key;
+                var relatedDictionaryKey = exifDictionary
+                .Where(d => d.Value.ToLowerInvariant().Replace(" ", "") == item.Key.ToLowerInvariant().Replace(" ", ""))
+                .FirstOrDefault().Key;
+                
                 if (relatedDictionaryKey != null)
                 {
                     var jsonString = CreateJsonMediaOntologyProperty(relatedDictionaryKey, item.Value.ToString());
