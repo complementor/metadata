@@ -13,7 +13,7 @@ import json
 import cv2
 import cvlib as cv
 import numpy as np
-import datetime
+from datetime import datetime, timedelta
 
 from cvlib.object_detection import draw_bbox
 
@@ -40,8 +40,8 @@ args = {
     "targetVideo": "videos/football.mp4",
     "outputFolder": "output/",
     "outputJsonFile": "document_id.json",
-    "mp3FileLocation": "audio.mp3",
-    "wavFileLocation": "audioConverted.wav",
+    "mp3FileLocation": "output/audio.mp3",
+    "wavFileLocation": "output/audioConverted.wav",
     "startAnalysis": 20,
     "endAnalysis": 2000000000000000000.0,
     "sceneThreshold": 30,
@@ -50,7 +50,7 @@ args = {
 
 def main():
     # start execution timer
-    startTime = datetime.datetime.now()
+    startTime = datetime.now()
     print("start: ", startTime.strftime("%d-%m-%Y %H:%M:%S"))
     print("\n")
     
@@ -68,7 +68,7 @@ def main():
     jsonDictionary = {
         "document_id": 'guid',
         "hub": {
-           "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
+           "date": datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
            "satellite": {
                "video_information": {
                    "scenes": 0,
@@ -77,9 +77,6 @@ def main():
                    "subtitles": []
                 },
                 "collaborative_metadata": [],
-                "low_level_features": [],
-                "speech_recognition": "",
-                "sentiment_analysis": "",
                 "scenes_detected": []
             }
         }
@@ -95,8 +92,8 @@ def main():
     jsonFile = args["outputJsonFile"]
 
     try:
-        # speech recognition     
-        run_speech_recognition(args, jsonData)
+        # get audio file     
+        get_audio_file(args)
         
         # detect scenes
         ds = Detect_scenes()
@@ -109,7 +106,7 @@ def main():
         video_manager.release()
         vc.release()
         print("\n")
-        print("Execution time: ", datetime.datetime.now() - startTime)
+        print("Execution time: ", datetime.now() - startTime)
 
 class Detect_scenes:     
     def run(self, base_timecode, video_manager, scene_manager, vc, jsonData):
@@ -137,6 +134,7 @@ class Detect_scenes:
         print("\n")
         print('List of scenes obtained:')
         for i, scene in enumerate(scene_list):
+            print("\n")
             print('    Scene %2d: Start %s / Frame %d, End %s / Frame %d' % (
                 i+1,
                 scene[0].get_timecode(), scene[0].get_frames(),
@@ -152,12 +150,15 @@ class Detect_scenes:
                 jsonData["hub"]["satellite"]["video_information"]["scenes"] = i + 1
                 jsonData["hub"]["satellite"]["video_information"]["frames"] = scene[1].get_frames()
                 jsonData["hub"]["satellite"]["video_information"]["duration"] = scene[1].get_timecode()
-                    
+                
+                # run algorithms on current scene
                 self.__create_scene_json_object(scene, jsonData, i)
                 
                 self.__detect_common_objects(frame, jsonData, i)
                 
                 self.__detect_optical_character_recognition(frame, jsonData, i)
+                
+                self.__run_speech_recognition_on_scene(args, jsonData, scene, i)
                 
                 #extract_features(frame, outputFolder, i)
           
@@ -169,6 +170,8 @@ class Detect_scenes:
             'frameStart': scene[0].get_frames(),
             'frameEnd': scene[1].get_frames(),
             "optical_character_recognition": "",
+            "speech_recognition": "",
+            "sentiment_analysis": "",
             'objects': []
         })                   
             
@@ -191,8 +194,43 @@ class Detect_scenes:
         text = pytesseract.image_to_string(image, lang='eng')
         
         jsonData["hub"]["satellite"]["scenes_detected"][i]['optical_character_recognition'] = text
-    
-def run_speech_recognition(args, jsonData):
+        
+    def __run_speech_recognition_on_scene(self, args, jsonData, scene, i):   
+        scene_start = scene[0].get_timecode()
+        scene_end = scene[1].get_timecode()
+        start = (datetime.strptime(scene_start+'000', '%H:%M:%S.%f') - datetime.strptime('00', '%H')).total_seconds()*1000
+        end = (datetime.strptime(scene_end+'000', '%H:%M:%S.%f') - datetime.strptime('00', '%H')).total_seconds()*1000
+        
+        audioFile = AudioSegment.from_file("output/audioConverted.wav")
+        
+        fileName = "scene_" + str(i + 1) + ".wav"
+        fileLocation = args["outputFolder"] + fileName
+        slice = audioFile[start:end]
+        slice.export(fileLocation, format="wav")
+          
+        recog = spreg.Recognizer()
+        with spreg.AudioFile(fileLocation) as source:
+           speech = recog.record(source) 
+           print("\n")
+           print("Running speech recognition on scene " + str(i + 1) + "..")
+           try:
+              text = recog.recognize_google(speech)
+              print("\n")
+              print(text)
+              jsonData["hub"]["satellite"]["scenes_detected"][i]["speech_recognition"] = text
+              
+              sid = SentimentIntensityAnalyzer()
+              sentiment_analysis = sid.polarity_scores(text)
+              print("\n")
+              print("sentiment_analysis: ", sentiment_analysis)
+              jsonData["hub"]["satellite"]["scenes_detected"][i]["sentiment_analysis"] = sentiment_analysis
+              
+           except spreg.UnknownValueError:
+              print('Unable to recognize the audio in scene ' + str(i + 1))
+           except spreg.RequestError as e: 
+              print("Request error from Google Speech Recognition service; {}".format(e))
+        
+def get_audio_file(args):
     video = moviepy.editor.VideoFileClip(args["targetVideo"])
 
     audio = video.audio
@@ -203,29 +241,6 @@ def run_speech_recognition(args, jsonData):
     
     video.reader.close()
     video.audio.reader.close_proc()
-    
-    sound_file = args["wavFileLocation"]
-    recog = spreg.Recognizer()
-    with spreg.AudioFile(sound_file) as source:
-       speech = recog.record(source) 
-       print("\n")
-       print("Running speech recognition..")
-       try:
-          text = recog.recognize_google(speech)
-          print("\n")
-          print(text)
-          jsonData["hub"]["satellite"]["speech_recognition"] = text
-          
-          sid = SentimentIntensityAnalyzer()
-          sentiment_analysis = sid.polarity_scores(text)
-          print("\n")
-          print("sentiment_analysis: ", sentiment_analysis)
-          jsonData["hub"]["satellite"]["sentiment_analysis"] = sentiment_analysis
-          
-       except spreg.UnknownValueError:
-          print('Unable to recognize the audio')
-       except spreg.RequestError as e: 
-          print("Request error from Google Speech Recognition service; {}".format(e))
       
 def extract_features(frame, outputFolder, i):
     ##img = cv2.imread(frame)
