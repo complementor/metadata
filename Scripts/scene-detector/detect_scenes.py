@@ -34,25 +34,27 @@ import argparse
 
 ap = argparse.ArgumentParser()
 
-ap.add_argument("-v", "--video", required=True, type=str,
+ap.add_argument("-v", "--video", required=False, type=str, default="P:/resources/YoutubeToBeProcessed/",
                 help="path to input video file")
 
-ap.add_argument("-o", "--output", required=True, type=str,
+ap.add_argument("-o", "--output", required=False, type=str, default="P:/resources/YoutubeToBeProcessed/metadata/",
                 help="path to output directory")
+
 
 consoleArgs = vars(ap.parse_args())
 
-# example: --video videos/football.mp4 --output output/
+# example: --video P:/resources/YoutubeToBeProcessed/5267249c-c0db-43cb-80d6-ddd3c2a2beeb.mp4 --output P:/resources/YoutubeToBeProcessed/metadata
 
-fileName = consoleArgs["video"].rsplit('/', 1)[-1]
+fileName = consoleArgs["video"].rsplit('\\', 1)[-1]
+print("show me",fileName)
 fileName = fileName.split('.')[0]
-
+print("show me",fileName)
 args = {
     "targetVideo": consoleArgs["video"],
     "outputFolder": consoleArgs["output"],
     "outputJsonFile": str(fileName + ".json"),
-    "mp3FileLocation": str(consoleArgs["output"] + "audio.mp3"),
-    "wavFileLocation": str(consoleArgs["output"] + "audioConverted.wav"),
+    "mp3FileLocation": str(consoleArgs["output"] + "audio/" +  fileName + ".mp3"),
+    "wavFileLocation": str(consoleArgs["output"] + "audio/" +  fileName + ".wav"),
     "startAnalysis": 20,
     "endAnalysis": 2000000000000000000.0,
     "sceneThreshold": 30,
@@ -161,7 +163,7 @@ class Detect_scenes:
                 
                 self.__detect_optical_character_recognition(frame, jsonData, i, scene)
                 
-                self.__run_speech_recognition_on_scene(args, jsonData, scene, i)
+                self.__run_speech_recognition_on_scene(args, jsonData, scene, i, fileName)
           
     def __add_new_algorithm_satellite(self, jsonData, algorithmName):
         jsonData["hub"]["satellite"].append({
@@ -193,24 +195,27 @@ class Detect_scenes:
         image = frame.copy()
         #image = cv2.imread("./testocr.png")
         
-        pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+        pytesseract.pytesseract.tesseract_cmd = r'tesseract/tesseract.exe'
         text = pytesseract.image_to_string(image, lang='eng')
         
         self.__add_object_to_algorithm_satellite(scene, jsonData, i, "optical_character_recognition", text, 1)
         
-    def __run_speech_recognition_on_scene(self, args, jsonData, scene, i):   
+    def __run_speech_recognition_on_scene(self, args, jsonData, scene, i, fileName):   
         scene_start = scene[0].get_timecode()
         scene_end = scene[1].get_timecode()
         start = (datetime.strptime(scene_start+'000', '%H:%M:%S.%f') - datetime.strptime('00', '%H')).total_seconds()*1000
         end = (datetime.strptime(scene_end+'000', '%H:%M:%S.%f') - datetime.strptime('00', '%H')).total_seconds()*1000
         
-        audioFile = AudioSegment.from_file(args["outputFolder"] + "audioConverted.wav")
-        
-        fileName = "scene_" + str(i + 1) + ".wav"
-        fileLocation = args["outputFolder"] + fileName
+        print(str("Zi-mi cei aici :/" + args["wavFileLocation"]))
+        audioFile = AudioSegment.from_file(str(args["wavFileLocation"]))
+
+        print(str("Zi-mi cei aici :/" + args["wavFileLocation"]))
+        audiofileSegmentName = str(fileName + "_") + str(i + 1) + ".wav"
+        fileLocation = args["outputFolder"] + str("audio/" + audiofileSegmentName)
         slice = audioFile[start:end]
         slice.export(fileLocation, format="wav")
           
+        print(str("Zi-mi cei aici :/" + fileLocation)) 
         recog = spreg.Recognizer()
         with spreg.AudioFile(fileLocation) as source:
            speech = recog.record(source) 

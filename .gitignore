@@ -23,3 +23,11 @@ Scripts/QueryMongo/QueryMongo/obj/project.assets.json
 Scripts/QueryMongo/QueryMongo/obj/QueryMongo.csproj.nuget.dgspec.json
 Scripts/QueryMongo/QueryMongo/obj/QueryMongo.csproj.nuget.g.props
 Scripts/QueryMongo/QueryMongo/obj/QueryMongo.csproj.nuget.g.targets
+Scripts/QueryMongo/.vs/QueryMongo/DesignTimeBuild/.dtbcache
+Scripts/QueryMongo/.vs/QueryMongo/v16/Server/sqlite3/db.lock
+Scripts/QueryMongo/.vs/QueryMongo/v16/Server/sqlite3/storage.ide
+Scripts/QueryMongo/.vs/QueryMongo/v16/Server/sqlite3/storage.ide-shm
+Scripts/QueryMongo/.vs/QueryMongo/v16/Server/sqlite3/storage.ide-wal
+Scripts/QueryMongo/.vs/QueryMongo/v16/TestStore/0/000-0000.testlog
+Scripts/QueryMongo/.vs/QueryMongo/v16/TestStore/0/testlog.manifest
+Scripts/.vscode/launch.json
