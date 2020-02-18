@@ -1,7 +1,10 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using static QueryMongo.MongoModel;
 
 namespace QueryMongo
 {
@@ -22,25 +25,63 @@ namespace QueryMongo
             BsonDocument extendedDocument, string indexName)
         {
             var builder = Builders<BsonDocument>.Filter;
-            IMongoCollection<BsonDocument> collection = InitializeDatabase(initialDocument, mongoCollection);
+            IMongoCollection<BsonDocument> collection = UpsertDocumentToCollection(initialDocument, mongoCollection);
 
-            Func<FilterDefinition<BsonDocument>> filter = () => builder.Eq("hub.satellite.video_information.scenes", 50);
+            Func<FilterDefinition<BsonDocument>> filter = () => builder.Eq("hub.date", "14-02-2020 13:50:23");
 
-            Console.WriteLine(@"Apply the query:  SELECT * FROM document");
-            var initialHub = collection.Find(filter.Invoke()).First().AsBsonDocument;
-            Console.WriteLine($"Initial document : {initialHub}");
+            //Console.WriteLine(@"Apply the query:  SELECT COUNT(*) FROM document WHERE date=""14 - 02 - 2020 13:50:23""");
+            //var initialHub = collection.Find(filter.Invoke())?.First()?.AsBsonDocument;
+            //PrinJsonFormat(initialHub);
 
             collection.ReplaceOne(filter.Invoke(), extendedDocument);
             Console.WriteLine($" ");
-            Console.WriteLine($"Document is extended with: {indexName}");
+            Console.WriteLine($"Extract and Index: {indexName}");
             Console.WriteLine($" ");
 
-            Console.WriteLine(@"Apply the query: SELECT * FROM document");
+            Console.WriteLine(@"SELECT COUNT(*) FROM document WHERE scene=1");
             var documentAfterUpdate = collection.Find(filter.Invoke()).First().AsBsonDocument;
-            Console.WriteLine($"Extended document: {documentAfterUpdate}");
+            PrintTotalNumber(documentAfterUpdate);
+            Console.WriteLine(@"SELECT satellites FROM document WHERE scene=1");
+            PrintTheSatellites(documentAfterUpdate);
 
             Console.ReadLine();
         }
+
+        private static void PrintTheSatellites(BsonDocument initialHub)
+        {
+            var s = BsonSerializer.Deserialize<Rootobject>(initialHub.ToJson());
+            PrintSatellites(s.hub.satellite.ToList());
+        }
+
+        private static void PrintTotalNumber(BsonDocument initialHub)
+        {
+            var s = BsonSerializer.Deserialize<Rootobject>(initialHub.ToJson());
+            Console.WriteLine(s.hub.satellite.ToList().Count());
+        }
+        private static void PrintSatellites(List<Satellite> satellites)
+        {
+            foreach (var satellite in satellites)
+            {
+                if (satellite.optical_character_recognition != null)
+                {
+                    Console.Write($"OCR;");
+                    //Console.Write($"OCR: {satellite.optical_character_recognition?.Count}; ");
+                }
+                if (satellite.speech_recognition != null)
+                {
+                    Console.Write($"Speech;");
+                }
+                if (satellite.sentiment_analysis != null)
+                {
+                    Console.Write($"Sentiment;");
+                }
+                if (satellite.objects != null)
+                {
+                    Console.Write($"Objects;");
+                }
+            }
+        }
+
 
         private static IMongoCollection<BsonDocument> GetMongoDbCollection(string collectionName)
         {
@@ -55,7 +96,7 @@ namespace QueryMongo
             return database.GetCollection<BsonDocument>(collectionName);
         }
 
-        private static IMongoCollection<BsonDocument> InitializeDatabase(BsonDocument hubWithScenes, IMongoCollection<BsonDocument> collection)
+        private static IMongoCollection<BsonDocument> UpsertDocumentToCollection(BsonDocument hubWithScenes, IMongoCollection<BsonDocument> collection)
         {
             var filter = Builders<BsonDocument>.Filter.Exists("hub");
             var result = collection.Find(filter).ToList();
