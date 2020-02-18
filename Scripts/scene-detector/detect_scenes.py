@@ -30,12 +30,29 @@ import nltk
 nltk.download('vader_lexicon')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
+import argparse
+
+ap = argparse.ArgumentParser()
+
+ap.add_argument("-v", "--video", required=True, type=str,
+                help="path to input video file")
+
+ap.add_argument("-o", "--output", required=True, type=str,
+                help="path to output directory")
+
+consoleArgs = vars(ap.parse_args())
+
+# example: --video videos/football.mp4 --output output/
+
+fileName = consoleArgs["video"].rsplit('/', 1)[-1]
+fileName = fileName.split('.')[0]
+
 args = {
-    "targetVideo": "videos/football.mp4",
-    "outputFolder": "output/",
-    "outputJsonFile": "document_id.json",
-    "mp3FileLocation": "output/audio.mp3",
-    "wavFileLocation": "output/audioConverted.wav",
+    "targetVideo": consoleArgs["video"],
+    "outputFolder": consoleArgs["output"],
+    "outputJsonFile": str(fileName + ".json"),
+    "mp3FileLocation": str(consoleArgs["output"] + "audio.mp3"),
+    "wavFileLocation": str(consoleArgs["output"] + "audioConverted.wav"),
     "startAnalysis": 20,
     "endAnalysis": 2000000000000000000.0,
     "sceneThreshold": 30,
@@ -60,7 +77,6 @@ def main():
 
     # build json structure. 
     jsonDictionary = {
-        "document_id": "guid",
         "hub": {
            "date": datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
            "satellite": []
