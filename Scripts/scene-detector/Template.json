@@ -12,6 +12,14 @@
                         "frameStart": 20,
                         "frameEnd": 344,
                         "value": ""
+                    },
+                    {
+                        "scene": 2,
+                        "start": "00:00:00.834",
+                        "end": "00:00:14.348",
+                        "frameStart": 20,
+                        "frameEnd": 344,
+                        "value": ""
                     }
                 ]
             },

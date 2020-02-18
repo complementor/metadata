@@ -30,6 +30,12 @@ import nltk
 nltk.download('vader_lexicon')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
+#conda install -c conda-forge ffmpeg
+
+#from multiprocessing import Process
+#import multiprocessing as mp
+#print("Number of processors: ", mp.cpu_count())
+
 args = {
     "targetVideo": "videos/football.mp4",
     "outputFolder": "output/",
@@ -60,10 +66,19 @@ def main():
 
     # build json structure. 
     jsonDictionary = {
-        "document_id": "guid",
+        "document_id": 'guid',
         "hub": {
            "date": datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
-           "satellite": []
+           "satellite": {
+               "video_information": {
+                   "scenes": 0,
+                   "frames": 0,
+                   "duration": "",
+                   "subtitles": []
+                },
+                "collaborative_metadata": [],
+                "scenes_detected": []
+            }
         }
     }
     
@@ -115,15 +130,6 @@ class Detect_scenes:
         # obtain list of detected scenes.
         scene_list = scene_manager.get_scene_list(base_timecode)
         
-        # add chosen algorithms to the structure as satellites
-        self.__add_new_algorithm_satellite(jsonData, "common_objects")
-        
-        self.__add_new_algorithm_satellite(jsonData, "optical_character_recognition")
-        
-        self.__add_new_algorithm_satellite(jsonData, "speech_recognition")
-        
-        self.__add_new_algorithm_satellite(jsonData, "sentiment_analysis")
-        
         # iterate the list of scenes.
         print("\n")
         print('List of scenes obtained:')
@@ -139,48 +145,55 @@ class Detect_scenes:
             (captured, frame) = vc.read()
             
             if captured:
-                              
-                # run algorithms on current scene              
-                self.__detect_common_objects(frame, jsonData, i, scene)
                 
-                self.__detect_optical_character_recognition(frame, jsonData, i, scene)
+                # video information
+                jsonData["hub"]["satellite"]["video_information"]["scenes"] = i + 1
+                jsonData["hub"]["satellite"]["video_information"]["frames"] = scene[1].get_frames()
+                jsonData["hub"]["satellite"]["video_information"]["duration"] = scene[1].get_timecode()
+                
+                # run algorithms on current scene
+                self.__create_scene_json_object(scene, jsonData, i)
+                
+                self.__detect_common_objects(frame, jsonData, i)
+                
+                self.__detect_optical_character_recognition(frame, jsonData, i)
                 
                 self.__run_speech_recognition_on_scene(args, jsonData, scene, i)
+                
+                #extract_features(frame, outputFolder, i)
           
-    def __add_new_algorithm_satellite(self, jsonData, algorithmName):
-        jsonData["hub"]["satellite"].append({
-            "{}".format(algorithmName): []
-        })    
-
-    def __add_object_to_algorithm_satellite(self, scene, jsonData, i, algorithmName, value, number):
-        jsonData["hub"]["satellite"][number][algorithmName].append({
-            "scene": i + 1,
-            "start": scene[0].get_timecode(),
-            "end": scene[1].get_timecode(),
-            "frameStart": scene[0].get_frames(),
-            "frameEnd": scene[1].get_frames(),
-            "value": value
-        })                
+    def __create_scene_json_object(self, scene, jsonData, i):
+        jsonData["hub"]["satellite"]["scenes_detected"].append({
+            'scene': i + 1,
+            'start': scene[0].get_timecode(),
+            'end': scene[1].get_timecode(),
+            'frameStart': scene[0].get_frames(),
+            'frameEnd': scene[1].get_frames(),
+            "optical_character_recognition": "",
+            "speech_recognition": "",
+            "sentiment_analysis": "",
+            'objects': []
+        })                   
             
-    def __detect_common_objects(self, frame, jsonData, i, scene):
-              
+    def __detect_common_objects(self, frame, jsonData, i):
         bbox, label, conf1 = cv.detect_common_objects(frame.copy())
-        
-        value = []
+    
         for l, c, xy in zip(label, conf1, bbox):
-            value.append({'label': l,'confidence': c })
-            
-        self.__add_object_to_algorithm_satellite(scene, jsonData, i, "common_objects", value, 0)
+            jsonData["hub"]["satellite"]["scenes_detected"][i]['objects'].append({
+                'label': l,
+                'confidence': c,
+                #'bbox': xy
+            })
          
        
-    def __detect_optical_character_recognition(self, frame, jsonData, i, scene):
+    def __detect_optical_character_recognition(self, frame, jsonData, i):
         image = frame.copy()
         #image = cv2.imread("./testocr.png")
         
         pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
         text = pytesseract.image_to_string(image, lang='eng')
         
-        self.__add_object_to_algorithm_satellite(scene, jsonData, i, "optical_character_recognition", text, 1)
+        jsonData["hub"]["satellite"]["scenes_detected"][i]['optical_character_recognition'] = text
         
     def __run_speech_recognition_on_scene(self, args, jsonData, scene, i):   
         scene_start = scene[0].get_timecode()
@@ -188,7 +201,7 @@ class Detect_scenes:
         start = (datetime.strptime(scene_start+'000', '%H:%M:%S.%f') - datetime.strptime('00', '%H')).total_seconds()*1000
         end = (datetime.strptime(scene_end+'000', '%H:%M:%S.%f') - datetime.strptime('00', '%H')).total_seconds()*1000
         
-        audioFile = AudioSegment.from_file(args["outputFolder"] + "audioConverted.wav")
+        audioFile = AudioSegment.from_file("output/audioConverted.wav")
         
         fileName = "scene_" + str(i + 1) + ".wav"
         fileLocation = args["outputFolder"] + fileName
@@ -204,22 +217,18 @@ class Detect_scenes:
               text = recog.recognize_google(speech)
               print("\n")
               print(text)
+              jsonData["hub"]["satellite"]["scenes_detected"][i]["speech_recognition"] = text
               
-              self.__add_object_to_algorithm_satellite(scene, jsonData, i, "speech_recognition", text, 2)
-              
-              self.__run_sentiment_analysis(jsonData, text, i, scene)
+              sid = SentimentIntensityAnalyzer()
+              sentiment_analysis = sid.polarity_scores(text)
+              print("\n")
+              print("sentiment_analysis: ", sentiment_analysis)
+              jsonData["hub"]["satellite"]["scenes_detected"][i]["sentiment_analysis"] = sentiment_analysis
               
            except spreg.UnknownValueError:
               print('Unable to recognize the audio in scene ' + str(i + 1))
            except spreg.RequestError as e: 
               print("Request error from Google Speech Recognition service; {}".format(e))
-              
-    def __run_sentiment_analysis(self, jsonData, text, i, scene):
-        sid = SentimentIntensityAnalyzer()
-        sentiment_analysis = sid.polarity_scores(text)
-        print("\n")
-        print("sentiment_analysis: ", sentiment_analysis)
-        self.__add_object_to_algorithm_satellite(scene, jsonData, i, "sentiment_analysis", sentiment_analysis, 3)
         
 def get_audio_file(args):
     video = moviepy.editor.VideoFileClip(args["targetVideo"])
@@ -232,6 +241,18 @@ def get_audio_file(args):
     
     video.reader.close()
     video.audio.reader.close_proc()
+      
+def extract_features(frame, outputFolder, i):
+    ##img = cv2.imread(frame)
+    gray= cv2.cvtColor(frame.copy(),cv2.COLOR_BGR2GRAY)
+    
+    sift = cv.xfeatures2d.SIFT_create()
+    kp, des = sift.detectAndCompute(gray,None)
+    
+    img=cv2.drawKeypoints(gray,kp)
+    
+    cv2.imwrite(outputFolder + "{}.jpg".format(i), img)
+
 
 if __name__ == "__main__":
     main()
