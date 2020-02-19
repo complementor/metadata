@@ -1,0 +1,37 @@
+P:\Project Backups\QueryMongoConsoleApp\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\QueryMongo.exe
+P:\Project Backups\QueryMongoConsoleApp\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\QueryMongo.deps.json
+P:\Project Backups\QueryMongoConsoleApp\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\QueryMongo.runtimeconfig.json
+P:\Project Backups\QueryMongoConsoleApp\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\QueryMongo.runtimeconfig.dev.json
+P:\Project Backups\QueryMongoConsoleApp\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\QueryMongo.dll
+P:\Project Backups\QueryMongoConsoleApp\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\QueryMongo.pdb
+P:\Project Backups\QueryMongoConsoleApp\QueryMongo\QueryMongo\obj\Debug\netcoreapp3.1\QueryMongo.csprojAssemblyReference.cache
+P:\Project Backups\QueryMongoConsoleApp\QueryMongo\QueryMongo\obj\Debug\netcoreapp3.1\QueryMongo.AssemblyInfoInputs.cache
+P:\Project Backups\QueryMongoConsoleApp\QueryMongo\QueryMongo\obj\Debug\netcoreapp3.1\QueryMongo.AssemblyInfo.cs
+P:\Project Backups\QueryMongoConsoleApp\QueryMongo\QueryMongo\obj\Debug\netcoreapp3.1\QueryMongo.dll
+P:\Project Backups\QueryMongoConsoleApp\QueryMongo\QueryMongo\obj\Debug\netcoreapp3.1\QueryMongo.pdb
+P:\Project Backups\QueryMongoConsoleApp\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\DnsClient.dll
+P:\Project Backups\QueryMongoConsoleApp\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\MongoDB.Bson.dll
+P:\Project Backups\QueryMongoConsoleApp\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\MongoDB.Driver.dll
+P:\Project Backups\QueryMongoConsoleApp\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\MongoDB.Driver.Core.dll
+P:\Project Backups\QueryMongoConsoleApp\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\MongoDB.Libmongocrypt.dll
+P:\Project Backups\QueryMongoConsoleApp\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\SharpCompress.dll
+P:\Project Backups\QueryMongoConsoleApp\QueryMongo\QueryMongo\obj\Debug\netcoreapp3.1\QueryMongo.csproj.CopyComplete
+P:\src\Scripts\QueryMongo\QueryMongo\obj\Debug\netcoreapp3.1\QueryMongo.csprojAssemblyReference.cache
+P:\src\Scripts\QueryMongo\QueryMongo\obj\Debug\netcoreapp3.1\QueryMongo.AssemblyInfoInputs.cache
+P:\src\Scripts\QueryMongo\QueryMongo\obj\Debug\netcoreapp3.1\QueryMongo.AssemblyInfo.cs
+P:\src\Scripts\QueryMongo\QueryMongo\obj\Debug\netcoreapp3.1\QueryMongo.dll
+P:\src\Scripts\QueryMongo\QueryMongo\obj\Debug\netcoreapp3.1\QueryMongo.pdb
+P:\src\Scripts\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\QueryMongo.exe
+P:\src\Scripts\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\QueryMongo.deps.json
+P:\src\Scripts\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\QueryMongo.runtimeconfig.json
+P:\src\Scripts\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\QueryMongo.runtimeconfig.dev.json
+P:\src\Scripts\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\QueryMongo.dll
+P:\src\Scripts\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\QueryMongo.pdb
+P:\src\Scripts\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\DnsClient.dll
+P:\src\Scripts\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\MongoDB.Bson.dll
+P:\src\Scripts\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\MongoDB.Driver.dll
+P:\src\Scripts\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\MongoDB.Driver.Core.dll
+P:\src\Scripts\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\MongoDB.Libmongocrypt.dll
+P:\src\Scripts\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\SharpCompress.dll
+P:\src\Scripts\QueryMongo\QueryMongo\obj\Debug\netcoreapp3.1\QueryMongo.csproj.CopyComplete
+P:\src\Scripts\QueryMongo\QueryMongo\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
