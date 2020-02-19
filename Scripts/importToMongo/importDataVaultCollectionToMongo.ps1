@@ -1,2 +1,6 @@
-$fileFullName = "P:\src\Metadata\DataVaultDocumentCollection\MongoImport.json"
-& "C:\Program Files\MongoDB\Server\4.2\bin\mongoimport.exe" --db metadata --collection links $fileFullName --jsonArray
+#beware this will override the indexes creted so far
+$generic = "P:\src\Metadata\DataVaultDocumentCollection\MongoImport.json"
+& "C:\Program Files\MongoDB\Server\4.2\bin\mongoimport.exe" --db metadata --collection generic $generic --jsonArray
+
+$features = "P:\src\Metadata\DataVaultDocumentCollection\FeatureCollection.json"
+& "C:\Program Files\MongoDB\Server\4.2\bin\mongoimport.exe" --db metadata --collection features $features --jsonArray

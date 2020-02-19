@@ -61,6 +61,10 @@ args = {
     "minSceneLength": 1
 }
 
+print("show me folder",[args["outputJsonFile"]])
+print("show me mp3 ",[args["mp3FileLocation"]])
+print("show me wav",[args["wavFileLocation"]])
+
 def main():
     # start execution timer
     startTime = datetime.now()
@@ -79,6 +83,7 @@ def main():
 
     # build json structure. 
     jsonDictionary = {
+        "Id": fileName,     
         "hub": {
            "date": datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
            "satellite": []
@@ -195,7 +200,7 @@ class Detect_scenes:
         image = frame.copy()
         #image = cv2.imread("./testocr.png")
         
-        pytesseract.pytesseract.tesseract_cmd = r'tesseract/tesseract.exe'
+        pytesseract.pytesseract.tesseract_cmd = r'P:/src/Scripts/scene-detector/tesseract/tesseract.exe'
         text = pytesseract.image_to_string(image, lang='eng')
         
         self.__add_object_to_algorithm_satellite(scene, jsonData, i, "optical_character_recognition", text, 1)
