@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,11 +8,12 @@ namespace MongoDbAccessLayer.Models
 {
     public class Features
     {
-        public class Link
-        {
-            public ObjectId _id { get; set; }
-            public Hub hub { get; set; }
-        }
+        [BsonId]
+        public ObjectId _id { get; set; }
+        [BsonElement("Id")]
+        public string Id { get; set; }
+        public Hub hub { get; set; }
+        public double score { get; set; }
 
         public class Hub
         {
@@ -24,6 +26,7 @@ namespace MongoDbAccessLayer.Models
             public List<Optical_Character_Recognition> optical_character_recognition { get; set; }
             public List<Speech_Recognition> speech_recognition { get; set; }
             public List<Sentiment_Analysis> sentiment_analysis { get; set; }
+            [BsonElement("common_objects")]
             public List<Object> objects { get; set; }
         }
 
@@ -80,6 +83,7 @@ namespace MongoDbAccessLayer.Models
             public string label { get; set; }
             public float confidence { get; set; }
         }
+
 
     }
 }

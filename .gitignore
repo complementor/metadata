@@ -50,3 +50,7 @@ Tools/WebApp/WebApplication/MongoDbAccessLayer/obj/MongoDbAccessLayer.csproj.nug
 Tools/WebApp/WebApplication/MongoDbAccessLayer/obj/MongoDbAccessLayer.csproj.nuget.g.targets
 Tools/WebApp/WebApplication/MongoDbAccessLayer/obj/project.assets.json
 Tools/WebApp/WebApplication/Interface/wwwroot/node_modules/
+Tools/ExtractGenericMetadata/MediaOntologyMapping/.vs/MediaOntologyMapping/v16/Server/sqlite3/storage.ide-wal
+Tools/ExtractGenericMetadata/MediaOntologyMapping/.vs/MediaOntologyMapping/v16/Server/sqlite3/storage.ide-shm
+Tools/QueryMongo/.vs/QueryMongo/v16/Server/sqlite3/storage.ide-wal
+Tools/QueryMongo/.vs/QueryMongo/v16/Server/sqlite3/storage.ide-shm

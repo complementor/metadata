@@ -22,19 +22,31 @@ namespace QueryMongo
             Console.WriteLine($"Connect to database");
             database = client.GetDatabase("metadata");
 
-            var mongoCollection = database.GetCollection<BsonDocument>("features");
-            var builder = Builders<BsonDocument>.Filter;
-
+            //var mongoCollection = database.GetCollection<BsonDocument>("features");
+            //var builder = Builders<BsonDocument>.Filter;
             TextSearchOptions textSearchOptions = new TextSearchOptions() { CaseSensitive = false, DiacriticSensitive = false, Language = "english" };
-            var filter = builder.Text("cow", textSearchOptions);
-            var projection = Builders<BsonDocument>.Projection.MetaTextScore("score");
-            var sort = Builders<BsonDocument>.Sort.MetaTextScore("score");
-            var sortedResult = mongoCollection
-                .Find(filter)
-                .Project<MongoModel>(projection)
-                .Sort(sort)
-                .ToList();
+            //var filter = builder.Text("cow", textSearchOptions);
+            //var projection = Builders<BsonDocument>.Projection.MetaTextScore("score");
+            //var sort = Builders<BsonDocument>.Sort.MetaTextScore("score");
+            //var sortedResult = mongoCollection
+            //    .Find(filter)
+            //    .Project<MongoModel>(projection)
+            //    .Sort(sort)
+            //    .ToList();
 
+
+
+            var genericCollection = database.GetCollection<BsonDocument>("links");
+            var builder1 = Builders<BsonDocument>.Filter;
+            TextSearchOptions textSearchOptions1 = new TextSearchOptions() { CaseSensitive = false, DiacriticSensitive = false, Language = "english" };
+            var filter1 = builder1.Text("cow", textSearchOptions);
+            var projection1 = Builders<BsonDocument>.Projection.MetaTextScore("score");
+            var sort1 = Builders<BsonDocument>.Sort.MetaTextScore("score");
+            var sortedResult1 = genericCollection
+                .Find(filter1)
+                .Project<GenericDocument>(projection1)
+                .Sort(sort1)
+                .ToList();
 
 
             //var mongoCollection = GetMongoDbCollection("test");
