@@ -199,8 +199,7 @@ class Detect_scenes:
     def __detect_optical_character_recognition(self, frame, jsonData, i, scene):
         image = frame.copy()
         #image = cv2.imread("./testocr.png")
-        
-        pytesseract.pytesseract.tesseract_cmd = r'P:/src/Scripts/scene-detector/tesseract/tesseract.exe'
+        pytesseract.pytesseract.tesseract_cmd = r'P:/src/Tools/ExtractFeaturesMetadata/tesseract/tesseract.exe'
         text = pytesseract.image_to_string(image, lang='eng')
         
         self.__add_object_to_algorithm_satellite(scene, jsonData, i, "optical_character_recognition", text, 1)
@@ -211,16 +210,13 @@ class Detect_scenes:
         start = (datetime.strptime(scene_start+'000', '%H:%M:%S.%f') - datetime.strptime('00', '%H')).total_seconds()*1000
         end = (datetime.strptime(scene_end+'000', '%H:%M:%S.%f') - datetime.strptime('00', '%H')).total_seconds()*1000
         
-        print(str("Zi-mi cei aici :/" + args["wavFileLocation"]))
         audioFile = AudioSegment.from_file(str(args["wavFileLocation"]))
 
-        print(str("Zi-mi cei aici :/" + args["wavFileLocation"]))
         audiofileSegmentName = str(fileName + "_") + str(i + 1) + ".wav"
         fileLocation = args["outputFolder"] + str("audio/" + audiofileSegmentName)
         slice = audioFile[start:end]
         slice.export(fileLocation, format="wav")
           
-        print(str("Zi-mi cei aici :/" + fileLocation)) 
         recog = spreg.Recognizer()
         with spreg.AudioFile(fileLocation) as source:
            speech = recog.record(source) 
