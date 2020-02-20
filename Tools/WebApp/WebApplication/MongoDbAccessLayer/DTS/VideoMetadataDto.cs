@@ -1,16 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
-namespace MongoDbAccessLayer
+namespace MongoDbAccessLayer.DTS
 {
-    public class VideoInfoDto
-    {
-        public Guid VideoId { get; set; }
-        public string Title { get; set; }
-        public string Stadnard { get; set; }
-        public string Duration { get; set; }
-    }
-
     public class VideoMetadataDto
     {
         public string Title { get; set; }
@@ -41,7 +33,6 @@ namespace MongoDbAccessLayer
         public Sentiment Sentiment { get; set; }
         public List<CommonObject> Objects { get; set; }
     }
-
     public class Sentiment
     {
         public double Negative { get; set; }
