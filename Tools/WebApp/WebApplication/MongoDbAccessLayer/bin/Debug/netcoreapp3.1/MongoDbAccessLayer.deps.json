@@ -7,6 +7,11 @@
   "targets": {
     ".NETCoreApp,Version=v3.1": {
       "MongoDbAccessLayer/1.0.0": {
+<<<<<<< HEAD
+        "runtime": {
+          "MongoDbAccessLayer.dll": {}
+        }
+=======
         "dependencies": {
           "Microsoft.Extensions.Configuration": "3.1.2",
           "Microsoft.Extensions.Options": "3.1.2",
@@ -1097,6 +1102,7 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0"
         }
+>>>>>>> c0f3fa3883e8183224b03c55ccb6dbdb48d09594
       }
     }
   },
@@ -1105,6 +1111,8 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+<<<<<<< HEAD
+=======
     },
     "DnsClient/1.2.0": {
       "type": "package",
@@ -1868,6 +1876,7 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+>>>>>>> c0f3fa3883e8183224b03c55ccb6dbdb48d09594
     }
   }
 }

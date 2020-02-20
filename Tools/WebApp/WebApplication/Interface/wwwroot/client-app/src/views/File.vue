@@ -17,22 +17,14 @@
       <v-col cols="12" md="4"></v-col>
     </v-row>
 
-    <!-- <v-btn @click="GoToHome" class="mx-2 video__goback" fab dark small color="indigo lighten-1">
-      <v-icon dark>arrow_back</v-icon>
-    </v-btn>-->
-
-    <!-- <el-card>
-      <iframe width="100%" height="500" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-    </el-card>-->
-    <!-- {{$route.params.guid}} -->
-
+    <!-- {{currentFile}} -->
     <h4>
-      <v-icon style="padding-right:0.5rem">ondemand_video</v-icon>file name
+      <v-icon style="padding-right:0.5rem">ondemand_video</v-icon>
+      {{currentFile.title}}
     </h4>
 
     <br />
-    <v-card>
-      <!-- <v-banner>Scenes</v-banner> -->
+    <v-card :loading="loading">
       <v-card-title>
         <v-text-field append-icon="search" label="Search" single-line hide-details></v-text-field>
       </v-card-title>
@@ -41,7 +33,7 @@
           <thead>
             <tr>
               <th class="text-left">Scene number</th>
-              <th class="text-left">Common objects</th>
+              <th class="text-left">Objects</th>
               <th class="text-left">Optical character recognition</th>
               <th class="text-left">Speech recognition</th>
               <th class="text-left"></th>
@@ -88,6 +80,8 @@ export default {
 
   data: () => ({
     dialog: false,
+    loading: false,
+    currentFile: "",
     desserts: [
         {
           name: 'Frozen Yogurt',
@@ -102,7 +96,24 @@ export default {
       ],
   }),
 
+  created () {
+    this.GetFileByGuid();
+  },
+
   methods: {
+    GetFileByGuid () {
+      //this.loading = true;
+      this.$store.dispatch("GetFileByGuid", this.$route.params.guid)
+      .then(response => {
+        this.currentFile = response.data;
+        this.loading = false;
+      })
+      .catch(errors => { 
+        this.snackBar = true;
+        this.snackBarText = errors;
+        this.loading = false;
+      });
+    },
     GoToHome () {
       this.$router.push({ name: 'home' });
     },

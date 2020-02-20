@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Video from '../views/Video.vue'
+import File from '../views/File.vue'
 
 Vue.use(VueRouter)
 
@@ -14,7 +14,7 @@ const routes = [
   {
     path: '/file/:guid',
     name: 'video',
-    component: Video
+    component: File
   },
   // {
   //   path: '/about',
