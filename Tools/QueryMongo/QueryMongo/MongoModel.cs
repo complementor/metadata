@@ -1,16 +1,17 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System.Collections.Generic;
 
 namespace QueryMongo
 {
-    class MongoModel
+    public class MongoModel
     {
-
-        public class Rootobject
-        {
-            public ObjectId _id { get; set; }
-            public Hub hub { get; set; }
-        }
+        [BsonId]
+        public ObjectId _id { get; set; }
+        [BsonElement("Id")]
+        public string Id { get; set; }
+        public Hub hub { get; set; }
+        public double score { get; set; }
 
         public class Hub
         {
@@ -23,6 +24,7 @@ namespace QueryMongo
             public List<Optical_Character_Recognition> optical_character_recognition { get; set; }
             public List<Speech_Recognition> speech_recognition { get; set; }
             public List<Sentiment_Analysis> sentiment_analysis { get; set; }
+            [BsonElement("common_objects")]
             public List<Object> objects { get; set; }
         }
 
