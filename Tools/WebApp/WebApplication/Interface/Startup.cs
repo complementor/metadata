@@ -29,10 +29,6 @@ namespace Interface
         {
             services.AddControllersWithViews();
 
-            //services.AddMvc().AddJsonOptions(options => {
-            //    options.JsonSerializerOptions.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-            //});
-
             services.AddCors();
         }
 
