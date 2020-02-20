@@ -49,16 +49,4 @@ Tools/WebApp/WebApplication/MongoDbAccessLayer/obj/MongoDbAccessLayer.csproj.nug
 Tools/WebApp/WebApplication/MongoDbAccessLayer/obj/MongoDbAccessLayer.csproj.nuget.g.props
 Tools/WebApp/WebApplication/MongoDbAccessLayer/obj/MongoDbAccessLayer.csproj.nuget.g.targets
 Tools/WebApp/WebApplication/MongoDbAccessLayer/obj/project.assets.json
-Tools/WebApp/WebApplication/MongoDbAccessLayer/bin/Debug/netcoreapp3.1/MongoDbAccessLayer.deps.json
-Tools/WebApp/WebApplication/MongoDbAccessLayer/obj/Debug/netcoreapp3.1/MongoDbAccessLayer.csproj.FileListAbsolute.txt
-Tools/WebApp/WebApplication/MongoDbAccessLayerTest/bin/Debug/netcoreapp3.1/MongoDbAccessLayerTest.deps.json
-Tools/WebApp/WebApplication/MongoDbAccessLayerTest/bin/Debug/netcoreapp3.1/MongoDbAccessLayerTest.runtimeconfig.dev.json
-Tools/WebApp/WebApplication/MongoDbAccessLayerTest/bin/Debug/netcoreapp3.1/MongoDbAccessLayerTest.runtimeconfig.json
-Tools/WebApp/WebApplication/MongoDbAccessLayerTest/bin/Debug/netcoreapp3.1/nunit_random_seed.tmp
-Tools/WebApp/WebApplication/MongoDbAccessLayerTest/obj/Debug/netcoreapp3.1/MongoDbAccessLayerTest.AssemblyInfo.cs
-Tools/WebApp/WebApplication/MongoDbAccessLayerTest/obj/Debug/netcoreapp3.1/MongoDbAccessLayerTest.csproj.CopyComplete
-Tools/WebApp/WebApplication/MongoDbAccessLayerTest/obj/Debug/netcoreapp3.1/MongoDbAccessLayerTest.csproj.FileListAbsolute.txt
-Tools/WebApp/WebApplication/MongoDbAccessLayerTest/obj/MongoDbAccessLayerTest.csproj.nuget.dgspec.json
-Tools/WebApp/WebApplication/MongoDbAccessLayerTest/obj/MongoDbAccessLayerTest.csproj.nuget.g.props
-Tools/WebApp/WebApplication/MongoDbAccessLayerTest/obj/MongoDbAccessLayerTest.csproj.nuget.g.targets
-Tools/WebApp/WebApplication/MongoDbAccessLayerTest/obj/project.assets.json
+Tools/WebApp/WebApplication/Interface/wwwroot/node_modules/
