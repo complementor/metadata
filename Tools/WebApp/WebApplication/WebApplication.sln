@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDbAccessLayer", "MongoDbAccessLayer\MongoDbAccessLayer.csproj", "{3216BA89-B57D-4702-89D7-589D2B51463D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "Interface\Interface.csproj", "{1235952E-7B0E-4183-A547-AFEAA0AEF733}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interface", "Interface\Interface.csproj", "{1235952E-7B0E-4183-A547-AFEAA0AEF733}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDbAccessLayerTest", "MongoDbAccessLayerTest\MongoDbAccessLayerTest.csproj", "{AAC77950-91F7-4032-99CD-E3ABE95ACCF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{1235952E-7B0E-4183-A547-AFEAA0AEF733}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1235952E-7B0E-4183-A547-AFEAA0AEF733}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1235952E-7B0E-4183-A547-AFEAA0AEF733}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAC77950-91F7-4032-99CD-E3ABE95ACCF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAC77950-91F7-4032-99CD-E3ABE95ACCF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAC77950-91F7-4032-99CD-E3ABE95ACCF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAC77950-91F7-4032-99CD-E3ABE95ACCF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
