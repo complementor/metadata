@@ -6,8 +6,8 @@ namespace MediaOntologyMapping
 {
     public interface IDataVault
     {
-        Link CreateLink(JObject original, List<object> mediaOntologyProperties);
+        Link CreateLink(JObject original, List<Attribute> mediaOntologyProperties);
 
-        void WriteJsonFile(List<Link> linkDocuments, string destinationFolder, string fileName)
+        void WriteJsonFile(List<Link> linkDocuments, string destination);
     }
 }

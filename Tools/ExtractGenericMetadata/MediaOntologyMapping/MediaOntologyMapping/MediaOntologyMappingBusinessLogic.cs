@@ -31,12 +31,12 @@ namespace MediaOntologyMapping
                 var originalMetadata = dataAccess.GetExifMetadataDeserialized(file.FullName);
 
                 OntologyForMediaResourcesMapper ontologyForMediaResourcesMapper = new OntologyForMediaResourcesMapper(originalMetadata);
-                List<object> mediaOntologyProperties = ontologyForMediaResourcesMapper.GetMediaOntologyProperties();
+                List<Attribute> mediaOntologyProperties = ontologyForMediaResourcesMapper.GetMediaOntologyProperties();
                 
                 dataVaultLinkCollection.Add(dataVault.CreateLink(originalMetadata, mediaOntologyProperties));
                 
             }
-            dataVault.WriteJsonFile(dataVaultLinkCollection, destination, "MongoImport.json");
+            dataVault.WriteJsonFile(dataVaultLinkCollection, destination);
         }
     }
 }

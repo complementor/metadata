@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MediaOntologyMapping.Mappings
 {
@@ -48,6 +49,16 @@ namespace MediaOntologyMapping.Mappings
             };
 
             return mpeg7Dictionary;
+        }
+
+        internal static Dictionary<string, string> GetYoutubeDictionary()
+        {
+            var youtubeDictionary = new Dictionary<string, string>
+            {
+                { "YoutubeId", "FileName" },
+            };
+            return youtubeDictionary;
+
         }
 
         public static Dictionary<string, string> GetEBUCoreDictionary()

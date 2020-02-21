@@ -5,7 +5,7 @@ namespace MediaOntologyMapping.Models
     public class Attribute
     {
         [JsonProperty("Name")]
-        public static string Name { get; set; }
+        public  string Name { get; set; }
         
         [JsonProperty("Value")]
         public string Value { get; set; }

@@ -9,13 +9,13 @@ namespace MediaOntologyMapping
 {
     public class DataVault : IDataVault
     {
-        public void WriteJsonFile(List<Link> linkDocuments, string destinationFolder, string fileName)
+        public void WriteJsonFile(List<Link> linkDocuments, string destination)
         {
             string json = JsonConvert.SerializeObject(linkDocuments);
-            File.WriteAllText(destinationFolder + fileName, json);
+            File.WriteAllText(destination, json);
         }
 
-        public Link CreateLink(JObject original, List<object> mediaOntologyProperties)
+        public Link CreateLink(JObject original, List<Models.Attribute> mediaOntologyProperties)
         {
             return new Link()
             {

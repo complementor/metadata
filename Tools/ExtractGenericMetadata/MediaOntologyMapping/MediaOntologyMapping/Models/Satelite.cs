@@ -6,7 +6,7 @@ namespace MediaOntologyMapping.Models
 {
     public class Satellite
     {
-        public List<object> Attributes { get; set; }
+        public List<Attribute> Attributes { get; set; }
     }
     public class OriginalSatellite
     {
