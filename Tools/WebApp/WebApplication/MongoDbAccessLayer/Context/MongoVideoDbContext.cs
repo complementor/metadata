@@ -8,6 +8,7 @@ namespace MongoDbAccessLayer.Context
     {
         private IMongoDatabase _db { get; }
         private MongoClient _mongoClient { get; }
+
         public MongoVideoDbContext(IOptions<MongoSettings> configuration)
         {
 

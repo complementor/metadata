@@ -1,45 +1,45 @@
 ﻿using MongoDB.Bson;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using MongoDB.Bson.Serialization.Attributes;
 using System.Collections.Generic;
 
 namespace MongoDbAccessLayer.Models
 {
     public class Generic
     {
-        public class Link
-        {
-            public ObjectId Id { get; set; }
-            public Hub Hub { get; set; }
-            public Hub OriginalHub { get; set; }
-        }
+        [BsonId]
+        public ObjectId _id { get; set; }
+        [BsonElement("Id")]
+        public string Id { get; set; }
+        [BsonElement("Hub")]
+        public HubGeneric hub { get; set; }
+        public OriginalHubGeneric OriginalHub { get; set; }
+        public double score { get; set; }
+        public string Source { get; set; }
+    }
 
-        public class Hub
-        {
-            public string Date { get; set; }
-            public object Satellite { get; set; }
-        }
+    public class OriginalHubGeneric
+    {
+        public string Date { get; set; }
+        public object Satellite { get; set; }
+    }
 
-        public class Satellite
-        {
-            public List<object> Attributes { get; set; }
-        }
+    public class HubGeneric
+    {
+        public string Date { get; set; }
+        public SatGeneric Satellite { get; set; }
+    }
 
-        public class OriginalSatellite
-        {
-            public JObject Attributes { get; set; }
-        }
+    public class SatGeneric
+    {
+        public List<Attribute> Attributes { get; set; }
+    }
 
-        public class Attribute
-        {
-            [JsonProperty("Name")]
-            public static string Name { get; set; }
+    public class Attribute
+    {
+        public string Name { get; set; }
 
-            [JsonProperty("Value")]
-            public string Value { get; set; }
+        public string Value { get; set; }
 
-            [JsonProperty("Standard")]
-            public string Standard { get; set; }
-        }
+        public string Standard { get; set; }
     }
 }
