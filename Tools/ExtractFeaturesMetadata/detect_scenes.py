@@ -40,7 +40,6 @@ ap.add_argument("-v", "--video", required=False, type=str, default="P:/resources
 ap.add_argument("-o", "--output", required=False, type=str, default="P:/resources/YoutubeToBeProcessed/metadata/",
                 help="path to output directory")
 
-
 consoleArgs = vars(ap.parse_args())
 
 # example: --video P:/resources/YoutubeToBeProcessed/5267249c-c0db-43cb-80d6-ddd3c2a2beeb.mp4 --output P:/resources/YoutubeToBeProcessed/metadata
@@ -49,6 +48,7 @@ fileName = consoleArgs["video"].rsplit('\\', 1)[-1]
 print("show me",fileName)
 fileName = fileName.split('.')[0]
 print("show me",fileName)
+
 args = {
     "targetVideo": consoleArgs["video"],
     "outputFolder": consoleArgs["output"],
@@ -83,7 +83,7 @@ def main():
 
     # build json structure. 
     jsonDictionary = {
-        "Id": fileName,     
+        "id": fileName,     
         "hub": {
            "date": datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
            "satellite": []
@@ -139,6 +139,8 @@ class Detect_scenes:
         scene_list = scene_manager.get_scene_list(base_timecode)
         
         # add chosen algorithms to the structure as satellites
+        self.__add_new_algorithm_satellite(jsonData, "scenes")
+        
         self.__add_new_algorithm_satellite(jsonData, "common_objects")
         
         self.__add_new_algorithm_satellite(jsonData, "optical_character_recognition")
@@ -162,6 +164,9 @@ class Detect_scenes:
             (captured, frame) = vc.read()
             
             if captured:
+                
+                # add just the scene
+                self.__add_scene_object(scene, jsonData, i, 0)
                               
                 # run algorithms on current scene              
                 self.__detect_common_objects(frame, jsonData, i, scene)
@@ -183,7 +188,16 @@ class Detect_scenes:
             "frameStart": scene[0].get_frames(),
             "frameEnd": scene[1].get_frames(),
             "value": value
-        })                
+        })   
+
+    def __add_scene_object(self, scene, jsonData, i, number):
+        jsonData["hub"]["satellite"][number]["scenes"].append({
+            "scene": i + 1,
+            "start": scene[0].get_timecode(),
+            "end": scene[1].get_timecode(),
+            "frameStart": scene[0].get_frames(),
+            "frameEnd": scene[1].get_frames()
+        })              
             
     def __detect_common_objects(self, frame, jsonData, i, scene):
               
@@ -193,7 +207,7 @@ class Detect_scenes:
         for l, c, xy in zip(label, conf1, bbox):
             value.append({'label': l,'confidence': c })
             
-        self.__add_object_to_algorithm_satellite(scene, jsonData, i, "common_objects", value, 0)
+        self.__add_object_to_algorithm_satellite(scene, jsonData, i, "common_objects", value, 1)
          
        
     def __detect_optical_character_recognition(self, frame, jsonData, i, scene):
@@ -202,7 +216,7 @@ class Detect_scenes:
         pytesseract.pytesseract.tesseract_cmd = r'P:/src/Tools/ExtractFeaturesMetadata/tesseract/tesseract.exe'
         text = pytesseract.image_to_string(image, lang='eng')
         
-        self.__add_object_to_algorithm_satellite(scene, jsonData, i, "optical_character_recognition", text, 1)
+        self.__add_object_to_algorithm_satellite(scene, jsonData, i, "optical_character_recognition", text, 2)
         
     def __run_speech_recognition_on_scene(self, args, jsonData, scene, i, fileName):   
         scene_start = scene[0].get_timecode()
@@ -227,7 +241,7 @@ class Detect_scenes:
               print("\n")
               print(text)
               
-              self.__add_object_to_algorithm_satellite(scene, jsonData, i, "speech_recognition", text, 2)
+              self.__add_object_to_algorithm_satellite(scene, jsonData, i, "speech_recognition", text, 3)
               
               self.__run_sentiment_analysis(jsonData, text, i, scene)
               
@@ -241,7 +255,7 @@ class Detect_scenes:
         sentiment_analysis = sid.polarity_scores(text)
         print("\n")
         print("sentiment_analysis: ", sentiment_analysis)
-        self.__add_object_to_algorithm_satellite(scene, jsonData, i, "sentiment_analysis", sentiment_analysis, 3)
+        self.__add_object_to_algorithm_satellite(scene, jsonData, i, "sentiment_analysis", sentiment_analysis, 4)
         
 def get_audio_file(args):
     video = moviepy.editor.VideoFileClip(args["targetVideo"])
