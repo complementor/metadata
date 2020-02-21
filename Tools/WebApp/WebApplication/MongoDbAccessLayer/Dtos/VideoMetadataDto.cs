@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MongoDbAccessLayer.DTS
+namespace MongoDbAccessLayer.Dtos
 {
     public class VideoMetadataDto
     {
@@ -177,5 +177,13 @@ namespace MongoDbAccessLayer.DTS
         public double Neutral { get; set; }
     }
 
+<<<<<<< HEAD:Tools/WebApp/WebApplication/MongoDbAccessLayer/DTS/VideoMetadataDto.cs
 
+=======
+    public class GenericAttribute
+    {
+        public string Name { get; set; }
+        public string Value { get; set; }
+    }
+>>>>>>> 1ff1ac4f4141a5324132e04f8d87ad24dacac227:Tools/WebApp/WebApplication/MongoDbAccessLayer/Dtos/VideoMetadataDto.cs
 }
