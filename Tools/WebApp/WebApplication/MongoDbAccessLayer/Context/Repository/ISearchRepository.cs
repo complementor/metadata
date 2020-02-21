@@ -1,4 +1,4 @@
-﻿using MongoDbAccessLayer.DTS;
+﻿using MongoDbAccessLayer.Dtos;
 using MongoDbAccessLayer.Models;
 using System;
 using System.Collections.Generic;
