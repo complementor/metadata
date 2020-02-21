@@ -8,7 +8,6 @@ C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\bi
 C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\bin\Debug\netcoreapp3.1\Interface.dll
 C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\bin\Debug\netcoreapp3.1\Interface.pdb
 C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\bin\Debug\netcoreapp3.1\Interface.Views.dll
-C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\bin\Debug\netcoreapp3.1\Interface.Views.pdb
 C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\obj\Debug\netcoreapp3.1\Interface.csprojAssemblyReference.cache
 C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\obj\Debug\netcoreapp3.1\staticwebassets\Interface.StaticWebAssets.Manifest.cache
 C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\obj\Debug\netcoreapp3.1\staticwebassets\Interface.StaticWebAssets.xml
@@ -22,3 +21,14 @@ C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\bi
 C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\obj\Debug\netcoreapp3.1\Interface.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\bin\Debug\netcoreapp3.1\MongoDbAccessLayer.dll
 C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\bin\Debug\netcoreapp3.1\MongoDbAccessLayer.pdb
+C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\bin\Debug\netcoreapp3.1\DnsClient.dll
+C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\bin\Debug\netcoreapp3.1\MongoDB.Bson.dll
+C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\bin\Debug\netcoreapp3.1\MongoDB.Driver.dll
+C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\bin\Debug\netcoreapp3.1\MongoDB.Driver.Core.dll
+C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\bin\Debug\netcoreapp3.1\MongoDB.Libmongocrypt.dll
+C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\Interface\bin\Debug\netcoreapp3.1\SharpCompress.dll

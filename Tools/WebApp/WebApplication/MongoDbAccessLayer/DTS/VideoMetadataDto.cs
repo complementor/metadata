@@ -8,13 +8,13 @@ namespace MongoDbAccessLayer.DTS
         public string Title { get; set; }
         public string YouTubeId { get; set; }
         public int Duration { get; set; }
-        public List<GenericAttributes> Generic { get; set; }
-        public List<Scenes> Scenes { get; set; }
+        public List<GenericAttribute> Generics { get; set; }
+        public List<Scene> Scenes { get; set; }
         public string OCRAggregated { get; set; }
         public string SpeechAggregated { get; set; }
     }
 
-    public class Scenes
+    public class Scene
     {
         public DateTime StartTime { get; set; }
         public int StartTimeSeconds { get; set; }
@@ -40,7 +40,7 @@ namespace MongoDbAccessLayer.DTS
         public double Neutral { get; set; }
     }
 
-    public class GenericAttributes
+    public class GenericAttribute
     {
         public string Name { get; set; }
         public string Value { get; set; }

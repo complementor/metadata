@@ -1,12 +1,29 @@
 <template>
   <div class="search__input">
     <!-- <v-card class="search__card"> -->
-
     <v-text-field v-if="loading" loading disabled outlined label="Search..." append-icon="search"></v-text-field>
     <v-text-field v-else outlined label="Search..." append-icon="search"></v-text-field>
+
+    <div class="search__checkboxes">
+      <!-- <v-row justify="space-around"> -->
+      <v-checkbox v-model="checkbox1" class="search__checkbox" label="Videos"></v-checkbox>
+
+      <v-tooltip right>
+        <template v-slot:activator="{ on }">
+          <div v-on="on" style="display:flex">
+            <v-checkbox disabled class="search__checkbox" label="Text"></v-checkbox>
+
+            <v-checkbox v-on="on" disabled class="search__checkbox" label="Images"></v-checkbox>
+          </div>
+        </template>
+        <span>Sorry, only videos are available in the lake at the moment.</span>
+      </v-tooltip>
+
+      <!-- </v-row> -->
+    </div>
     <!-- </v-card> -->
 
-    <v-card>
+    <v-card v-if="!loading">
       <v-list-item v-for="item in searchResults" :key="item.title" @click="GoToFile(item.videoId)">
         <v-list-item-icon>
           <v-icon v-text="icon"></v-icon>
@@ -19,6 +36,10 @@
         </v-list-item-content>
       </v-list-item>
     </v-card>
+
+    <template v-else>
+      <p>Loading...</p>
+    </template>
 
     <v-snackbar color="error" :top="true" v-model="snackBar">
       {{ snackBarText }}
@@ -36,7 +57,8 @@
       searchResults: [],
       loading: false,
       snackBar: false,
-      snackBarText: 'Search error'
+      snackBarText: 'Search error',
+      checkbox1: true
     }),
 
     created () {
@@ -73,11 +95,23 @@
 }
 .search__card {
   padding: 2rem;
-  margin-top: 2rem;
+  padding-bottom: 0rem;
+  // margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 .v-list-item {
   border-width: 1px;
   border-bottom-style: solid;
   border-color: rgba(0, 0, 0, 0.12);
+}
+.search__checkboxes {
+  margin-bottom: 1rem;
+  display: flex;
+  .v-input {
+    padding-right: 1rem;
+  }
+}
+.search__checkbox {
+  margin-top: 0px !important;
 }
 </style>
