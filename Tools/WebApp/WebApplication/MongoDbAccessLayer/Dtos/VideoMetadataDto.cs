@@ -11,7 +11,7 @@ namespace MongoDbAccessLayer.Dtos
         public string Title { get; set; }
         public string YouTubeId { get; set; }
         public int Duration { get; set; }
-        public List<GenericAttributes> Generic { get; set; }
+        public List<GenericAttribute> Generic { get; set; }
         public string OCRAggregated { get; set; }
         public string SpeechAggregated { get; set; }
         public List<Scene> Scenes { get; set; }
@@ -129,10 +129,10 @@ namespace MongoDbAccessLayer.Dtos
             var attributes = generic?.Result?.hub?.Satellite?.Attributes.ToList();
             if (attributes != null)
             {
-                Generic = new List<GenericAttributes>();
+                Generic = new List<GenericAttribute>();
                 foreach (var item in attributes)
                 {
-                    Generic.Add(new GenericAttributes()
+                    Generic.Add(new GenericAttribute()
                     {
                         Name = item?.Name,
                         Value = item?.Value,
@@ -145,7 +145,7 @@ namespace MongoDbAccessLayer.Dtos
             }
         }
     }
-    public class GenericAttributes
+    public class GenericAttribute
     {
         public string Name { get; set; }
         public string Value { get; set; }
@@ -176,14 +176,4 @@ namespace MongoDbAccessLayer.Dtos
         public double Positive { get; set; }
         public double Neutral { get; set; }
     }
-
-<<<<<<< HEAD:Tools/WebApp/WebApplication/MongoDbAccessLayer/DTS/VideoMetadataDto.cs
-
-=======
-    public class GenericAttribute
-    {
-        public string Name { get; set; }
-        public string Value { get; set; }
-    }
->>>>>>> 1ff1ac4f4141a5324132e04f8d87ad24dacac227:Tools/WebApp/WebApplication/MongoDbAccessLayer/Dtos/VideoMetadataDto.cs
 }

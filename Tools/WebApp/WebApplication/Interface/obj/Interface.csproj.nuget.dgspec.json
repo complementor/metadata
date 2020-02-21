@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\Interface\\Interface.csproj": {}
+    "P:\\src\\Tools\\WebApp\\WebApplication\\Interface\\Interface.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\Interface\\Interface.csproj": {
+    "P:\\src\\Tools\\WebApp\\WebApplication\\Interface\\Interface.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\Interface\\Interface.csproj",
+        "projectUniqueName": "P:\\src\\Tools\\WebApp\\WebApplication\\Interface\\Interface.csproj",
         "projectName": "Interface",
-        "projectPath": "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\Interface\\Interface.csproj",
-        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\Interface\\obj\\",
+        "projectPath": "P:\\src\\Tools\\WebApp\\WebApplication\\Interface\\Interface.csproj",
+        "packagesPath": "C:\\Users\\guru\\.nuget\\packages\\",
+        "outputPath": "P:\\src\\Tools\\WebApp\\WebApplication\\Interface\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\guru\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj": {
-                "projectPath": "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj"
+              "P:\\src\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj": {
+                "projectPath": "P:\\src\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj"
               }
             }
           }
@@ -68,24 +68,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj": {
+    "P:\\src\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj",
+        "projectUniqueName": "P:\\src\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj",
         "projectName": "MongoDbAccessLayer",
-        "projectPath": "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj",
-        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\obj\\",
+        "projectPath": "P:\\src\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj",
+        "packagesPath": "C:\\Users\\guru\\.nuget\\packages\\",
+        "outputPath": "P:\\src\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\guru\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -141,7 +141,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
