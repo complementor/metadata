@@ -1,9 +1,9 @@
 <template>
   <div class="search__input">
     <!-- <v-card class="search__card"> -->
-    <v-text-field v-if="loading" loading disabled outlined label="Search..." append-icon="search"></v-text-field>
-    <v-text-field v-else outlined label="Search..." append-icon="search"></v-text-field>
-
+    <!-- <v-text-field v-if="loading" loading disabled outlined label="Search..." append-icon="search"></v-text-field> -->
+    <v-text-field v-model="queryString" outlined label="Search..." append-icon="search"></v-text-field>
+    {{queryString}}
     <div class="search__checkboxes">
       <!-- <v-row justify="space-around"> -->
       <v-checkbox v-model="checkbox1" class="search__checkbox" label="Videos"></v-checkbox>
@@ -58,7 +58,8 @@
       loading: false,
       snackBar: false,
       snackBarText: 'Search error',
-      checkbox1: true
+      checkbox1: true,
+      queryString: ""
     }),
 
     created () {
@@ -81,8 +82,33 @@
           this.snackBarText = errors;
           this.loading = false;
         });
+      },
+      search () {
+        this.loading = true;
+        this.$store.dispatch("Search", this.queryString)
+        .then(response => {
+          this.searchResults = response.data;
+          this.loading = false;
+        })
+        .catch(errors => { 
+          this.snackBar = true;
+          this.snackBarText = errors;
+          this.loading = false;
+        });
+      }
+    },
+
+    watch: {
+      queryString (val) {
+        if(val.length >= 2) {
+          this.search();
+        }
+        if(val.length === 0) {
+          this.fetchInitSearchResults();
+        }
       }
     }
+
   }
 </script>
 

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "P:\\src\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayerTest\\MongoDbAccessLayerTest.csproj": {}
+    "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayerTest\\MongoDbAccessLayerTest.csproj": {}
   },
   "projects": {
-    "P:\\src\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayerTest\\MongoDbAccessLayerTest.csproj": {
+    "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayerTest\\MongoDbAccessLayerTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "P:\\src\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayerTest\\MongoDbAccessLayerTest.csproj",
+        "projectUniqueName": "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayerTest\\MongoDbAccessLayerTest.csproj",
         "projectName": "MongoDbAccessLayerTest",
-        "projectPath": "P:\\src\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayerTest\\MongoDbAccessLayerTest.csproj",
-        "packagesPath": "C:\\Users\\guru\\.nuget\\packages\\",
-        "outputPath": "P:\\src\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayerTest\\obj\\",
+        "projectPath": "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayerTest\\MongoDbAccessLayerTest.csproj",
+        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayerTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\guru\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "P:\\src\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj": {
-                "projectPath": "P:\\src\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj"
+              "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj": {
+                "projectPath": "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj"
               }
             }
           }
@@ -77,24 +77,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "P:\\src\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj": {
+    "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "P:\\src\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj",
         "projectName": "MongoDbAccessLayer",
-        "projectPath": "P:\\src\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj",
-        "packagesPath": "C:\\Users\\guru\\.nuget\\packages\\",
-        "outputPath": "P:\\src\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\obj\\",
+        "projectPath": "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\MongoDbAccessLayer.csproj",
+        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andre\\Documents\\metadatathesis\\Tools\\WebApp\\WebApplication\\MongoDbAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\guru\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -150,7 +150,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

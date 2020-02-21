@@ -16,7 +16,7 @@ namespace Interface.Api
         }
 
         [HttpGet("search")]
-        public IActionResult Search(string query)
+        public IActionResult Search([FromQuery] string query)
         {
             return Ok(businessLogic.Search(query));
         }

@@ -12,9 +12,9 @@ export default new Vuex.Store({
   mutations: {
   },
   actions: {
-    Search(context) {
+    Search(context, queryString) {
       return new Promise((resolve, reject) => {
-        axios.get(context.state.api + "files/search")
+        axios.get(context.state.api + "files/search?query=" + queryString)
           .then(response => {
             resolve(response)
           }).catch(errors => {
