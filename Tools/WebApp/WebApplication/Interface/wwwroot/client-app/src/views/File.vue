@@ -25,9 +25,9 @@
     <v-card>
       <div class="tabs">
         <v-tabs color="indigo lighten-1">
-          <v-tab @click="handleTab1">Info</v-tab>
-          <v-tab @click="handleTab2">OCR</v-tab>
-          <v-tab @click="handleTab3">Speech recognition</v-tab>
+          <v-tab @click="HandleTab1">Info</v-tab>
+          <v-tab @click="HandleTab2">OCR</v-tab>
+          <v-tab @click="HandleTab3">Speech recognition</v-tab>
         </v-tabs>
 
         <div class="tabs__content">
@@ -53,24 +53,32 @@
 
     <v-card :loading="loading">
       <v-card-title>
-        <v-text-field append-icon="search" label="Search" single-line hide-details></v-text-field>
+        <v-text-field
+          class="mx-4"
+          flat
+          hide-details
+          label="Search"
+          prepend-inner-icon="search"
+          v-model="searchString"
+          solo-inverted
+        ></v-text-field>
       </v-card-title>
       <v-simple-table>
         <template v-slot:default>
           <thead>
             <tr>
-              <th class="text-left">Scene number</th>
+              <th class="text-left">Scene</th>
               <th class="text-left">Objects</th>
               <th class="text-left">Optical character recognition (OCR)</th>
               <th class="text-left">Speech recognition</th>
               <th class="text-left">Sentiment analysis</th>
               <th class="text-left"></th>
-              <!-- <th class="text-left">Sentiment analysis</th> -->
             </tr>
           </thead>
           <tbody>
-            <tr v-for="item in CurrentFile.scenes" :key="item.name">
+            <tr v-for="item in scenes" :key="item.name">
               <td>{{item.sceneNumber}}</td>
+
               <td>
                 <template
                   v-for="object in item.objects"
@@ -80,13 +88,13 @@
               <td>{{ item.speech }}</td>
               <td>
                 <template v-if="item.sentiment.negative >= 0.8">
-                  <v-chip class="ma-2" color="red" text-color="white">Negative</v-chip>
+                  <v-chip class="ma-2" color="red" text-color="white">Neg</v-chip>
                 </template>
                 <template v-else-if="item.sentiment.neutral >= 0.8">
-                  <v-chip class="ma-2">Neutral</v-chip>
+                  <v-chip class="ma-2">Neu</v-chip>
                 </template>
                 <template v-else-if="item.sentiment.positive >= 0.8">
-                  <v-chip class="ma-2" color="green" text-color="white">Positive</v-chip>
+                  <v-chip class="ma-2" color="green" text-color="white">Pos</v-chip>
                 </template>
               </td>
               <td>
@@ -104,9 +112,6 @@
     <!-- video dialog -->
     <v-dialog v-model="dialog" width="50%">
       <v-card>
-        <!-- <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</v-card-text>
-
-        <v-divider></v-divider>-->
         <iframe
           :key="iframeKey"
           width="100%"
@@ -139,7 +144,9 @@ export default {
     tab2: false,
     tab3: false,
     iframeKey: 0,
-    iframeSource: ""
+    iframeSource: "",
+    searchString: "",
+    scenes: []
   }),
 
   created () {
@@ -152,6 +159,7 @@ export default {
       this.$store.dispatch("GetFileByGuid", this.$route.params.guid)
       .then(response => {
         this.currentFile = response.data;
+        this.scenes = this.currentFile.scenes;
         this.loading = false;
       })
       .catch(errors => { 
@@ -168,17 +176,17 @@ export default {
       this.iframeKey++;
       this.GetIframeSource(sceneStart, sceneEnd);
     },
-    handleTab1 () {
+    HandleTab1 () {
       this.tab1 = true;
       this.tab2 = false;
       this.tab3 = false;
     },
-    handleTab2 () {
+    HandleTab2 () {
       this.tab1 = false;
       this.tab2 = true;
       this.tab3 = false;
     },
-    handleTab3 () {
+    HandleTab3 () {
       this.tab1 = false;
       this.tab2 = false;
       this.tab3 = true;
@@ -187,7 +195,25 @@ export default {
       let youtubeId = this.CurrentFile.youTubeId;
       let source = "https://www.youtube.com/embed/" + youtubeId + "?start=" + sceneStart + "&end=" + sceneEnd + "&autoplay=1";
       this.iframeSource = source;
+    },
+    SearchVideoScenes () {
+      //this.loading = true;
+      let model = {
+        scenes: this.CurrentFile.scenes,
+        searchQuery: this.searchString
+      };
+      this.$store.dispatch("SearchVideoScenes", model)
+      .then(response => {
+        this.scenes = response.data;
+        this.loading = false;
+      })
+      .catch(errors => { 
+        this.snackBar = true;
+        this.snackBarText = errors;
+        this.loading = false;
+      });
     }
+
   },
 
   computed: {
@@ -201,6 +227,14 @@ export default {
       if(val === false) {
         this.iframeKey++;
         this.iframeSource = "";
+      }
+    },
+    searchString (val) {
+      if(val.length > 2) {
+        this.SearchVideoScenes();
+      }
+      if(val.length === 0) {
+        this.scenes = this.CurrentFile.scenes;
       }
     }
   },
@@ -233,4 +267,11 @@ export default {
     margin-top: 1.5rem;
   }
 }
+
+// .theme--light.v-text-field--solo-inverted.v-input--is-focused
+//   > .v-input__control
+//   > .v-input__slot {
+//   background: rgba(0, 0, 0, 0.06) !important;
+
+// }
 </style>

@@ -33,6 +33,16 @@ export default new Vuex.Store({
           });
       })
     },
+    SearchVideoScenes(context, model) {
+      return new Promise((resolve, reject) => {
+        axios.post(context.state.api + "files/video/search", model)
+          .then(response => {
+            resolve(response)
+          }).catch(errors => {
+            reject(errors)
+          });
+      })
+    },
   },
   modules: {
   }

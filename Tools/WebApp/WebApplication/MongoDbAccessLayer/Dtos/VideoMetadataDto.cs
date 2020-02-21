@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MongoDbAccessLayer.DTS
+namespace MongoDbAccessLayer.Dtos
 {
     public class VideoMetadataDto
     {

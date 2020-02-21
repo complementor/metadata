@@ -8,7 +8,7 @@
       <!-- <v-row justify="space-around"> -->
       <v-checkbox v-model="checkbox1" class="search__checkbox" label="Videos"></v-checkbox>
 
-      <v-tooltip right>
+      <v-tooltip top>
         <template v-slot:activator="{ on }">
           <div v-on="on" style="display:flex">
             <v-checkbox disabled class="search__checkbox" label="Text"></v-checkbox>
@@ -31,7 +31,7 @@
 
         <v-list-item-content>
           <v-list-item-title v-text="item.title"></v-list-item-title>
-          <v-list-item-subtitle v-text="item.stadnard"></v-list-item-subtitle>
+          <v-list-item-subtitle v-text="item.standard"></v-list-item-subtitle>
           <v-list-item-subtitle v-text="item.duration"></v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
