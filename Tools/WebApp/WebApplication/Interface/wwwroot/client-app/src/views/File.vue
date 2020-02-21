@@ -57,10 +57,9 @@
           class="mx-4"
           flat
           hide-details
-          label="Search"
+          label="Search the scenes..."
           prepend-inner-icon="search"
           v-model="searchString"
-          solo-inverted
         ></v-text-field>
       </v-card-title>
       <v-simple-table>
