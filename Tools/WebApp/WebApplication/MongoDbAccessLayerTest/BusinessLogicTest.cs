@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using MongoDbAccessLayer;
 using MongoDbAccessLayer.Context;
+using MongoDbAccessLayer.Dtos;
 using MongoDbAccessLayer.DTS;
 using MongoDbAccessLayer.Models;
 using Moq;

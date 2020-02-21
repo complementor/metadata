@@ -6,3 +6,11 @@ C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\MongoDbAcces
 C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\MongoDbAccessLayer\obj\Debug\netcoreapp3.1\MongoDbAccessLayer.AssemblyInfo.cs
 C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\MongoDbAccessLayer\obj\Debug\netcoreapp3.1\MongoDbAccessLayer.dll
 C:\Users\andre\Documents\metadatathesis\Tools\WebApp\WebApplication\MongoDbAccessLayer\obj\Debug\netcoreapp3.1\MongoDbAccessLayer.pdb
+P:\src\Tools\WebApp\WebApplication\MongoDbAccessLayer\obj\Debug\netcoreapp3.1\MongoDbAccessLayer.csprojAssemblyReference.cache
+P:\src\Tools\WebApp\WebApplication\MongoDbAccessLayer\obj\Debug\netcoreapp3.1\MongoDbAccessLayer.AssemblyInfoInputs.cache
+P:\src\Tools\WebApp\WebApplication\MongoDbAccessLayer\obj\Debug\netcoreapp3.1\MongoDbAccessLayer.AssemblyInfo.cs
+P:\src\Tools\WebApp\WebApplication\MongoDbAccessLayer\obj\Debug\netcoreapp3.1\MongoDbAccessLayer.dll
+P:\src\Tools\WebApp\WebApplication\MongoDbAccessLayer\obj\Debug\netcoreapp3.1\MongoDbAccessLayer.pdb
+P:\src\Tools\WebApp\WebApplication\MongoDbAccessLayer\bin\Debug\netcoreapp3.1\MongoDbAccessLayer.deps.json
+P:\src\Tools\WebApp\WebApplication\MongoDbAccessLayer\bin\Debug\netcoreapp3.1\MongoDbAccessLayer.dll
+P:\src\Tools\WebApp\WebApplication\MongoDbAccessLayer\bin\Debug\netcoreapp3.1\MongoDbAccessLayer.pdb

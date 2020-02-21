@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using MongoDbAccessLayer;
+using MongoDbAccessLayer.Context;
 using Newtonsoft.Json;
 
 namespace Interface
@@ -28,6 +30,15 @@ namespace Interface
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddOptions<MongoSettings>().Configure(mongoSettings =>
+                {
+                    mongoSettings.Connection = "mongodb://127.0.0.1:27017/?compressors=zlib&readPreference=primary&gssapiServiceName=mongodb&appname=MongoDB%20Compass%20Community&ssl=false";
+                    mongoSettings.DatabaseName = "metadata";
+                });
+
+            services.AddSingleton<IMongoVideoDbContext, MongoVideoDbContext>();
+            services.AddSingleton<IBusinessLogic, BusinessLogic>();
 
             services.AddCors();
         }

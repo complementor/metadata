@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using MongoDbAccessLayer.Context;
+using MongoDbAccessLayer.Dtos;
 using MongoDbAccessLayer.DTS;
 using MongoDbAccessLayer.Models;
 using System;
