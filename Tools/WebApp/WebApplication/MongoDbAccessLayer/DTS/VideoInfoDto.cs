@@ -8,5 +8,6 @@ namespace MongoDbAccessLayer.DTS
         public string Title { get; set; }
         public string Stadnard { get; set; }
         public string Duration { get; set; }
+        public double Score { get; set; }
     }
 }

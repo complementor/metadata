@@ -6,19 +6,12 @@ namespace MongoDbAccessLayer.DTS
     public class VideoMetadataDto
     {
         public string Title { get; set; }
-        public string Source { get; set; }
+        public string YouTubeId { get; set; }
         public int Duration { get; set; }
-        public Generic Generic { get; set; }
+        public List<GenericAttributes> Generic { get; set; }
         public List<Scenes> Scenes { get; set; }
-
-        public string OCR { get; set; }
-        public string Speech { get; set; }
-    }
-
-    public class CommonObject
-    {
-        public string Value { get; set; }
-        public string Confidence { get; set; }
+        public string OCRAggregated { get; set; }
+        public string SpeechAggregated { get; set; }
     }
 
     public class Scenes
@@ -30,8 +23,15 @@ namespace MongoDbAccessLayer.DTS
         public int FrameStart { get; set; }
         public int FrameEnd { get; set; }
         public int SceneNumber { get; set; }
+        public string OCR { get; set; }
+        public string Speech { get; set; }
         public Sentiment Sentiment { get; set; }
         public List<CommonObject> Objects { get; set; }
+    }
+    public class CommonObject
+    {
+        public string Name { get; set; }
+        public string Confidence { get; set; }
     }
     public class Sentiment
     {
@@ -40,10 +40,9 @@ namespace MongoDbAccessLayer.DTS
         public double Neutral { get; set; }
     }
 
-    public class Generic
+    public class GenericAttributes
     {
-        public string Generic1 { get; set; }
-        public string Generic2 { get; set; }
-        public string Generic3 { get; set; }
+        public string Name { get; set; }
+        public string Value { get; set; }
     }
 }
