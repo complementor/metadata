@@ -37,12 +37,12 @@ namespace Interface.Api
             model.SearchQuery = model.SearchQuery.ToLower();
 
             var filteredScenes = model.Scenes
-                .Where(scene => scene.OCR.ToLower().Contains(model.SearchQuery)
-                || scene.Speech.ToLower().Contains(model.SearchQuery)
-                || scene.Objects.Any(obj => obj.Name.ToLower().Contains(model.SearchQuery))
-                || scene.Sentiment.Negative >= 0.8 && model.SearchQuery.Contains("neg")
-                || scene.Sentiment.Neutral >= 0.8 && model.SearchQuery.Contains("neu")
-                || scene.Sentiment.Positive >= 0.8 && model.SearchQuery.Contains("pos")
+                .Where(scene => scene?.OCR?.ToLower().Contains(model.SearchQuery) == true
+                || scene?.Speech?.ToLower().Contains(model.SearchQuery) == true
+                || scene?.Objects?.Any(obj => obj?.Name?.ToLower().Contains(model.SearchQuery) ?? false) == true
+                || scene?.Sentiment?.Negative >= 0.8 && model.SearchQuery.Contains("neg")
+                || scene?.Sentiment?.Neutral >= 0.8 && model.SearchQuery.Contains("neu")
+                || scene?.Sentiment?.Positive >= 0.8 && model.SearchQuery.Contains("pos")
                 ).Select(scene => scene);
 
             return Ok(filteredScenes);

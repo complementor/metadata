@@ -107,15 +107,15 @@ namespace MongoDbAccessLayer.Dtos
                         Speech = speechDictionary.FirstOrDefault(x => x.Key == item.scene).Value
                     };
 
-                    if (string.IsNullOrWhiteSpace(item.start) && item.start != null)
+                    if (!string.IsNullOrWhiteSpace(item.start) && item.start != null)
                     {
-                        scene.StartTime = DateTime.ParseExact(item.start, "HH:mm:ss,fff", null);
+                        scene.StartTime = DateTime.ParseExact(item.start, "HH:mm:ss.fff", null);
                         scene.StartTimeSeconds = scene.StartTime.Second;
 
                     }
-                    if (string.IsNullOrWhiteSpace(item.end) && item.end != null)
+                    if (!string.IsNullOrWhiteSpace(item.end) && item.end != null)
                     {
-                        scene.EndTime = DateTime.ParseExact(item.end, "HH:mm:ss,fff", null);
+                        scene.EndTime = DateTime.ParseExact(item.end, "HH:mm:ss.fff", null);
                         scene.EndTimeSeconds = scene.EndTime.Second;
                     }
 

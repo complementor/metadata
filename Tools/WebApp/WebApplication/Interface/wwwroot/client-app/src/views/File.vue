@@ -21,7 +21,6 @@
       <v-icon style="padding-right:0.5rem">ondemand_video</v-icon>
       {{currentFile.title}}
     </h4>
-
     <v-card>
       <div class="tabs">
         <v-tabs color="indigo lighten-1">
@@ -86,15 +85,21 @@
               <td>{{ item.ocr }}</td>
               <td>{{ item.speech }}</td>
               <td>
+                <template v-if="item.sentiment !== null">
                 <template v-if="item.sentiment.negative >= 0.8">
                   <v-chip class="ma-2" color="red" text-color="white">Neg</v-chip>
                 </template>
-                <template v-else-if="item.sentiment.neutral >= 0.8">
+                </template>
+                <template v-if="item.sentiment !== null">
+                <template v--if="item.sentiment.neutral >= 0.8">
                   <v-chip class="ma-2">Neu</v-chip>
                 </template>
-                <template v-else-if="item.sentiment.positive >= 0.8">
+                 </template>
+                  <template v-if="item.sentiment !== null">
+                <template v-if="item.sentiment.positive >= 0.8">
                   <v-chip class="ma-2" color="green" text-color="white">Pos</v-chip>
                 </template>
+                   </template>
               </td>
               <td>
                 <v-btn
