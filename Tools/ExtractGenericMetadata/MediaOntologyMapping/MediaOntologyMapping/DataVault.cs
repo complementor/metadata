@@ -19,7 +19,7 @@ namespace MediaOntologyMapping
         {
             return new Link()
             {
-                Id = Guid.NewGuid(),
+                id = ((string)original["FileName"]).Split('.')[0],
                 Hub = new Hub()
                 {
                     Date = DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss"),

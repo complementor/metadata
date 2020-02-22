@@ -10,7 +10,7 @@ namespace MongoDbAccessLayer.Dtos
     {
         public string Title { get; set; }
         public string YouTubeId { get; set; }
-        public int Duration { get; set; }
+        public string Duration { get; set; }
         public List<GenericAttribute> Generic { get; set; }
         public string OCRAggregated { get; set; }
         public string SpeechAggregated { get; set; }
@@ -141,7 +141,7 @@ namespace MongoDbAccessLayer.Dtos
                 }
                 Title = attributes.FirstOrDefault(x => x.Name.ToLowerInvariant() == "Title".ToLowerInvariant())?.Value;
                 YouTubeId = attributes.FirstOrDefault(x => x.Name.ToLowerInvariant() == "YouTubeId".ToLowerInvariant())?.Value;
-                Duration = Int32.Parse(attributes.FirstOrDefault(x => x.Name.ToLowerInvariant() == "Duration".ToLowerInvariant())?.Value);
+                Duration = attributes.FirstOrDefault(x => x.Name.ToLowerInvariant() == "Duration".ToLowerInvariant())?.Value;
             }
         }
     }

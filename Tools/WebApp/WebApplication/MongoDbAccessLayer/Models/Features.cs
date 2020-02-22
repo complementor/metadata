@@ -8,7 +8,7 @@ namespace MongoDbAccessLayer.Models
     {
         [BsonId]
         public ObjectId _id { get; set; }
-        [BsonElement("Id")]
+        [BsonElement("id")]
         public string Id { get; set; }
         public Hub hub { get; set; }
         public double score { get; set; }

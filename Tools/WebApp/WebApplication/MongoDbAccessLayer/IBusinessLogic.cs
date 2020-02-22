@@ -8,5 +8,6 @@ namespace MongoDbAccessLayer
     {
         public List<VideoInfoDto> Search(string searchQuery);
         public VideoMetadataDto Get(string objectId);
+        public List<VideoInfoDto> GetAll();
     }
 }

@@ -30,9 +30,10 @@ namespace MediaOntologyMapping
                 DataAccess dataAccess = new DataAccess();
                 var originalMetadata = dataAccess.GetExifMetadataDeserialized(file.FullName);
 
+
                 OntologyForMediaResourcesMapper ontologyForMediaResourcesMapper = new OntologyForMediaResourcesMapper(originalMetadata);
-                List<Attribute> mediaOntologyProperties = ontologyForMediaResourcesMapper.GetMediaOntologyProperties();
-                
+                List<Models.Attribute> mediaOntologyProperties = ontologyForMediaResourcesMapper.GetMediaOntologyProperties();
+
                 dataVaultLinkCollection.Add(dataVault.CreateLink(originalMetadata, mediaOntologyProperties));
                 
             }

@@ -18,6 +18,10 @@ namespace Interface.Api
         [HttpGet("search")]
         public IActionResult Search([FromQuery] string query)
         {
+            if (string.IsNullOrWhiteSpace(query) || query == null || query == "undefined")
+            {
+                return Ok(businessLogic.GetAll());
+            }
             return Ok(businessLogic.Search(query));
         }
 

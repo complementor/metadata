@@ -58,7 +58,7 @@ namespace MongoDbAccessLayerTest
 
                 var insertToGeneric = new Generic()
                 {
-                    Id = guid.ToString(),
+                    id = guid.ToString(),
                     hub = new HubGeneric()
                     {
                         Date = "cow",
@@ -104,7 +104,7 @@ namespace MongoDbAccessLayerTest
                     var guid = Guid.NewGuid();
                     var insertToGeneric = new Generic()
                     {
-                        Id = guid.ToString(),
+                        id = guid.ToString(),
                         hub = new HubGeneric()
                         {
                             Date = "cow",
