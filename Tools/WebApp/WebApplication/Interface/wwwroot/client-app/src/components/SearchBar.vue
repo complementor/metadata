@@ -1,9 +1,9 @@
 <template>
   <div class="search__input">
     <!-- <v-card class="search__card"> -->
-    <!-- <v-text-field v-if="loading" loading disabled outlined label="Search..." append-icon="search"></v-text-field> -->
-    <v-text-field v-model="queryString" outlined label="Search..." append-icon="search"></v-text-field>
-    {{queryString}}
+    <v-text-field v-if="loading" loading disabled outlined label="Search..." append-icon="search"></v-text-field>
+    <v-text-field v-else v-model="queryString" outlined label="Search..." append-icon="search"></v-text-field>
+
     <div class="search__checkboxes">
       <!-- <v-row justify="space-around"> -->
       <v-checkbox v-model="checkbox1" class="search__checkbox" label="Videos"></v-checkbox>
