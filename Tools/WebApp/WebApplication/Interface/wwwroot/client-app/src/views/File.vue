@@ -17,6 +17,7 @@
       <v-col cols="12" md="4"></v-col>
     </v-row>
     <!-- {{currentFile}} -->
+
     <h4>
       <v-icon style="padding-right:0.5rem">ondemand_video</v-icon>
       {{currentFile.title}}
@@ -28,6 +29,9 @@
           <v-tab @click="HandleTab1">Info</v-tab>
           <v-tab @click="HandleTab2">OCR</v-tab>
           <v-tab @click="HandleTab3">Speech recognition</v-tab>
+          <v-tab @click="HandleTab4">Word cloud</v-tab>
+          <v-tab @click="HandleTab5">Provenance</v-tab>
+          <v-tab @click="HandleTab6">Collaboration</v-tab>
         </v-tabs>
 
         <div class="tabs__content">
@@ -46,6 +50,24 @@
           </template>
           <template v-if="tab3">
             <p>{{currentFile.speechAggregated}}</p>
+          </template>
+          <template v-if="tab4">
+            <div>
+              <wordcloud
+                :data="words"
+                nameKey="name"
+                valueKey="value"
+                :color="myColors"
+                :showTooltip="false"
+                :wordClick="wordClickHandler"
+              ></wordcloud>
+            </div>
+          </template>
+          <template v-if="tab5">
+            <p>provenance</p>
+          </template>
+          <template v-if="tab6">
+            <p>collaboration</p>
           </template>
         </div>
       </div>
@@ -100,7 +122,7 @@
                 <v-btn
                   small
                   @click="OpenScene(item.startTimeSeconds, item.endTimeSeconds)"
-                >Open scene</v-btn>
+                >Watch scene</v-btn>
               </td>
             </tr>
           </tbody>
@@ -130,10 +152,9 @@
 </template>
 
 <script>
-
+import wordcloud from 'vue-wordcloud'
 
 export default {
-
 
   data: () => ({
     dialog: false,
@@ -142,10 +163,15 @@ export default {
     tab1: true,
     tab2: false,
     tab3: false,
+    tab4: false,
+    tab5: false,
+    tab6: false,
     iframeKey: 0,
     iframeSource: "",
     searchString: "",
-    scenes: []
+    scenes: [],
+    myColors: ['#5C6BC0', '#7986CB', '#9FA8DA', '#C5CAE9'],
+    words: []
   }),
 
   created () {
@@ -153,12 +179,16 @@ export default {
   },
 
   methods: {
+    wordClickHandler(name, value, vm) {
+      console.log('wordClickHandler', name, value, vm);
+    },
     GetFileByGuid () {
       //this.loading = true;
       this.$store.dispatch("GetFileByGuid", this.$route.params.guid)
       .then(response => {
-        this.currentFile = response.data;
+        this.currentFile = response.data.videoMetadataDto;
         this.scenes = this.currentFile.scenes;
+        this.words = response.data.words;
         this.loading = false;
       })
       .catch(errors => { 
@@ -179,16 +209,49 @@ export default {
       this.tab1 = true;
       this.tab2 = false;
       this.tab3 = false;
+      this.tab4 = false;
+      this.tab5 = false;
+      this.tab6 = false;
     },
     HandleTab2 () {
       this.tab1 = false;
       this.tab2 = true;
       this.tab3 = false;
+      this.tab4 = false;
+      this.tab5 = false;
+      this.tab6 = false;
     },
     HandleTab3 () {
       this.tab1 = false;
       this.tab2 = false;
       this.tab3 = true;
+      this.tab4 = false;
+      this.tab5 = false;
+      this.tab6 = false;
+    },
+    HandleTab4 () {
+      this.tab1 = false;
+      this.tab2 = false;
+      this.tab3 = false;
+      this.tab4 = true;
+      this.tab5 = false;
+      this.tab6 = false;
+    },
+    HandleTab5 () {
+      this.tab1 = false;
+      this.tab2 = false;
+      this.tab3 = false;
+      this.tab4 = false;
+      this.tab5 = true;
+      this.tab6 = false;
+    },
+    HandleTab6 () {
+      this.tab1 = false;
+      this.tab2 = false;
+      this.tab3 = false;
+      this.tab4 = false;
+      this.tab5 = false;
+      this.tab6 = true;
     },
     GetIframeSource (sceneStart, sceneEnd) {
       let youtubeId = this.CurrentFile.youTubeId;
@@ -238,9 +301,10 @@ export default {
     }
   },
 
-  components: {
- 
-  }
+   components: {
+    wordcloud
+  },
+
 }
 </script>
 

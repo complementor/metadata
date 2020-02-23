@@ -6,7 +6,12 @@
 
     <div class="search__checkboxes">
       <!-- <v-row justify="space-around"> -->
-      <v-checkbox v-model="checkbox1" class="search__checkbox" label="Videos"></v-checkbox>
+      <v-checkbox
+        v-model="checkbox1"
+        color="indigo lighten-1"
+        class="search__checkbox"
+        label="Videos"
+      ></v-checkbox>
 
       <v-tooltip top>
         <template v-slot:activator="{ on }">
