@@ -12,7 +12,6 @@
         </v-row>-->
 
         <v-list-item two-line>
-          asd
           <v-list-item-avatar>
             <v-img
               src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=200"
@@ -34,7 +33,6 @@
         </v-list-item>
 
         <v-list-item two-line>
-          123 123
           <v-list-item-avatar>
             <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>
           </v-list-item-avatar>

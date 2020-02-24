@@ -78,7 +78,7 @@ import * as d3 from "d3";
         var text = svg3.selectAll("text")
                     .data(lineData)
                     .enter()
-                    .append("text");   
+                    .append("text");
 
         var textLabels = text
                     .attr("x", function(d) { return d.x2+10; })
@@ -104,8 +104,8 @@ import * as d3 from "d3";
               .nodes(nodes)
               .links(links)
               .size([width2, height2])
-              .linkDistance(200)
-              .charge(-200) 
+              .linkDistance(150)
+              .charge(-200)
               .on("tick", tick)
               .start();
 
