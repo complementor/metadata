@@ -1,11 +1,11 @@
 <template>
-  <div class="video">
+  <div class="file">
     <v-row>
       <v-col cols="12" md="8">
         <v-btn
           @click="GoToHome"
           style="margin-left:0px!important"
-          class="ma-2 video__goback"
+          class="ma-2 file__goback"
           outlined
           color="indigo lighten-1"
         >
@@ -25,7 +25,7 @@
     <v-card>
       <div class="tabs">
         <v-tabs color="indigo lighten-1">
-          <v-tab @click="HandleTab1">Info</v-tab>
+          <v-tab @click="HandleTab1">Descriptives</v-tab>
           <v-tab @click="HandleTab2">OCR</v-tab>
           <v-tab @click="HandleTab3">Speech recognition</v-tab>
           <v-tab @click="HandleTab4">Word cloud</v-tab>
@@ -66,7 +66,57 @@
             <p>provenance</p>
           </template>
           <template v-if="tab6">
-            <p>collaboration</p>
+            <v-row>
+              <v-col cols="12" md="6">
+                <!-- <v-row>
+                  <v-col cols="12" md="10">
+                    <v-text-field v-model="label" label="Label"></v-text-field>
+                  </v-col>
+                  <v-col cols="12" md="2">
+                    <v-btn small>Add</v-btn>
+                  </v-col>
+                </v-row>-->
+
+                <v-list-item two-line>
+                  <v-list-item-avatar>
+                    <v-img
+                      src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=200"
+                    ></v-img>
+                  </v-list-item-avatar>
+                  <v-list-item-content>
+                    <v-list-item-title>Peter</v-list-item-title>
+                    <v-list-item-subtitle>I did a classification task on this video.</v-list-item-subtitle>
+                  </v-list-item-content>
+                </v-list-item>
+                <v-list-item two-line>
+                  <v-list-item-avatar>
+                    <v-img src="https://www.joancanto.com/wp-content/uploads/2017/04/H10B0527.jpg"></v-img>
+                  </v-list-item-avatar>
+                  <v-list-item-content>
+                    <v-list-item-title>Anne</v-list-item-title>
+                    <v-list-item-subtitle>Great job, Peter. Very useful for my work.</v-list-item-subtitle>
+                  </v-list-item-content>
+                </v-list-item>
+
+                <v-list-item two-line>
+                  <v-list-item-avatar>
+                    <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>
+                  </v-list-item-avatar>
+                  <v-list-item-content>
+                    <v-list-item-title>Thomas</v-list-item-title>
+                    <v-list-item-subtitle>Nice findings! I added a few more tags.</v-list-item-subtitle>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-chip class="ma-2" color="indigo lighten-1" outlined close>Entertainment</v-chip>
+                <v-chip class="ma-2" color="indigo lighten-1" outlined close>Nature</v-chip>
+                <v-chip class="ma-2" color="indigo lighten-1" outlined close>New Zealand</v-chip>
+                <v-chip class="ma-2" color="indigo lighten-1" outlined close>Travel</v-chip>
+                <v-chip class="ma-2" color="indigo lighten-1" outlined close>Youtube</v-chip>
+                <v-chip class="ma-2" color="indigo lighten-1" outlined close>Auckland</v-chip>
+              </v-col>
+            </v-row>
           </template>
         </div>
       </div>
@@ -78,6 +128,7 @@
           class="mx-4"
           flat
           hide-details
+          color="indigo lighten-1"
           label="Search the scenes..."
           prepend-inner-icon="search"
           v-model="searchString"
@@ -108,20 +159,20 @@
               <td>{{ item.speech }}</td>
               <td>
                 <template v-if="item.sentiment !== null">
-                <template v-if="item.sentiment.negative >= 0.8">
-                  <v-chip class="ma-2" color="red" text-color="white">Neg</v-chip>
-                </template>
+                  <template v-if="item.sentiment.negative >= 0.8">
+                    <v-chip class="ma-2" color="red" text-color="white">Neg</v-chip>
+                  </template>
                 </template>
                 <template v-if="item.sentiment !== null">
-                <template v--if="item.sentiment.neutral >= 0.8">
-                  <v-chip class="ma-2">Neu</v-chip>
+                  <template v-if="item.sentiment.neutral >= 0.8">
+                    <v-chip class="ma-2">Neu</v-chip>
+                  </template>
                 </template>
-                 </template>
-                  <template v-if="item.sentiment !== null">
-                <template v-if="item.sentiment.positive >= 0.8">
-                  <v-chip class="ma-2" color="green" text-color="white">Pos</v-chip>
+                <template v-if="item.sentiment !== null">
+                  <template v-if="item.sentiment.positive >= 0.8">
+                    <v-chip class="ma-2" color="green" text-color="white">Pos</v-chip>
+                  </template>
                 </template>
-                   </template>
               </td>
               <td>
                 <v-btn
@@ -314,7 +365,7 @@ export default {
 </script>
 
 <style lang="scss">
-.video {
+.file {
   padding: 2rem;
   padding-top: 1rem;
 

@@ -2,12 +2,39 @@
   <v-app id="inspire">
     <v-navigation-drawer v-model="drawer" app>
       <v-list dense>
+        <v-list-item two-line>
+          <v-list-item-avatar>
+            <img src="https://cdn.vuetifyjs.com/images/lists/2.jpg" />
+          </v-list-item-avatar>
+
+          <v-list-item-content>
+            <v-list-item-title>Thomas</v-list-item-title>
+            <v-list-item-subtitle>Logged In</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+
         <v-list-item link>
           <v-list-item-action>
             <v-icon @click="GoToHome">mdi-home</v-icon>
           </v-list-item-action>
           <v-list-item-content @click="GoToHome">
             <v-list-item-title>Home</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-action>
+            <v-icon>mdi-account</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Account</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-action>
+            <v-icon>arrow_back</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Log out</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -48,7 +75,7 @@ export default {
   },
 
   data: () => ({
-     drawer: false
+     drawer: true
   }),
 };
 </script>
