@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Text.Json;
 using Interface.Helpers;
 using Interface.Models;
 using Interface.ViewModels;
@@ -213,6 +215,17 @@ namespace Interface.Api
                 ).Select(scene => scene);
 
             return Ok(filteredScenes);
+        }
+
+        [HttpGet("provenance")]
+        public IActionResult FileProvenance()
+        {
+            WebClient client = new WebClient();
+            client.Headers["Accept"] = "application/json";
+
+            string json = client.DownloadString(new Uri("https://escience.aip.de/prov/graphs/example.json"));
+
+            return Ok(json);
         }
     }
 }

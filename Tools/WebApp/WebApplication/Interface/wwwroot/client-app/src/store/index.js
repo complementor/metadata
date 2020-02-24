@@ -7,9 +7,15 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     api: "https://localhost:44349/api/",
-    currentFile: ""
+    currentFile: "",
+    provenanceData: {}
+  },
+  getters: {
+    GetApiValue: state => state.api,
+    GetProvenanceData: state => state.provenanceData,
   },
   mutations: {
+
   },
   actions: {
     Search(context, queryString) {
@@ -38,6 +44,17 @@ export default new Vuex.Store({
         axios.post(context.state.api + "files/video/search", model)
           .then(response => {
             resolve(response)
+          }).catch(errors => {
+            reject(errors)
+          });
+      })
+    },
+    GetProvenanceData(context) {
+      return new Promise((resolve, reject) => {
+        axios.get(context.state.api + "files/provenance")
+          .then(response => {
+            resolve(response)
+            context.state.provenanceData = response.data;
           }).catch(errors => {
             reject(errors)
           });

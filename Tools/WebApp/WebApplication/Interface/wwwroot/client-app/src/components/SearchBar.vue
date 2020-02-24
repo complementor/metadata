@@ -55,7 +55,7 @@
 
 <script>
   export default {
-    name: 'SearchBar',
+    name: 'searchbar',
 
     data: () => ({
       icon: "ondemand_video",
