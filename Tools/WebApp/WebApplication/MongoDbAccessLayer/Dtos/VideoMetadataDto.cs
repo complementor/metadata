@@ -1,8 +1,7 @@
-using MongoDbAccessLayer.Models;
+using MongoDbAccessLayer.DomainModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace MongoDbAccessLayer.Dtos
 {
@@ -16,15 +15,14 @@ namespace MongoDbAccessLayer.Dtos
         public string SpeechAggregated { get; set; }
         public List<Scene> Scenes { get; set; }
 
-        internal void IncludeFeature(Task<Features> feature)
+        internal void MapFeatures(IndexModel feature)
         {
-            var satellites = feature.Result?.hub?.satellite.ToList();
+            var satellites = feature.hub?.satellite.ToList();
             if (satellites == null) return;
             var ocrDictionary = new Dictionary<int, string>();
             var speechDictionary = new Dictionary<int, string>();
             var objectDictionary = new Dictionary<int, List<CommonObject>>();
             var sentimentDictionary = new Dictionary<int, Sentiment>();
-
 
             var speech = satellites.Where(x => x.speech_recognition != null).Select(x => x.speech_recognition).FirstOrDefault();
             if (speech != null)
@@ -87,8 +85,6 @@ namespace MongoDbAccessLayer.Dtos
                 }
             }
 
-
-
             var scenes = satellites.Where(x => x.scenes != null).Select(x => x.scenes).FirstOrDefault();
             if (scenes != null)
             {
@@ -124,9 +120,9 @@ namespace MongoDbAccessLayer.Dtos
             }
         }
 
-        internal void IncludeGeneric(Task<Generic> generic)
+        internal void MapGenericDescription(DescriptionModel generic)
         {
-            var attributes = generic?.Result?.hub?.Satellite?.Attributes.ToList();
+            var attributes = generic?.hub?.Satellite?.Attributes.ToList();
             if (attributes != null)
             {
                 Generic = new List<GenericAttribute>();
@@ -139,9 +135,9 @@ namespace MongoDbAccessLayer.Dtos
                         //Standard = item.Value,
                     });
                 }
-                Title = attributes.FirstOrDefault(x => x.Name.ToLowerInvariant() == "Title".ToLowerInvariant())?.Value;
-                YouTubeId = attributes.FirstOrDefault(x => x.Name.ToLowerInvariant() == "YouTubeId".ToLowerInvariant())?.Value;
-                Duration = attributes.FirstOrDefault(x => x.Name.ToLowerInvariant() == "Duration".ToLowerInvariant())?.Value;
+                Title = attributes.FirstOrDefault(x => string.Equals(x.Name, "Title", StringComparison.InvariantCultureIgnoreCase))?.Value;
+                YouTubeId = attributes.FirstOrDefault(x => string.Equals(x.Name, "YouTubeId", StringComparison.InvariantCultureIgnoreCase))?.Value;
+                Duration = attributes.FirstOrDefault(x => string.Equals(x.Name, "Duration", StringComparison.InvariantCultureIgnoreCase))?.Value;
             }
         }
     }

@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text.Json;
 using Interface.Helpers;
 using Interface.Models;
 using Interface.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using MongoDbAccessLayer;
 using MongoDbAccessLayer.Dtos;
-using MongoDbAccessLayer.DTS;
 
 namespace Interface.Api
 {
