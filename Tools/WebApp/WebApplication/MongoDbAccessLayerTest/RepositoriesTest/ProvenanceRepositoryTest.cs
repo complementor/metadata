@@ -44,7 +44,7 @@ namespace MongoDbAccessLayerTest.RepositoriesTest
             [Test]
             public void WhenValidContext_DoesntThrowException()
             {
-                Assert.DoesNotThrow( () => new ProvenanceRepository(context));
+                Assert.DoesNotThrow(() => new ProvenanceRepository(context));
             }
         }
 
@@ -79,9 +79,12 @@ namespace MongoDbAccessLayerTest.RepositoriesTest
 
                 //assert
                 var nodes = new List<Node>() {
-                 new Node() { Name = "5e5648f60042cf1df5214403", Type = "entity", Value = 0.2 },
-                 new Node() { Name = "5e5648f60042cf1df5214402", Type = "entity", Value = 0.2 },
-                 new Node() { Name = "5e5648f60042cf1df5214401", Type = "entity", Value = 0.2 },
+                 new Node() { Name = "NewTitle", Type = "entity", Value = 0.2 },
+                 new Node() { Name = "NewTitle", Type = "entity", Value = 0.2 },
+                 new Node() { Name = "NewTitle", Type = "entity", Value = 0.2 },
+                 //new Node() { Name = "5e5648f60042cf1df5214403", Type = "entity", Value = 0.2 },
+                 //new Node() { Name = "5e5648f60042cf1df5214402", Type = "entity", Value = 0.2 },
+                 //new Node() { Name = "5e5648f60042cf1df5214401", Type = "entity", Value = 0.2 },
                  new Node() { Name = "MetadataExtraction", Type = "activity", Value = 0.2 },
                 };
                 var links = new List<Link>()
@@ -111,13 +114,14 @@ namespace MongoDbAccessLayerTest.RepositoriesTest
             {
                 var prov = context.GetCollection<BsonDocument>("provenance");
                 var doc = context.GetCollection<BsonDocument>("document");
+                var descr = context.GetCollection<BsonDocument>("description");
 
                 DiscardProvenanceModel();
 
                 var newDocuments = new List<BsonDocument> {
-                    new BsonDocument { { "_id", ObjectId.Parse("5e5648f60042cf1df5214401") }, { "IndexItem", "1" }, { "Description", "" }},
-                    new BsonDocument { { "_id", ObjectId.Parse("5e5648f60042cf1df5214402") }, { "IndexItem", "1" }, { "Description", "2" }, { "WasDerivedFrom", "5e5648f60042cf1df5214401"} },
-                    new BsonDocument { { "_id", ObjectId.Parse("5e5648f60042cf1df5214403") }, { "IndexItem", "2" }, { "Description", "2" }, { "WasDerivedFrom", "5e5648f60042cf1df5214402" } }
+                    new BsonDocument { { "_id", ObjectId.Parse("5e5648f60042cf1df5214401") } },
+                    new BsonDocument { { "_id", ObjectId.Parse("5e5648f60042cf1df5214402") }, { "WasDerivedFrom", "5e5648f60042cf1df5214401"} },
+                    new BsonDocument { { "_id", ObjectId.Parse("5e5648f60042cf1df5214403") }, { "WasDerivedFrom", "5e5648f60042cf1df5214402" } }
                 };
 
                 var newProvenance = new List<BsonDocument>
@@ -126,20 +130,35 @@ namespace MongoDbAccessLayerTest.RepositoriesTest
                     new BsonDocument { { "docId", "5e5648f60042cf1df5214401" }, { "type", "used" }, { "activity", "MetadataExtraction" }},
                 };
 
+                var newDescription = new BsonDocument { { "DocumentId", ObjectId.Parse("5e5648f60042cf1df5214403") },
+                    { "DateTime", BsonDateTime.Create(DateTime.Now) },
+                    { "Title", "DocumentNo1" },
+                    { "Hub", new BsonDocument { { "Date", "cow" },
+                        {"Satellite", new BsonDocument {
+                            { "Attributes", new BsonArray(){ new BsonDocument { { "Name", "Title" }, { "Value", "NewTitle" }, { "Standard", "DC" }}}}
+                        }}
+                    } } 
+                };
+
+
                 doc.InsertMany(newDocuments);
                 prov.InsertMany(newProvenance);
+                descr.InsertOne(newDescription);
             }
 
             private void DiscardProvenanceModel()
             {
                 var prov = context.GetCollection<BsonDocument>("provenance");
                 var doc = context.GetCollection<BsonDocument>("document");
+                var descr = context.GetCollection<BsonDocument>("description");
 
                 doc.DeleteMany(Builders<BsonDocument>.Filter.Eq( "_id", ObjectId.Parse("5e5648f60042cf1df5214401")));
                 doc.DeleteMany(Builders<BsonDocument>.Filter.Eq( "_id", ObjectId.Parse("5e5648f60042cf1df5214402")));
                 doc.DeleteMany(Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse("5e5648f60042cf1df5214403")));
                 prov.DeleteMany(Builders<BsonDocument>.Filter.Eq("docId", "5e5648f60042cf1df5214402"));
                 prov.DeleteMany(Builders<BsonDocument>.Filter.Eq("docId", "5e5648f60042cf1df5214401"));
+
+                descr.DeleteMany(Builders<BsonDocument>.Filter.Eq("DocumentId", ObjectId.Parse("5e5648f60042cf1df5214403")));
             }
         }
     }

@@ -8,38 +8,40 @@ using System.Linq;
 
 namespace MongoDbAccessLayer.Context.Repository
 {
-   
     public class ProvenanceRepository : IProvenanceRepository
     {
-        public readonly IMongoVideoDbContext _mongoContext;
+        private static IMongoVideoDbContext _mongoContext;
         private static IMongoCollection<ProvenanceModel> _provenanceCollection;
         private static IMongoCollection<DocModel> _documentCollection;
+        private static IMongoCollection<DescriptionModel> _descriptionCollection;
 
         public ProvenanceRepository(IMongoVideoDbContext context)
         {
             _mongoContext = context ?? throw new ArgumentNullException(nameof(context));
             _provenanceCollection = _mongoContext.GetCollection<ProvenanceModel>("provenance");
             _documentCollection = _mongoContext.GetCollection<DocModel>("document");
+            _descriptionCollection = _mongoContext.GetCollection<DescriptionModel>("description");
         }
 
         public ProvenanceDto Get(string documentId)
         {
             var links = GetLinks(documentId);
-            var nodes = GenerateNodes(links);
-            return ToDto(nodes);
+            var nodesAndLink = GenerateNodes(links);
+
+            return TransformToProvenanceDto(nodesAndLink);
         }
 
-        private static ProvenanceDto ToDto(Tuple<List<NodeTemp>, List<LinkTemp>> nodes)
+        private static ProvenanceDto TransformToProvenanceDto(Tuple<List<NodeTemp>, List<LinkTemp>> nodes)
         {
             var result = new ProvenanceDto();
 
-            result.Nodes = nodes.Item1.OrderBy(x => x.Position).Select(x => new Node()
+            result.Nodes = nodes.Item1?.OrderBy(x => x.Position).Select(x => new Node()
             {
-                Name = x.Id,
+                Name = x.Type == "entity" ? x.Name : x.Id,
                 Type = x.Type,
             }).ToList();
 
-            result.Links = nodes.Item2.Select(x => new Link()
+            result.Links = nodes.Item2?.Select(x => new Link()
             {
                 Source = x.Source.Position,
                 Target = x.Target.Position,
@@ -49,7 +51,6 @@ namespace MongoDbAccessLayer.Context.Repository
 
             return result;
         }
-
         private static Tuple<List<NodeTemp>, List<LinkTemp>> GenerateNodes(List<LinkTemp> links)
         {
             var nodes = new List<NodeTemp>();
@@ -64,6 +65,7 @@ namespace MongoDbAccessLayer.Context.Repository
                         Id = item.Source.Id,
                         Type = item.Source.Type,
                         Position = position,
+                        Name = item.Source.Name,
                     };
                     item.Source.Position = position;
                     nodes.Add(newNode);
@@ -82,6 +84,7 @@ namespace MongoDbAccessLayer.Context.Repository
                         Id = item.Target.Id,
                         Type = item.Target.Type,
                         Position = position,
+                        Name = item.Target.Name,
                     };
 
                     item.Target.Position = position;
@@ -96,48 +99,47 @@ namespace MongoDbAccessLayer.Context.Repository
 
             return new Tuple<List<NodeTemp>, List<LinkTemp>>(nodes, links);
         }
-
         private static List<LinkTemp> GetLinks(string documentId)
         {
-            List<DocModel> getAllPreviousVersions = GetAllPreviousVersions(documentId);
+            List<DocReadyForNode> getAllPreviousVersions = GetAllPreviousVersions(documentId);
             var links = new List<LinkTemp>();
-            foreach (var r in getAllPreviousVersions)
+            foreach (var document in getAllPreviousVersions)
             {
-                if (r.WasDerivedFromId != null && !string.IsNullOrWhiteSpace(r.WasDerivedFromId))
+                if (document.WasDerivedFromId != null && !string.IsNullOrWhiteSpace(document.WasDerivedFromId))
                 {
                     var newLinK = new LinkTemp
                     {
-                        Source = new NodeTemp() { Id = r._id.ToString(), Type = "entity" },
+                        Source = new NodeTemp() { Id = document.DocumentId.ToString(), Type = "entity", Name = document.Title },
                         RelationshipType = "wasDerivedFrom",
-                        Target = new NodeTemp() { Id = r.WasDerivedFromId, Type = "entity" },
+                        Target = new NodeTemp() { Id = document.WasDerivedFromId, Type = "entity", Name = document.Title },
                     };
                     links.Add(newLinK);
                 }
             }
 
-            foreach (var item in getAllPreviousVersions.Where(x => x._id != null).Select(x => x._id).ToList())
+            foreach (var item in getAllPreviousVersions.Where(x => x.DocumentId != default).Select(x => new { x.DocumentId, x.Title }).ToList())
             {
-                var prov = GetEntityActivities(item.ToString());
+                var prov = GetEntityActivities(item.DocumentId.ToString());
 
-                foreach (var r in prov)
+                foreach (var activity in prov)
                 {
-                    if (r.Type == "wasGeneretedBy")
+                    if (activity.Type == "wasGeneretedBy")
                     {
                         var newLinK = new LinkTemp
                         {
-                            Source = new NodeTemp() { Id = r.DocId, Type = "entity" },
-                            RelationshipType = r.Type,
-                            Target = new NodeTemp() { Id = r.ActivityName, Type = "activity" }
+                            Source = new NodeTemp() { Id = activity.DocId, Type = "entity", Name = item.Title },
+                            RelationshipType = activity.Type,
+                            Target = new NodeTemp() { Id = activity.ActivityName, Type = "activity" }
                         };
                         links.Add(newLinK);
                     }
-                    if (r.Type == "used")
+                    if (activity.Type == "used")
                     {
                         var newLinK = new LinkTemp
                         {
-                            Source = new NodeTemp() { Id = r.ActivityName, Type = "activity" },
-                            RelationshipType = r.Type,
-                            Target = new NodeTemp() { Id = r.DocId, Type = "entity" },
+                            Source = new NodeTemp() { Id = activity.ActivityName, Type = "activity" },
+                            RelationshipType = activity.Type,
+                            Target = new NodeTemp() { Id = activity.DocId, Type = "entity", Name = item.Title},
                         };
                         links.Add(newLinK);
                     }
@@ -146,50 +148,57 @@ namespace MongoDbAccessLayer.Context.Repository
 
             return links;
         }
-        private static List<DocModel> GetAllPreviousVersions(string v)
+        private static List<DocReadyForNode> GetAllPreviousVersions(string currentDocumentId)
         {
+            var listOfPreNodes = new List<DocReadyForNode>();
 
-            var collection = new List<DocModel>();
-
-            while (v != null && !string.IsNullOrEmpty(v))
+            while (currentDocumentId != null && !string.IsNullOrEmpty(currentDocumentId))
             {
-                var filter = Builders<DocModel>.Filter.Eq("_id", new ObjectId(v));
-                var result = _documentCollection.Find(filter).FirstOrDefault();
-                if (result != null)
-                {
-                    collection.Add(result);
+                var document = _documentCollection.Aggregate()
+               .Match(Builders<DocModel>.Filter.Eq("_id", new ObjectId(currentDocumentId)))
+               .Lookup(
+                   foreignCollection: _descriptionCollection,
+                   localField: a => a._id,
+                   foreignField: b => b.DocumentId,
+                   @as: (DocModelWithDescriptionModel eo) => eo.DescriptionModel)
+               .FirstOrDefault();
 
-                    if (result.WasDerivedFromId != null && !string.IsNullOrEmpty(result.WasDerivedFromId))
-                    {
-                        v = result.WasDerivedFromId;
-                    }
-                    else
-                    {
-                        v = null;
-                    }
+               // .Project(p => new { DocumentId = p._id, WasDerivedFromId = p.WasDerivedFrom, Descriptions = p.DescriptionModel[0] })
+               //?
+                //create preNode and retrieve title
+                if (document == null)
+                {
+                    currentDocumentId = null;
+                    continue;
                 }
                 else
                 {
-                    v = null;
+                    currentDocumentId = document.WasDerivedFrom;
                 }
+
+                listOfPreNodes.Add(new DocReadyForNode()
+                {
+                    DocumentId = document._id,
+                    Title = FindValue(document?.DescriptionModel, "title"),
+                    WasDerivedFromId = currentDocumentId
+                });
             }
 
-            return collection.ToList();
+            return listOfPreNodes.ToList();
         }
-
-        private static List<ProvenanceModel> GetEntityActivities(string v)
+        private static string FindValue(List<DescriptionModel> descriptionModel, string attribute)
         {
-            var filter = Builders<ProvenanceModel>.Filter.Eq("docId", v);
+            if (descriptionModel == null || descriptionModel.Count == 0) return "no title";
+            var attributes = descriptionModel?.First()?.hub?.Satellite?.Attributes;
+            if (attributes == null) return "no title";
+            return attributes.Where(x => string.Equals(x.Name, attribute, StringComparison.InvariantCultureIgnoreCase)).Select(x => x.Value).FirstOrDefault();
+        }
+        private static List<ProvenanceModel> GetEntityActivities(string documentId)
+        {
+            var filter = Builders<ProvenanceModel>.Filter.Eq("docId", documentId);
             return _provenanceCollection.Find(filter).ToList();
         }
     }
-
-
-
-
-
-
-
     public class LinkTemp
     {
         public NodeTemp Source { get; set; }
@@ -204,6 +213,7 @@ namespace MongoDbAccessLayer.Context.Repository
         public string Id { get; set; }
         public int Position { get; set; }
         public double Value { get; set; }
+        public string Name { get;  set; }
     }
 
 }

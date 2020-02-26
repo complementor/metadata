@@ -15,17 +15,35 @@ namespace MongoDbAccessLayer.DomainModels
         public List<DescriptionModel> Descriptions { get; set; }
     }
 
-    internal class DocModel
+    public class DocModel
     {
         [BsonId]
         public ObjectId _id { get; set; }
-        [BsonElement("IndexItem")]
-        public string IndexItem { get; set; }
-        [BsonElement("Description")]
-        public string DescriptionItem { get; set; }
+
+        [BsonElement("WasDerivedFrom")]
+        public string WasDerivedFromId { get; set; }
+    }
+
+    public class DocModelWithDescriptionModel
+    {
+        [BsonId]
+        public ObjectId _id { get; set; }
+
+        [BsonElement("WasDerivedFrom")]
+        public string WasDerivedFrom { get; set; }
+
+        public List<DescriptionModel> DescriptionModel { get; set; }
+    }
+
+    public class DocReadyForNode
+    {
+        [BsonId]
+        public ObjectId DocumentId { get; set; }
 
         [BsonElement("WasDerivedFrom")]
         public string WasDerivedFromId { get; set; }
 
+        public string Title{ get; set; }
+        public int Position { get; set; }
     }
 }
