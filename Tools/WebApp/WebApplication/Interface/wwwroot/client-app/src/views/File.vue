@@ -54,12 +54,10 @@
             <wordcloud :words="words"></wordcloud>
           </template>
           <template v-if="tab5">
-            <p>
-              <provenance></provenance>
-            </p>
+            <provenance></provenance>
           </template>
           <template v-if="tab6">
-            <collaboration></collaboration>
+            <collaboration :comments="comments" :tags="tags"></collaboration>
           </template>
         </div>
       </div>
@@ -171,7 +169,9 @@ export default {
     iframeSource: "",
     searchString: "",
     scenes: [],
-    words: []
+    words: [],
+    comments: [],
+    tags: []
   }),
 
   created () {
@@ -184,6 +184,8 @@ export default {
       this.$store.dispatch("GetFileByGuid", this.$route.params.guid)
       .then(response => {
         this.currentFile = response.data.videoMetadataDto;
+        this.comments = response.data.collaboration.comments;
+        this.tags = response.data.collaboration.tags;
         this.scenes = this.currentFile.scenes;
         this.words = response.data.words;
         this.loading = false;

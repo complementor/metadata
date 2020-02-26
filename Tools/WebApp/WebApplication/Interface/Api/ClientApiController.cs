@@ -18,6 +18,7 @@ namespace Interface.Api
         private readonly IBusinessLogic _businessLogic;
         private readonly IProvenanceRepository _provenanceRepository;
 
+
         public ClientApiController(IBusinessLogic businessLogic, IProvenanceRepository provenanceRepository)
         {
             _provenanceRepository = provenanceRepository;
@@ -45,10 +46,13 @@ namespace Interface.Api
 
             var wordCloud = WordCloud.Get(metadata.SpeechAggregated);
 
+            var collaboration = HardcodedData.GetCollaborationDto();
+
             var model = new VideoMetadataViewModel
             {
                 VideoMetadataDto = metadata,
-                Words = wordCloud
+                Words = wordCloud,
+                Collaboration = collaboration
             };
 
             return Ok(model);
@@ -74,7 +78,7 @@ namespace Interface.Api
         [HttpGet("provenance")]
         public IActionResult FileProvenance()
         {
-            var provenanceData = HardcodedData.GetProvenanceDto();
+            //var provenanceData = HardcodedData.GetProvenanceDto();
             var result = _provenanceRepository.Get("5e5648f60042cf1df5214403");
             return Ok(result);  
         }
