@@ -2,12 +2,11 @@
 using MongoDB.Driver;
 using MongoDbAccessLayer.Context;
 using MongoDbAccessLayer.Dtos;
-using MongoDbAccessLayer.DTS;
-using MongoDbAccessLayer.Models;
+using MongoDbAccessLayer.DomainModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Attribute = MongoDbAccessLayer.Models.Attribute;
+using Attribute = MongoDbAccessLayer.DomainModels.Attribute;
 
 namespace MongoDbAccessLayer
 {
@@ -21,16 +20,16 @@ namespace MongoDbAccessLayer
 
         public List<VideoInfoDto> Search(string searchQuery)
         {
-            var genericCollection = context.GetCollection<Generic>("generic");
+            var descriptionCollection = context.GetCollection<DescriptionModel>("description");
             TextSearchOptions textSearchOptions = new TextSearchOptions() { CaseSensitive = false, DiacriticSensitive = false, Language = "english" };
-            var mongoCollection = context.GetCollection<Features>("features");
-            var builder = Builders<Features>.Filter;
+            var mongoCollection = context.GetCollection<IndexModel>("index");
+            var builder = Builders<IndexModel>.Filter;
             var filter = builder.Text(searchQuery, textSearchOptions);
-            var projection = Builders<Features>.Projection.MetaTextScore("score");
-            var sort = Builders<Features>.Sort.MetaTextScore("score");
+            var projection = Builders<IndexModel>.Projection.MetaTextScore("score");
+            var sort = Builders<IndexModel>.Sort.MetaTextScore("score");
             var sortedResult = mongoCollection
                 .Find(filter)
-                .Project<Features>(projection)
+                .Project<IndexModel>(projection)
                 .Sort(sort)
                 .ToListAsync();
 
@@ -47,22 +46,22 @@ namespace MongoDbAccessLayer
                 {
                     foreach (var item in result)
                     {
-                        FilterDefinition<Generic> filterGeneric = Builders<Generic>.Filter.Eq("id", item.VideoId);
-                        var genericInfo = genericCollection.Find(filterGeneric).FirstOrDefaultAsync();
-                        item.Title = FindValue(genericInfo?.Result.hub?.Satellite?.Attributes, "title");
-                        item.Duration = FindValue(genericInfo?.Result.hub?.Satellite?.Attributes, "duration");
+                        FilterDefinition<DescriptionModel> idFilter = Builders<DescriptionModel>.Filter.Eq("id", item.VideoId);
+                        var descriptionInfo = descriptionCollection.Find(idFilter).FirstOrDefaultAsync();
+                        item.Title = FindValue(descriptionInfo?.Result.hub?.Satellite?.Attributes, "title");
+                        item.Duration = FindValue(descriptionInfo?.Result.hub?.Satellite?.Attributes, "duration");
                     }
                 }
             }
 
-            var builder1 = Builders<Generic>.Filter;
+            var builder1 = Builders<DescriptionModel>.Filter;
             TextSearchOptions textSearchOptions1 = new TextSearchOptions() { CaseSensitive = false, DiacriticSensitive = false, Language = "english" };
             var filter1 = builder1.Text(searchQuery, textSearchOptions1);
-            var projection1 = Builders<Generic>.Projection.MetaTextScore("score");
-            var sort1 = Builders<Generic>.Sort.MetaTextScore("score");
-            var sortedResult1 = genericCollection
+            var projection1 = Builders<DescriptionModel>.Projection.MetaTextScore("score");
+            var sort1 = Builders<DescriptionModel>.Sort.MetaTextScore("score");
+            var sortedResult1 = descriptionCollection
                 .Find(filter1)
-                .Project<Generic>(projection1)
+                .Project<DescriptionModel>(projection1)
                 .Sort(sort1)
                 .ToList();
 
@@ -107,23 +106,23 @@ namespace MongoDbAccessLayer
 
         public VideoMetadataDto Get(string objectId)
         {
-            var featureCollection = context.GetCollection<Features>("features");
-            var genericCollection = context.GetCollection<Generic>("generic");
+            var featureCollection = context.GetCollection<IndexModel>("index");
+            var descriptionCollection = context.GetCollection<DescriptionModel>("description");
 
             var metadata = new VideoMetadataDto();
 
-            FilterDefinition<Features> filter = Builders<Features>.Filter.Eq("id", objectId);
-            var feature = featureCollection.Find(filter).FirstOrDefaultAsync();
+            FilterDefinition<IndexModel> filter = Builders<IndexModel>.Filter.Eq("id", objectId);
+            var feature = featureCollection.Find(filter).FirstOrDefault();
             if (feature != null)
             {
-                metadata.IncludeFeature(feature);
+                metadata.MapFeatures(feature);
             }
 
-            FilterDefinition<Generic> filterGeneric = Builders<Generic>.Filter.Eq("id", objectId);
-            var generic = genericCollection.Find(filterGeneric).FirstOrDefaultAsync();
-            if (generic != null)
+            FilterDefinition<DescriptionModel> idFilder = Builders<DescriptionModel>.Filter.Eq("id", objectId);
+            var description = descriptionCollection.Find(idFilder).FirstOrDefault();
+            if (description != null)
             {
-                metadata.IncludeGeneric(generic);
+                metadata.MapGenericDescription(description);
             }
 
             return metadata;
@@ -131,12 +130,12 @@ namespace MongoDbAccessLayer
 
         public List<VideoInfoDto> GetAll()
         {
-            var genericCollection = context.GetCollection<Generic>("generic");
-            var mongoCollection = context.GetCollection<Features>("features");
-            var builder = Builders<Features>.Filter;
+            var descriptionCollection = context.GetCollection<DescriptionModel>("description");
+            var mongoCollection = context.GetCollection<IndexModel>("index");
+            var builder = Builders<IndexModel>.Filter;
             TextSearchOptions textSearchOptions = new TextSearchOptions() { CaseSensitive = false, DiacriticSensitive = false, Language = "english" };
             var sortedResult = mongoCollection
-            .Find(Builders<Features>.Filter.Empty)?
+            .Find(Builders<IndexModel>.Filter.Empty)?
             .ToList();
 
             var result = sortedResult?.Select(x => new VideoInfoDto
@@ -150,17 +149,17 @@ namespace MongoDbAccessLayer
             {
                 foreach (var item in result)
                 {
-                    FilterDefinition<Generic> filterGeneric = Builders<Generic>.Filter.Eq("id", item.VideoId);
-                    var genericInfo = genericCollection.Find(filterGeneric).FirstOrDefaultAsync();
-                    item.Title = FindValue(genericInfo?.Result.hub?.Satellite?.Attributes, "title");
-                    item.Duration = FindValue(genericInfo?.Result.hub?.Satellite?.Attributes, "duration");
+                    FilterDefinition<DescriptionModel> filterDescription = Builders<DescriptionModel>.Filter.Eq("id", item.VideoId);
+                    var descriptionInfo = descriptionCollection.Find(filterDescription).FirstOrDefaultAsync();
+                    item.Title = FindValue(descriptionInfo?.Result.hub?.Satellite?.Attributes, "title");
+                    item.Duration = FindValue(descriptionInfo?.Result.hub?.Satellite?.Attributes, "duration");
                 }
             }
 
-            var builder1 = Builders<Generic>.Filter;
+            var builder1 = Builders<DescriptionModel>.Filter;
             TextSearchOptions textSearchOptions1 = new TextSearchOptions() { CaseSensitive = false, DiacriticSensitive = false, Language = "english" };
-            var sortedResult1 = genericCollection
-            .Find(Builders<Generic>.Filter.Empty)
+            var sortedResult1 = descriptionCollection
+            .Find(Builders<DescriptionModel>.Filter.Empty)
             .ToList();
 
             var standardList = new List<string>() { "DC", "TVAnytime", "Mpeg7", "XMP" };

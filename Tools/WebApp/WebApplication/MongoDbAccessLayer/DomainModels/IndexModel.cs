@@ -2,9 +2,9 @@
 using MongoDB.Bson.Serialization.Attributes;
 using System.Collections.Generic;
 
-namespace MongoDbAccessLayer.Models
+namespace MongoDbAccessLayer.DomainModels
 {
-    public class Features
+    public class IndexModel
     {
         [BsonId]
         public ObjectId _id { get; set; }

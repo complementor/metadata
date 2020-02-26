@@ -15,6 +15,7 @@ namespace MongoDbAccessLayer.Context
             if (configuration == null ) throw new ArgumentNullException(nameof(configuration));
             _mongoClient = new MongoClient(configuration.Value.Connection);
             _db = _mongoClient.GetDatabase(configuration.Value.DatabaseName);
+
         }
         public IMongoCollection<T> GetCollection<T>(string name)
         {

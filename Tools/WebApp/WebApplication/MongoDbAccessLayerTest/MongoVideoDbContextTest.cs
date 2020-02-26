@@ -8,7 +8,7 @@ using System;
 
 namespace MongoDbAccessLayerTest
 {
-    public class MongoVideoDbContextTest
+    public static class MongoVideoDbContextTest
     {
         public class TestConstructor
         {
@@ -29,7 +29,6 @@ namespace MongoDbAccessLayerTest
 
                 Assert.DoesNotThrow(() => new MongoVideoDbContext(mock.Object));
             }
-
         }
 
 
@@ -89,6 +88,7 @@ namespace MongoDbAccessLayerTest
                 var context = new MongoVideoDbContext(_mockOptions.Object);
                 var collection = context.GetCollection<Feature>("feature");
 
+                //Assert
                 Assert.IsNotNull(collection);
 
             }
