@@ -1,6 +1,7 @@
 ﻿using MongoDbAccessLayer.Dtos;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -180,6 +181,72 @@ namespace Interface.Helpers
             };
 
             return provenance;
+        }
+
+        public static CollaborationDto GetCollaborationDto()
+        {
+            var collaboration = new CollaborationDto
+            {
+                Comments = new List<Comment>
+                {
+                   new Comment
+                   {
+                       User = "Peter",
+                       UserIcon = "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=200",
+                       Description = "I did a classification task on this video.",
+                       DateTime = DateTime.Now.AddDays(2).ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                   },
+                   new Comment
+                   {
+                       User = "Anne",
+                       UserIcon = "https://www.joancanto.com/wp-content/uploads/2017/04/H10B0527.jpg",
+                       Description = "Great job, Peter. Very useful for my work.",
+                       DateTime = DateTime.Now.AddDays(3).ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                   },
+                   new Comment
+                   {
+                       User = "Thomas",
+                       UserIcon = "https://cdn.vuetifyjs.com/images/lists/2.jpg",
+                       Description = "Nice findings! I added a few more tags.",
+                       DateTime = DateTime.Now.AddDays(4).ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                   }
+                },
+                Tags = new List<Tag>
+                {
+                    new Tag
+                    {
+                        TagName = "Entertainment",
+                        UserName = "Peter"
+                    },
+                    new Tag
+                    {
+                        TagName = "Nature",
+                        UserName = "Anne"
+                    },
+                    new Tag
+                    {
+                        TagName = "New Zealand",
+                        UserName = "Anne"
+                    },
+                    new Tag
+                    {
+                        TagName = "Travel",
+                        UserName = "Anne"
+                    },
+                    new Tag
+                    {
+                        TagName = "Youtube",
+                        UserName = "Thomas"
+                    },
+                    new Tag
+                    {
+                        TagName = "Auckland",
+                        UserName = "Thomas"
+                    }
+                }
+            };
+
+            return collaboration;
         }
 
         public static VideoMetadataDto GetVideoMetadataDto(string guid)
