@@ -75,8 +75,8 @@ namespace Interface.Api
         public IActionResult FileProvenance()
         {
             var provenanceData = HardcodedData.GetProvenanceDto();
-
-            return Ok(provenanceData);  
+            var result = _provenanceRepository.Get("5e5648f60042cf1df5214403");
+            return Ok(result);  
         }
     }
 }
