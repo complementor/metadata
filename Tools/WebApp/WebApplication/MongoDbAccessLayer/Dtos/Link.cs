@@ -4,9 +4,9 @@ namespace MongoDbAccessLayer.Dtos
 {
     public class Link
     {
-        public string Source { get; }
-        public string Target { get; }
-        public string RelationshipType { get; set; }
-        public DateTime Datetime{ get;  }
+        public int Source { get; set; }
+        public int Target { get; set; }
+        public string Type { get; set; }
+        public DateTime Datetime{ get; set; }
     }
 }

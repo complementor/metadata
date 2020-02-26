@@ -14,37 +14,12 @@ namespace Interface.Api
     [Route("api/files")]
     public class ClientApiController : Controller
     {
-        private readonly IBusinessLogic businessLogic;
+        private readonly IBusinessLogic _businessLogic;
 
         public ClientApiController(IBusinessLogic businessLogic)
         {
-            this.businessLogic = businessLogic;
+            _businessLogic = businessLogic;
         }
-
-        private static readonly List<VideoInfoDto> list = new List<VideoInfoDto>
-        {
-            new VideoInfoDto
-            {
-                VideoId = Guid.NewGuid().ToString(),
-                Duration = "00:01:10.779",
-                Standard = "XMP",
-                Title = "Goldeneye"
-            },
-            new VideoInfoDto
-            {
-                VideoId = Guid.NewGuid().ToString(),
-                Duration = "00:05:20.122",
-                Standard = "Dublin Core",
-                Title = "Football"
-            },
-            new VideoInfoDto
-            {
-                VideoId = Guid.NewGuid().ToString(),
-                Duration = "00:02:00.433",
-                Standard = "MPEG-7",
-                Title = "Batman"
-            }
-        };
 
         [HttpGet("search")]
         public IActionResult Search([FromQuery] string query)
@@ -55,7 +30,7 @@ namespace Interface.Api
             //}
             //return Ok(businessLogic.Search(query));
 
-            return Ok(list);
+            return Ok(HardcodedData.GetListOfVideos());
         }
 
         [HttpGet("{guid}")]
@@ -63,6 +38,7 @@ namespace Interface.Api
         {
             //var metadata = businessLogic.Get(guid);
 
+            var list = HardcodedData.GetListOfVideos();
             var file = list
                 .Where(x => x.VideoId == guid)
                 .FirstOrDefault();
@@ -99,58 +75,7 @@ namespace Interface.Api
         [HttpGet("provenance")]
         public IActionResult FileProvenance()
         {
-            //WebClient client = new WebClient();
-            //client.Headers["Accept"] = "application/json";
-
-            //string json = client.DownloadString(new Uri("https://escience.aip.de/prov/graphs/example.json"));
-
-<<<<<<< HEAD
             var provenanceData = HardcodedData.GetProvenanceDto();
-=======
-            //string json = client.DownloadString(new Uri("https://escience.aip.de/prov/graphs/example.json"));
-
-            var json = @"
-            {""nodes"": [
-                { ""type"": ""agent"", ""name"": ""Andrei"", ""value"": 0.2},
-                { ""type"": ""entity"", ""name"": ""Document_v2"", ""value"": 0.2},
-                { ""type"": ""activity"", ""name"": ""Tagging"", ""value"": 0.2},
-                { ""type"": ""entity"", ""name"": ""Document_v3"", ""value"": 0.2},
-                { ""type"": ""agent"", ""name"": ""SceneDetect"", ""value"": 0.2}, 
-                { ""type"": ""activity"", ""name"": ""ExtractFeatures"", ""value"": 0.2},
-                { ""type"": ""activity"", ""name"": ""ExtractGenericMetadata"", ""value"": 0.2},
-                { ""type"": ""agent"", ""name"": ""ExifTool"", ""value"": 0.2},
-                { ""type"": ""entity"", ""name"": ""Document_v1"", ""value"": 0.2}
-                ],
-            ""links"": [
-                {""source"": 1, ""type"": ""wasGeneratedBy"", ""target"": 2, ""value"": 0.2 }, 
-                {""source"": 2, ""type"": ""wasAssociatedWith"", ""target"": 0, ""value"": 0.2 }, 
-                {""source"": 2, ""type"": ""used"", ""target"": 8, ""value"": 0.2}, 
-
-                {""source"": 2, ""type"": ""wasAttributedTo"", ""target"": 7, ""value"": 0.2}, 
-                {""source"": 3, ""type"": ""wasAssociatedWith"", ""target"": 4, ""value"": 0.2}, 
-                {""source"": 5, ""type"": ""used"", ""target"": 1, ""value"": 0.2},
-                {""source"": 3, ""type"": ""wasGeneratedBy"", ""target"": 5, ""value"": 0.2},
-                {""source"": 3, ""type"": ""wasDerivedFrom"", ""target"": 1, ""value"": 0.2},
-
-                {""source"": 6, ""type"": ""wasAttributedTo"", ""target"": 4, ""value"": 0.2}, 
-                {""source"": 8, ""type"": ""wasAssociatedWith"", ""target"": 7, ""value"": 0.2}, 
-                {""source"": 8, ""type"": ""wasGeneratedBy"", ""target"": 6, ""value"": 0.2},
-                {""source"": 1, ""type"": ""wasDerivedFrom"", ""target"": 8, ""value"": 0.2}
-            ]}
-            ";
-
-            //var json = @"
-            //{""nodes"": [
-            //{ ""type"": ""entity"", ""name"": ""Document_v1"", ""value"": 0.2},
-            //{ ""type"": ""entity"", ""name"": ""Document_v2"", ""value"": 0.2}, 
-            //{ ""type"": ""entity"", ""name"": ""Document_v3"", ""value"": 0.2} 
-            //], 
-            //""links"": [
-            //    {""source"": 1, ""type"": ""wasDerivedFrom"", ""target"": 0, ""value"": 0.2},
-            //    {""source"": 2, ""type"": ""wasDerivedFrom"", ""target"": 1, ""value"": 0.2}
-            //]}
-            //";
->>>>>>> 58402761ff14e94584da7c9dd8ca5369da2c4419
 
             return Ok(provenanceData);  
         }

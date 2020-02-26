@@ -2,8 +2,8 @@
 {
     public class Node
     {
-        public string Type { get; }
-        public string Id { get; }
+        public string Type { get; set; }
+        public string Name { get; set; }
 
     }
 }
