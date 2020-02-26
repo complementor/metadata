@@ -7,6 +7,7 @@ using Interface.Models;
 using Interface.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using MongoDbAccessLayer;
+using MongoDbAccessLayer.Context.Repository;
 using MongoDbAccessLayer.Dtos;
 
 namespace Interface.Api
@@ -15,9 +16,11 @@ namespace Interface.Api
     public class ClientApiController : Controller
     {
         private readonly IBusinessLogic _businessLogic;
+        private readonly IProvenanceRepository _provenanceRepository;
 
-        public ClientApiController(IBusinessLogic businessLogic)
+        public ClientApiController(IBusinessLogic businessLogic, IProvenanceRepository provenanceRepository)
         {
+            _provenanceRepository = provenanceRepository;
             _businessLogic = businessLogic;
         }
 
