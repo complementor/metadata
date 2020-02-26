@@ -2,10 +2,12 @@
   <div class="provenance">
     <template v-if="loading">Loading...</template>
     <template v-show="!loading">
-      <p id="chart"></p>
       <p id="force-legend"></p>
+      <p id="chart"></p>
 
       <p id="force-graph"></p>
+      <!-- <p id="force-graph"></p> -->
+      <!-- <svg width="960" height="500" /> -->
     </template>
   </div>
 </template>
@@ -18,7 +20,24 @@ import * as d3 from "d3";
     name: 'provenance',
 
     data: () => ({
-      loading: false
+      loading: false,
+      graph: {
+        "nodes": [
+          {"id": "red"},
+          {"id": "orange"},
+          {"id": "yellow"},
+          {"id": "green"},
+          {"id": "blue"},
+          {"id": "violet"}
+        ],
+        "links": [
+          {"source": "red", "target": "yellow"},
+          {"source": "red", "target": "blue"},
+          {"source": "red", "target": "green"},
+          {"source": "red", "target": "violet"},
+          {"source": "violet", "target": "orange"}
+        ]
+      }
     }),
 
     beforeCreate () {
@@ -29,7 +48,7 @@ import * as d3 from "d3";
     mounted () {
       this.loading = true;
       setTimeout(() => {
-        this.renderGraph();
+        this.renderGraph2();
       }, 1000); 
     },
 
@@ -43,13 +62,12 @@ import * as d3 from "d3";
     },
 
     methods: {
-      renderGraph() {
-        console.log("create chart")
-        /* Force-directed graph layout */
+      renderGraph2() {
+        // npm i d3@3   
 
-        // First draw some lines for a simple legend
+        // draw legend
         var svg3 = d3.select("#force-legend").append("svg")
-                    .attr("width", 300)
+                    .attr("width", 500)
                     .attr("height", 65);
 
         var lineData = [
@@ -89,7 +107,8 @@ import * as d3 from "d3";
                     .attr("class", function (d) { return "marker "+ d.name })
                     .attr("stroke-width", 0);
 
-        var width2 = 960,
+        // draw graph
+        var width2 = 1050,
             height2 = 500;
 
         var svg2 = d3.select("#force-graph").append("svg")
@@ -99,13 +118,15 @@ import * as d3 from "d3";
         var defs = svg2.append("svg:defs");
         var nodes = this.ProvenanceData.nodes;
         var links = this.ProvenanceData.links
+        console.log(nodes);
+        console.log(links)
 
           var force = d3.layout.force()
               .nodes(nodes)
               .links(links)
               .size([width2, height2])
-              .linkDistance(150)
-              .charge(-200)
+              .linkDistance(100)
+              .charge(-500)
               .on("tick", tick)
               .start();
 
@@ -144,12 +165,6 @@ import * as d3 from "d3";
               .attr("cy", 0)
               .call(force.drag);
 
-        /*  var circle = shapes.append("circle")
-              .filter(function(d){ return d.type == "agent"; })
-              .attr("class", function(d) { return d.type; })
-              .attr("r", 8)
-              .call(force.drag);
-        */
           var polygon = shapes.append("path")
               .filter(function(d){ return d.type == "agent"; })
               .attr("class", function(d) { return d.type; })
@@ -308,7 +323,7 @@ circle {
 }
 
 text {
-  font: 10px sans-serif;
+  font: 15px sans-serif;
   pointer-events: none;
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
 }
