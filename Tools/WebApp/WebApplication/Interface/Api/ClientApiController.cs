@@ -221,7 +221,49 @@ namespace Interface.Api
             WebClient client = new WebClient();
             client.Headers["Accept"] = "application/json";
 
-            string json = client.DownloadString(new Uri("https://escience.aip.de/prov/graphs/example.json"));
+            //string json = client.DownloadString(new Uri("https://escience.aip.de/prov/graphs/example.json"));
+
+            var json = @"
+            {""nodes"": [
+                { ""type"": ""agent"", ""name"": ""Andrei"", ""value"": 0.2},
+                { ""type"": ""entity"", ""name"": ""Document_v2"", ""value"": 0.2},
+                { ""type"": ""activity"", ""name"": ""Tagging"", ""value"": 0.2},
+                { ""type"": ""entity"", ""name"": ""Document_v3"", ""value"": 0.2},
+                { ""type"": ""agent"", ""name"": ""SceneDetect"", ""value"": 0.2}, 
+                { ""type"": ""activity"", ""name"": ""ExtractFeatures"", ""value"": 0.2},
+                { ""type"": ""activity"", ""name"": ""ExtractGenericMetadata"", ""value"": 0.2},
+                { ""type"": ""agent"", ""name"": ""ExifTool"", ""value"": 0.2},
+                { ""type"": ""entity"", ""name"": ""Document_v1"", ""value"": 0.2}
+                ],
+            ""links"": [
+                {""source"": 1, ""type"": ""wasGeneratedBy"", ""target"": 2, ""value"": 0.2 }, 
+                {""source"": 2, ""type"": ""wasAssociatedWith"", ""target"": 0, ""value"": 0.2 }, 
+                {""source"": 2, ""type"": ""used"", ""target"": 8, ""value"": 0.2}, 
+
+                {""source"": 2, ""type"": ""wasAttributedTo"", ""target"": 7, ""value"": 0.2}, 
+                {""source"": 3, ""type"": ""wasAssociatedWith"", ""target"": 4, ""value"": 0.2}, 
+                {""source"": 5, ""type"": ""used"", ""target"": 1, ""value"": 0.2},
+                {""source"": 3, ""type"": ""wasGeneratedBy"", ""target"": 5, ""value"": 0.2},
+                {""source"": 3, ""type"": ""wasDerivedFrom"", ""target"": 1, ""value"": 0.2},
+
+                {""source"": 6, ""type"": ""wasAttributedTo"", ""target"": 4, ""value"": 0.2}, 
+                {""source"": 8, ""type"": ""wasAssociatedWith"", ""target"": 7, ""value"": 0.2}, 
+                {""source"": 8, ""type"": ""wasGeneratedBy"", ""target"": 6, ""value"": 0.2},
+                {""source"": 1, ""type"": ""wasDerivedFrom"", ""target"": 8, ""value"": 0.2}
+            ]}
+            ";
+
+            //var json = @"
+            //{""nodes"": [
+            //{ ""type"": ""entity"", ""name"": ""Document_v1"", ""value"": 0.2},
+            //{ ""type"": ""entity"", ""name"": ""Document_v2"", ""value"": 0.2}, 
+            //{ ""type"": ""entity"", ""name"": ""Document_v3"", ""value"": 0.2} 
+            //], 
+            //""links"": [
+            //    {""source"": 1, ""type"": ""wasDerivedFrom"", ""target"": 0, ""value"": 0.2},
+            //    {""source"": 2, ""type"": ""wasDerivedFrom"", ""target"": 1, ""value"": 0.2}
+            //]}
+            //";
 
             return Ok(json);
         }
