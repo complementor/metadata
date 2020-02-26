@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using static MongoDbAccessLayer.DomainModels.IndexModel;
+using MongoDB.Bson;
 
 namespace MongoDbAccessLayerTest
 {
@@ -18,8 +19,8 @@ namespace MongoDbAccessLayerTest
 
         public class SearchTest
         {
-            MongoVideoDbContext context;
-            Mock<IOptions<MongoSettings>> mockConnection;
+            private MongoVideoDbContext context;
+            private Mock<IOptions<MongoSettings>> mockConnection;
             [SetUp]
             public void SetUp()
             {
@@ -35,11 +36,37 @@ namespace MongoDbAccessLayerTest
             {
                 //Arrange
                 var businessLogic = new BusinessLogic(mockConnection.Object);
-
                 var guid = Guid.NewGuid();
+                InitializeDatabase(context, guid);
+
+                //Assert
+                List<VideoInfoDto> result = businessLogic.Search("cow");
+                Assert.AreEqual(1, result.Where(x => x.VideoId == guid.ToString()).Count());
+
+                //cleanup
+                CleanUpDatabase(context, guid);
+            }
+
+            private void CleanUpDatabase(MongoVideoDbContext context, Guid guid)
+            {
+                var collectionGeneric = context.GetCollection<DescriptionModel>("description");
+                var collectionFeature = context.GetCollection<IndexModel>("index");
+
+                FilterDefinition<IndexModel> filter = Builders<IndexModel>.Filter.Eq("Id", guid.ToString());
+                FilterDefinition<DescriptionModel> filterGeneric = Builders<DescriptionModel>.Filter.Eq("Id", guid.ToString());
+
+                collectionFeature.DeleteMany(filter);
+                collectionGeneric.DeleteMany(filterGeneric);
+            }
+            private void InitializeDatabase(MongoVideoDbContext context, Guid guid)
+            {
+                var collectionGeneric = context.GetCollection<DescriptionModel>("description");
+                var collectionFeature = context.GetCollection<IndexModel>("index");
+                var objectId = ObjectId.GenerateNewId();
                 var insertToIndex = new IndexModel()
                 {
                     Id = guid.ToString(),
+                    DocumentId = objectId,
                     hub = new Hub()
                     {
                         date = "redcar",
@@ -52,30 +79,19 @@ namespace MongoDbAccessLayerTest
                                 }}
                     }
                 };
-                var collectionFeature = context.GetCollection<IndexModel>("index");
-                collectionFeature.InsertOne(insertToIndex);
 
                 var insertToGeneric = new DescriptionModel()
                 {
                     id = guid.ToString(),
+                    DocumentId = objectId,
                     hub = new HubGeneric()
                     {
                         Date = "cow",
                     }
                 };
-                var collectionGeneric = context.GetCollection<DescriptionModel>("description");
+
+                collectionFeature.InsertOne(insertToIndex);
                 collectionGeneric.InsertOne(insertToGeneric);
-
-                //Assert
-                List<VideoInfoDto> result = businessLogic.Search("cow");
-                //Assert.AreEqual(3, result.Count);
-                Assert.AreEqual(guid.ToString(), result.First().VideoId);
-
-                //cleanup
-                FilterDefinition<IndexModel> filter = Builders<IndexModel>.Filter.Eq("Id", guid.ToString());
-                collectionFeature.DeleteMany(filter);
-                FilterDefinition<DescriptionModel> filterGeneric = Builders<DescriptionModel>.Filter.Eq("Id", guid.ToString());
-                collectionGeneric.DeleteMany(filterGeneric);
             }
 
             public class GetByIdTest

@@ -8,6 +8,8 @@ namespace MongoDbAccessLayer.DomainModels
     {
         [BsonId]
         public ObjectId _id { get; set; }
+
+        public ObjectId DocumentId { get; set; }
         [BsonElement("id")]
         public string Id { get; set; }
         public Hub hub { get; set; }

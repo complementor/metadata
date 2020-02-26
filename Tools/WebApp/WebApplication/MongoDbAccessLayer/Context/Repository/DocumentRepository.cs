@@ -33,7 +33,6 @@ namespace MongoDbAccessLayer.Context.Repository
         public async Task<DocumentModel> Get(string id)
         {
             //ex. ObjectId("5e514803fa0df9b9f548f02c);
-
             var objectId = new ObjectId(id);
 
             FilterDefinition<DocumentModel> filter = Builders<DocumentModel>.Filter.Eq("_id", objectId);

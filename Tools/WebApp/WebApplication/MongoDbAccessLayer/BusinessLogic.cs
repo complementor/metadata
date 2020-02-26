@@ -12,7 +12,7 @@ namespace MongoDbAccessLayer
 {
     public class BusinessLogic : IBusinessLogic
     {
-        MongoVideoDbContext context;
+        private MongoVideoDbContext context;
         public BusinessLogic(IOptions<MongoSettings> mongoSettings)
         {
             context = new MongoVideoDbContext(mongoSettings);
@@ -48,8 +48,8 @@ namespace MongoDbAccessLayer
                     {
                         FilterDefinition<DescriptionModel> idFilter = Builders<DescriptionModel>.Filter.Eq("id", item.VideoId);
                         var descriptionInfo = descriptionCollection.Find(idFilter).FirstOrDefaultAsync();
-                        item.Title = FindValue(descriptionInfo?.Result.hub?.Satellite?.Attributes, "title");
-                        item.Duration = FindValue(descriptionInfo?.Result.hub?.Satellite?.Attributes, "duration");
+                        item.Title = FindValue(descriptionInfo?.Result?.hub?.Satellite?.Attributes, "title");
+                        item.Duration = FindValue(descriptionInfo?.Result?.hub?.Satellite?.Attributes, "duration");
                     }
                 }
             }
