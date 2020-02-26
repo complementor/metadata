@@ -1,12 +1,19 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 
 namespace MongoDbAccessLayer.Dtos
 {
     public class Link
     {
-        public string Source { get; }
-        public string Target { get; }
+        [JsonPropertyName("source")]
+        public int Source { get; set; }
+        [JsonPropertyName("target")]
+        public int Target { get; set; }
+        [JsonPropertyName("type")]
         public string RelationshipType { get; set; }
-        public DateTime Datetime{ get;  }
+        [JsonPropertyName("value")]
+        public double Value { get; set; }
+
+        //public DateTime Datetime{ get; set; }
     }
 }
