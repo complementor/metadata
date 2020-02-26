@@ -2,12 +2,22 @@
   <div class="provenance">
     <template v-if="loading">Loading...</template>
     <template v-show="!loading">
-      <p id="force-legend"></p>
-      <p id="chart"></p>
-
-      <p id="force-graph"></p>
-      <!-- <p id="force-graph"></p> -->
-      <!-- <svg width="960" height="500" /> -->
+      <div class="legends__container">
+        <span id="force-legend-1"></span>
+      </div>
+      <v-row>
+        <v-col cols="12" md="6">
+          <div class="graph__container">
+            <span id="chart"></span>
+            <span id="force-graph"></span>
+          </div>
+        </v-col>
+        <v-col cols="12" md="6">
+          <div class="prov__model">
+            <img v-show="!loading" src="@/assets/key-concepts.png" />
+          </div>
+        </v-col>
+      </v-row>
     </template>
   </div>
 </template>
@@ -48,7 +58,7 @@ import * as d3 from "d3";
     mounted () {
       this.loading = true;
       setTimeout(() => {
-        this.renderGraph2();
+        this.renderGraph();
       }, 1000); 
     },
 
@@ -62,27 +72,26 @@ import * as d3 from "d3";
     },
 
     methods: {
-      renderGraph2() {
+      renderGraph() {
         // d3 version: npm i d3@3   
 
-        // draw legend
-        var svg3 = d3.select("#force-legend").append("svg")
-                    .attr("width", 320)
-                    .attr("height", 65);
+        // draw legend 1
+        var svg1 = d3.select("#force-legend-1").append("svg")
+              .attr("width", 320)
+              .attr("height", 65);
 
         var lineData = [
             { "x1": 5, "y1": 15, "x2": 40, "y2": 15, "name": "used" },
             { "x1": 5, "y1": 30, "x2": 40, "y2": 30, "name": "wasGeneratedBy" },
-            { "x1": 5, "y1": 45, "x2": 40, "y2": 45, "name": "hadMember" },
             { "x1": 155, "y1": 15, "x2": 190, "y2": 15, "name": "wasAssociatedWith" },
             { "x1": 155, "y1": 30, "x2": 190, "y2": 30, "name": "wasAttributedTo" },
             { "x1": 155, "y1": 45, "x2": 190, "y2": 45, "name": "wasDerivedFrom" },
           ];
 
-        var lines = svg3.selectAll("line")
-                    .data(lineData)
-                    .enter()
-                    .append("line");
+        var lines = svg1.selectAll("line")
+              .data(lineData)
+              .enter()
+              .append("line");
 
         var lineAttributes = lines
               .attr("x1", function (d) { return d.x1; })
@@ -93,29 +102,30 @@ import * as d3 from "d3";
               .attr("stroke", "black")
               .attr("class", function (d) { return "link "+ d.name });
 
-        var text = svg3.selectAll("text")
-                    .data(lineData)
-                    .enter()
-                    .append("text");
+        var text = svg1.selectAll("text")
+              .data(lineData)
+              .enter()
+              .append("text");
 
         var textLabels = text
-                    .attr("x", function(d) { return d.x2+10; })
-                    .attr("y", function(d) { return d.y2+4; })
-                    .text( function (d) { return d.name; })
-                    .attr("font-family", "sans-serif")
-                    .attr("font-size", "20px")
-                    .attr("class", function (d) { return "marker "+ d.name })
-                    .attr("stroke-width", 0);
+              .attr("x", function(d) { return d.x2+10; })
+              .attr("y", function(d) { return d.y2+4; })
+              .text( function (d) { return d.name; })
+              .attr("font-family", "sans-serif")
+              .attr("font-size", "20px")
+              .attr("class", function (d) { return "marker "+ d.name })
+              .attr("stroke-width", 0);
 
         // draw graph
-        var width = 1050,
+        var width = 650,
             height = 500;
 
-        var svg2 = d3.select("#force-graph").append("svg")
-              .attr("width", width)
-              .attr("height", height);
+        var svg3 = d3.select("#force-graph").append("svg")
+              .attr("viewBox", "0 0 " + width + " " + height);
+              // .attr("width", width)
+              // .attr("height", height);
 
-        var defs = svg2.append("svg:defs");
+        var defs = svg3.append("svg:defs");
         var nodes = this.ProvenanceData.nodes;
         var links = this.ProvenanceData.links
         console.log(nodes);
@@ -130,14 +140,13 @@ import * as d3 from "d3";
             .on("tick", tick)
             .start();
 
-        // Per-type markers, as they don't inherit styles.
-        svg2.append("defs").selectAll("marker")
-            .data(["used", "wasGeneratedBy", "wasAssociatedWith", "wasAssociatedWith", "hadMember", "wasDerivedFrom"])
+        svg3.append("defs").selectAll("marker")
+            .data(["used", "wasGeneratedBy", "wasAssociatedWith", "wasAttributedTo", "wasDerivedFrom"])
             .enter().append("marker")
             .attr("id", function(d) { return d; })
             .attr("viewBox", "0 -5 10 10")
             .attr("refX", 15)
-            .attr("refY", -1.5)
+            .attr("refY", -1)
             .attr("markerWidth", 6)
             .attr("markerHeight", 6)
             .attr("orient", "auto")
@@ -145,13 +154,13 @@ import * as d3 from "d3";
             .attr("d", "M0,-5L10,0L0,5")
             .attr("class", function(d) { return "marker "+d; });
 
-          var path = svg2.append("g").selectAll("path")
+          var path = svg3.append("g").selectAll("path")
               .data(force.links())
               .enter().append("path")
               .attr("class", function(d) { return "link " + d.type; })
               .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
           
-          var shapes = svg2.append("g").selectAll(".shapes")
+          var shapes = svg3.append("g").selectAll(".shapes")
               .data(force.nodes())
               .enter();
 
@@ -179,20 +188,19 @@ import * as d3 from "d3";
               .attr("height", 18)
               .call(force.drag);
 
-          var text2 = svg2.append("g").selectAll("text")
+          var text3 = svg3.append("g").selectAll("text")
               .data(force.nodes())
-            .enter().append("text")
+              .enter().append("text")
               .attr("x", 20)
               .attr("y", 5)
               .text(function(d) { return d.name; });
 
-          // Use elliptical arc path segments to doubly-encode directionality.
           function tick() {
             path.attr("d", linkArc);
             ellipse.attr("transform", transform);
             polygon.attr("transform", transform);
             rectangle.attr("transform", transform);
-            text2.attr("transform", transform);
+            text3.attr("transform", transform);
           }
 
           function linkArc(d) {
@@ -230,55 +238,34 @@ svg {
   stroke: #aaa;
   stroke-width: 2px;
 }
-
-.link.sankey {
-  /*stroke: #ccc;*/
-  stroke-opacity: 0.5;
-}
-.link.sankey:hover {
-  stroke-opacity: 0.8;
-}
 .link.used {
-  stroke: #8b0000;
+  stroke: #5c6bc0;
   fill: none;
 }
 
 .marker.used {
-  stroke: #8b0000;
-  fill: #8b0000;
+  stroke: #5c6bc0;
+  fill: #5c6bc0;
 }
 
 .link.wasGeneratedBy {
-  stroke: darkgreen;
+  stroke: #4caf50;
   fill: none;
 }
 
 .marker.wasGeneratedBy {
-  stroke: darkgreen;
-  fill: darkgreen;
-}
-.marker.wasGeneratedBy {
-  stroke: darkgreen;
-  fill: darkgreen;
-}
-
-.link.hadMember {
-  stroke: #fed37f;
-  fill: none;
-}
-.marker.hadMember {
-  stroke: #fed37f;
-  fill: #fed37f;
+  stroke: #4caf50;
+  fill: #4caf50;
 }
 
 .link.wasAssociatedWith {
   /*stroke-dasharray: 0,2 1;*/
-  stroke: #ccc;
+  stroke: grey;
   fill: none;
 }
 .marker.wasAssociatedWith {
-  stroke: #ccc;
-  fill: #ccc;
+  stroke: grey;
+  fill: grey;
 }
 
 .link.wasDerivedFrom {
@@ -308,23 +295,45 @@ circle {
 }
 
 .agent {
-  fill: #fed37f;
+  fill: #e6eb9e;
   stroke: #000;
 }
 
 .entity {
-  fill: #fffc87;
-  stroke: #808080;
+  fill: #fffedf;
+  stroke: #000;
 }
 
 .activity {
-  fill: #9fb1fc;
-  stroke: #0000ff;
+  fill: #cfceff;
+  stroke: #000;
 }
 
 text {
   font: 12px sans-serif;
   pointer-events: none;
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+}
+.legends__container {
+  p {
+    float: left;
+  }
+  #force-legend-2 {
+    margin-left: 2rem;
+  }
+}
+.graph__container {
+  // max-width: 50%;
+  // display: inherit;
+  // float: left;
+}
+.prov__model {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 7%;
+  img {
+    max-width: 100%;
+  }
 }
 </style>

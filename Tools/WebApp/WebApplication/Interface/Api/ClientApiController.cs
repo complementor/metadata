@@ -41,11 +41,7 @@ namespace Interface.Api
         {
             //var metadata = businessLogic.Get(guid);
 
-            var list = HardcodedData.GetListOfVideos();
-            var file = list
-                .Where(x => x.VideoId == guid)
-                .FirstOrDefault();
-            var metadata = HardcodedData.GetVideoMetadataDto(file.Title);
+            var metadata = HardcodedData.GetVideoMetadataDto(guid);
 
             var wordCloud = WordCloud.Get(metadata.SpeechAggregated);
 

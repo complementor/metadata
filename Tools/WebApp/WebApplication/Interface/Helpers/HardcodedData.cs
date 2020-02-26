@@ -182,13 +182,18 @@ namespace Interface.Helpers
             return provenance;
         }
 
-        public static VideoMetadataDto GetVideoMetadataDto(string fileName)
+        public static VideoMetadataDto GetVideoMetadataDto(string guid)
         {
+            var list = HardcodedData.GetListOfVideos();
+            var file = list
+                .Where(x => x.VideoId == guid)
+                .FirstOrDefault();
+
             int sceneNumber = 1;
 
             var metadata = new VideoMetadataDto
             {
-                Title = fileName,
+                Title = file.Title,
                 Duration = "200",
                 YouTubeId = "tgbNymZ7vqY",
                 OCRAggregated = "Der er mange tilgængelige udgaver af Lorem Ipsum, men de fleste udgaver har gennemgået forandringer, når nogen har tilføjet humor eller tilfældige ord, som på ingen måde ser ægte ud. Hvis du skal bruge en udgave af Lorem Ipsum, skal du sikre dig, at der ikke indgår noget pinligt midt i teksten. Alle Lorem Ipsum-generatore på nettet har en tendens til kun at dublere små brudstykker af Lorem Ipsum efter behov, hvilket gør dette til den første ægte generator på internettet. Den bruger en ordbog på over 200 ord på latin kombineret med en håndfuld sætningsstrukturer til at generere sætninger, som ser pålidelige ud. Resultatet af Lorem Ipsum er derfor altid fri for gentagelser, tilføjet humor eller utroværdige ord osv.",
