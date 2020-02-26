@@ -8,68 +8,175 @@ namespace Interface.Helpers
 {
     public static class HardcodedData
     {
+        private static readonly List<VideoInfoDto> list = new List<VideoInfoDto>
+        {
+            new VideoInfoDto
+            {
+                VideoId = Guid.NewGuid().ToString(),
+                Duration = "00:01:10.779",
+                Standard = "XMP",
+                Title = "Goldeneye"
+            },
+            new VideoInfoDto
+            {
+                VideoId = Guid.NewGuid().ToString(),
+                Duration = "00:05:20.122",
+                Standard = "Dublin Core",
+                Title = "Football"
+            },
+            new VideoInfoDto
+            {
+                VideoId = Guid.NewGuid().ToString(),
+                Duration = "00:02:00.433",
+                Standard = "MPEG-7",
+                Title = "Batman"
+            }
+        };
+
+        public static List<VideoInfoDto> GetListOfVideos()
+        {
+            return list;
+        }
+
         public static ProvenanceDto GetProvenanceDto()
         {
             var provenance = new ProvenanceDto
             {
-                //Agent = "",
-                //Nodes = new List<Node>
-                //{
-                //    new Node
-                //    {
-                //        Id = "ExifTool",
-                //        Type = "agent",
-                //    },
-                //    new Node
-                //    {
-                //        Id = "SceneDetect",
-                //        Type = "agent",
-                //    },
-                //    new Node
-                //    {
-                //        Id = "ExtractFeatures",
-                //        Type = "activity",
-                //    },
-                //    new Node
-                //    {
-                //        Id = "ExtractGenericMetadata",
-                //        Type = "activity",
-                //    },
-                //    new Node
-                //    {
-                //        Id = "doc1_version1",
-                //        Type = "entity"
-                //    },
-                //    new Node
-                //    {
-                //        Id = "doc1_version2",
-                //        Type = "entity"
-                //    },
-                //},
-                //Links = new List<Link>
-                //{
-                //    new Link
-                //    {
-                //        Source = 4,
-                //        Type = "wasAssociatedWith",
-                //        Target = 0,
-                //        Datetime = DateTime.Now
-                //    },
-                //    new Link
-                //    {
-                //        Source = 5,
-                //        Type = "wasDerivedFrom",
-                //        Target = 4,
-                //        Datetime = DateTime.Now
-                //    },
-                //    new Link
-                //    {
-                //        Source = 5,
-                //        Type = "wasGeneratedBy",
-                //        Target = 2,
-                //        Datetime = DateTime.Now
-                //    },
-                //}
+                Nodes = new List<Node>
+                {
+                    new Node
+                    {
+                        Name = "Andrei",
+                        Type = "agent",
+                    },
+                    new Node
+                    {
+                        Name = "Document_v2",
+                        Type = "entity",
+                    },
+                    new Node
+                    {
+                        Name = "Tagging",
+                        Type = "activity",
+                    },
+                    new Node
+                    {
+                        Name = "Document_v3",
+                        Type = "entity",
+                    },
+                    new Node
+                    {
+                        Name = "SceneDetect",
+                        Type = "agent",
+                    },
+                    new Node
+                    {
+                        Name = "ExtractFeatures",
+                        Type = "activity",
+                    },
+                    new Node
+                    {
+                        Name = "ExtractGenericMetadata",
+                        Type = "activity",
+                    },
+                    new Node
+                    {
+                        Name = "ExifTool",
+                        Type = "agent",
+                    },
+                    new Node
+                    {
+                        Name = "Document_v1",
+                        Type = "entity",
+                    },
+                },
+                Links = new List<Link>
+                {
+                    new Link
+                    {
+                        Source = 1,
+                        Type = "wasGeneratedBy",
+                        Target = 2,
+                        Datetime = DateTime.Now
+                    },
+                    new Link
+                    {
+                        Source = 2,
+                        Type = "wasAssociatedWith",
+                        Target = 0,
+                        Datetime = DateTime.Now
+                    },
+                    new Link
+                    {
+                        Source = 2,
+                        Type = "used",
+                        Target = 8,
+                        Datetime = DateTime.Now
+                    },
+                    new Link
+                    {
+                        Source = 2,
+                        Type = "wasAttributedTo",
+                        Target = 7,
+                        Datetime = DateTime.Now
+                    },
+                    new Link
+                    {
+                        Source = 3,
+                        Type = "wasAssociatedWith",
+                        Target = 4,
+                        Datetime = DateTime.Now
+                    },
+                    new Link
+                    {
+                        Source = 5,
+                        Type = "used",
+                        Target = 1,
+                        Datetime = DateTime.Now
+                    },
+                    new Link
+                    {
+                        Source = 3,
+                        Type = "wasGeneratedBy",
+                        Target = 5,
+                        Datetime = DateTime.Now
+                    },
+                    new Link
+                    {
+                        Source = 3,
+                        Type = "wasDerivedFrom",
+                        Target = 1,
+                        Datetime = DateTime.Now
+                    },
+                    new Link
+                    {
+                        Source = 6,
+                        Type = "wasAttributedTo",
+                        Target = 4,
+                        Datetime = DateTime.Now
+                    },
+                    new Link
+                    {
+                        Source = 8,
+                        Type = "wasAssociatedWith",
+                        Target = 7,
+                        Datetime = DateTime.Now
+                    },
+                    new Link
+                    {
+                        Source = 8,
+                        Type = "wasGeneratedBy",
+                        Target = 6,
+                        Datetime = DateTime.Now
+                    },
+                    new Link
+                    {
+                        Source = 1,
+                        Type = "wasDerivedFrom",
+                        Target = 8,
+                        Datetime = DateTime.Now
+                    }
+                }
             };
 
             return provenance;

@@ -63,20 +63,20 @@ import * as d3 from "d3";
 
     methods: {
       renderGraph2() {
-        // npm i d3@3   
+        // d3 version: npm i d3@3   
 
         // draw legend
         var svg3 = d3.select("#force-legend").append("svg")
-                    .attr("width", 500)
+                    .attr("width", 320)
                     .attr("height", 65);
 
         var lineData = [
-          { "x1": 5, "y1": 15, "x2": 40, "y2": 15, "name": "used" },
-          { "x1": 5, "y1": 30, "x2": 40, "y2": 30, "name": "wasGeneratedBy" },
-          { "x1": 5, "y1": 45, "x2": 40, "y2": 45, "name": "hadMember" },
-          { "x1": 155, "y1": 15, "x2": 190, "y2": 15, "name": "wasAssociatedWith" },
-          { "x1": 155, "y1": 30, "x2": 190, "y2": 30, "name": "wasAttributedTo" },
-          { "x1": 155, "y1": 45, "x2": 190, "y2": 45, "name": "wasDerivedFrom" },
+            { "x1": 5, "y1": 15, "x2": 40, "y2": 15, "name": "used" },
+            { "x1": 5, "y1": 30, "x2": 40, "y2": 30, "name": "wasGeneratedBy" },
+            { "x1": 5, "y1": 45, "x2": 40, "y2": 45, "name": "hadMember" },
+            { "x1": 155, "y1": 15, "x2": 190, "y2": 15, "name": "wasAssociatedWith" },
+            { "x1": 155, "y1": 30, "x2": 190, "y2": 30, "name": "wasAttributedTo" },
+            { "x1": 155, "y1": 45, "x2": 190, "y2": 45, "name": "wasDerivedFrom" },
           ];
 
         var lines = svg3.selectAll("line")
@@ -91,7 +91,7 @@ import * as d3 from "d3";
               .attr("y2", function (d) { return d.y2; })
               .attr("stroke-width", 2)
               .attr("stroke", "black")
-                    .attr("class", function (d) { return "link "+ d.name });
+              .attr("class", function (d) { return "link "+ d.name });
 
         var text = svg3.selectAll("text")
                     .data(lineData)
@@ -108,12 +108,12 @@ import * as d3 from "d3";
                     .attr("stroke-width", 0);
 
         // draw graph
-        var width2 = 1050,
-            height2 = 500;
+        var width = 1050,
+            height = 500;
 
         var svg2 = d3.select("#force-graph").append("svg")
-              .attr("width", width2)
-              .attr("height", height2);
+              .attr("width", width)
+              .attr("height", height);
 
         var defs = svg2.append("svg:defs");
         var nodes = this.ProvenanceData.nodes;
@@ -121,40 +121,39 @@ import * as d3 from "d3";
         console.log(nodes);
         console.log(links)
 
-          var force = d3.layout.force()
-              .nodes(nodes)
-              .links(links)
-              .size([width2, height2])
-              .linkDistance(100)
-              .charge(-500)
-              .on("tick", tick)
-              .start();
+        var force = d3.layout.force()
+            .nodes(nodes)
+            .links(links)
+            .size([width, height])
+            .linkDistance(100)
+            .charge(-2500)
+            .on("tick", tick)
+            .start();
 
-          // Per-type markers, as they don't inherit styles.
-          svg2.append("defs").selectAll("marker")
-              .data(["used", "wasGeneratedBy", "wasAssociatedWith", "wasAssociatedWith", "hadMember", "wasDerivedFrom"])
+        // Per-type markers, as they don't inherit styles.
+        svg2.append("defs").selectAll("marker")
+            .data(["used", "wasGeneratedBy", "wasAssociatedWith", "wasAssociatedWith", "hadMember", "wasDerivedFrom"])
             .enter().append("marker")
-              .attr("id", function(d) { return d; })
-              .attr("viewBox", "0 -5 10 10")
-              .attr("refX", 15)
-              .attr("refY", -1.5)
-              .attr("markerWidth", 6)
-              .attr("markerHeight", 6)
-              .attr("orient", "auto")
+            .attr("id", function(d) { return d; })
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 15)
+            .attr("refY", -1.5)
+            .attr("markerWidth", 6)
+            .attr("markerHeight", 6)
+            .attr("orient", "auto")
             .append("path")
-              .attr("d", "M0,-5L10,0L0,5")
-              .attr("class", function(d) { return "marker "+d; });
+            .attr("d", "M0,-5L10,0L0,5")
+            .attr("class", function(d) { return "marker "+d; });
 
           var path = svg2.append("g").selectAll("path")
               .data(force.links())
-            .enter().append("path")
+              .enter().append("path")
               .attr("class", function(d) { return "link " + d.type; })
-              //.attr("marker-end", marker('#0000ff'));
               .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
           
           var shapes = svg2.append("g").selectAll(".shapes")
               .data(force.nodes())
-            .enter();
+              .enter();
 
           var ellipse = shapes.append("ellipse")
               .filter(function(d){ return d.type == "entity"; })
@@ -183,8 +182,8 @@ import * as d3 from "d3";
           var text2 = svg2.append("g").selectAll("text")
               .data(force.nodes())
             .enter().append("text")
-              .attr("x", 16)
-              .attr("y", ".75em")
+              .attr("x", 20)
+              .attr("y", 5)
               .text(function(d) { return d.name; });
 
           // Use elliptical arc path segments to doubly-encode directionality.
@@ -206,6 +205,7 @@ import * as d3 from "d3";
           function transform(d) {
             return "translate(" + d.x + "," + d.y + ")";
           }
+
           this.loading = false;
       }
     },
@@ -323,7 +323,7 @@ circle {
 }
 
 text {
-  font: 15px sans-serif;
+  font: 12px sans-serif;
   pointer-events: none;
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
 }
