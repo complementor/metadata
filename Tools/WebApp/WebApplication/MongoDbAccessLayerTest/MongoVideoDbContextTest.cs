@@ -45,10 +45,10 @@ namespace MongoDbAccessLayerTest
             {
                 _settings = new MongoSettings()
                 {
-                    //Connection = "mongodb://127.0.0.1:27017/?compressors=zlib&readPreference=primary&gssapiServiceName=mongodb&appname=MongoDB%20Compass%20Community&ssl=false",
-                    //DatabaseName = "metadata"
-                    Connection = "mongodb://tes123",
-                    DatabaseName = "TestDB"
+                    Connection = "mongodb://127.0.0.1:27017/?compressors=zlib&readPreference=primary&gssapiServiceName=mongodb&appname=MongoDB%20Compass%20Community&ssl=false",
+                    DatabaseName = "metadata"
+                    //Connection = "mongodb://tes123",
+                    //DatabaseName = "TestDB"
                 };
 
                 _mockOptions = new Mock<IOptions<MongoSettings>>();
@@ -57,8 +57,10 @@ namespace MongoDbAccessLayerTest
 
             }
 
-            [Test]
-            public void ShouldBeNull()
+            [TestCase("undefined")]
+            [TestCase("")]
+            [TestCase("CollectionNameThatWillNeverBeUsed")]
+            public void WhenCollectionNameDoesntExist_ShouldThrowArgumentNullFoundException(string collectionName)
             {
                 //Arrange
                 _mockOptions.Setup(s => s.Value).Returns(_settings);
@@ -68,15 +70,18 @@ namespace MongoDbAccessLayerTest
 
                 //Act 
                 var context = new MongoVideoDbContext(_mockOptions.Object);
-                var collection = context.GetCollection<Feature>("");
+                var collection = Assert.Throws<ArgumentNullException>( () => context.GetCollection<Feature>(collectionName));
 
                 //Assert
-                Assert.Null(collection);
+                Assert.AreEqual("collectionName", collection.ParamName);
 
             }
 
-            [Test]
-            public void NotNull()
+            [TestCase("index")]
+            [TestCase("description")]
+            //[TestCase("provenance")]
+            //[TestCase("collaboration") ]  
+            public void WhenContextIsValud_TheCollectionIsNotNull(string collectionName)
             {
                 //Arrange
                 _mockOptions.Setup(s => s.Value).Returns(_settings);
@@ -86,7 +91,7 @@ namespace MongoDbAccessLayerTest
 
                 //Act 
                 var context = new MongoVideoDbContext(_mockOptions.Object);
-                var collection = context.GetCollection<Feature>("feature");
+                var collection = context.GetCollection<Feature>(collectionName);
 
                 //Assert
                 Assert.IsNotNull(collection);

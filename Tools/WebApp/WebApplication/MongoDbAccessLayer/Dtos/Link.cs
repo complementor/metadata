@@ -10,10 +10,10 @@ namespace MongoDbAccessLayer.Dtos
         [JsonPropertyName("target")]
         public int Target { get; set; }
         [JsonPropertyName("type")]
-        public string RelationshipType { get; set; }
+        public string Type { get; set; }
         [JsonPropertyName("value")]
         public double Value { get; set; }
 
-        //public DateTime Datetime{ get; set; }
+        public DateTime Datetime { get; set; }
     }
 }

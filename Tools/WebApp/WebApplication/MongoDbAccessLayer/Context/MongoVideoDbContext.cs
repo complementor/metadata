@@ -1,6 +1,7 @@
 ﻿using MongoDB.Driver;
 using Microsoft.Extensions.Options;
 using System;
+using MongoDB.Bson;
 
 namespace MongoDbAccessLayer.Context
 {
@@ -12,16 +13,17 @@ namespace MongoDbAccessLayer.Context
         public MongoVideoDbContext(IOptions<MongoSettings> configuration)
         {
 
-            if (configuration == null ) throw new ArgumentNullException(nameof(configuration));
+            if (configuration == null) throw new ArgumentNullException(nameof(configuration));
             _mongoClient = new MongoClient(configuration.Value.Connection);
             _db = _mongoClient.GetDatabase(configuration.Value.DatabaseName);
 
         }
-        public IMongoCollection<T> GetCollection<T>(string name)
+        public IMongoCollection<T> GetCollection<T>(string collectionName)
         {
-            if (string.IsNullOrWhiteSpace(name)) return null;
+            if (string.IsNullOrWhiteSpace(collectionName)) throw new ArgumentNullException(nameof(collectionName));
 
-            return _db.GetCollection<T>(name);
+            return _db.ListCollectionNames(new ListCollectionNamesOptions { Filter = new BsonDocument("name", collectionName) }).Any() ?
+                _db.GetCollection<T>(collectionName) : throw new ArgumentNullException(nameof(collectionName));
         }
     }
 }

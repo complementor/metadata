@@ -13,6 +13,7 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using MongoDbAccessLayer;
 using MongoDbAccessLayer.Context;
+using MongoDbAccessLayer.Context.Repository;
 using Newtonsoft.Json;
 
 namespace Interface
@@ -38,6 +39,8 @@ namespace Interface
                 });
 
             services.AddSingleton<IMongoVideoDbContext, MongoVideoDbContext>();
+            services.AddSingleton<IMongoVideoDbContext, MongoVideoDbContext>();
+            services.AddSingleton<IProvenanceRepository, ProvenanceRepository>();
             services.AddSingleton<IBusinessLogic, BusinessLogic>();
 
             services.AddCors();

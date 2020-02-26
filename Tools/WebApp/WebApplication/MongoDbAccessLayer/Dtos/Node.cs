@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
 
 namespace MongoDbAccessLayer.Dtos
 {
@@ -7,8 +8,10 @@ namespace MongoDbAccessLayer.Dtos
         [JsonPropertyName("type")]
         public string Type { get; set; }
         [JsonPropertyName("name")]
-        public string Id { get; set; }
+        public string Name { get; set; }
         [JsonPropertyName("value")]
         public double Value { get; set; }
+        [JsonPropertyName("value")]
+        public DateTime Datetime { get; set; }
     }
 }

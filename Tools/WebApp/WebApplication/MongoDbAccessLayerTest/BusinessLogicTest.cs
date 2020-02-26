@@ -73,12 +73,10 @@ namespace MongoDbAccessLayerTest
 
                 //cleanup
                 FilterDefinition<IndexModel> filter = Builders<IndexModel>.Filter.Eq("Id", guid.ToString());
-                collectionFeature.DeleteOne(filter);
+                collectionFeature.DeleteMany(filter);
                 FilterDefinition<DescriptionModel> filterGeneric = Builders<DescriptionModel>.Filter.Eq("Id", guid.ToString());
-                collectionGeneric.DeleteOne(filterGeneric);
+                collectionGeneric.DeleteMany(filterGeneric);
             }
-
-
 
             public class GetByIdTest
             {
