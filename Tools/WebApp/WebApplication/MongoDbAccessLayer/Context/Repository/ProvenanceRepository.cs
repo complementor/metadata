@@ -37,7 +37,6 @@ namespace MongoDbAccessLayer.Context.Repository
             {
                 Name = x.Id,
                 Type = x.Type,
-                Value = 0.2,
             }).ToList();
 
             result.Links = nodes.Item2.Select(x => new Link()
@@ -45,7 +44,7 @@ namespace MongoDbAccessLayer.Context.Repository
                 Source = x.Source.Position,
                 Target = x.Target.Position,
                 Type = x.RelationshipType,
-                Value = 0.2
+                Datetime = DateTime.Now,
             }).ToList();
 
             return result;

@@ -11,7 +11,7 @@ namespace MongoDbAccessLayer.Dtos
         public string Name { get; set; }
         [JsonPropertyName("value")]
         public double Value { get; set; }
-        [JsonPropertyName("value")]
-        public DateTime Datetime { get; set; }
+        //[JsonPropertyName("Datetime")]
+        //public DateTime Datetime { get; set; }
     }
 }
