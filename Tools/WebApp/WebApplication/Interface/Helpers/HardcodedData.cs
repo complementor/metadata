@@ -385,16 +385,16 @@ namespace Interface.Helpers
             {
                 ListOfProperties = new List<string>
                 {
-                    "GenericPropert01",
-                    "GenericPropert02",
-                    "GenericPropert03",
-                    "GenericPropert04",
-                    "GenericPropert05",
-                    "GenericPropert06",
-                    "GenericPropert07",
-                    "GenericPropert08",
-                    "GenericPropert09",
-                    "GenericPropert10"
+                    "GenericProperty01",
+                    "GenericProperty02",
+                    "GenericProperty03",
+                    "GenericProperty04",
+                    "GenericProperty05",
+                    "GenericProperty06",
+                    "GenericProperty07",
+                    "GenericProperty08",
+                    "GenericProperty09",
+                    "GenericProperty10"
                 }
             };
 
