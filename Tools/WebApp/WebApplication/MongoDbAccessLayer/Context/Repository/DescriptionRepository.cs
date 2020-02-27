@@ -27,8 +27,6 @@ namespace MongoDbAccessLayer.Context.Repository
 
             FilterDefinition<DescriptionModel> filter = Builders<DescriptionModel>.Filter.Eq("_id", objectId);
 
-            _dbCollection = _mongoContext.GetCollection<DescriptionModel>(typeof(DescriptionModel).Name);
-
             return await _dbCollection.FindAsync(filter).Result.FirstOrDefaultAsync();
         }
 
@@ -43,9 +41,23 @@ namespace MongoDbAccessLayer.Context.Repository
             //ex. 5dc1039a1521eaa36835e541
             FilterDefinition<DescriptionModel> filter = Builders<DescriptionModel>.Filter.Eq("Id", guid);
 
-            _dbCollection = _mongoContext.GetCollection<DescriptionModel>(typeof(DescriptionModel).Name);
-
             return await _dbCollection.FindAsync(filter).Result.FirstOrDefaultAsync();
+        }
+
+        public  List<VideoInfoDto> SearchByProperty(string propertyName, string text)
+        {
+            return _dbCollection.Aggregate()
+                .Match(Builders<DescriptionModel>.Filter.ElemMatch(x => x.hub.Satellite.Attributes,x => x.Name == propertyName && x.Value == text))?
+                .Project(x => new {/* x.id    -> this is the youtubeID*/   x.hub.Satellite.Attributes })
+                .ToList()?
+                .Select(x => new VideoInfoDto()
+                {
+                    VideoId = x.Attributes.Find(x => string.Equals(x.Name, "Youtube", System.StringComparison.InvariantCultureIgnoreCase))?.Value,
+                    Title = x.Attributes.Find(x => string.Equals(x.Name, "Title", System.StringComparison.InvariantCultureIgnoreCase))?.Value,
+                    Duration = x.Attributes.Find(x => string.Equals(x.Name, "Duration", System.StringComparison.InvariantCultureIgnoreCase))?.Value,
+                    Standard = x.Attributes.Find(x => string.Equals(x.Name, "Standard", System.StringComparison.InvariantCultureIgnoreCase))?.Value,
+                })
+                .ToList();
         }
 
         public GenericPropertiesDto GetExistentGenericProperties()
@@ -53,7 +65,7 @@ namespace MongoDbAccessLayer.Context.Repository
             return new GenericPropertiesDto()
             {
                 ListOfProperties = (from e in _dbCollection.AsQueryable<DescriptionModel>()
-                                    where e.hub.Satellite != null
+                                    where e.hub.Satellite.Attributes != null
                                     select new { e.hub.Satellite.Attributes })
                          .ToList()
                          .SelectMany(a => a.Attributes, (a, attributes) => attributes.Name)
