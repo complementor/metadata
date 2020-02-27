@@ -1,7 +1,9 @@
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDbAccessLayer.DomainModels;
+using MongoDbAccessLayer.Dtos;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MongoDbAccessLayer.Context.Repository
@@ -44,6 +46,20 @@ namespace MongoDbAccessLayer.Context.Repository
             _dbCollection = _mongoContext.GetCollection<DescriptionModel>(typeof(DescriptionModel).Name);
 
             return await _dbCollection.FindAsync(filter).Result.FirstOrDefaultAsync();
+        }
+
+        public GenericPropertiesDto GetExistentGenericProperties()
+        {
+            return new GenericPropertiesDto()
+            {
+                ListOfProperties = (from e in _dbCollection.AsQueryable<DescriptionModel>()
+                                    where e.hub.Satellite != null
+                                    select new { e.hub.Satellite.Attributes })
+                         .ToList()
+                         .SelectMany(a => a.Attributes, (a, attributes) => attributes.Name)
+                         .Distinct()
+                         .ToList()
+            };
         }
     }
 }
