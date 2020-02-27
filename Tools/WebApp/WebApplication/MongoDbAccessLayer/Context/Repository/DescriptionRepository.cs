@@ -47,7 +47,9 @@ namespace MongoDbAccessLayer.Context.Repository
         public  List<VideoInfoDto> SearchByProperty(string propertyName, string text)
         {
             return _dbCollection.Aggregate()
-                .Match(Builders<DescriptionModel>.Filter.ElemMatch(x => x.hub.Satellite.Attributes,x => x.Name == propertyName && x.Value == text))?
+                .Match(Builders<DescriptionModel>.Filter.ElemMatch(x => x.hub.Satellite.Attributes,
+                 (x => x.Name.ToLowerInvariant() == propertyName.ToLowerInvariant()
+                    && x.Value.ToLowerInvariant() == text.ToLowerInvariant())))?
                 .Project(x => new {/* x.id    -> this is the youtubeID*/   x.hub.Satellite.Attributes })
                 .ToList()?
                 .Select(x => new VideoInfoDto()

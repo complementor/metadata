@@ -17,10 +17,12 @@ namespace Interface.Api
     {
         private readonly IBusinessLogic _businessLogic;
         private readonly IProvenanceRepository _provenanceRepository;
+        private readonly IDescriptionRepository _descriptionRepository;
 
-        public ClientApiController(IBusinessLogic businessLogic, IProvenanceRepository provenanceRepository)
+        public ClientApiController(IBusinessLogic businessLogic, IProvenanceRepository provenanceRepository, IDescriptionRepository descriptionRepository)
         {
             _provenanceRepository = provenanceRepository;
+            _descriptionRepository = descriptionRepository;
             _businessLogic = businessLogic;
         }
 
@@ -34,14 +36,17 @@ namespace Interface.Api
                 //return Ok(HardcodedData.GetListOfVideos());
             }
 
-            return Ok(_businessLogic.Search(query));
+            return Ok(_descriptionRepository.SearchByProperty(property, query));
+            //_businessLogic.Search(query) <- this is to search  the entire document
             //return Ok(HardcodedData.GetListOfVideos());
         }
 
         [HttpGet("genericproperties")]
         public IActionResult GetExistentGenericProperties()
         {
-            return Ok(HardcodedData.GetGenericPropertiesDto());
+            _descriptionRepository.GetExistentGenericProperties();
+           //return Ok(/*HardcodedData.GetGenericPropertiesDto()*/);
+           return Ok(_descriptionRepository.GetExistentGenericProperties());
         }
 
         [HttpGet("{guid}")]

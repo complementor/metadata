@@ -136,8 +136,8 @@ namespace MongoDbAccessLayerTest.RepositoriesTest
                 var documentID2 = ObjectId.GenerateNewId();
 
                 var listOfStringsWithDocId = new List<ListOfStringWIthDocId>() {
-                    new ListOfStringWIthDocId{ PropertyName = new Attribute() { Name =  "title" }, DocumentId = documentID1 },
-                    new ListOfStringWIthDocId{ PropertyName = new Attribute() { Name =  "andrei" }, DocumentId = documentID2 }
+                    new ListOfStringWIthDocId{ PropertyName = new Attribute() { Name =  "title", Value = "title"}, DocumentId = documentID1 },
+                    new ListOfStringWIthDocId{ PropertyName = new Attribute() { Name =  "duration", Value = "andrei" }, DocumentId = documentID2 }
                 };
 
                 var descriptionRepository = new DescriptionRepository(context);
@@ -145,51 +145,50 @@ namespace MongoDbAccessLayerTest.RepositoriesTest
 
                 //Act 
                 var result = descriptionRepository.GetExistentGenericProperties();
-
+                DiscardProvenanceModel(listOfStringsWithDocId, context);
                 //Assert
                 Assert.True(result.ListOfProperties.Contains("title"));
-                Assert.True(result.ListOfProperties.Contains("andrei"));
+                Assert.True(result.ListOfProperties.Contains("duration"));
 
-                DiscardProvenanceModel(listOfStringsWithDocId, context);
             }
         }
-    
 
-    internal class ListOfStringWIthDocId
-    {
-        public Attribute PropertyName { get; set; }
-        public ObjectId DocumentId { get; set; }
-    }
 
-    private static void ArrangeProvenanceModel(List<ListOfStringWIthDocId> listOfStringsWithDocId, MongoVideoDbContext context)
-    {
-        //documentID1 = "5e5648f60042cf1df5214503";
-        //documentID2 = "5e5648f60042cf1df5214504";
-        var descr = context.GetCollection<BsonDocument>("description");
-
-        DiscardProvenanceModel(listOfStringsWithDocId, context);
-
-        foreach (var item in listOfStringsWithDocId)
+        internal class ListOfStringWIthDocId
         {
-            var newDescription = new BsonDocument { { "DocumentId", item.DocumentId },
+            public Attribute PropertyName { get; set; }
+            public ObjectId DocumentId { get; set; }
+        }
+
+        private static void ArrangeProvenanceModel(List<ListOfStringWIthDocId> listOfStringsWithDocId, MongoVideoDbContext context)
+        {
+            //documentID1 = "5e5648f60042cf1df5214503";
+            //documentID2 = "5e5648f60042cf1df5214504";
+            var descr = context.GetCollection<BsonDocument>("description");
+
+            DiscardProvenanceModel(listOfStringsWithDocId, context);
+
+            foreach (var item in listOfStringsWithDocId)
+            {
+                var newDescription = new BsonDocument { { "DocumentId", item.DocumentId },
                     { "DateTime", BsonDateTime.Create(DateTime.Now) },
                     { "Hub", new BsonDocument { { "Date", "cow" },
                         {"Satellite", new BsonDocument {
-                            { "Attributes", new BsonArray(){ new BsonDocument { { "Name", item.PropertyName.Name }, { "Value", item.PropertyName.Value }, { "Standard", "DC" }}}},
+                            { "Attributes", new BsonArray(){ new BsonDocument { { "Name", item.PropertyName?.Name }, { "Value", item.PropertyName?.Value }, { "Standard", "DC" }}}},
                         }}
                     } }
                     };
-            descr.InsertOne(newDescription);
+                descr.InsertOne(newDescription);
+            }
         }
-    }
 
-    private static void DiscardProvenanceModel(List<ListOfStringWIthDocId> listOfStringsWithDocId, MongoVideoDbContext context)
-    {
-        var descr = context.GetCollection<BsonDocument>("description");
-        foreach (var item in listOfStringsWithDocId)
+        private static void DiscardProvenanceModel(List<ListOfStringWIthDocId> listOfStringsWithDocId, MongoVideoDbContext context)
         {
-            descr.DeleteOne(Builders<BsonDocument>.Filter.Eq("DocumentId", item.DocumentId));
+            var descr = context.GetCollection<BsonDocument>("description");
+            foreach (var item in listOfStringsWithDocId)
+            {
+                descr.DeleteOne(Builders<BsonDocument>.Filter.Eq("DocumentId", item.DocumentId));
+            }
         }
     }
-}
 }

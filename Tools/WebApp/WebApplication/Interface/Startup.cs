@@ -41,6 +41,7 @@ namespace Interface
             services.AddSingleton<IMongoVideoDbContext, MongoVideoDbContext>();
             services.AddSingleton<IMongoVideoDbContext, MongoVideoDbContext>();
             services.AddSingleton<IProvenanceRepository, ProvenanceRepository>();
+            services.AddSingleton<IDescriptionRepository, DescriptionRepository>();
             services.AddSingleton<IBusinessLogic, BusinessLogic>();
 
             services.AddCors();
