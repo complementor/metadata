@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MongoDbAccessLayer.Dtos
+﻿namespace MongoDbAccessLayer.Dtos
 {
     public class Comment
     {
