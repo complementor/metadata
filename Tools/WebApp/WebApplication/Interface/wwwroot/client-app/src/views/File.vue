@@ -35,13 +35,15 @@
 
         <div class="tabs__content">
           <template v-if="tab1">
-            <p>
-              <b>Duration:</b>
-              {{currentFile.duration}}
-            </p>
-            <template v-for="(item, key) in currentFile.generics">
+            <b>Title:</b>
+            {{currentFile.title}} |
+            <b>Duration:</b>
+            {{currentFile.duration}} |
+            <template
+              v-for="(item, key) in currentFile.generic"
+            >
               <b :key="key">{{item.name}}:</b>
-              {{item.value}}&nbsp;&nbsp;&nbsp;
+              {{item.value}} | &nbsp;&nbsp;&nbsp;
             </template>
           </template>
           <template v-if="tab2">

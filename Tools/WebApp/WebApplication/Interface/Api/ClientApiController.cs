@@ -29,23 +29,32 @@ namespace Interface.Api
         [HttpGet("search")]
         public IActionResult Search([FromQuery] string property, [FromQuery] string query)
         {
-            if (string.IsNullOrWhiteSpace(property) || property == null || property == "undefined" || property == "null"
-                || string.IsNullOrWhiteSpace(query) || query == null || query == "undefined" || query == "null")
+            // no query so return everything
+            if (string.IsNullOrWhiteSpace(query) || query == "undefined" || query == "null")
             {
                 return Ok(_businessLogic.GetAll());
-                //return Ok(HardcodedData.GetListOfVideos());
+            }
+            //  no property, but query has value, so do a search on the entire document
+            else if(string.IsNullOrWhiteSpace(property) && !string.IsNullOrWhiteSpace(query) && query != "undefined" && query != "null" 
+                || property == "undefined" && !string.IsNullOrWhiteSpace(query) && query != "undefined" && query != "null" 
+                || property == "null" && !string.IsNullOrWhiteSpace(query) && query != "undefined" && query != "null")
+            {
+                return Ok(_businessLogic.Search(query));
+            }
+            // property and query has value, so do a search based on both
+            else if(!string.IsNullOrWhiteSpace(query) && query != "undefined" && query != "null"
+                && !string.IsNullOrWhiteSpace(property) && property != "undefined" && property != "null")
+            {
+                return Ok(_descriptionRepository.SearchByProperty(property, query));
             }
 
-            return Ok(_descriptionRepository.SearchByProperty(property, query));
-            //_businessLogic.Search(query) <- this is to search  the entire document
-            //return Ok(HardcodedData.GetListOfVideos());
+            return Ok(_businessLogic.GetAll());
         }
 
         [HttpGet("genericproperties")]
         public IActionResult GetExistentGenericProperties()
         {
-            _descriptionRepository.GetExistentGenericProperties();
-           //return Ok(/*HardcodedData.GetGenericPropertiesDto()*/);
+           //return Ok(HardcodedData.GetGenericPropertiesDto());
            return Ok(_descriptionRepository.GetExistentGenericProperties());
         }
 

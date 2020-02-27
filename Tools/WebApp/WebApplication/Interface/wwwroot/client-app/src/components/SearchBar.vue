@@ -4,7 +4,7 @@
       <v-col cols="12" md="4">
         <v-select
           :items="omrProperties"
-          label="Select OMR property"
+          label="Filter by OMR property"
           v-model="selectedOmrProperty"
           outlined
           :clearable="true"
@@ -19,14 +19,7 @@
           label="Search..."
           append-icon="search"
         ></v-text-field>
-        <v-tooltip top v-else-if="!omrPropertySelected">
-          <template v-slot:activator="{ on }">
-            <div v-on="on">
-              <v-text-field disabled outlined label="Search..." append-icon="search"></v-text-field>
-            </div>
-          </template>
-          <span>Select a OMR property to use for searching the data lake.</span>
-        </v-tooltip>
+
         <v-text-field
           v-else
           :autofocus="true"
@@ -34,6 +27,7 @@
           outlined
           label="Search..."
           append-icon="search"
+          ref="search"
         ></v-text-field>
       </v-col>
     </v-row>
@@ -43,7 +37,7 @@
         v-model="checkbox1"
         color="indigo lighten-1"
         class="search__checkbox"
-        label="Videos"
+        label="Video"
       ></v-checkbox>
 
       <v-tooltip top>
@@ -51,7 +45,7 @@
           <div v-on="on" style="display:flex">
             <v-checkbox disabled class="search__checkbox" label="Text"></v-checkbox>
 
-            <v-checkbox v-on="on" disabled class="search__checkbox" label="Images"></v-checkbox>
+            <v-checkbox v-on="on" disabled class="search__checkbox" label="Image"></v-checkbox>
           </div>
         </template>
         <span>Sorry, only videos are available in the lake at the moment.</span>
@@ -101,7 +95,6 @@
       queryString: "",
       omrProperties: [],
       selectedOmrProperty: "",
-      omrPropertySelected: false,
       timer: null
     }),
 
@@ -148,6 +141,9 @@
         .then(response => {
           this.searchResults = response.data;
           this.loading = false;
+          
+          //this.$refs.$el.focus()
+          //this.$refs.search.$el.focus()
         })
         .catch(errors => { 
           this.snackBar = true;
@@ -177,16 +173,13 @@
         }
       },
       selectedOmrProperty (val) {
+        console.log(val)
         if(val !== undefined) {
           if(val.length === 0) {
-            this.omrPropertySelected = false;
-            this.queryString = "";
-          } else if(val.length > 0) {
-            this.omrPropertySelected = true;
+            this.search();
           }
-        } else {
-          this.omrPropertySelected = false;
-          this.queryString = "";
+        } else if(val === undefined) {
+          this.search();
         }
       }
     }
