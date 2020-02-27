@@ -54,7 +54,7 @@
             <wordcloud :words="words"></wordcloud>
           </template>
           <template v-if="tab5">
-            <provenance></provenance>
+            <provenance :provenancedata="provenanceData"></provenance>
           </template>
           <template v-if="tab6">
             <collaboration :comments="comments" :tags="tags"></collaboration>
@@ -171,7 +171,8 @@ export default {
     scenes: [],
     words: [],
     comments: [],
-    tags: []
+    tags: [],
+    provenanceData: {}
   }),
 
   created () {
@@ -188,6 +189,7 @@ export default {
         this.tags = response.data.collaboration.tags;
         this.scenes = this.currentFile.scenes;
         this.words = response.data.words;
+        this.provenanceData = response.data.provenance;
         this.loading = false;
       })
       .catch(errors => { 
@@ -294,7 +296,7 @@ export default {
       if(val.length > 2) {
         this.SearchVideoScenes();
       }
-      if(val.length === 0) {
+      if(val.length === 0 || !val.length >= 2) {
         this.scenes = this.CurrentFile.scenes;
       }
     }

@@ -12,5 +12,6 @@ namespace Interface.ViewModels
         public VideoMetadataDto VideoMetadataDto { get; set; }
         public List<Word> Words { get; set; }
         public CollaborationDto Collaboration { get; set; }
+        public ProvenanceDto Provenance { get; set; }
     }
 }

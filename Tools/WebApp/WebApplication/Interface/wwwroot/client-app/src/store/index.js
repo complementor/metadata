@@ -8,19 +8,19 @@ export default new Vuex.Store({
   state: {
     api: "https://localhost:44349/api/",
     currentFile: "",
-    provenanceData: {}
+    omrProperties: []
   },
   getters: {
     GetApiValue: state => state.api,
-    GetProvenanceData: state => state.provenanceData,
+    GetOmrProperties: state => state.omrProperties
   },
   mutations: {
 
   },
   actions: {
-    Search(context, queryString) {
+    Search(context, obj) {
       return new Promise((resolve, reject) => {
-        axios.get(context.state.api + "files/search?query=" + queryString)
+        axios.get(context.state.api + "files/search?property=" + obj.property + "&" + "query=" + obj.query)
           .then(response => {
             resolve(response)
           }).catch(errors => {
@@ -49,17 +49,17 @@ export default new Vuex.Store({
           });
       })
     },
-    GetProvenanceData(context) {
+    GetExistentGenericProperties(context) {
       return new Promise((resolve, reject) => {
-        axios.get(context.state.api + "files/provenance")
+        axios.get(context.state.api + "files/genericproperties")
           .then(response => {
             resolve(response)
-            context.state.provenanceData = response.data;
+            context.state.omrProperties = response.data;
           }).catch(errors => {
             reject(errors)
           });
       })
-    },
+    }
   },
   modules: {
   }

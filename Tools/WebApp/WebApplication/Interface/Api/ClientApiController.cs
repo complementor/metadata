@@ -18,7 +18,6 @@ namespace Interface.Api
         private readonly IBusinessLogic _businessLogic;
         private readonly IProvenanceRepository _provenanceRepository;
 
-
         public ClientApiController(IBusinessLogic businessLogic, IProvenanceRepository provenanceRepository)
         {
             _provenanceRepository = provenanceRepository;
@@ -26,33 +25,45 @@ namespace Interface.Api
         }
 
         [HttpGet("search")]
-        public IActionResult Search([FromQuery] string query)
+        public IActionResult Search([FromQuery] string property, [FromQuery] string query)
         {
-            //if (string.IsNullOrWhiteSpace(query) || query == null || query == "undefined")
-            //{
-            //    return Ok(businessLogic.GetAll());
-            //}
-            //return Ok(businessLogic.Search(query));
+            if (string.IsNullOrWhiteSpace(property) || property == null || property == "undefined" || property == "null"
+                || string.IsNullOrWhiteSpace(query) || query == null || query == "undefined" || query == "null")
+            {
+                return Ok(_businessLogic.GetAll());
+                //return Ok(HardcodedData.GetListOfVideos());
+            }
 
-            return Ok(HardcodedData.GetListOfVideos());
+            return Ok(_businessLogic.Search(query));
+            //return Ok(HardcodedData.GetListOfVideos());
+        }
+
+        [HttpGet("genericproperties")]
+        public IActionResult GetExistentGenericProperties()
+        {
+            return Ok(HardcodedData.GetGenericPropertiesDto());
         }
 
         [HttpGet("{guid}")]
-        public IActionResult Get(string guid)
+        public IActionResult GetAllMetadata(string guid)
         {
-            //var metadata = businessLogic.Get(guid);
+            var metadata = _businessLogic.Get(guid);
 
-            var metadata = HardcodedData.GetVideoMetadataDto(guid);
+            //var metadata = HardcodedData.GetVideoMetadataDto(guid);
 
             var wordCloud = WordCloud.Get(metadata.SpeechAggregated);
 
             var collaboration = HardcodedData.GetCollaborationDto();
 
+            //var provenance = HardcodedData.GetProvenanceDto();
+            var provenance = _provenanceRepository.Get("5e5648f60042cf1df5214403");
+
             var model = new VideoMetadataViewModel
             {
                 VideoMetadataDto = metadata,
                 Words = wordCloud,
-                Collaboration = collaboration
+                Collaboration = collaboration,
+                Provenance = provenance
             };
 
             return Ok(model);
@@ -73,14 +84,6 @@ namespace Interface.Api
                 ).Select(scene => scene);
 
             return Ok(filteredScenes);
-        }
-
-        [HttpGet("provenance")]
-        public IActionResult FileProvenance()
-        {
-            //var provenanceData = HardcodedData.GetProvenanceDto();
-            var result = _provenanceRepository.Get("5e5648f60042cf1df5214403");
-            return Ok(result);  
         }
     }
 }

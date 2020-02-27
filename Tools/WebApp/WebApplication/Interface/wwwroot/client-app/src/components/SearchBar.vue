@@ -1,11 +1,44 @@
 <template>
   <div class="search__input">
-    <!-- <v-card class="search__card"> -->
-    <v-text-field v-if="loading" loading disabled outlined label="Search..." append-icon="search"></v-text-field>
-    <v-text-field v-else v-model="queryString" outlined label="Search..." append-icon="search"></v-text-field>
+    <v-row>
+      <v-col cols="12" md="4">
+        <v-select
+          :items="omrProperties"
+          label="Select OMR property"
+          v-model="selectedOmrProperty"
+          outlined
+          :clearable="true"
+        ></v-select>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          v-if="loading"
+          loading
+          disabled
+          outlined
+          label="Search..."
+          append-icon="search"
+        ></v-text-field>
+        <v-tooltip top v-else-if="!omrPropertySelected">
+          <template v-slot:activator="{ on }">
+            <div v-on="on">
+              <v-text-field disabled outlined label="Search..." append-icon="search"></v-text-field>
+            </div>
+          </template>
+          <span>Select a OMR property to use for searching the data lake.</span>
+        </v-tooltip>
+        <v-text-field
+          v-else
+          :autofocus="true"
+          v-model="queryString"
+          outlined
+          label="Search..."
+          append-icon="search"
+        ></v-text-field>
+      </v-col>
+    </v-row>
 
     <div class="search__checkboxes">
-      <!-- <v-row justify="space-around"> -->
       <v-checkbox
         v-model="checkbox1"
         color="indigo lighten-1"
@@ -54,6 +87,7 @@
 </template>
 
 <script>
+
   export default {
     name: 'searchbar',
 
@@ -64,20 +98,39 @@
       snackBar: false,
       snackBarText: 'Search error',
       checkbox1: true,
-      queryString: ""
+      queryString: "",
+      omrProperties: [],
+      selectedOmrProperty: "",
+      omrPropertySelected: false,
+      timer: null
     }),
 
     created () {
       this.fetchInitSearchResults();
+      this.fetchOmrProperties();
     },
 
     methods: {
       GoToFile (guid) {
         this.$router.push({ name: 'video', params: { guid: guid }});
       },
+       fetchOmrProperties () {
+        this.loading = true;
+        this.$store.dispatch("GetExistentGenericProperties")
+        .then(response => {
+          this.omrProperties = response.data.listOfProperties;
+          this.loading = false;
+        })
+        .catch(errors => { 
+          this.snackBar = true;
+          this.snackBarText = errors;
+          this.loading = false;
+        });
+      },
       fetchInitSearchResults () {
         this.loading = true;
-        this.$store.dispatch("Search")
+        let obj = { property: null, query: null };
+        this.$store.dispatch("Search", obj)
         .then(response => {
           this.searchResults = response.data;
           this.loading = false;
@@ -90,7 +143,8 @@
       },
       search () {
         this.loading = true;
-        this.$store.dispatch("Search", this.queryString)
+        let obj = { property: this.selectedOmrProperty, query: this.queryString };
+        this.$store.dispatch("Search", obj)
         .then(response => {
           this.searchResults = response.data;
           this.loading = false;
@@ -105,11 +159,34 @@
 
     watch: {
       queryString (val) {
-        if(val.length >= 2) {
-          this.search();
-        }
-        if(val.length === 0) {
+        if(val !== undefined) {
+          if(val.length >= 2) {
+            if (this.timer) {
+                  clearTimeout(this.timer);
+                  this.timer = null;
+              }
+              this.timer = setTimeout(() => {
+                this.search();
+              }, 500);
+          }
+          if(val.length === 0 || !val.length >= 2) {
+            this.fetchInitSearchResults();
+          }
+        } else {
           this.fetchInitSearchResults();
+        }
+      },
+      selectedOmrProperty (val) {
+        if(val !== undefined) {
+          if(val.length === 0) {
+            this.omrPropertySelected = false;
+            this.queryString = "";
+          } else if(val.length > 0) {
+            this.omrPropertySelected = true;
+          }
+        } else {
+          this.omrPropertySelected = false;
+          this.queryString = "";
         }
       }
     }

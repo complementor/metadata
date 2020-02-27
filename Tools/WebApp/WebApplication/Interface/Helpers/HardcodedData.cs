@@ -378,5 +378,27 @@ namespace Interface.Helpers
 
             return metadata;
         }
+
+        public static GenericPropertiesDto GetGenericPropertiesDto()
+        {
+            var properties = new GenericPropertiesDto
+            {
+                ListOfProperties = new List<string>
+                {
+                    "GenericPropert01",
+                    "GenericPropert02",
+                    "GenericPropert03",
+                    "GenericPropert04",
+                    "GenericPropert05",
+                    "GenericPropert06",
+                    "GenericPropert07",
+                    "GenericPropert08",
+                    "GenericPropert09",
+                    "GenericPropert10"
+                }
+            };
+
+            return properties;
+        }
     }
 }

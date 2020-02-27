@@ -28,6 +28,7 @@ import * as d3 from "d3";
 
   export default {
     name: 'provenance',
+    props: ["provenancedata"],
 
     data: () => ({
       loading: false,
@@ -50,24 +51,14 @@ import * as d3 from "d3";
       }
     }),
 
-    beforeCreate () {
-      this.$store.dispatch("GetProvenanceData")
-      .then(response => { console.log(response.data) }).catch(errors => { console.log(errors) });
-    },
-
     mounted () {
       this.loading = true;
-      setTimeout(() => {
-        this.renderGraph();
-      }, 1000); 
+      this.renderGraph();
     },
 
     computed: {
       ApiValue () {
         return this.$store.getters.GetApiValue;
-      },
-      ProvenanceData () {
-        return this.$store.getters.GetProvenanceData;
       }
     },
 
@@ -75,7 +66,7 @@ import * as d3 from "d3";
       renderGraph() {
         // d3 version: npm i d3@3   
 
-        // draw legend 1
+        // draw legend
         var svg1 = d3.select("#force-legend-1").append("svg")
               .attr("width", 320)
               .attr("height", 65);
@@ -126,8 +117,8 @@ import * as d3 from "d3";
               // .attr("height", height);
 
         var defs = svg3.append("svg:defs");
-        var nodes = this.ProvenanceData.nodes;
-        var links = this.ProvenanceData.links
+        var nodes = this.provenancedata.nodes;
+        var links = this.provenancedata.links
         console.log(nodes);
         console.log(links)
 
