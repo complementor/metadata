@@ -8,7 +8,7 @@ namespace Interface.Helpers
     {
         public static List<Word> Get(string words)
         {
-            var whiteList = new List<string>{"", "also", "i", "me", "my", "myself", "we", "us",
+            var blacklist = new List<string>{"", "also", "i", "me", "my", "myself", "we", "us",
                "our", "ours", "ourselves", "you", "your", "yours",
                "yourself", "yourselves", "he", "him", "his",
                "himself", "she", "her", "hers", "herself", "it",
@@ -41,8 +41,7 @@ namespace Interface.Helpers
 
             var punctuation = words.Where(Char.IsPunctuation).Distinct().ToArray();
             var splitWords = words.Split().Select(x => x.Trim(punctuation)).ToList();
-            var keyWords = splitWords.RemoveAll(x => whiteList.Contains(x));
-            int totaltags = words.Count();
+            var keyWords = splitWords.RemoveAll(x => blacklist.Contains(x));
 
             var groupedWords = splitWords
                 .GroupBy(w => w)

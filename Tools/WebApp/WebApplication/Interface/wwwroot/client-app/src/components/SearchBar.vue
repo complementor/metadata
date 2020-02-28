@@ -8,6 +8,7 @@
           v-model="selectedOmrProperty"
           outlined
           :clearable="true"
+          color="light-blue darken-3"
         ></v-select>
       </v-col>
       <v-col cols="12" md="8">
@@ -28,6 +29,7 @@
           label="Search..."
           append-icon="search"
           ref="search"
+          color="light-blue darken-3"
         ></v-text-field>
       </v-col>
     </v-row>
@@ -35,7 +37,7 @@
     <div class="search__checkboxes">
       <v-checkbox
         v-model="checkbox1"
-        color="indigo lighten-1"
+        color="light-blue darken-3"
         class="search__checkbox"
         label="Video"
       ></v-checkbox>

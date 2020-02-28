@@ -29,7 +29,7 @@
         <template v-for="(tag, key) in tags">
           <v-chip
             class="ma-2"
-            color="indigo lighten-1"
+            color="light-blue darken-3"
             outlined
             close
             :key="key"

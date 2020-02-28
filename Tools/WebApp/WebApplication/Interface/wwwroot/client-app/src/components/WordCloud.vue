@@ -21,7 +21,7 @@ import vuewordcloud from 'vue-wordcloud'
     },
 
     data: () => ({
-      wordColors: ['#5C6BC0', '#7986CB', '#9FA8DA', '#C5CAE9'],
+      wordColors: ['#0277BD', '#039BE5', '#4FC3F7', '#B3E5FC'],
     }),
 
     created () {
