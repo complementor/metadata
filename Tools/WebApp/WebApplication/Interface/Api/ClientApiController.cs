@@ -77,7 +77,13 @@ namespace Interface.Api
                 VideoMetadataDto = metadata,
                 Words = wordCloud,
                 Collaboration = collaboration,
-                Provenance = provenance
+                Provenance = provenance,
+                ObjectsAdded = false,
+                OcrAdded = false,
+                SpeechAdded = false,
+                CollaborationAdded = false,
+                ProvenanceAdded = false,
+                SentimentAdded = false
             };
 
             return Ok(model);

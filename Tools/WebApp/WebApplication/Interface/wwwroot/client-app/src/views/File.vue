@@ -26,11 +26,11 @@
       <div class="tabs">
         <v-tabs color="light-blue darken-3">
           <v-tab @click="HandleTab1">Descriptives</v-tab>
-          <v-tab @click="HandleTab2">OCR</v-tab>
-          <v-tab @click="HandleTab3">Speech recognition</v-tab>
-          <v-tab @click="HandleTab4">Word cloud</v-tab>
-          <v-tab @click="HandleTab5">Provenance</v-tab>
-          <v-tab @click="HandleTab6">Collaboration</v-tab>
+          <v-tab v-if="OcrAdded" @click="HandleTab2">OCR</v-tab>
+          <v-tab v-if="SpeechAdded" @click="HandleTab3">Speech recognition</v-tab>
+          <v-tab v-if="SpeechAdded" @click="HandleTab4">Word cloud</v-tab>
+          <v-tab v-if="ProvenanceAdded" @click="HandleTab5">Provenance</v-tab>
+          <v-tab v-if="CollaborationAdded" @click="HandleTab6">Collaboration</v-tab>
         </v-tabs>
 
         <div class="tabs__content">
@@ -82,10 +82,10 @@
           <thead>
             <tr>
               <th class="text-left">Scene</th>
-              <th class="text-left">Objects</th>
-              <th class="text-left">Optical character recognition (OCR)</th>
-              <th class="text-left">Speech recognition</th>
-              <th class="text-left">Sentiment analysis</th>
+              <th v-if="ObjectsAdded" class="text-left">Objects</th>
+              <th v-if="OcrAdded" class="text-left">Optical character recognition (OCR)</th>
+              <th v-if="SpeechAdded" class="text-left">Speech recognition</th>
+              <th v-if="SentimentAdded" class="text-left">Sentiment analysis</th>
               <th class="text-left"></th>
             </tr>
           </thead>
@@ -93,14 +93,14 @@
             <tr v-for="item in scenes" :key="item.name">
               <td>{{item.sceneNumber}}</td>
 
-              <td>
+              <td v-if="ObjectsAdded">
                 <template
                   v-for="object in item.objects"
                 >{{object.name}} ({{object.confidence.substring(0, 3)}}) &nbsp;&nbsp;&nbsp;</template>
               </td>
-              <td>{{ item.ocr }}</td>
-              <td>{{ item.speech }}</td>
-              <td>
+              <td v-if="OcrAdded">{{ item.ocr }}</td>
+              <td v-if="SpeechAdded">{{ item.speech }}</td>
+              <td v-if="SentimentAdded">
                 <template v-if="item.sentiment !== null">
                   <template v-if="item.sentiment.negative >= 0.8">
                     <v-chip class="ma-2" color="red" text-color="white">Neg</v-chip>
@@ -174,7 +174,8 @@ export default {
     words: [],
     comments: [],
     tags: [],
-    provenanceData: {}
+    provenanceData: {},
+    allData: {}
   }),
 
   created () {
@@ -186,6 +187,7 @@ export default {
       //this.loading = true;
       this.$store.dispatch("GetFileByGuid", this.$route.params.guid)
       .then(response => {
+        this.allData = response.data;
         this.currentFile = response.data.videoMetadataDto;
         this.comments = response.data.collaboration.comments;
         this.tags = response.data.collaboration.tags;
@@ -284,6 +286,24 @@ export default {
   computed: {
     CurrentFile () {
       return this.currentFile;
+    },
+    ObjectsAdded () {
+      return this.allData.objectsAdded;
+    },
+    OcrAdded () {
+      return this.allData.ocrAdded;
+    },
+    SpeechAdded () {
+      return this.allData.speechAdded;
+    },
+    CollaborationAdded () {
+      return this.allData.collaborationAdded;
+    },
+    ProvenanceAdded () {
+      return this.allData.provenanceAdded;
+    },
+    SentimentAdded () {
+      return this.allData.sentimentAdded;
     }
   },
 

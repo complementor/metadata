@@ -19,6 +19,7 @@
           outlined
           label="Search..."
           append-icon="search"
+          color="light-blue darken-3"
         ></v-text-field>
 
         <v-text-field

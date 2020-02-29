@@ -322,7 +322,7 @@ text {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 7%;
+  height: 100%;
   img {
     max-width: 100%;
   }
