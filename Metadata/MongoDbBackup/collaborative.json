@@ -1,0 +1,58 @@
+{
+    "_id": {
+        "$oid": "5e5a4ab6a4a84cad08c444f7"
+    },
+    "DocumentId": {
+        "$oid": "5e57e6588df02e2350a292dd"
+    },
+    "DateTime": {
+        "$date": "2020-02-29T11:27:50.389Z"
+    },
+    "Sat_Collaborative_Description": [
+        {
+            "User": "Peter",
+            "UserIcon": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=200",
+            "DateTime": "02/03/2020 12:27:50",
+            "Description": "I did a classification task on this video."
+        },
+        {
+            "User": "Anne",
+            "UserIcon": "https://www.joancanto.com/wp-content/uploads/2017/04/H10B0527.jpg",
+            "DateTime": "03/03/2020 12:27:50",
+            "Description": "Great job, Peter. Very useful for my work."
+        },
+        {
+            "User": "Thomas",
+            "UserIcon": "https://cdn.vuetifyjs.com/images/lists/2.jpg",
+            "DateTime": "04/03/2020 12:27:50",
+            "Description": "Nice findings! I added a few more tags."
+        }
+    ],
+    "Sat_Collaborative_Tag": [
+        {
+            "TagName": "Entertainment",
+            "UserName": "Peter"
+        },
+        {
+            "TagName": "Nature",
+            "UserName": "Anne"
+        },
+        {
+            "TagName": "New Zealand",
+            "UserName": "Anne"
+        },
+        {
+            "TagName": "Travel",
+            "UserName": "Anne"
+        },
+        {
+            "TagName": "Youtube",
+            "UserName": "Thomas"
+        },
+        {
+            "TagName": "Auckland",
+            "UserName": "Thomas"
+        }
+    ],
+    "Sat_Collaborative_Type": ""
+}

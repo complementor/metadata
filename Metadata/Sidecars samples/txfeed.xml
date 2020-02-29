@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<feed xmlns="http://www.w3.org/2005/Atom" 
+xmlns:media="http://search.yahoo.com/mrss" 
+xml:lang="en"> 
+  <title type="text">Metadata Sample Feed</title> 
+  <link rel="self" type="application/atom+xml" href="http://example.org/example.xml"/> 
+  <rights type="text">2011 Media Annotation Tech, Copyright.</rights> 
+  <id>http://example.org/example.xml</id> 
+  <updated>2007-09-11T18:30:02Z</updated> 
+  <entry>
+    <title>Introduction video of Media Annotation Tech</title> 
+    <link rel="alternate" href="http://example.org/video.html"/> 
+    <updated>2007-09-11T18:30:02Z</updated> 
+    <published>2001-09-11T18:30:02Z</published> 
+    <id>http://example.org/video.html</id> 
+    <media:thumbnail url="http://example.org/video.thumbnail.jpg" /> 
+    <rights>2008-2011 Media Annotation Tech, All rights reserved</rights>
+    <link rel="license" type="text/html" href="http://creativecommons.org/licenses/by/2.5/" />
+    <author>
+      <name>Wonsuk Lee</name> 
+      <uri>http://wonsuk73.example.com/</uri> 
+      <email>wonsuk73@example.com</email> 
+    </author> 
+    <contributor> 
+      <name>James M Snell</name>
+      <role scheme="http://www.loc.gov/marc" term="cmt" label="Cinematographer" />
+    </contributor> 
+    <category term="foo" /> 
+    <category term="bar" /> 
+    <category scheme="http://transmission.cc/Genres" term="action" label="Action" />
+    <content type="text">Introducing current status and vision of Media Annotation Tech.</content> 
+    <format xmlns="http://transmission.cc/FileFormat"> 
+      <size>175255078</size> 
+      <duration>2996</duration> 
+      <video_codec>Theora</video_codec> 
+      <framerate>25</framerate> 
+      <video_bitrate>394.570050</video_bitrate> 
+      <width>480</width> 
+      <height>272</height> 
+      <pixel_aspect_ratio>1/1</pixel_aspect_ratio> 
+      <audio_codec>Vorbis</audio_codec> 
+      <samplerate>48000</samplerate> 
+      <channels>2</channels> 
+    </format> 
+
+    <!-- link to the video (via http) --> 
+    <link rel="enclosure" type="application/ogg" href="http://example.org/video.ogg" length="1234" /> 
+
+    <!-- link to the english subtitle --> 
+    <link rel="subtitle" type="text/x-srt" lang="en" href="http://example.org/video.en.srt" length="32" /> 
+  </entry> 
+</feed>

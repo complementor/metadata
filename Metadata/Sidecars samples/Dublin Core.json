@@ -1,0 +1,145 @@
+[ { "Identifier" : {
+    "propertyName" : "identifier",
+    "value" : "http://example.org/DC_example1.jpg",
+    "sourceFormat" : "dc",
+    "mappingType" : "exact",
+    "identifierLink" : "http://example.org/DC_example1.jpg",
+    "statusCode" : 200
+    } 
+  },
+  { "Title" : {
+    "propertyName" : "title",
+    "value" : "Dublin Core Tutorial",
+    "language" : "en",
+    "sourceFormat" : "dc",
+    "mappingType" : "exact",
+    "titleLabel" : "Dublin Core Tutorial",
+    "statusCode" : 200
+    } 
+  },
+  { "Language" : {
+    "propertyName" : "language",
+    "value" : "en",
+    "sourceFormat" : "dc",
+    "mappingType" : "exact",
+    "languageLabel" : "en",
+    "statusCode" : 200
+    } 
+  },
+  { "Contributor" : {
+    "propertyName" : "contributor",
+    "value" : "The Dublin Core Task Force",
+    "sourceFormat" : "dc",
+    "mappingType" : "exact",
+    "contributorLabel" : "The Dublin Core Task Force",
+    "roleLabel" : "contributer",
+    "statusCode" : 200
+    } 
+  },
+  { "Creator" : {
+    "propertyName" : "creator",
+    "value" : "Alan Kelsey",
+    "sourceFormat" : "dc",
+    "mappingType" : "exact",
+    "creatorLabel" : "Alan Kelsey",
+    "roleLabel" : "creator",
+    "statusCode" : 200
+    } 
+  },
+  { "MADate" : {
+    "propertyName" : "date",
+    "value" : "2007-01-06T00:00:00.00",
+    "sourceFormat" : "dc",
+    "mappingType" : "related",
+    "date" : "2007-01-06T00:00:00.00",
+    "typeLabel": "creation date",
+    "statusCode" : 200
+    } 
+  },
+  { "Location" : {
+    "propertyName" : "location",
+    "value" : "Hennepin Technical College",
+    "sourceFormat" : "dc",
+    "mappingType" : "exact",
+    "locationLabel" : "Hennepin Technical College",
+    "longitude" : 0,
+    "latitude" : 0,
+    "altitude" : 0,
+    "statusCode" : 200
+    } 
+  },
+  { "Description" : {
+    "propertyName" : "description",
+    "value" : "Learning Advanced Web Design can be fun and easy! Learn how to design web pages with proper tags, styles, and scripting.",
+    "language" : "en",
+    "sourceFormat" : "dc",
+    "mappingType" : "exact",
+    "descriptionLabel" : "Learning Advanced Web Design can be fun and easy! Learn how to design web pages with proper tags, styles, and scripting.",
+    "statusCode" : 200
+    } 
+  },
+  { "Keyword" : {
+    "propertyName" : "keyword",
+    "value" : "Dublin Core Meta Tags",
+    "language" : "en",
+    "sourceFormat" : "dc",
+    "mappingType" : "exact",
+    "keywordLabel" : "Dublin Core Meta Tags",
+    "statusCode" : 200
+    } 
+  },
+  { "Genre" : {
+    "propertyName" : "genre",
+    "value" : "Image",
+    "sourceFormat" : "dc",
+    "mappingType" : "exact",
+    "genreLabel" : "Image",
+    "statusCode" : 200
+    } 
+  },
+  { "Relation" : {
+    "propertyName" : "relation",
+    "value" : "TutorialOnline.info",
+    "sourceFormat" : "dc",
+    "mappingType" : "exact",
+    "targetLabel" : "TutorialOnline.info",
+    "statusCode" : 200
+    } 
+  },
+  { "Collection" : {
+    "propertyName" : "collection",
+    "value" : "Dublin Core metadata image",
+    "sourceFormat" : "dc",
+    "mappingType" : "related",
+    "collectionLabel" : "Dublin Core metadata image",
+    "statusCode" : 200
+    } 
+  },
+  { "Copyright" : {
+    "propertyName" : "copyright",
+    "value" : "Copyright 2007, Alan Kelsey, Ltd. All rights reserved.",
+    "sourceFormat" : "dc",
+    "mappingType" : "related",
+    "copyrightLabel" : "Copyright 2007, Alan Kelsey, Ltd. All rights reserved.",
+    "statusCode" : 200
+    } 
+  },
+  { "Publisher" : {
+    "propertyName" : "publisher",
+    "value" : "Alan Kelsey, Ltd.",
+    "sourceFormat" : "dc",
+    "mappingType" : "exact",
+    "publisherLabel" : "Alan Kelsey, Ltd.",
+    "statusCode" : 200
+    } 
+  },
+  { "Format" : {
+    "propertyName" : "format",
+    "value" : "image/jpeg",
+    "sourceFormat" : "dc",
+    "mappingType" : "exact",
+    "formatLabel" : "image/jpeg",
+    "statusCode" : 200
+    } 
+  }
+]

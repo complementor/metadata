@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ebuCoreMain xmlns:dc="http://purl.org/dc/elements/1.1/"
+             xmlns:default="http://iptc.org/std/nar/2006-10-01/"
+             xmlns:ebu="http://ebu.org/nar-extensions/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="urn:ebu:metadata-schema:ebuCore_2011"
+             schema="EBU_CORE_20110705.xsd"
+             xsi:schemaLocation="urn:ebu:metadata-schema:ebuCore_2011 file:EBU_CORE_20110705.xsd"
+             version="1.3"
+             dateLastModified="2011-01-31"
+    xml:lang="en">
+   <coreMetadata>
+      <title>
+         <dc:title xml:lang="en">VE Chavez decree</dc:title>
+      </title>
+      <alternativeTitle typeLabel="headline">
+         <dc:title xml:lang="en">VE Chavez decree</dc:title>
+      </alternativeTitle>
+      <creator entityId="EBUNMSSRVCodeSource:GBRTV">
+         <organisationDetails organisationId="EBUNMSSRVCodeSource:GBRTV">
+            <organisationName>Reuters Television Ltd</organisationName>
+            <details typeLink="addressType:office">
+               <emailAddress/>
+               <webAddress/>
+               <address>
+                  <addressLine>WSHT</addressLine>
+                  <addressTownCity/><country typeLink="" typeLabel=""/></address>
+               <telephoneNumber/>
+            </details>
+         </organisationDetails>
+      </creator>
+      <creator entityId="EBUNMSSRVCodeSource2:GBAPTN"/>
+      <subject>
+         <dc:subject xml:lang="en"/>
+         <subjectCode>EBUNMSCategoryCode:EXCH</subjectCode>
+      </subject>
+      <subject>
+         <dc:subject xml:lang="en">Americas</dc:subject>
+         <subjectCode>EBUNMSWebcatCode:AMERICAS</subjectCode>
+      </subject>
+      <description typeLabel="pubStatus">
+         <dc:description xml:lang="en">NMSStatusCode:TRS</dc:description>
+      </description>
+      <description typeLink="EBUNMSDescription:dopesheet">
+         <dc:description xml:lang="en"> President Hugo
+            Chavez offered on Saturday (January 15) to give up much-criticized decree powers in May,
+            a year ahead of schedule, if post-flood emergency measures were implemented
+            quickly.Addressing the South American nation's parliament,..........
+        </dc:description>
+      </description>
+      <description typeLink="EBUNMSDescription:shotlist">
+         <dc:description xml:lang="en"> CARACAS, VENEZUELA (JANUARY 15, 2011)
+            (REUTERS - ACCESS ALL)1. GENERAL VIEW OF PRESIDENT HUGO CHAVEZ ARRIVING TO NATIONAL
+            ASSEMBLY2. VARIOUS OF CHAVEZ WALKING INCARACAS, VENEZUELA (JANUARY 15, 2011)
+            (ORIGINALLY 4:3) (GOVERNMENT TV - ACCESS ALL)3. VARIOUS OF AUDIENCE CLAPPING4.
+            VARIOUS OF CHAVEZ WALKING IN, GREETING VARIOUS LAWMAKERS5. (SOUNDBITE) (Spanish)
+            CHAVEZ SAYING:"We regret the absence of some ambassadors,
+        </dc:description>
+      </description>
+      <publisher entityId="EBUProviderCode:EBU">
+         <organisationDetails organisationId="EBUProviderCode:EBU">
+            <organisationName>European Broadcasting Union - EVN</organisationName>
+            <organisationDepartment departmentId="EBUServicerCode:EUROVISION">Eurovision services</organisationDepartment>
+            <details typeLink="addressType:office">
+               <emailAddress>evn@eurovision.net</emailAddress>
+               <webAddress>http://www.eurovision.net</webAddress>
+               <address>
+                  <addressLine/>
+                  <addressLine>Eurovision News Exchanges</addressLine>
+                  <addressLine>L Ancienne Route 17 A</addressLine>
+                  <addressLine>CH-1218</addressLine>
+                  <addressTownCity>Grand-Saconnex</addressTownCity><country typeLink="ISOCountryCode:ch" typeLabel="Switzerland"/></address>
+               <telephoneNumber>+41 22 717 2850</telephoneNumber>
+            </details>
+         </organisationDetails><role typeLabel="provider"/></publisher>
+      <contributor>
+         <contactDetails>
+            <name>Durand</name>
+         </contactDetails>
+         <role typeLabel="news editor"/>
+      </contributor>
+      <date><created startDate="2011-01-15" startTime="00:00:00Z"/><issued startDate="2011-01-16" startTime="03:47:06Z"/><modified startDate="2011-01-16" startTime="04:38:20Z"/></date>
+      <type>
+         <genre typeLink="EBUNMSGenreCode:news"/>
+         <objectType typeLabel="news item"/>
+         <targetAudience typeLink="EBUNMSTargetAudienceCode:all"/>
+      </type>
+      <format formatId="EVN_20110116-PNN-0428-528229" formatName="dopesheet">
+            <locator typeLabel="dopesheet">/News/16Jan2011/Items/20110116-PNN-0428-528229/index.html</locator>
+      </format>
+      <format formatId="EVN_528229_116A0428" formatName="manifestation">
+         <videoFormat>
+            <width>1080</width>
+            <height>720</height>
+            <videoEncoding typeLabel="mp4"/>
+            <technicalAttributeFloat typeLabel="frameRate">25</technicalAttributeFloat>
+            <technicalAttributeRational factorNumerator="16" factorDenominator="9" typeLabel="AspectRatio">1 </technicalAttributeRational>
+         </videoFormat>
+<audioFormat>
+   <technicalAttributeFloat typeLabel="samplingRate">41000</technicalAttributeFloat>
+</audioFormat>
+         <fileFormat formatLink="ninat:video"/>
+         <!--fileInfo typeLink="ninat:video"-->
+            <duration>
+               <editUnitNumber editRate="25" factorDenominator="1" factorNumerator="1">5283</editUnitNumber>
+            </duration>
+            <locator typeLabel="manifestation">destination/path/filename(528229)</locator>
+         <technicalAttributeFloat typeLabel="averageBitRate">12456321.23</technicalAttributeFloat>
+         <technicalAttributeFloat typeLabel="numOfTracks">3</technicalAttributeFloat>
+      </format>
+      <identifier typeLabel="itemId">
+         <dc:identifier>tag:ebu.ch,2011:528229</dc:identifier>
+      </identifier>
+      <identifier typeLink="idType:dummy">
+         <dc:identifier>
+            asd-001
+        </dc:identifier>
+      </identifier>
+      <language typeLabel="Natural"/>
+      <language typeLink="EBULanguageUsageCode:PartNarrated">
+         <dc:language xml:lang="en">Spanish</dc:language>
+      </language>
+      <isMemberOf typeLabel="daily news item collection">
+         <relationIdentifier>
+            <dc:identifier>News/16Jan2011/Items/20110116-PNN-0428-528229/</dc:identifier>
+         </relationIdentifier>
+      </isMemberOf>
+      <coverage>
+         <spatial>
+            <location typeLink="cptype:city">
+               <name>CARACAS</name>
+            </location>
+            <location typeLink="cptype:country">
+               <name>VENEZUELA</name>
+               <code>country:VE</code>
+            </location>
+         </spatial>
+      </coverage>
+      <rights typeLabel="metadataUsageRights">
+         <dc:rights xml:lang="en">The metadata contained in this file is provided for test purpose
+							only</dc:rights>
+         <rightsHolder>
+            <organisationDetails>
+               <organisationName>EBU</organisationName>
+            </organisationDetails>
+         </rightsHolder>
+      </rights>
+      <rights typeLabel="UsageTerms">
+         <dc:rights xml:lang="en"> Agency common from GBAPTN and⁄or GBRTV and⁄or
+            USCBSN.Access only for Eurovision Members and Sub-licensees with relevant agency
+            contracts. </dc:rights>
+         <rightsHolder/>
+      </rights>
+      <publicationHistory>
+         <firstPublicationDate>2011-01-16</firstPublicationDate>
+         <firstPublicationTime>04:34:07Z</firstPublicationTime>
+         <firstPublicationChannel>/News/16Jan2011/Items/20110116-PNN-0428-528229/index.html</firstPublicationChannel>
+      </publicationHistory>
+      <rating typeLabel="news item importance ranking" formatLabel="EBUNMSRatingCode">
+         <ratingValue>10</ratingValue>
+         <ratingScaleMaxValue>10</ratingScaleMaxValue>
+         <ratingScaleMinValue>0</ratingScaleMinValue>
+         <ratingProvider>
+            <contactDetails>
+               <name>Durand</name>
+            </contactDetails>
+            <role typeLabel="news editor"/>
+         </ratingProvider>
+      </rating>
+      
+      <part>
+         <description typeLabel="sequenceNumber">
+            <dc:description xml:lang="en">1</dc:description>
+         </description>
+         <description>
+            <dc:description xml:lang="en"/>
+         </description>
+         <format formatId="EVN_20110116-PNN-0428-528229-04340701" formatName="thumbnail">
+               <locator typeLabel="thumbnail">/News/16Jan2011/Keyframes/20110116-PNN-0428-528229//20110116-PNN-0428-528229-04340701.jpeg</locator>
+         </format>
+         <format formatId="EVN_528229_116A0428_Part1_ID" formatName="partId">
+            <start>
+               <editUnitNumber editRate="25" factorDenominator="1" factorNumerator="1">411176</editUnitNumber>
+            </start>
+         </format>
+         <identifier typeLabel="partId">
+            <dc:identifier>EVN_528229_116A0428_Part1_ID</dc:identifier>
+         </identifier>
+         <language typeLink="EBULanguageUsageCode:VoiceOver">
+            <dc:language xml:lang="en">English</dc:language>
+         </language>
+      </part>
+      <part>
+         <description typeLabel="sequenceNumber">
+            <dc:description xml:lang="en">2</dc:description>
+         </description>
+         <description>
+            <dc:description xml:lang="en"/>
+         </description>
+         <format formatId="EVN_20110116-PNN-0428-528229-04342718" formatName="thumbnail">
+               <locator typeLabel="thumbnail">/News/16Jan2011/Keyframes/20110116-PNN-0428-528229//20110116-PNN-0428-528229-04342718.jpeg</locator>
+         </format>
+         <format formatId="EVN_528229_116A0428_Part2_ID" formatName="partId">
+            <start>
+               <editUnitNumber editRate="25" factorDenominator="1" factorNumerator="1">411693</editUnitNumber>
+            </start>
+         </format>
+         <identifier typeLabel="partId">
+            <dc:identifier>EVN_528229_116A0428_Part2_ID</dc:identifier>
+         </identifier>
+         <language typeLink="EBULanguageUsageCode:VoiceOver">
+            <dc:language xml:lang="en">English</dc:language>
+         </language>
+      </part>
+      <part>
+         <description typeLabel="sequenceNumber">
+            <dc:description xml:lang="en">3</dc:description>
+         </description>
+         <description>
+            <dc:description xml:lang="en"/>
+         </description>
+         <format formatId="EVN_20110116-PNN-0428-528229-04344218" formatName="thumbnail">
+               <locator typeLink="thumbnail">/News/16Jan2011/Keyframes/20110116-PNN-0428-528229//20110116-PNN-0428-528229-04344218.jpeg</locator>
+         </format>
+         <format formatId="EVN_528229_116A0428_Part3_ID" formatName="partId">
+            <start>
+               <editUnitNumber editRate="25" factorDenominator="1" factorNumerator="1">412068</editUnitNumber>
+            </start>
+         </format>
+         <identifier typeLabel="partId">
+            <dc:identifier>EVN_528229_116A0428_Part3_ID</dc:identifier>
+         </identifier>
+         <language typeLink="EBULanguageUsageCode:VoiceOver">
+            <dc:language>English</dc:language>
+         </language>
+      </part>
+      <part>
+         <description typeLabel="sequenceNumber">
+            <dc:description xml:lang="en">4</dc:description>
+         </description>
+         <description>
+            <dc:description xml:lang="en"/>
+         </description>
+         <format formatId="EVN_20110116-PNN-0428-528229-04345801" formatName="thumbnail">
+               <locator typeLabel="thumbnail">/News/16Jan2011/Keyframes/20110116-PNN-0428-528229//20110116-PNN-0428-528229-04345801.jpeg</locator>
+         </format>
+         <format formatId="EVN_528229_116A0428_Part4_ID" formatName="partId">
+            <start>
+               <editUnitNumber editRate="25" factorDenominator="1" factorNumerator="1">412451</editUnitNumber>
+            </start>
+         </format>
+         <identifier typeLabel="partId">
+            <dc:identifier>EVN_528229_116A0428_Part4_ID</dc:identifier>
+         </identifier>
+         <language typeLink="EBULanguageUsageCode:VoiceOver">
+            <dc:language xml:lang="en">English</dc:language>
+         </language>
+      </part>
+      <part>
+         <description typeLabel="sequenceNumber">
+            <dc:description xml:lang="en">5</dc:description>
+         </description>
+         <description>
+            <dc:description xml:lang="en"/>
+         </description>
+         <format formatId="EVN_20110116-PNN-0428-528229-04362107" formatName="thumbnail">
+               <locator typeLabel="thumbnail">/News/16Jan2011/Keyframes/20110116-PNN-0428-528229//20110116-PNN-0428-528229-04362107.jpeg</locator>
+         </format>
+         <format formatId="EVN_528229_116A0428_Part5_ID" formatName="partId">
+            <start>
+               <editUnitNumber editRate="25" factorDenominator="1" factorNumerator="1">414532</editUnitNumber>
+            </start>
+         </format>
+         <identifier typeLabel="partId">
+            <dc:identifier>EVN_528229_116A0428_Part5_ID</dc:identifier>
+         </identifier>
+         <language typeLink="EBULanguageUsageCode:VoiceOver">
+            <dc:language xml:lang="en">English</dc:language>
+         </language>
+      </part>
+      <part>
+         <description typeLabel="sequenceNumber">
+            <dc:description xml:lang="en">6</dc:description>
+         </description>
+         <description>
+            <dc:description xml:lang="en"/>
+         </description>
+         <format formatId="EVN_20110116-PNN-0428-528229-04370611" formatName="thumbnail">
+               <locator typeLabel="thumbnail">/News/16Jan2011/Keyframes/20110116-PNN-0428-528229//20110116-PNN-0428-528229-04370611.jpeg</locator>
+         </format>
+         <format formatId="EVN_528229_116A0428_Part6_ID" formatName="partId">
+            <start>
+               <editUnitNumber editRate="25" factorDenominator="1" factorNumerator="1">415661</editUnitNumber>
+            </start>
+         </format>
+         <identifier typeLabel="partId">
+            <dc:identifier>EVN_528229_116A0428_Part6_ID</dc:identifier>
+         </identifier>
+         <language typeLink="EBULanguageUsageCode:VoiceOver">
+            <dc:language xml:lang="en">
+               English
+            </dc:language>
+         </language>
+      </part>
+      <part>
+         <description typeLabel="sequenceNumber">
+            <dc:description xml:lang="en">7</dc:description>
+         </description>
+         <description>
+            <dc:description xml:lang="en"/>
+         </description>
+         <format formatId="EVN_20110116-PNN-0428-528229-04372601" formatName="thumbnail">
+               <locator typeLabel="thumbnail">/News/16Jan2011/Keyframes/20110116-PNN-0428-528229//20110116-PNN-0428-528229-04372601.jpeg</locator>
+         </format>
+         <format formatId="EVN_528229_116A0428_Part7_ID" formatName="partId">
+            <start>
+               <editUnitNumber editRate="25" factorDenominator="1" factorNumerator="1">416151</editUnitNumber>
+            </start>
+         </format>
+         <identifier typeLabel="partId">
+            <dc:identifier>EVN_528229_116A0428_Part7_ID</dc:identifier>
+         </identifier>
+         <language typeLink="EBULanguageUsageCode:VoiceOver">
+            <dc:language xml:lang="en">English</dc:language>
+         </language>
+      </part>
+      <part>
+         <description typeLabel="sequenceNumber">
+            <dc:description xml:lang="en">8</dc:description>
+         </description>
+         <description>
+            <dc:description xml:lang="en"/>
+         </description>
+         <format formatId="EVN_20110116-PNN-0428-528229-04373809" formatName="thumbnail">
+               <locator typeLabel="thumbnail">/News/16Jan2011/Keyframes/20110116-PNN-0428-528229//20110116-PNN-0428-528229-04373809.jpeg</locator>
+         </format>
+         <format formatId="EVN_528229_116A0428_Part8_ID" formatName="partId">
+            <start>
+               <editUnitNumber editRate="25" factorDenominator="1" factorNumerator="1">416459</editUnitNumber>
+            </start>
+         </format>
+         <identifier typeLabel="partId">
+            <dc:identifier>EVN_528229_116A0428_Part8_ID</dc:identifier>
+         </identifier>
+         <language typeLink="EBULanguageUsageCode:VoiceOver">
+            <dc:language xml:lang="en">English</dc:language>
+         </language>
+      </part>
+   </coreMetadata>
+   <metadataProvider>
+      <organisationDetails organisationId="http://www.ebu.ch">
+         <organisationName xml:lang="en">European Broadcasting
+							Union</organisationName>
+         <organisationDepartment xml:lang="en">Eurovision associated to EBU Technical
+							and Development</organisationDepartment>
+         <details typeLabel="office">
+            <emailAddress>metadata@ebu.ch</emailAddress>
+            <webAddress>http://tech.ebu.ch</webAddress>
+            <address>
+               <addressLine>L'ancienne route 17A</addressLine>
+               <addressTownCity>Grand-Saconnex</addressTownCity>
+               <addressCountyState>Geneva</addressCountyState>
+               <addressDeliveryCode>CH1218</addressDeliveryCode>
+               <country typeLink="ISOCountryCode:ch" typeLabel="Switzerland"/>
+            </address>
+         </details>
+         <contacts entityId="http://www.ebu.ch/evain">
+            <contactDetails contactId="http://www.ebu.ch/evain">
+               <name> Jean-Pierre Evain </name>
+               <username>JPE</username>
+               <occupation>Senior Engineer</occupation>
+               <details typeLabel="office">
+                  <emailAddress>evain@ebu.ch</emailAddress>
+                  <webAddress>http://tech.ebu.ch/metadata</webAddress>
+                  <telephoneNumber>+41 22 717 27 34</telephoneNumber>
+               </details>
+            </contactDetails>
+            <role typeLabel="ECM coordinator"/>
+         </contacts>
+      </organisationDetails>
+   </metadataProvider>
+</ebuCoreMain>

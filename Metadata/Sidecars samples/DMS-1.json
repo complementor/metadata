@@ -1,0 +1,335 @@
+[
+  {
+    "Identifier": {
+      "propertyName": "identifier",
+      "value": "urn:uuid:36a87260-1102-11df-8a39-0800200c9a66",
+      "sourceFormat": "dms",
+      "mappingType": "more specific",
+      "identifierLink": "urn:uuid:36a87260-1102-11df-8a39-0800200c9a66",
+      "statusCode": 200
+    }
+  },
+  {
+    "Title": {
+      "propertyName": "title",
+      "value": "Sample Programme",
+      "sourceFormat": "dms",
+      "mappingType": "more specific",
+      "titleLabel": "Sample Programme",
+      "statusCode": 200
+    }
+  },
+  {
+    "Language": {
+      "propertyName": "language",
+      "value": "en-us",
+      "sourceFormat": "dms",
+      "mappingType": "more specific",
+      "languageLabel": "en-us",
+      "statusCode": 200
+    }
+  },
+  {
+    "Locator": {
+      "propertyName": "locator",
+      "value": "http://somewhere.com/othermaterial.mov",
+      "sourceFormat": "dms",
+      "mappingType": "more specific",
+      "locatorLink": "http://somewhere.com/othermaterial.mov",
+      "statusCode": 200
+    }
+  },
+  {
+    "Contributor": {
+      "propertyName": "contributor",
+      "value": "John Doe",
+      "sourceFormat": "dms",
+      "mappingType": "more general",
+      "contributorLabel": "John Doe",
+      "roleLabel": "actor",
+      "statusCode": 200
+    }
+  },
+  {
+    "Contributor": {
+      "propertyName": "contributor",
+      "value": "Jim Foo",
+      "sourceFormat": "dms",
+      "mappingType": "more general",
+      "contributorLabel": "Jim Foo",
+      "roleLabel": "creator",
+      "statusCode": 200
+    }
+  },
+  {
+    "Contributor": {
+      "propertyName": "contributor",
+      "value": "W3 Pictures Inc.",
+      "sourceFormat": "dms",
+      "mappingType": "more general",
+      "contributorLabel": "W3 Pictures Inc.",
+      "roleLabel": "publisher",
+      "statusCode": 200
+    }
+  },
+  {
+    "Creator": {
+      "propertyName": "creator",
+      "value": "Jim Foo",
+      "sourceFormat": "dms",
+      "mappingType": "more general",
+      "creatorLabel": "Jim Foo",
+      "roleLabel": "creator",
+      "statusCode": 200
+    }
+  },
+  {
+    "MADate": {
+      "propertyName": "date",
+      "value": "1994",
+      "sourceFormat": "dms",
+      "mappingType": "exact",
+      "date": "1994",
+      "typeLabel": "creation date",
+      "statusCode": 200
+    }
+  },
+  {
+    "Location": {
+      "propertyName": "location",
+      "value": "south pole",
+      "sourceFormat": "dms",
+      "mappingType": "more general",
+      "locationLabel": "south pole",
+      "longitude": 0.0,
+      "latitude": -90.0,
+      "altitude": 2800.0,
+      "statusCode": 200
+    }
+  },
+  {
+    "Description": {
+      "propertyName": "description",
+      "value": "This is the synopsis of the story.",
+      "sourceFormat": "dms",
+      "mappingType": "exact",
+      "descriptionLabel": "This is the synopsis of the story.",
+      "statusCode": 200
+    }
+  },
+  {
+    "Keyword": {
+      "propertyName": "keyword",
+      "value": "about",
+      "sourceFormat": "dms",
+      "mappingType": "more specific",
+      "keywordLabel": "about",
+      "statusCode": 200
+    }
+  },
+  {
+    "Genre": {
+      "propertyName": "genre",
+      "value": "Horror",
+      "sourceFormat": "dms",
+      "mappingType": "exact",
+      "genreLabel": "Horror",
+      "statusCode": 200
+    }
+  },
+  {
+    "Rating": {
+      "propertyName": "rating",
+      "value": "99.0",
+      "sourceFormat": "dms",
+      "mappingType": "more specific",
+      "ratingValue": 99.0,
+      "statusCode": 200
+    }
+  },
+  {
+    "Relation": {
+      "propertyName": "relation",
+      "value": "http://docs.company.com/scripts/123.pdf",
+      "sourceFormat": "dms",
+      "mappingType": "more specific",
+      "targetLink": "http://docs.company.com/scripts/123.pdf",
+      "statusCode": 200
+    }
+  },
+  {
+    "Collection": {
+      "propertyName": "collection",
+      "value": "The 99 Example Series",
+      "sourceFormat": "dms",
+      "mappingType": "exact",
+      "collectionLabel": "The 99 Example Series",
+      "statusCode": 200
+    }
+  },
+  {
+    "Copyright": {
+      "propertyName": "copyright",
+      "value": "All rights reserved.",
+      "sourceFormat": "dms",
+      "mappingType": "exact",
+      "copyrightLabel": "All rights reserved.",
+      "statusCode": 200
+    }
+  },
+  {
+    "Policy": {
+      "propertyName": "policy",
+      "value": "http://creativecommons.org/licenses/by-nc-nd/3.0",
+      "sourceFormat": "dms",
+      "mappingType": "more specific",
+      "statementLink": "http://creativecommons.org/licenses/by-nc-nd/3.0",
+      "statusCode": 200
+    }
+  },
+  {
+    "Publisher": {
+      "propertyName": "publisher",
+      "value": "W3 Pictures Inc.",
+      "sourceFormat": "dms",
+      "mappingType": "more specific",
+      "publisherLabel": "W3 Pictures Inc.",
+      "statusCode": 200
+    }
+  },
+  {
+    "TargetAudience": {
+      "propertyName": "targetAudience",
+      "value": "US",
+      "sourceFormat": "dms",
+      "mappingType": "more specific",
+      "audienceLabel": "US",
+      "classificationSystemLabel": "Region Classification",
+      "statusCode": 200
+    }
+  },
+  {
+    "TargetAudience": {
+      "propertyName": "targetAudience",
+      "value": "u",
+      "sourceFormat": "dms",
+      "mappingType": "more specific",
+      "audienceLabel": "u",
+      "classificationSystemLabel": "Age Classification",
+      "statusCode": 200
+    }
+  },
+  {
+    "Fragment": {
+      "propertyName": "fragment",
+      "value": "urn:uuid:36a87260-1102-11df-8a39-0800200c9a66/audiotrack",
+      "sourceFormat": "dms",
+      "mappingType": "related",
+      "identifier": "urn:uuid:36a87260-1102-11df-8a39-0800200c9a66/audiotrack",
+      "statusCode": 200
+    }
+  },
+  {
+    "Fragment": {
+      "propertyName": "fragment",
+      "value": "urn:uuid:36a87260-1102-11df-8a39-0800200c9a66/videotrack",
+      "sourceFormat": "dms",
+      "mappingType": "related",
+      "identifier": "urn:uuid:36a87260-1102-11df-8a39-0800200c9a66/videotrack",
+      "statusCode": 200
+    }
+  },
+  {
+    "FrameSize": {
+      "propertyName": "frameSize",
+      "value": "720 x 576",
+      "sourceFormat": "dms",
+      "mappingType": "exact",
+      "width": 720,
+      "height": 576,
+      "statusCode": 200
+    }
+  },
+  {
+    "Compression": {
+      "propertyName": "compression",
+      "value": "AVC",
+      "sourceFormat": "dms",
+      "mappingType": "more specific",
+      "compressionLabel": "AVC",
+      "statusCode": 200
+    }
+  },
+  {
+    "Duration": {
+      "propertyName": "duration",
+      "value": "5402.88",
+      "sourceFormat": "dms",
+      "mappingType": "exact",
+      "duration": 5402.88,
+      "statusCode": 200
+    }
+  },
+  {
+    "Format": {
+      "propertyName": "format",
+      "value": "video/mp4",
+      "sourceFormat": "dms",
+      "mappingType": "more specific",
+      "formatLabel": "video/mp4",
+      "statusCode": 200
+    }
+  },
+  {
+    "SamplingRate": {
+      "propertyName": "samplingRate",
+      "value": "44100.0",
+      "sourceFormat": "dms",
+      "mappingType": "exact",
+      "samplingRate": 44100.0,
+      "statusCode": 200
+    }
+  },
+  {
+    "FrameRate": {
+      "propertyName": "frameRate",
+      "value": "25",
+      "sourceFormat": "dms",
+      "mappingType": "exact",
+      "frameRate": 25,
+      "statusCode": 200
+    }
+  },
+  {
+    "AverageBitRate": {
+      "propertyName": "averageBitRate",
+      "value": "128000.0",
+      "sourceFormat": "dms",
+      "fragmentIdentifier": "urn:uuid:36a87260-1102-11df-8a39-0800200c9a66/audiotrack",
+      "mappingType": "more specific",
+      "averageBitRate": 128000.0,
+      "statusCode": 200
+    }
+  },
+  {
+    "AverageBitRate": {
+      "propertyName": "averageBitRate",
+      "value": "5000000.0",
+      "sourceFormat": "dms",
+      "fragmentIdentifier": "urn:uuid:36a87260-1102-11df-8a39-0800200c9a66/videotrack",
+      "mappingType": "more specific",
+      "averageBitRate": 5000000.0,
+      "statusCode": 200
+    }
+  },
+  {
+    "NumTracks": {
+      "propertyName": "numTracks",
+      "value": "2",
+      "sourceFormat": "dms",
+      "mappingType": "more specific",
+      "number": 2,
+      "statusCode": 200
+    }
+  }
+]

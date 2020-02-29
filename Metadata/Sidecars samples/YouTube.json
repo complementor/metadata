@@ -1,0 +1,170 @@
+[ { "Identifier" : {
+    "propertyName" : "identifier",
+    "value" : "http://www.youtube.com/v/TGbwL8kSpEk?f=videos&app=youtube_gdata",
+    "sourceFormat" : "yt",
+    "mappingType" : "more specific",
+    "identifierLink" : "http://www.youtube.com/v/TGbwL8kSpEk?f=videos&app=youtube_gdata",
+    "statusCode" : 200
+    } 
+  },
+  { "Title" : {
+    "propertyName" : "title",
+    "value" : "Girls' Generation _ Oh! _ MusicVideo",
+    "sourceFormat" : "yt",
+    "mappingType" : "exact",
+    "titleLabel" : "Girls' Generation _ Oh! _ MusicVideo",
+    "statusCode" : 200
+    } 
+  },
+  { "Locator" : {
+    "propertyName" : "locator",
+    "value" : "http://www.youtube.com/v/TGbwL8kSpEk?f=videos&app=youtube_gdata",
+    "sourceFormat" : "yt",
+    "mappingType" : "exact",
+    "locatorLink" : "http://www.youtube.com/v/TGbwL8kSpEk?f=videos&app=youtube_gdata",
+    "statusCode" : 200
+    } 
+  },
+  { "MADate" : {
+    "propertyName" : "date",
+    "value" : "2010-01-26T10:00:00Z",
+    "sourceFormat" : "yt",
+    "mappingType" : "exact",
+    "date" : "2010-01-26T10:00:00Z",
+    "typeLabel": "creation date",
+    "statusCode" : 200
+    } 
+  },
+  { "Location" : {
+    "propertyName" : "location",
+    "value" : "35.669998 139.770004",
+    "sourceFormat" : "yt",
+    "mappingType" : "exact",
+    "longitude" : 35.669998,
+    "latitude" : 139.770004,
+    "altitude" : 0,
+    "statusCode" : 200
+    } 
+  },
+  { "Description" : {
+    "propertyName" : "description",
+    "value" : "Girls' Generation Oh!. For more Information : girlsgeneration.smtown.com",
+    "sourceFormat" : "yt",
+    "mappingType" : "exact",
+    "descriptionLabel" : "Girls' Generation Oh!. For more Information : girlsgeneration.smtown.com",
+    "statusCode" : 200
+    } 
+  },
+  { "Keyword" : {
+    "propertyName" : "keyword",
+    "value" : "Girls' Generation",
+    "sourceFormat" : "yt",
+    "mappingType" : "exact",
+    "keywordLabel" : "Girls' Generation",
+    "statusCode" : 200
+    } 
+  },
+  { "Keyword" : {
+    "propertyName" : "keyword",
+    "value" : "SM ENTERTAINMENT Oh!",
+    "sourceFormat" : "yt",
+    "mappingType" : "exact",
+    "keywordLabel" : "SM ENTERTAINMENT",
+    "statusCode" : 200
+    } 
+  },
+  { "Keyword" : {
+    "propertyName" : "keyword",
+    "value" : "SM ENTERTAINMENT Oh!",
+    "sourceFormat" : "yt",
+    "mappingType" : "exact",
+    "keywordLabel" : "Oh!",
+    "statusCode" : 200
+    } 
+  },
+  { "Keyword" : {
+    "propertyName" : "keyword",
+    "value" : "KPOP",
+    "sourceFormat" : "yt",
+    "mappingType" : "exact",
+    "keywordLabel" : "KPOP",
+    "statusCode" : 200
+    } 
+  },
+  
+  { "Keyword" : {
+    "propertyName" : "keyword",
+    "value" : "DANCE",
+    "sourceFormat" : "yt",
+    "mappingType" : "exact",
+    "keywordLabel" : "DANCE",
+    "statusCode" : 200
+    } 
+  },
+  { "Genre" : {
+    "propertyName" : "genre",
+    "value" : "Music",
+    "sourceFormat" : "yt",
+    "mappingType" : "exact",
+    "genreLabel" : "Music",
+    "genreLink" : "http://gdata.youtube.com/schemas/2007/categories.cat",
+    "statusCode" : 200
+    } 
+  },
+  { "Rating" : {
+    "propertyName" : "rating",
+    "value" : "4.6510544",
+    "sourceFormat" : "yt",
+    "ratingValue" : 4.6510544,
+    "ratingSystemLabel" : "higherBetter",
+    "minimum" : 1,
+    "maximum" : 5,
+    "statusCode" : 200
+    } 
+  },
+  { "Publisher" : {
+    "propertyName" : "publisher",
+    "value" : "sment",
+    "sourceFormat" : "yt",
+    "mappingType" : "exact",
+    "publisherLabel" : "sment",
+    "statusCode" : 200
+    } 
+  },
+  { "TargetAudience" : {
+    "propertyName" : "targetAudience",
+    "value" : "adult",
+    "sourceFormat" : "yt",
+    "mappingType" : "more specific",
+    "audienceLabel" : "adult",
+    "statusCode" : 200
+    } 
+  },
+  { "Compression" : {
+    "propertyName" : "compression",
+    "value" : "application/x-shockwave-flash",
+    "sourceFormat" : "yt",
+    "mappingType" : "exact",
+    "compressionLabel" : "application/x-shockwave-flash",
+    "statusCode" : 200
+    } 
+  },
+  { "Duration" : {
+    "propertyName" : "duration",
+    "value" : "214",
+    "sourceFormat" : "yt",
+    "mappingType" : "exact",
+    "duration" : 214,
+    "statusCode" : 200
+    } 
+  },
+  { "Format" : {
+    "propertyName" : "format",
+    "value" : "application/x-shockwave-flash",
+    "sourceFormat" : "yt",
+    "mappingType" : "exact",
+    "formatLabel" : "application/x-shockwave-flash",
+    "statusCode" : 200
+    } 
+  }
+]
