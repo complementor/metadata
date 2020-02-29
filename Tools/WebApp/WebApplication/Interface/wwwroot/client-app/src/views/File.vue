@@ -7,7 +7,7 @@
           style="margin-left:0px!important"
           class="ma-2 file__goback"
           outlined
-          color="indigo lighten-1"
+          color="light-blue darken-3"
         >
           <v-icon dark>chevron_left</v-icon>Go back
         </v-btn>
@@ -24,7 +24,7 @@
     </h4>
     <v-card>
       <div class="tabs">
-        <v-tabs color="indigo lighten-1">
+        <v-tabs color="light-blue darken-3">
           <v-tab @click="HandleTab1">Descriptives</v-tab>
           <v-tab @click="HandleTab2">OCR</v-tab>
           <v-tab @click="HandleTab3">Speech recognition</v-tab>
@@ -71,7 +71,7 @@
           class="mx-4"
           flat
           hide-details
-          color="indigo lighten-1"
+          color="light-blue darken-3"
           label="Search the scenes..."
           prepend-inner-icon="search"
           v-model="searchString"

@@ -42,7 +42,7 @@
 
     <!-- https://vuetifyjs.com/en/styles/colors#material-colors -->
 
-    <v-app-bar color="indigo lighten-1" dark app>
+    <v-app-bar color="light-blue darken-3" dark app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>Data lake</v-toolbar-title>
     </v-app-bar>
