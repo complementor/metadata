@@ -31,6 +31,20 @@ namespace Interface.Helpers
                 Duration = "00:02:00.433",
                 Standard = "MPEG-7",
                 Title = "Batman"
+            },
+            new VideoInfoDto
+            {
+                VideoId = Guid.NewGuid().ToString(),
+                Duration = "00:05:10.779",
+                Standard = "ID3",
+                Title = "Breaking Bad"
+            },
+            new VideoInfoDto
+            {
+                VideoId = Guid.NewGuid().ToString(),
+                Duration = "00:10:00.122",
+                Standard = "Exif",
+                Title = "Snowboarding"
             }
         };
 
@@ -262,20 +276,45 @@ namespace Interface.Helpers
             {
                 Title = file.Title,
                 Duration = "200",
-                YouTubeId = "tgbNymZ7vqY",
+                YouTubeId = "mIq9jFdEfZo",
                 OCRAggregated = "Der er mange tilgængelige udgaver af Lorem Ipsum, men de fleste udgaver har gennemgået forandringer, når nogen har tilføjet humor eller tilfældige ord, som på ingen måde ser ægte ud. Hvis du skal bruge en udgave af Lorem Ipsum, skal du sikre dig, at der ikke indgår noget pinligt midt i teksten. Alle Lorem Ipsum-generatore på nettet har en tendens til kun at dublere små brudstykker af Lorem Ipsum efter behov, hvilket gør dette til den første ægte generator på internettet. Den bruger en ordbog på over 200 ord på latin kombineret med en håndfuld sætningsstrukturer til at generere sætninger, som ser pålidelige ud. Resultatet af Lorem Ipsum er derfor altid fri for gentagelser, tilføjet humor eller utroværdige ord osv.",
                 SpeechAggregated = "Lorem Ipsum er ganske enkelt fyldtekst fra print- og typografiindustrien. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte for at trykke en bog til sammenligning af forskellige skrifttyper. Lorem Ipsum har ikke alene overlevet fem århundreder, men har også vundet indpas i elektronisk typografi uden væsentlige ændringer. Sætningen blev gjordt kendt i 1960'erne med lanceringen af Letraset-ark, som indeholdt afsnit med Lorem Ipsum, og senere med layoutprogrammer som Aldus PageMaker, som også indeholdt en udgave af Lorem Ipsum.",
                 Generic = new List<GenericAttribute>
                 {
                     new GenericAttribute
                     {
-                        Name = "generic1",
-                        Value = "value1"
+                        Name = "frameSizeWidth",
+                        Value = "1920"
                     },
                     new GenericAttribute
                     {
-                        Name = "generic2",
-                        Value = "value2"
+                        Name = "frameSizeHeight",
+                        Value = "1080"
+                    },
+                    new GenericAttribute
+                    {
+                        Name = "numTracks",
+                        Value = "2"
+                    },
+                    new GenericAttribute
+                    {
+                        Name = "sampleRate",
+                        Value = "48000"
+                    },
+                    new GenericAttribute
+                    {
+                        Name = "compression",
+                        Value = "MKV"
+                    },
+                    new GenericAttribute
+                    {
+                        Name = "format",
+                        Value = "video/x-matroska"
+                    },
+                    new GenericAttribute
+                    {
+                        Name = "frameRate",
+                        Value = "23.976"
                     }
                 },
                 Scenes = new List<Scene>
@@ -283,9 +322,9 @@ namespace Interface.Helpers
                     new Scene
                     {
                         StartTime = DateTime.Now,
-                        StartTimeSeconds = 200,
+                        StartTimeSeconds = 1,
                         EndTime = DateTime.Now.AddSeconds(10),
-                        EndTimeSeconds = 205,
+                        EndTimeSeconds = 60,
                         FrameStart = 1,
                         FrameEnd = 1400,
                         SceneNumber = sceneNumber++,
@@ -314,9 +353,9 @@ namespace Interface.Helpers
                     new Scene
                     {
                         StartTime = DateTime.Now,
-                        StartTimeSeconds = 20,
+                        StartTimeSeconds = 60,
                         EndTime = DateTime.Now.AddSeconds(10),
-                        EndTimeSeconds = 25,
+                        EndTimeSeconds = 80,
                         FrameStart = 1,
                         FrameEnd = 1400,
                         SceneNumber = sceneNumber++,
@@ -345,9 +384,9 @@ namespace Interface.Helpers
                     new Scene
                     {
                         StartTime = DateTime.Now,
-                        StartTimeSeconds = 250,
+                        StartTimeSeconds = 80,
                         EndTime = DateTime.Now.AddSeconds(10),
-                        EndTimeSeconds = 255,
+                        EndTimeSeconds = 85,
                         FrameStart = 1,
                         FrameEnd = 1400,
                         SceneNumber = sceneNumber++,
