@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MongoDbAccessLayer\MongoDbAccessLayer.csproj" />
+    <ProjectReference Include="..\DAL\MongoDbAccessLayer.csproj" />
   </ItemGroup>
 
 </Project>
