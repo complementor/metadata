@@ -1,12 +1,13 @@
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDbAccessLayer.DomainModels;
-using MongoDbAccessLayer.Dtos;
+using MongoDbAccessLayer.DataService.Dtos;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MongoDbAccessLayer.DataService.Contracts;
 
-namespace MongoDbAccessLayer.Context.Repository
+namespace MongoDbAccessLayer.Context.Repositories
 {
     public class DescriptionRepository : IDescriptionRepository
     {

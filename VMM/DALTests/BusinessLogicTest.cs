@@ -2,7 +2,7 @@
 using MongoDB.Driver;
 using MongoDbAccessLayer;
 using MongoDbAccessLayer.Context;
-using MongoDbAccessLayer.Dtos;
+using MongoDbAccessLayer.DataService.Dtos;
 using MongoDbAccessLayer.DomainModels;
 using Moq;
 using NUnit.Framework;

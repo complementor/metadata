@@ -1,5 +1,4 @@
-﻿using MongoDbAccessLayer.Dtos;
-using System;
+﻿using MongoDbAccessLayer.DataService.Dtos;
 using System.Collections.Generic;
 
 namespace Interface.Models

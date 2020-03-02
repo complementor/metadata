@@ -1,4 +1,4 @@
-﻿using MongoDbAccessLayer.Dtos;
+﻿using MongoDbAccessLayer.DataService.Dtos;
 using System.Collections.Generic;
 
 namespace MongoDbAccessLayer

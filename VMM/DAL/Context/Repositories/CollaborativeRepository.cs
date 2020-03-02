@@ -1,11 +1,12 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDbAccessLayer.DomainModels;
-using MongoDbAccessLayer.Dtos;
+using MongoDbAccessLayer.DataService.Contracts;
+using MongoDbAccessLayer.DataService.Dtos;
 using System;
 using System.Linq;
 
-namespace MongoDbAccessLayer.Context.Repository
+namespace MongoDbAccessLayer.Context.Repositories
 {
     public class CollaborativeRepository : ICollaborativeRepository
     {

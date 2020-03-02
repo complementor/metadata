@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MongoDbAccessLayer.Context.Repository
+namespace MongoDbAccessLayer.DataService.Contracts
 {
     public interface ISearchRepository
     {

@@ -13,7 +13,8 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using MongoDbAccessLayer;
 using MongoDbAccessLayer.Context;
-using MongoDbAccessLayer.Context.Repository;
+using MongoDbAccessLayer.Context.Repositories;
+using MongoDbAccessLayer.DataService.Contracts;
 using Newtonsoft.Json;
 
 namespace Interface

@@ -1,6 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using MongoDbAccessLayer.Dtos;
+using MongoDbAccessLayer.DataService.Dtos;
 using System;
 using System.Collections.Generic;
 

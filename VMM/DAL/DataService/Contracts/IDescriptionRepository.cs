@@ -1,8 +1,8 @@
+using MongoDbAccessLayer.DataService.Dtos;
 using MongoDbAccessLayer.DomainModels;
-using MongoDbAccessLayer.Dtos;
 using System.Collections.Generic;
 
-namespace MongoDbAccessLayer.Context.Repository
+namespace MongoDbAccessLayer.DataService.Contracts
 {
     public interface IDescriptionRepository : IBaseRepository<DescriptionModel> 
     {

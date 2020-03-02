@@ -1,7 +1,7 @@
 ﻿
 using System.Collections.Generic;
 
-namespace MongoDbAccessLayer.Dtos
+namespace MongoDbAccessLayer.DataService.Dtos
 {
     public class GenericPropertiesDto
     {

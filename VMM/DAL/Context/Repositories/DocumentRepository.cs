@@ -4,7 +4,7 @@ using MongoDbAccessLayer.DomainModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MongoDbAccessLayer.Context.Repository
+namespace MongoDbAccessLayer.Context.Repositories
 {
     public class DocumentRepository 
     {

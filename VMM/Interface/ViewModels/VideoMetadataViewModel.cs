@@ -1,9 +1,6 @@
 ﻿using Interface.Helpers;
-using MongoDbAccessLayer.Dtos;
-using System;
+using MongoDbAccessLayer.DataService.Dtos;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Interface.ViewModels
 {

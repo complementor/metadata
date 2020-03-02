@@ -2,15 +2,15 @@
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDbAccessLayer.Context;
-using MongoDbAccessLayer.Context.Repository;
-using MongoDbAccessLayer.Dtos;
+using MongoDbAccessLayer.Context.Repositories;
+using MongoDbAccessLayer.DataService.Dtos;
 using Moq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using Tag = MongoDbAccessLayer.Dtos.Tag;
+using Tag = MongoDbAccessLayer.DataService.Dtos.Tag;
 
 namespace MongoDbAccessLayerTest.RepositoriesTest
 {

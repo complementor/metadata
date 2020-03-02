@@ -1,5 +1,5 @@
 ﻿
-namespace MongoDbAccessLayer.Dtos
+namespace MongoDbAccessLayer.DataService.Dtos
 {
     public class VideoInfoDto
     {

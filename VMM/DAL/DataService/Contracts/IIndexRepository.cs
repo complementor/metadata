@@ -1,6 +1,6 @@
 using MongoDbAccessLayer.DomainModels;
 
-namespace MongoDbAccessLayer.Context.Repository
+namespace MongoDbAccessLayer.DataService.Contracts
 {
     public interface IIndexRepository : IBaseRepository<IndexModel> 
     { 

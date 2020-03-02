@@ -1,6 +1,6 @@
-﻿using MongoDbAccessLayer.Dtos;
+﻿using MongoDbAccessLayer.DataService.Dtos;
 
-namespace MongoDbAccessLayer.Context.Repository
+namespace MongoDbAccessLayer.DataService.Contracts
 {
     public interface IProvenanceRepository
     {

@@ -1,12 +1,13 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDbAccessLayer.DomainModels;
-using MongoDbAccessLayer.Dtos;
+using MongoDbAccessLayer.DataService.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MongoDbAccessLayer.DataService.Contracts;
 
-namespace MongoDbAccessLayer.Context.Repository
+namespace MongoDbAccessLayer.Context.Repositories
 {
     public class ProvenanceRepository : IProvenanceRepository
     {

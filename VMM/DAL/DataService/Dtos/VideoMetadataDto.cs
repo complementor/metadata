@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MongoDbAccessLayer.Dtos
+namespace MongoDbAccessLayer.DataService.Dtos
 {
     public class VideoMetadataDto
     {

@@ -3,8 +3,9 @@ using MongoDB.Driver;
 using MongoDbAccessLayer.DomainModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MongoDbAccessLayer.DataService.Contracts;
 
-namespace MongoDbAccessLayer.Context.Repository
+namespace MongoDbAccessLayer.Context.Repositories
 {
     public class IndexRepository : IIndexRepository
     {
