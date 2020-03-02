@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interface", "Interface\Inte
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDbAccessLayer", "DAL\MongoDbAccessLayer.csproj", "{966624FF-A697-4874-B3F3-E4ACD083415E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDbAccessLayerTest", "Tests\MongoDbAccessLayerTest.csproj", "{BD61C1F7-CA09-4E92-8BF8-B0868AD05F1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDbAccessLayerTest", "DALTests\MongoDbAccessLayerTest.csproj", "{7F992C28-22CA-4F39-8744-D654D3F6DEE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{966624FF-A697-4874-B3F3-E4ACD083415E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{966624FF-A697-4874-B3F3-E4ACD083415E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{966624FF-A697-4874-B3F3-E4ACD083415E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BD61C1F7-CA09-4E92-8BF8-B0868AD05F1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD61C1F7-CA09-4E92-8BF8-B0868AD05F1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD61C1F7-CA09-4E92-8BF8-B0868AD05F1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD61C1F7-CA09-4E92-8BF8-B0868AD05F1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F992C28-22CA-4F39-8744-D654D3F6DEE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F992C28-22CA-4F39-8744-D654D3F6DEE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F992C28-22CA-4F39-8744-D654D3F6DEE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F992C28-22CA-4F39-8744-D654D3F6DEE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
