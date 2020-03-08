@@ -1,4 +1,5 @@
 ﻿using MediaOntologyMapping.Models;
+using MongoDB.Bson;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -15,7 +16,7 @@ namespace MediaOntologyMapping
             File.WriteAllText(destination, json);
         }
 
-        public Link CreateLink(JObject original, List<Models.Attribute> mediaOntologyProperties)
+        public Link CreateLink(JObject original, List<OMRAttribute> mediaOntologyProperties)
         {
             return new Link()
             {
@@ -42,13 +43,30 @@ namespace MediaOntologyMapping
                         }
                     }
                 },
-                OriginalHub = new Hub()
+                Features = new List<Hub>
                 {
-                    Date = DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss"),
-                    Satellite = new OriginalSatellite
+                    new Hub()
                     {
-                        Attributes = original
-                    }
+                        Date = DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss"),
+                        Satellites = new List<FeatureSatellite>()
+                        {
+                            //new FeatureSatellite
+                            //{
+                            //    Name = "Scenes",
+                            //    Attributes = mediaOntologyProperties ,
+                            //},
+                            //new FeatureSatellite
+                            //{
+                            //    Name = "OCR",
+                            //    Attributes = mediaOntologyProperties,
+                            //},
+                            //new FeatureSatellite
+                            //{
+                            //    Name = "OCR",
+                            //    Attributes = mediaOntologyProperties,
+                            //},
+                        }
+                    },
                 }
             };
         }

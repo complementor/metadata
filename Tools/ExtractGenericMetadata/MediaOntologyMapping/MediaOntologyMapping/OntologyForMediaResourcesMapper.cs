@@ -1,4 +1,5 @@
 ﻿using MediaOntologyMapping.Mappings;
+using MediaOntologyMapping.Models;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,9 @@ namespace MediaOntologyMapping
             this.originalMetadata = originalMetadata;
         }
 
-        internal List<Models.Attribute> GetMediaOntologyProperties()
+        internal List<OMRAttribute> GetMediaOntologyProperties()
         {
-            List<Models.Attribute> mediaOntologyProperties = new List<Models.Attribute>();
+            List<OMRAttribute> mediaOntologyProperties = new List<OMRAttribute>();
 
             mediaOntologyProperties.AddRange(GetStandardProperties(originalMetadata, Dictionaries.GetDublinCoreDictionary(), "dc"));
             mediaOntologyProperties.AddRange(GetStandardProperties(originalMetadata, Dictionaries.GetExifDictionary(), "exif"));
@@ -25,9 +26,7 @@ namespace MediaOntologyMapping
             mediaOntologyProperties.AddRange(GetStandardProperties(originalMetadata, Dictionaries.GetMPEG7Dictionary(), "mpeg7"));
             mediaOntologyProperties.AddRange(GetStandardProperties(originalMetadata, Dictionaries.GetEBUCoreDictionary(), "ebucore"));
             mediaOntologyProperties.AddRange(GetStandardProperties(originalMetadata, Dictionaries.GetIPTCDictionary(), "iptc"));
-
-
-
+            
             var youtubeProperties = GetYouTubeProperties(originalMetadata, Dictionaries.GetYoutubeDictionary(), "youtube");
             if (youtubeProperties != null)
             {
@@ -37,9 +36,9 @@ namespace MediaOntologyMapping
             return mediaOntologyProperties;
         }
 
-        private IEnumerable<Models.Attribute> GetYouTubeProperties(JObject original, Dictionary<string, string> standardDictionary, string standard)
+        private IEnumerable<OMRAttribute> GetYouTubeProperties(JObject original, Dictionary<string, string> standardDictionary, string standard)
         {
-            var youtubeProperty = new List<Models.Attribute>();
+            var youtubeProperty = new List<OMRAttribute>();
             foreach (var item in original)
             {
                 var key = standardDictionary
@@ -48,7 +47,7 @@ namespace MediaOntologyMapping
 
                 if (key != null)
                 {
-                    var attr = new Models.Attribute()
+                    var attr = new OMRAttribute()
                     {
                         Standard = standard,
                         Name = key,
@@ -74,9 +73,9 @@ namespace MediaOntologyMapping
             return value;
         }
 
-        public List<Models.Attribute> GetStandardProperties(JObject original, Dictionary<string, string> standardDictionary, string standard)
+        public List<OMRAttribute> GetStandardProperties(JObject original, Dictionary<string, string> standardDictionary, string standard)
         {
-            var dublinCoreProperties = new List<Models.Attribute>();
+            var dublinCoreProperties = new List<OMRAttribute>();
             foreach (var item in original)
             {
                 var key = standardDictionary
@@ -85,7 +84,7 @@ namespace MediaOntologyMapping
 
                 if (key != null)
                 {
-                    var attr = new Models.Attribute()
+                    var attr = new OMRAttribute()
                     {
                         Standard = standard,
                         Name = key,

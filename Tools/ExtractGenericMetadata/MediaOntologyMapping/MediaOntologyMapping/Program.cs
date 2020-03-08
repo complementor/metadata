@@ -3,7 +3,7 @@
     class Program
     {
         static string defaultSource = @"P:\Metadata\OriginalExifMetadata\";
-        static string defaultDestination = @"P:\Metadata\GenericCollection.json";
+        static string defaultDestination = @"P:\Metadata\DocumentCollection.json";
 
         static void Main(string[] args)
         {

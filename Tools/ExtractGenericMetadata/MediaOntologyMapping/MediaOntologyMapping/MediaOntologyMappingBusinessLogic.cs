@@ -32,7 +32,7 @@ namespace MediaOntologyMapping
 
 
                 OntologyForMediaResourcesMapper ontologyForMediaResourcesMapper = new OntologyForMediaResourcesMapper(originalMetadata);
-                List<Models.Attribute> mediaOntologyProperties = ontologyForMediaResourcesMapper.GetMediaOntologyProperties();
+                List<Models.OMRAttribute> mediaOntologyProperties = ontologyForMediaResourcesMapper.GetMediaOntologyProperties();
 
                 dataVaultLinkCollection.Add(dataVault.CreateLink(originalMetadata, mediaOntologyProperties));
                 
