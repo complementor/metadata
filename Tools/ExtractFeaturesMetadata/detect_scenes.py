@@ -83,7 +83,8 @@ def main():
 
     # build json structure. 
     jsonDictionary = {
-        "id": fileName,     
+        "name": fileName,
+        "source": consoleArgs["video"],    
         "hub": {
            "date": datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
            "satellite": []
