@@ -23,7 +23,7 @@ import pytesseract
 import speech_recognition as spreg
 import moviepy.editor
 from pydub import AudioSegment
-AudioSegment.ffmpeg = "./ffmpeg/bin/"
+AudioSegment.ffmpeg = "P:/src/Tools/ExtractFeaturesMetadata/ffmpeg/bin/"
 
 # https://medium.com/@b.terryjack/nlp-pre-trained-sentiment-analysis-1eb52a9d742c
 import nltk
