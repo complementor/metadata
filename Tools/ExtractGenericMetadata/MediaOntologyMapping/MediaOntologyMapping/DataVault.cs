@@ -19,13 +19,27 @@ namespace MediaOntologyMapping
         {
             return new Link()
             {
-                id = ((string)original["FileName"]).Split('.')[0],
-                Hub = new Hub()
-                {
-                    Date = DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss"),
-                    Satellite = new Satellite
+                _id = ObjectId.GenerateNewId(),
+                Name = ((string)original["FileName"]).Split('.')[0],
+                Source = original["SourceFile"].ToString(),
+                Description = new List<Hub>() {
+                    new Hub()
                     {
-                        Attributes = mediaOntologyProperties,
+                        Date = DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss"),
+                        Satellites = new Satellite
+                        {
+                            Name = "",
+                            Attributes = mediaOntologyProperties,
+                        }
+                    },
+                    new Hub()
+                    {
+                        Date = DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss"),
+                        Satellites = new OriginalSatellite
+                        {
+                            Name = "",
+                            Attributes = original
+                        }
                     }
                 },
                 OriginalHub = new Hub()
