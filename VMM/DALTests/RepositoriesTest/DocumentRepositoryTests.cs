@@ -99,7 +99,19 @@ namespace MongoDbAccessLayerTest.RepositoriesTest
                 Assert.AreEqual(" ", result.Title);
             }
 
-            
+
+            [Test]
+            public void GetExistentGenericPropertiesTest()
+            {
+                //arrage
+                var documentRepository = new DocumentRepository(context);
+
+                //act
+                var result = documentRepository.GetExistentGenericProperties();
+
+                //assert
+                Assert.NotNull(result);
+            }
         }
     }
 }

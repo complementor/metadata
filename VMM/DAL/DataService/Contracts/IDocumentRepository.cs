@@ -7,5 +7,6 @@ namespace MongoDbAccessLayer.DataService.Contracts
     {
         VideoMetadataDto Get(string id);
         List<VideoInfoDto> GetAll();
+        GenericPropertiesDto GetExistentGenericProperties();
     }
 }

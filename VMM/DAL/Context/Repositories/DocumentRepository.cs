@@ -12,12 +12,12 @@ namespace MongoDbAccessLayer.Context.Repositories
     public class DocumentRepository : IDocumentRepository
     {
         public readonly IMongoVideoDbContext _mongoContext;
-        public IMongoCollection<BsonDocument> _documentModel;
+        public IMongoCollection<BsonDocument> _documentCollection;
 
         public DocumentRepository(IMongoVideoDbContext context)
         {
             _mongoContext = context ?? throw new ArgumentNullException(nameof(context));
-            _documentModel = _mongoContext.GetCollection<BsonDocument>("document");
+            _documentCollection = _mongoContext.GetCollection<BsonDocument>("document");
         }
 
         public List<VideoInfoDto> GetAll()
@@ -28,7 +28,7 @@ namespace MongoDbAccessLayer.Context.Repositories
                 .Exclude("Description")
                 .Exclude("Features");
 
-            return _documentModel.Find(filter).Project(project)
+            return _documentCollection.Find(filter).Project(project)
                 .ToList()
                 .Select(projection => new VideoInfoDto() {
                     VideoId = projection["_id"].ToString(),
@@ -42,12 +42,39 @@ namespace MongoDbAccessLayer.Context.Repositories
             //ex. ObjectId("5e514803fa0df9b9f548f02c);
             FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq("_id", id);
 
-            var bsonDoc =  _documentModel.Find(filter).FirstOrDefault();
+            var bsonDoc =  _documentCollection.Find(filter).FirstOrDefault();
              
             var domainModel = MapDomainModel(bsonDoc);
 
             return MapDto(domainModel);
         }
+
+
+        public GenericPropertiesDto GetExistentGenericProperties()
+        { 
+            var filterExists = Builders<BsonDocument>.Filter.Exists("Description.0.Satellites");
+            var filterEq = Builders<BsonDocument>.Filter.Eq("Description.0.Satellites.Name", "OMRSatellite");
+            var filter = Builders<BsonDocument>.Filter.And(filterExists, filterEq);
+            var project = Builders<BsonDocument>.Projection
+                .Exclude("_id")
+                .Include("Description.Satellites.Attributes.Name");
+
+            var result = _documentCollection.Find(filter).Project(project)
+                 .ToList();
+
+            var collector = new List<string>();
+            foreach (var element in result)
+            {
+                var docDescription = element["Description"].AsBsonArray.First();
+                var docSat = docDescription["Satellites"].AsBsonDocument;
+                var attr = docSat["Attributes"].AsBsonArray.Select(attr => attr["Name"].ToString()).ToList();
+                collector.AddRange(attr);
+
+            }
+
+            return new GenericPropertiesDto() {ListOfProperties = collector.Distinct().ToList() };
+        }
+
 
 
         private VideoMetadataDto MapDto(DocumentModel domainModel)

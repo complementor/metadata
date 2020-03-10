@@ -57,8 +57,8 @@ namespace Interface.Api
         [HttpGet("genericproperties")]
         public IActionResult GetExistentGenericProperties()
         {
-            return Ok(HardcodedData.GetGenericPropertiesDto());
-            //return Ok(_descriptionRepository.GetExistentGenericProperties());
+            //return Ok(HardcodedData.GetGenericPropertiesDto());
+            return Ok(_documentRepository.GetExistentGenericProperties());
         }
 
         [HttpGet("{guid}")]
