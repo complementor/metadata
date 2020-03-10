@@ -17,7 +17,8 @@ namespace Interface.Api
         private readonly IDocumentRepository _documentRepository;
 
 
-        public ClientApiController(IBusinessLogic businessLogic,
+        public ClientApiController(
+            IBusinessLogic businessLogic,
             IProvenanceRepository provenanceRepository,
             IDescriptionRepository descriptionRepository,
             IDocumentRepository documentRepository)
@@ -37,14 +38,14 @@ namespace Interface.Api
                 return Ok(_documentRepository.GetAll());
             }
             //  no property, but query has value, so do a search on the entire document
-            else if(string.IsNullOrWhiteSpace(property) && !string.IsNullOrWhiteSpace(query) && query != "undefined" && query != "null" 
-                || property == "undefined" && !string.IsNullOrWhiteSpace(query) && query != "undefined" && query != "null" 
+            else if (string.IsNullOrWhiteSpace(property) && !string.IsNullOrWhiteSpace(query) && query != "undefined" && query != "null"
+                || property == "undefined" && !string.IsNullOrWhiteSpace(query) && query != "undefined" && query != "null"
                 || property == "null" && !string.IsNullOrWhiteSpace(query) && query != "undefined" && query != "null")
             {
                 return Ok(_businessLogic.Search(query));
             }
-            // property and query has value, so do a search based on both
-            else if(!string.IsNullOrWhiteSpace(query) && query != "undefined" && query != "null"
+            //property and query has value, so do a search based on both
+            else if (!string.IsNullOrWhiteSpace(query) && query != "undefined" && query != "null"
                 && !string.IsNullOrWhiteSpace(property) && property != "undefined" && property != "null")
             {
                 return Ok(_descriptionRepository.SearchByProperty(property, query));
@@ -56,8 +57,8 @@ namespace Interface.Api
         [HttpGet("genericproperties")]
         public IActionResult GetExistentGenericProperties()
         {
-           //return Ok(HardcodedData.GetGenericPropertiesDto());
-           return Ok(_descriptionRepository.GetExistentGenericProperties());
+            return Ok(HardcodedData.GetGenericPropertiesDto());
+            //return Ok(_descriptionRepository.GetExistentGenericProperties());
         }
 
         [HttpGet("{guid}")]
@@ -67,12 +68,12 @@ namespace Interface.Api
 
             //var metadata = HardcodedData.GetVideoMetadataDto(guid);
 
-            var wordCloud = WordCloud.Get(metadata.SpeechAggregated);
+            var wordCloud = WordCloud.Get(metadata?.SpeechAggregated);
 
             var collaboration = HardcodedData.GetCollaborationDto();
 
-            //var provenance = HardcodedData.GetProvenanceDto();
-            var provenance = _provenanceRepository.Get("5e5648f60042cf1df5214403");
+            var provenance = HardcodedData.GetProvenanceDto();
+            //var provenance = _provenanceRepository.Get("5e5648f60042cf1df5214403");
 
             var model = new VideoMetadataViewModel
             {

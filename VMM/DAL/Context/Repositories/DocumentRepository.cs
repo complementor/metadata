@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDbAccessLayer.DataService.Contracts;
@@ -17,7 +16,7 @@ namespace MongoDbAccessLayer.Context.Repositories
 
         public DocumentRepository(IMongoVideoDbContext context)
         {
-            _mongoContext = context;
+            _mongoContext = context ?? throw new ArgumentNullException(nameof(context));
             _documentModel = _mongoContext.GetCollection<BsonDocument>("document");
         }
 
@@ -35,7 +34,7 @@ namespace MongoDbAccessLayer.Context.Repositories
                     VideoId = projection["_id"].ToString(),
                     Title = projection["Name"].ToString(),
                 })
-                .ToList(); 
+                .Take(100).ToList(); 
         }
 
         public VideoMetadataDto Get(string id)
@@ -49,6 +48,7 @@ namespace MongoDbAccessLayer.Context.Repositories
 
             return MapDto(domainModel);
         }
+
 
         private VideoMetadataDto MapDto(DocumentModel domainModel)
         {
@@ -64,15 +64,13 @@ namespace MongoDbAccessLayer.Context.Repositories
         {
             var result = new DocumentModel();
 
-            result._id = bsonDoc["_id"].ToString();
-            result.Source = bsonDoc["Source"].ToString();
-            result.Name = bsonDoc["Name"].ToString();
+            result._id = bsonDoc["_id"]?.ToString();
+            result.Source = bsonDoc["Source"]?.ToString();
+            result.Name = bsonDoc["Name"]?.ToString();
 
 
 
             return result;
         }
-
-       
     }
 }

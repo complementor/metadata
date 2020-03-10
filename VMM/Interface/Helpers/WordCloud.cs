@@ -8,6 +8,9 @@ namespace Interface.Helpers
     {
         public static List<Word> Get(string words)
         {
+            if (string.IsNullOrWhiteSpace(words)) return null; 
+
+
             var blacklist = new List<string>{"", "also", "i", "me", "my", "myself", "we", "us",
                "our", "ours", "ourselves", "you", "your", "yours",
                "yourself", "yourselves", "he", "him", "his",
