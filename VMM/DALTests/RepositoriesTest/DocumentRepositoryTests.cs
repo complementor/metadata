@@ -112,6 +112,19 @@ namespace MongoDbAccessLayerTest.RepositoriesTest
                 //assert
                 Assert.NotNull(result);
             }
+
+            [Test]
+            public void SearchByPropertyTest()
+            {
+                //arrage
+                var documentRepository = new DocumentRepository(context);
+
+                //act
+                var result = documentRepository.SearchByProperty("frameSizeWidth", "320");
+
+                //assert
+                Assert.NotNull(result);
+            }
         }
     }
 }

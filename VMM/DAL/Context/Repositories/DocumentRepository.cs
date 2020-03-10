@@ -49,6 +49,33 @@ namespace MongoDbAccessLayer.Context.Repositories
             return MapDto(domainModel);
         }
 
+        public List<VideoInfoDto> SearchByProperty(string propertyName, string text)
+        {
+            var result = new List<VideoInfoDto>();
+
+            var documentCollection = _mongoContext.GetCollection<DocumentModel>("document");
+
+            //TEST IF THIS WORKS
+
+
+
+            //var szz = documentCollection.Aggregate()
+            //   .Match(Builders<DocumentModel>.Filter.ElemMatch(x => x.Description[0].Satellite.Attributes,
+            //        (x => x.Name.ToLowerInvariant() == propertyName.ToLowerInvariant()
+            //        /*&& x.Value.ToLowerInvariant() == text.ToLowerInvariant()*/)))?
+            //   .Project(x => new {/* x.id    -> this is the youtubeID*/   x.Description.First().Satellite.Attributes })
+            //   .ToList();
+            //    //.Select(x => new VideoInfoDto()
+            //    //{
+            //    //    VideoId = x.Attributes.Find(x => string.Equals(x.Name, "Youtube", System.StringComparison.InvariantCultureIgnoreCase))?.Value,
+            //    //    Title = x.Attributes.Find(x => string.Equals(x.Name, "Title", System.StringComparison.InvariantCultureIgnoreCase))?.Value,
+            //    //    Duration = x.Attributes.Find(x => string.Equals(x.Name, "Duration", System.StringComparison.InvariantCultureIgnoreCase))?.Value,
+            //    //    Standard = x.Attributes.Find(x => string.Equals(x.Name, "Standard", System.StringComparison.InvariantCultureIgnoreCase))?.Value,
+            //    //})
+            //    //.ToList();
+
+            return result;
+        }
 
         public GenericPropertiesDto GetExistentGenericProperties()
         { 

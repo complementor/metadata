@@ -11,7 +11,7 @@ namespace MongoDbAccessLayer.DomainModels
         public string Name { get; set; }
         public string Source { get; set; }
         //public List<FeatureHub> Features { get; set; }
-        //public List<DescriptionHub> Description { get; set; }
+        public List<DescriptionHub> Description { get; set; }
     }
     //public class FeatureHub
     //{
@@ -99,26 +99,26 @@ namespace MongoDbAccessLayer.DomainModels
     //}
 
 
-    //public class DescriptionHub
-    //{
-    //    public string Date { get; set; }
-    //    public OMRSatellite Satellite { get; set; }
-    //}
+    public class DescriptionHub
+    {
+        public string Date { get; set; }
+        public OMRSatellite Satellite { get; set; }
+    }
 
-    //public class OMRSatellite
-    //{
-    //    public string Name { get; set; }
-    //    public List<OMRAttribute> Attributes { get; set; }
-    //}
+    public class OMRSatellite
+    {
+        public string Name { get; set; }
+        public List<OMRAttribute> Attributes { get; set; }
+    }
 
-    //public class OMRAttribute
-    //{
-    //    public string Name { get; set; }
+    public class OMRAttribute
+    {
+        public string Name { get; set; }
 
-    //    public string Value { get; set; }
+        public string Value { get; set; }
 
-    //    public string Standard { get; set; }
-    //}
+        public string Standard { get; set; }
+    }
 
     //public class OriginalAttributes
     //{
