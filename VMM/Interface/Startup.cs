@@ -38,6 +38,7 @@ namespace Interface
             services.AddSingleton<IProvenanceRepository, ProvenanceRepository>();
             services.AddSingleton<IDescriptionRepository, DescriptionRepository>();
             services.AddSingleton<IBusinessLogic, BusinessLogic>();
+            services.AddSingleton<IDocumentRepository, DocumentRepository>();
 
             services.AddCors();
         }

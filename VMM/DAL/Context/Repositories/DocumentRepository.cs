@@ -1,43 +1,78 @@
-﻿using MongoDB.Bson;
-using MongoDB.Driver;
-using MongoDbAccessLayer.DomainModels;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using MongoDB.Bson;
+using MongoDB.Driver;
+using MongoDbAccessLayer.DataService.Contracts;
+using MongoDbAccessLayer.DataService.Dtos;
+using MongoDbAccessLayer.DomainModels;
 
 namespace MongoDbAccessLayer.Context.Repositories
 {
-    public class DocumentRepository 
+    public class DocumentRepository : IDocumentRepository
     {
         public readonly IMongoVideoDbContext _mongoContext;
-        public IMongoCollection<DocumentModel> _documentModel;
-        public IMongoCollection<DescriptionModel> _descriptionModel;
+        public IMongoCollection<BsonDocument> _documentModel;
 
         public DocumentRepository(IMongoVideoDbContext context)
         {
             _mongoContext = context;
-            _documentModel = _mongoContext.GetCollection<DocumentModel>("document");
-            _descriptionModel = _mongoContext.GetCollection<DescriptionModel>("description");
+            _documentModel = _mongoContext.GetCollection<BsonDocument>("document");
         }
 
-        public async Task<IEnumerable<DocumentModel>> GetAll()
-        { 
-            return await _documentModel.Aggregate()
-                .Lookup<DocumentModel, DescriptionModel, DocumentModel>(
-                    _descriptionModel,
-                    a => a.DescriptionId,
-                    b => b.id,
-                    a => a.Descriptions)
-                .ToListAsync();
+        public List<VideoInfoDto> GetAll()
+        {
+            var result = new VideoInfoDto();
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            var project = Builders<BsonDocument>.Projection
+                .Exclude("Description")
+                .Exclude("Features");
+
+            return _documentModel.Find(filter).Project(project)
+                .ToList()
+                .Select(projection => new VideoInfoDto() {
+                    VideoId = projection["_id"].ToString(),
+                    Title = projection["Name"].ToString(),
+                })
+                .ToList(); 
         }
 
-        public async Task<DocumentModel> Get(string id)
+        public VideoMetadataDto Get(string id)
         {
             //ex. ObjectId("5e514803fa0df9b9f548f02c);
-            var objectId = new ObjectId(id);
+            FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq("_id", id);
 
-            FilterDefinition<DocumentModel> filter = Builders<DocumentModel>.Filter.Eq("_id", objectId);
+            var bsonDoc =  _documentModel.Find(filter).FirstOrDefault();
+             
+            var domainModel = MapDomainModel(bsonDoc);
 
-            return await _documentModel.FindAsync(filter).Result.FirstOrDefaultAsync();
+            return MapDto(domainModel);
         }
+
+        private VideoMetadataDto MapDto(DocumentModel domainModel)
+        {
+            var result = new VideoMetadataDto();
+
+            result.Title = domainModel.Name;
+            result.YouTubeId = domainModel.Name;
+
+            return result;
+        }
+
+        private DocumentModel MapDomainModel(BsonDocument bsonDoc)
+        {
+            var result = new DocumentModel();
+
+            result._id = bsonDoc["_id"].ToString();
+            result.Source = bsonDoc["Source"].ToString();
+            result.Name = bsonDoc["Name"].ToString();
+
+
+
+            return result;
+        }
+
+       
     }
 }

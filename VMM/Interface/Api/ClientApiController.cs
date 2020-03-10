@@ -14,12 +14,18 @@ namespace Interface.Api
         private readonly IBusinessLogic _businessLogic;
         private readonly IProvenanceRepository _provenanceRepository;
         private readonly IDescriptionRepository _descriptionRepository;
+        private readonly IDocumentRepository _documentRepository;
 
-        public ClientApiController(IBusinessLogic businessLogic, IProvenanceRepository provenanceRepository, IDescriptionRepository descriptionRepository)
+
+        public ClientApiController(IBusinessLogic businessLogic,
+            IProvenanceRepository provenanceRepository,
+            IDescriptionRepository descriptionRepository,
+            IDocumentRepository documentRepository)
         {
             _provenanceRepository = provenanceRepository;
             _descriptionRepository = descriptionRepository;
             _businessLogic = businessLogic;
+            _documentRepository = documentRepository;
         }
 
         [HttpGet("search")]
@@ -28,7 +34,7 @@ namespace Interface.Api
             // no query so return everything
             if (string.IsNullOrWhiteSpace(query) || query == "undefined" || query == "null")
             {
-                return Ok(_businessLogic.GetAll());
+                return Ok(_documentRepository.GetAll());
             }
             //  no property, but query has value, so do a search on the entire document
             else if(string.IsNullOrWhiteSpace(property) && !string.IsNullOrWhiteSpace(query) && query != "undefined" && query != "null" 
@@ -44,7 +50,7 @@ namespace Interface.Api
                 return Ok(_descriptionRepository.SearchByProperty(property, query));
             }
 
-            return Ok(_businessLogic.GetAll());
+            return Ok(_documentRepository.GetAll());
         }
 
         [HttpGet("genericproperties")]
@@ -57,7 +63,7 @@ namespace Interface.Api
         [HttpGet("{guid}")]
         public IActionResult GetAllMetadata(string guid)
         {
-            var metadata = _businessLogic.Get(guid);
+            var metadata = _documentRepository.Get(guid);
 
             //var metadata = HardcodedData.GetVideoMetadataDto(guid);
 
