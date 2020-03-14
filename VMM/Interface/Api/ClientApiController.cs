@@ -42,13 +42,13 @@ namespace Interface.Api
                 || property == "undefined" && !string.IsNullOrWhiteSpace(query) && query != "undefined" && query != "null"
                 || property == "null" && !string.IsNullOrWhiteSpace(query) && query != "undefined" && query != "null")
             {
-                return Ok(_businessLogic.Search(query));
+                return Ok(_documentRepository.Search(query));
             }
             //property and query has value, so do a search based on both
             else if (!string.IsNullOrWhiteSpace(query) && query != "undefined" && query != "null"
                 && !string.IsNullOrWhiteSpace(property) && property != "undefined" && property != "null")
             {
-                return Ok(_descriptionRepository.SearchByProperty(property, query));
+                return Ok(_documentRepository.SearchByProperty(property, query));
             }
 
             return Ok(_documentRepository.GetAll());
