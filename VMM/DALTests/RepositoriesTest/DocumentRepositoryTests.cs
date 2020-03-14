@@ -125,6 +125,20 @@ namespace MongoDbAccessLayerTest.RepositoriesTest
                 //assert
                 Assert.NotNull(result);
             }
+
+
+            [Test]
+            public void SearchTest()
+            {
+                //arrage
+                var documentRepository = new DocumentRepository(context);
+
+                //act
+                var result = documentRepository.Search("IsoMedia File Produced by Google");
+
+                //assert
+                Assert.NotNull(result);
+            }
         }
     }
 }

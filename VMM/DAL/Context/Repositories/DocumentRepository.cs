@@ -99,6 +99,37 @@ namespace MongoDbAccessLayer.Context.Repositories
             return new GenericPropertiesDto() {ListOfProperties = collector.Distinct().ToList() };
         }
 
+        public List<VideoInfoDto> Search(string searchQuery)
+        {
+
+            var result = new List<VideoInfoDto>();
+             
+            TextSearchOptions textSearchOptions = new TextSearchOptions() { CaseSensitive = false, 
+                DiacriticSensitive = false, Language = "english" };
+            var filter = Builders<BsonDocument>.Filter.Text(searchQuery, textSearchOptions);
+            var projection = Builders<BsonDocument>.Projection
+                .MetaTextScore("score")
+                .Exclude("Features")
+                .Exclude("Description");
+            var sort = Builders<BsonDocument>.Sort.MetaTextScore("score");
+            var sortedResult = _documentCollection
+                .Find(filter)
+                .Project<BsonDocument>(projection)
+                .Sort(sort)
+                .ToList();
+
+
+            result = sortedResult.Select(b => new VideoInfoDto()
+            {
+                VideoId = b["_id"].ToString(),
+                Title = b["Name"].ToString(),
+                Score = b["score"].AsDouble,
+            }).ToList();
+
+
+            return result;
+        }
+
 
 
         private VideoMetadataDto MapDto(DocumentModel domainModel)
@@ -121,5 +152,7 @@ namespace MongoDbAccessLayer.Context.Repositories
 
             return result;
         }
+
+        
     }
 }
