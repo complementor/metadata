@@ -3,7 +3,6 @@ using Interface.Helpers;
 using Interface.Models;
 using Interface.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using MongoDbAccessLayer;
 using MongoDbAccessLayer.DataService.Contracts;
 
 namespace Interface.Api
@@ -11,21 +10,15 @@ namespace Interface.Api
     [Route("api/files")]
     public class ClientApiController : Controller
     {
-        private readonly IBusinessLogic _businessLogic;
         private readonly IProvenanceRepository _provenanceRepository;
-        private readonly IDescriptionRepository _descriptionRepository;
         private readonly IDocumentRepository _documentRepository;
 
 
         public ClientApiController(
-            IBusinessLogic businessLogic,
             IProvenanceRepository provenanceRepository,
-            IDescriptionRepository descriptionRepository,
             IDocumentRepository documentRepository)
         {
             _provenanceRepository = provenanceRepository;
-            _descriptionRepository = descriptionRepository;
-            _businessLogic = businessLogic;
             _documentRepository = documentRepository;
         }
 

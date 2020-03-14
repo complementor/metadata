@@ -14,14 +14,12 @@ namespace MongoDbAccessLayer.Context.Repositories
         private static IMongoVideoDbContext _mongoContext;
         private static IMongoCollection<ProvenanceModel> _provenanceCollection;
         private static IMongoCollection<DocModel> _documentCollection;
-        private static IMongoCollection<DescriptionModel> _descriptionCollection;
 
         public ProvenanceRepository(IMongoVideoDbContext context)
         {
             _mongoContext = context ?? throw new ArgumentNullException(nameof(context));
             _provenanceCollection = _mongoContext.GetCollection<ProvenanceModel>("provenance");
             _documentCollection = _mongoContext.GetCollection<DocModel>("document");
-            _descriptionCollection = _mongoContext.GetCollection<DescriptionModel>("description");
         }
 
         public ProvenanceDto Get(string documentId)
@@ -153,47 +151,47 @@ namespace MongoDbAccessLayer.Context.Repositories
         {
             var listOfPreNodes = new List<DocReadyForNode>();
 
-            while (currentDocumentId != null && !string.IsNullOrEmpty(currentDocumentId))
-            {
-                var document = _documentCollection.Aggregate()
-               .Match(Builders<DocModel>.Filter.Eq("_id", new ObjectId(currentDocumentId)))
-               .Lookup(
-                   foreignCollection: _descriptionCollection,
-                   localField: a => a._id,
-                   foreignField: b => b.DocumentId,
-                   @as: (DocModelWithDescriptionModel eo) => eo.DescriptionModel)
-               .FirstOrDefault();
+            //while (currentDocumentId != null && !string.IsNullOrEmpty(currentDocumentId))
+            //{
+            //    var document = _documentCollection.Aggregate()
+            //   .Match(Builders<DocModel>.Filter.Eq("_id", new ObjectId(currentDocumentId)))
+            //   .Lookup(
+            //       foreignCollection: _descriptionCollection,
+            //       localField: a => a._id,
+            //       foreignField: b => b.DocumentId,
+            //       @as: (DocModelWithDescriptionModel eo) => eo.DescriptionModel)
+            //   .FirstOrDefault();
 
-               // .Project(p => new { DocumentId = p._id, WasDerivedFromId = p.WasDerivedFrom, Descriptions = p.DescriptionModel[0] })
-               //?
-                //create preNode and retrieve title
-                if (document == null)
-                {
-                    currentDocumentId = null;
-                    continue;
-                }
-                else
-                {
-                    currentDocumentId = document.WasDerivedFrom;
-                }
+            //   // .Project(p => new { DocumentId = p._id, WasDerivedFromId = p.WasDerivedFrom, Descriptions = p.DescriptionModel[0] })
+            //   //?
+            //    //create preNode and retrieve title
+            //    if (document == null)
+            //    {
+            //        currentDocumentId = null;
+            //        continue;
+            //    }
+            //    else
+            //    {
+            //        currentDocumentId = document.WasDerivedFrom;
+            //    }
 
-                listOfPreNodes.Add(new DocReadyForNode()
-                {
-                    DocumentId = document._id,
-                    Title = FindValue(document?.DescriptionModel, "title"),
-                    WasDerivedFromId = currentDocumentId
-                });
-            }
+            //    listOfPreNodes.Add(new DocReadyForNode()
+            //    {
+            //        DocumentId = document._id,
+            //        Title = FindValue(document?.DescriptionModel, "title"),
+            //        WasDerivedFromId = currentDocumentId
+            //    });
+            //}
 
             return listOfPreNodes.ToList();
         }
-        private static string FindValue(List<DescriptionModel> descriptionModel, string attribute)
-        {
-            if (descriptionModel == null || descriptionModel.Count == 0) return "no title";
-            var attributes = descriptionModel?.First()?.hub?.Satellite?.Attributes;
-            if (attributes == null) return "no title";
-            return attributes.Where(x => string.Equals(x.Name, attribute, StringComparison.InvariantCultureIgnoreCase)).Select(x => x.Value).FirstOrDefault();
-        }
+        //private static string FindValue(List<DescriptionModel> descriptionModel, string attribute)
+        //{
+        //    if (descriptionModel == null || descriptionModel.Count == 0) return "no title";
+        //    var attributes = descriptionModel?.First()?.hub?.Satellite?.Attributes;
+        //    if (attributes == null) return "no title";
+        //    return attributes.Where(x => string.Equals(x.Name, attribute, StringComparison.InvariantCultureIgnoreCase)).Select(x => x.Value).FirstOrDefault();
+        //}
         private static List<ProvenanceModel> GetEntityActivities(string documentId)
         {
             var filter = Builders<ProvenanceModel>.Filter.Eq("docId", documentId);

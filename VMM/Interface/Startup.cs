@@ -6,7 +6,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
-using MongoDbAccessLayer;
 using MongoDbAccessLayer.Context;
 using MongoDbAccessLayer.Context.Repositories;
 using MongoDbAccessLayer.DataService.Contracts;
@@ -35,8 +34,6 @@ namespace Interface
 
             services.AddSingleton<IMongoVideoDbContext, MongoVideoDbContext>();
             services.AddSingleton<IProvenanceRepository, ProvenanceRepository>();
-            services.AddSingleton<IDescriptionRepository, DescriptionRepository>();
-            services.AddSingleton<IBusinessLogic, BusinessLogic>();
             services.AddSingleton<IDocumentRepository, DocumentRepository>();
 
             services.AddCors();
