@@ -40,7 +40,7 @@ namespace MongoDbAccessLayer.Context.Repositories
         public VideoMetadataDto Get(string id)
         {
             //ex. ObjectId("5e514803fa0df9b9f548f02c);
-            FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            FilterDefinition<BsonDocument> filter = Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(id));
 
             var bsonDoc =  _documentCollection.Find(filter).FirstOrDefault();
              
@@ -55,24 +55,21 @@ namespace MongoDbAccessLayer.Context.Repositories
 
             var documentCollection = _mongoContext.GetCollection<DocumentModel>("document");
 
-            //TEST IF THIS WORKS
+            var filterOMRSatelliteExists = Builders<DocumentModel>.Filter.Eq("Description.0.Satellites.Name", "OMRSatellite");
+            var filterPropertyName = Builders<DocumentModel>.Filter.Eq("Description.0.Satellites.Attributes.Name", propertyName);
+            var filterTest = Builders<DocumentModel>.Filter.Eq("Description.0.Satellites.Attributes.Value", text);
+            var filter = Builders<DocumentModel>.Filter.And(filterOMRSatelliteExists, filterPropertyName, filterTest);
+            var project = Builders<DocumentModel>.Projection
+                .Exclude("Features")
+                .Exclude("Description");
 
+            var bsonDocument = documentCollection.Find(filter).Project(project).ToList();
 
-
-            //var szz = documentCollection.Aggregate()
-            //   .Match(Builders<DocumentModel>.Filter.ElemMatch(x => x.Description[0].Satellite.Attributes,
-            //        (x => x.Name.ToLowerInvariant() == propertyName.ToLowerInvariant()
-            //        /*&& x.Value.ToLowerInvariant() == text.ToLowerInvariant()*/)))?
-            //   .Project(x => new {/* x.id    -> this is the youtubeID*/   x.Description.First().Satellite.Attributes })
-            //   .ToList();
-            //    //.Select(x => new VideoInfoDto()
-            //    //{
-            //    //    VideoId = x.Attributes.Find(x => string.Equals(x.Name, "Youtube", System.StringComparison.InvariantCultureIgnoreCase))?.Value,
-            //    //    Title = x.Attributes.Find(x => string.Equals(x.Name, "Title", System.StringComparison.InvariantCultureIgnoreCase))?.Value,
-            //    //    Duration = x.Attributes.Find(x => string.Equals(x.Name, "Duration", System.StringComparison.InvariantCultureIgnoreCase))?.Value,
-            //    //    Standard = x.Attributes.Find(x => string.Equals(x.Name, "Standard", System.StringComparison.InvariantCultureIgnoreCase))?.Value,
-            //    //})
-            //    //.ToList();
+            result = bsonDocument.Select(b => new VideoInfoDto()
+            {
+                VideoId = b["_id"].ToString(),
+                Title = b["Name"].ToString(),
+            }).ToList();
 
             return result;
         }
@@ -118,11 +115,9 @@ namespace MongoDbAccessLayer.Context.Repositories
         {
             var result = new DocumentModel();
 
-            result._id = bsonDoc["_id"]?.ToString();
+            result._id = bsonDoc["_id"].AsObjectId;
             result.Source = bsonDoc["Source"]?.ToString();
             result.Name = bsonDoc["Name"]?.ToString();
-
-
 
             return result;
         }

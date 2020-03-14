@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 
 namespace MongoDbAccessLayer.DomainModels
@@ -7,22 +8,22 @@ namespace MongoDbAccessLayer.DomainModels
     public class DocumentModel
     {
         [BsonId]
-        public string _id { get; set; }
+        public ObjectId _id { get; set; }
         public string Name { get; set; }
         public string Source { get; set; }
-        //public List<FeatureHub> Features { get; set; }
+        public List<FeatureHub> Features { get; set; }
         public List<DescriptionHub> Description { get; set; }
     }
-    //public class FeatureHub
-    //{
-    //    public string Date { get; set; }
-    //    public List<FeatureSatellite> Satellite { get; set; }
-    //}
-    //public class FeatureSatellite
-    //{
-    //    public string Date { get; set; }
-    //    public List<Satellite> Satellite { get; set; }
-    //}
+    public class FeatureHub
+    {
+        public DateTime Date { get; set; }
+        public List<FeatureSatellite> Satellites { get; set; }
+    }
+    public class FeatureSatellite
+    {
+        public string Date { get; set; }
+        public object Attributes { get; set; }
+    }
 
     //public class Satellite
     //{
@@ -102,13 +103,13 @@ namespace MongoDbAccessLayer.DomainModels
     public class DescriptionHub
     {
         public string Date { get; set; }
-        public OMRSatellite Satellite { get; set; }
+        public OMRSatellite Satellites { get; set; }
     }
 
     public class OMRSatellite
     {
         public string Name { get; set; }
-        public List<OMRAttribute> Attributes { get; set; }
+        public object Attributes { get; set; }
     }
 
     public class OMRAttribute
