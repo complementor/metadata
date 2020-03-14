@@ -1,8 +1,10 @@
-﻿namespace MediaOntologyMapping.Models
+﻿using MongoDB.Bson;
+
+namespace MediaOntologyMapping.Models
 {
     public class Hub
     {
-        public string Date { get; set; }
+        public BsonDateTime Date { get; set; }
         public object Satellites { get; set; }
     }
 }

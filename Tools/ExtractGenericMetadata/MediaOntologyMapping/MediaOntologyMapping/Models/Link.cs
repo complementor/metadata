@@ -6,8 +6,8 @@ namespace MediaOntologyMapping.Models
 {
     public class Link
     {
-        [BsonId]
-        public ObjectId _id { get; set; }
+        //[BsonId]
+        //public ObjectId _id { get; set; }
         public string Source { get; set; }
         public string Name { get; set; }
         public List<Hub> Description { get; set; }

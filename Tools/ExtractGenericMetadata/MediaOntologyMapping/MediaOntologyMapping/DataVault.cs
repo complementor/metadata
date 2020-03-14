@@ -20,25 +20,24 @@ namespace MediaOntologyMapping
         {
             return new Link()
             {
-                _id = ObjectId.GenerateNewId(),
                 Name = ((string)original["FileName"]).Split('.')[0],
                 Source = original["SourceFile"].ToString(),
                 Description = new List<Hub>() {
                     new Hub()
                     {
-                        Date = DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss"),
+                        Date = BsonDateTime.Create(DateTime.Now),
                         Satellites = new Satellite
                         {
-                            Name = "",
+                            Name = "OMRSatellite",
                             Attributes = mediaOntologyProperties,
                         }
                     },
                     new Hub()
                     {
-                        Date = DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss"),
+                        Date = BsonDateTime.Create(DateTime.Now),
                         Satellites = new OriginalSatellite
                         {
-                            Name = "",
+                            Name = "ORGSatellite",
                             Attributes = original
                         }
                     }
@@ -47,7 +46,7 @@ namespace MediaOntologyMapping
                 {
                     new Hub()
                     {
-                        Date = DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss"),
+                        Date = BsonDateTime.Create(DateTime.Now),
                         Satellites = new List<FeatureSatellite>()
                         {
                             //new FeatureSatellite
